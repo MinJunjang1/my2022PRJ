@@ -48,10 +48,34 @@
 			};
 	// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
 	var map = new kakao.maps.Map(mapContainer, mapOption);
-
+	//서울
 	function setSeoul() {
 		// 이동할 위도 경도 위치를 생성합니다
 		var moveLatLon = new kakao.maps.LatLng(37.561, 126.986);
+		map.setCenter(moveLatLon);
+		var level = map.getLevel();
+		// 지도를 1레벨 내립니다 (지도가 확대됩니다)
+		map.setLevel(7);
+		// 지도 레벨을 표시합니다
+		displayLevel();
+		// 지도 중심을 이동 시킵니다
+	}
+	//종로구
+	function setJongnogu() {
+		// 이동할 위도 경도 위치를 생성합니다
+		var moveLatLon = new kakao.maps.LatLng(126.98164166666668, 37.57037777777778);
+		map.setCenter(moveLatLon);
+		var level = map.getLevel();
+		// 지도를 1레벨 내립니다 (지도가 확대됩니다)
+		map.setLevel(7);
+		// 지도 레벨을 표시합니다
+		displayLevel();
+		// 지도 중심을 이동 시킵니다
+	}
+	//중구
+	function setJunggu() {
+		// 이동할 위도 경도 위치를 생성합니다
+		var moveLatLon = new kakao.maps.LatLng(126.99964166666666, 37.56100277777777);
 		map.setCenter(moveLatLon);
 		var level = map.getLevel();
 		// 지도를 1레벨 내립니다 (지도가 확대됩니다)
@@ -64,7 +88,7 @@
 </script>
 
 <script type="text/javascript" id="api">
-	<!--중구-->
+	<!--종로구-->
 function seoul1(){
 	var xhr = new XMLHttpRequest();
 	var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
@@ -86,7 +110,28 @@ function seoul1(){
 
 	xhr.send('');
 }
+	<!--중구-->
+	function seoul1(){
+		var xhr = new XMLHttpRequest();
+		var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+		var queryParams = '?' + encodeURIComponent('serviceKey') + '='+'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+		var today = new Date();
+		var year = today.getFullYear();
+		var month = ('0' + (today.getMonth() + 1)).slice(-2);
+		var dateString = year  + month  ;
 
+
+		queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent('11140'); /**/
+		queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(dateString); /**/
+		xhr.open('GET', url + queryParams);
+		xhr.onreadystatechange = function () {
+			if (this.readyState == 4) {
+				alert('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
+			}
+		};
+
+		xhr.send('');
+	}
 
 
 </script>
@@ -103,8 +148,8 @@ function seoul1(){
 	</button>
 	<!--메뉴버튼 클릭시 하단 표출된 리스트 영역  -->
 	<ul class="dropdown-menu" >
-		<li><a class="dropdown-item" onclick="seoul1()">종로구</a></li>
-		<li><a class="dropdown-item" href="#">중구</a></li>
+		<li><a class="dropdown-item" onclick="setJongnogu(); seoul1();">종로구</a></li>
+		<li><a class="dropdown-item" onclick="setJunggu();">중구</a></li>
 		<li><a class="dropdown-item" href="#">용산구</a></li>
 		<li><a class="dropdown-item" href="#">성동구</a></li>
 		<li><a class="dropdown-item" href="#">광진구</a></li>
