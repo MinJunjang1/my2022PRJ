@@ -38,7 +38,7 @@
 
 <nav class="navbar navbar-expand-sm navbar-dark bg-dark">
 
-	<a class="navbar-brand" href="#">FREEHOON.COM</a>
+	<a class="navbar-brand" href="#">메인페이지</a>
 
 	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
 
