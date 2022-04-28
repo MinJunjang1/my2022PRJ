@@ -75,7 +75,7 @@
 	//중구
 	function setJunggu() {
 		// 이동할 위도 경도 위치를 생성합니다
-		var moveLatLon = new kakao.maps.LatLng(126.99964166666666, 37.56100277777777);
+		var moveLatLon = new kakao.maps.LatLng(126.999, 37.561);
 		map.setCenter(moveLatLon);
 		var level = map.getLevel();
 		// 지도를 1레벨 내립니다 (지도가 확대됩니다)
