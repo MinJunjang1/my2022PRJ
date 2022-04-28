@@ -149,7 +149,7 @@ function seoul1(){
 	<!--메뉴버튼 클릭시 하단 표출된 리스트 영역  -->
 	<ul class="dropdown-menu" >
 		<li><a class="dropdown-item" onclick="setJongnogu(); seoul1();">종로구</a></li>
-		<li><a class="dropdown-item" onclick="setJunggu(); seoul2();">중구</a></li>
+		<li><a class="dropdown-item" onclick="setJunggu();">중구</a></li>
 		<li><a class="dropdown-item" href="#">용산구</a></li>
 		<li><a class="dropdown-item" href="#">성동구</a></li>
 		<li><a class="dropdown-item" href="#">광진구</a></li>
