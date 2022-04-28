@@ -63,7 +63,7 @@
 	//종로구
 	function setJongnogu() {
 		// 이동할 위도 경도 위치를 생성합니다
-		var moveLatLon = new kakao.maps.LatLng(126.98164166666668, 37.57037777777778);
+		var moveLatLon = new kakao.maps.LatLng(37.5703, 126.9816);
 		map.setCenter(moveLatLon);
 		var level = map.getLevel();
 		// 지도를 1레벨 내립니다 (지도가 확대됩니다)
@@ -75,7 +75,7 @@
 	//중구
 	function setJunggu() {
 		// 이동할 위도 경도 위치를 생성합니다
-		var moveLatLon = new kakao.maps.LatLng(126.979, 37.5700);
+		var moveLatLon = new kakao.maps.LatLng(37.5700, 126.979);
 		map.setCenter(moveLatLon);
 		var level = map.getLevel();
 		// 지도를 1레벨 내립니다 (지도가 확대됩니다)
