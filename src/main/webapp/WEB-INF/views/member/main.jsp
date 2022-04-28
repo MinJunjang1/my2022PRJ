@@ -178,7 +178,7 @@ function seoul1(){
 	</ul>
 </div>
 
-<button class="btn btn-lg btn-warning" onclick="setSeoul(), seoul1()">서울</button>
+<button class="btn btn-lg btn-warning" onclick="seoul1()">서울</button>
 <button class="btn btn-lg btn-warning" onclick="api7()">부산</button>
 <button class="btn btn-lg btn-warning" onclick="api8()">대구</button>
 <button class="btn btn-lg btn-warning" onclick="api9()">인천</button>
