@@ -111,7 +111,7 @@ function seoul1(){
 	xhr.send('');
 }
 	<!--중구-->
-	function seoul1(){
+	function seoul2(){
 		var xhr = new XMLHttpRequest();
 		var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
 		var queryParams = '?' + encodeURIComponent('serviceKey') + '='+'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
@@ -149,7 +149,7 @@ function seoul1(){
 	<!--메뉴버튼 클릭시 하단 표출된 리스트 영역  -->
 	<ul class="dropdown-menu" >
 		<li><a class="dropdown-item" onclick="setJongnogu(); seoul1();">종로구</a></li>
-		<li><a class="dropdown-item" onclick="setJunggu();">중구</a></li>
+		<li><a class="dropdown-item" onclick="setJunggu(); seoul2();">중구</a></li>
 		<li><a class="dropdown-item" href="#">용산구</a></li>
 		<li><a class="dropdown-item" href="#">성동구</a></li>
 		<li><a class="dropdown-item" href="#">광진구</a></li>
