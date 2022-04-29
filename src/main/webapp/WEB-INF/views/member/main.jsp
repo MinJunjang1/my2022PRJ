@@ -633,8 +633,6 @@ function seoul1(){
 		서울
 	</button>
 	<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
-		<!-- 버튼태그 우측 메뉴출력을 위한 화살표표시
-            (없어도 무관하나 메뉴버튼이라는것을 알려주기 위함) -->
 		<span class="caret"></span>
 	</button>
 	<!--메뉴버튼 클릭시 하단 표출된 리스트 영역  -->
@@ -687,10 +685,6 @@ function seoul1(){
 <button class="btn btn-lg btn-warning" onclick="api21()">제주</button>
 
 
-
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 
 
 </body>
