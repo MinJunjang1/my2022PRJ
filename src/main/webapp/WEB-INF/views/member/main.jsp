@@ -47,29 +47,29 @@
 	<ul class="dropdown-menu" >
 		<li><a class="dropdown-item" onclick="setJongnogu(); seoul1();">종로구</a></li>
 		<li><a class="dropdown-item" onclick="setJunggu();">중구</a></li>
-		<li><a class="dropdown-item" href="#">용산구</a></li>
-		<li><a class="dropdown-item" href="#">성동구</a></li>
-		<li><a class="dropdown-item" href="#">광진구</a></li>
-		<li><a class="dropdown-item" href="#">동대문구</a></li>
-		<li><a class="dropdown-item" href="#">중랑구</a></li>
-		<li><a class="dropdown-item" href="#">성북구</a></li>
-		<li><a class="dropdown-item" href="#">강북구</a></li>
-		<li><a class="dropdown-item" href="#">도봉구</a></li>
-		<li><a class="dropdown-item" href="#">노원구</a></li>
-		<li><a class="dropdown-item" href="#">은평구</a></li>
-		<li><a class="dropdown-item" href="#">서대문구</a></li>
-		<li><a class="dropdown-item" href="#">마포구</a></li>
-		<li><a class="dropdown-item" href="#">양천구</a></li>
-		<li><a class="dropdown-item" href="#">강서구</a></li>
-		<li><a class="dropdown-item" href="#">구로구</a></li>
-		<li><a class="dropdown-item" href="#">금천구</a></li>
-		<li><a class="dropdown-item" href="#">영등포구</a></li>
-		<li><a class="dropdown-item" href="#">동작구</a></li>
-		<li><a class="dropdown-item" href="#">관악구</a></li>
-		<li><a class="dropdown-item" href="#">서초구</a></li>
-		<li><a class="dropdown-item" href="#">강남구</a></li>
-		<li><a class="dropdown-item" href="#">송파구</a></li>
-		<li><a class="dropdown-item" href="#">강동구</a></li>
+		<li><a class="dropdown-item" onclick="setYongsangu()">용산구</a></li>
+		<li><a class="dropdown-item" onclick="setSeongdonggu()">성동구</a></li>
+		<li><a class="dropdown-item" onclick="setGwangjingu()">광진구</a></li>
+		<li><a class="dropdown-item" onclick="setDongdaemungu()">동대문구</a></li>
+		<li><a class="dropdown-item" onclick="setJungnanggu()">중랑구</a></li>
+		<li><a class="dropdown-item" onclick="setSeongbukgu()">성북구</a></li>
+		<li><a class="dropdown-item" onclick="setGangbukgu()">강북구</a></li>
+		<li><a class="dropdown-item" onclick="setDobonggu()">도봉구</a></li>
+		<li><a class="dropdown-item" onclick="setNowongu()">노원구</a></li>
+		<li><a class="dropdown-item" onclick="setEunpyeonggu()">은평구</a></li>
+		<li><a class="dropdown-item" onclick="setSeodaemungu()">서대문구</a></li>
+		<li><a class="dropdown-item" onclick="setMapogu()">마포구</a></li>
+		<li><a class="dropdown-item" onclick="setYangcheongu()">양천구</a></li>
+		<li><a class="dropdown-item" onclick="setGangseogu()">강서구</a></li>
+		<li><a class="dropdown-item" onclick="setGurogu()">구로구</a></li>
+		<li><a class="dropdown-item" onclick="setGeumcheongu()">금천구</a></li>
+		<li><a class="dropdown-item" onclick="setYeongdeungpogu()">영등포구</a></li>
+		<li><a class="dropdown-item" onclick="setDongjakgu()">동작구</a></li>
+		<li><a class="dropdown-item" onclick="setGwanakgu()">관악구</a></li>
+		<li><a class="dropdown-item" onclick="setSeochogu()">서초구</a></li>
+		<li><a class="dropdown-item" onclick="setGangnamgu()">강남구</a></li>
+		<li><a class="dropdown-item" onclick="setSongpagu()">송파구</a></li>
+		<li><a class="dropdown-item" onclick="setGangdonggu()">강동구</a></li>
 	</ul>
 </div>
 
