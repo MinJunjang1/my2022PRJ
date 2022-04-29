@@ -32,7 +32,7 @@
 	var geocoder = new kakao.maps.services.Geocoder();
 
 </script>
-
+<script type="text/javascript" src="https://github.com/MinJunjang1/my2022PRJ/blob/0923910e6333816eccc36a3be06d93b73397d24b/src/main/webapp/WEB-INF/views/js/seoulmap.js"></script>
 <script type="text/javascript" src="https://github.com/MinJunjang1/my2022PRJ/blob/7adfa4c9dc7a20b427ada2a2ad3e15a328089c3a/src/main/webapp/WEB-INF/views/js/seouljs.js"></script>
 <!--시도=지도이동 구=지도이동, 건물표시 시도16개 구 108?개 -->
 <div class="btn-group">
