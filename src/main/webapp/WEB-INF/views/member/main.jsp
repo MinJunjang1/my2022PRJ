@@ -65,7 +65,7 @@
 	}
 
 </script>
-<script type="text/javascript" src="./js/seouljs.js"></script>
+<script type="text/javascript" src="https://github.com/MinJunjang1/my2022PRJ/blob/7adfa4c9dc7a20b427ada2a2ad3e15a328089c3a/src/main/webapp/WEB-INF/views/js/seouljs.js"></script>
 <%--<script type="text/javascript" id="api">
 	<!--종로구-->
 function seoul1(){
