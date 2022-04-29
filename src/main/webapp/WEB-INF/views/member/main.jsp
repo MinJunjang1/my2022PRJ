@@ -46,30 +46,58 @@
 	<!--메뉴버튼 클릭시 하단 표출된 리스트 영역  -->
 	<ul class="dropdown-menu" >
 		<li><a class="dropdown-item" onclick="setJongnogu(); seoul1();">종로구</a></li>
-		<li><a class="dropdown-item" onclick="setJunggu();">중구</a></li>
-		<li><a class="dropdown-item" onclick="setYongsangu()">용산구</a></li>
-		<li><a class="dropdown-item" onclick="setSeongdonggu()">성동구</a></li>
-		<li><a class="dropdown-item" onclick="setGwangjingu()">광진구</a></li>
-		<li><a class="dropdown-item" onclick="setDongdaemungu()">동대문구</a></li>
-		<li><a class="dropdown-item" onclick="setJungnanggu()">중랑구</a></li>
-		<li><a class="dropdown-item" onclick="setSeongbukgu()">성북구</a></li>
-		<li><a class="dropdown-item" onclick="setGangbukgu()">강북구</a></li>
-		<li><a class="dropdown-item" onclick="setDobonggu()">도봉구</a></li>
-		<li><a class="dropdown-item" onclick="setNowongu()">노원구</a></li>
-		<li><a class="dropdown-item" onclick="setEunpyeonggu()">은평구</a></li>
-		<li><a class="dropdown-item" onclick="setSeodaemungu()">서대문구</a></li>
-		<li><a class="dropdown-item" onclick="setMapogu()">마포구</a></li>
-		<li><a class="dropdown-item" onclick="setYangcheongu()">양천구</a></li>
-		<li><a class="dropdown-item" onclick="setGangseogu()">강서구</a></li>
-		<li><a class="dropdown-item" onclick="setGurogu()">구로구</a></li>
-		<li><a class="dropdown-item" onclick="setGeumcheongu()">금천구</a></li>
-		<li><a class="dropdown-item" onclick="setYeongdeungpogu()">영등포구</a></li>
-		<li><a class="dropdown-item" onclick="setDongjakgu()">동작구</a></li>
-		<li><a class="dropdown-item" onclick="setGwanakgu()">관악구</a></li>
-		<li><a class="dropdown-item" onclick="setSeochogu()">서초구</a></li>
-		<li><a class="dropdown-item" onclick="setGangnamgu()">강남구</a></li>
-		<li><a class="dropdown-item" onclick="setSongpagu()">송파구</a></li>
-		<li><a class="dropdown-item" onclick="setGangdonggu()">강동구</a></li>
+		<li><a class="dropdown-item" onclick="setJunggu(); seoul2();" >중구</a></li>
+		<li><a class="dropdown-item" onclick="setYongsangu(); seoul3();">용산구</a></li>
+		<li><a class="dropdown-item" onclick="setSeongdonggu(); seoul4();">성동구</a></li>
+		<li><a class="dropdown-item" onclick="setGwangjingu(); seoul5();">광진구</a></li>
+		<li><a class="dropdown-item" onclick="setDongdaemungu(); seoul6();">동대문구</a></li>
+		<li><a class="dropdown-item" onclick="setJungnanggu(); seoul7();">중랑구</a></li>
+		<li><a class="dropdown-item" onclick="setSeongbukgu(); seoul8();">성북구</a></li>
+		<li><a class="dropdown-item" onclick="setGangbukgu(); seoul9();">강북구</a></li>
+		<li><a class="dropdown-item" onclick="setDobonggu(); seoul10();">도봉구</a></li>
+		<li><a class="dropdown-item" onclick="setNowongu(); seoul11();">노원구</a></li>
+		<li><a class="dropdown-item" onclick="setEunpyeonggu(); seoul12();">은평구</a></li>
+		<li><a class="dropdown-item" onclick="setSeodaemungu(); seoul13();">서대문구</a></li>
+		<li><a class="dropdown-item" onclick="setMapogu(); seoul14();">마포구</a></li>
+		<li><a class="dropdown-item" onclick="setYangcheongu(); seoul15();">양천구</a></li>
+		<li><a class="dropdown-item" onclick="setGangseogu(); seoul16();">강서구</a></li>
+		<li><a class="dropdown-item" onclick="setGurogu(); seoul17();">구로구</a></li>
+		<li><a class="dropdown-item" onclick="setGeumcheongu(); seoul18();">금천구</a></li>
+		<li><a class="dropdown-item" onclick="setYeongdeungpogu(); seoul19();">영등포구</a></li>
+		<li><a class="dropdown-item" onclick="setDongjakgu(); seoul20();">동작구</a></li>
+		<li><a class="dropdown-item" onclick="setGwanakgu(); seoul21();">관악구</a></li>
+		<li><a class="dropdown-item" onclick="setSeochogu(); seoul22();">서초구</a></li>
+		<li><a class="dropdown-item" onclick="setGangnamgu(); seoul23();">강남구</a></li>
+		<li><a class="dropdown-item" onclick="setSongpagu(); seoul24();">송파구</a></li>
+		<li><a class="dropdown-item" onclick="setGangdonggu(); seoul25();">강동구</a></li>
+	</ul>
+</div>
+<div class="btn-group">
+	<!-- 추가 버튼태그 -->
+	<button class="btn btn-primary" type="button" onclick="setSeoul()">
+		부산
+	</button>
+	<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">
+		<span class="caret"></span>
+	</button>
+	<!--메뉴버튼 클릭시 하단 표출된 리스트 영역  -->
+	<ul class="dropdown-menu" >
+		<li><a class="dropdown-item" onclick="">중구</a></li>
+		<li><a class="dropdown-item" onclick="">서구</a></li>
+		<li><a class="dropdown-item" onclick="">동구</a></li>
+		<li><a class="dropdown-item" onclick="">영도구</a></li>
+		<li><a class="dropdown-item" onclick="">부산진구</a></li>
+		<li><a class="dropdown-item" onclick="">동래구</a></li>
+		<li><a class="dropdown-item" onclick="">남구</a></li>
+		<li><a class="dropdown-item" onclick="">북구</a></li>
+		<li><a class="dropdown-item" onclick="">해운대구</a></li>
+		<li><a class="dropdown-item" onclick="">사하구</a></li>
+		<li><a class="dropdown-item" onclick="">금정구</a></li>
+		<li><a class="dropdown-item" onclick="">강서구</a></li>
+		<li><a class="dropdown-item" onclick="">연제구</a></li>
+		<li><a class="dropdown-item" onclick="">수영구</a></li>
+		<li><a class="dropdown-item" onclick="">사상구</a></li>
+		<li><a class="dropdown-item" onclick="">기장구</a></li>
 	</ul>
 </div>
 
