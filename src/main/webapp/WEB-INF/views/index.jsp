@@ -135,7 +135,7 @@
 				<h1>Search area</h1>
 			</div>
 			<div class="login_area">
-				<c:if test = "${member == null }">
+				<c:if test = "${memberDTO == null }">
 					<div class="login_button"><a href="/login">로그인</a></div>
 					<span><a href="/join">회원가입</a></span>
 				</c:if>
