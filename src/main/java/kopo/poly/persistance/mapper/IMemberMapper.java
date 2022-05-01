@@ -9,5 +9,5 @@ public interface IMemberMapper {
 
      void userjoin(MemberDTO memberDTO) throws Exception;
 
-     void userlogin(MemberDTO memberDTO) throws Exception;
+     MemberDTO userlogin(MemberDTO memberDTO) throws Exception;
 }

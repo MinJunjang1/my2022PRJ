@@ -26,8 +26,8 @@ public class MemberService implements IMemberService {
 
     @Override
     public MemberDTO userlogin(MemberDTO memberDTO) throws Exception {
-        memberMapper.userlogin(memberDTO);
-        return memberDTO;
+
+        return memberMapper.userlogin(memberDTO);
     }
 
 }
