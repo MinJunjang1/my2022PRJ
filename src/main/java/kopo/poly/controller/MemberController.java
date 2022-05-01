@@ -12,12 +12,10 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
-import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.annotation.Resource;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpSession;
 import java.util.Random;
 
 
@@ -173,9 +171,14 @@ public class MemberController {
 
     }
     @RequestMapping(value = "/userlogin", method = RequestMethod.POST)
-    public String userloginPOST(HttpServletRequest request, MemberDTO memberDTO, RedirectAttributes rttr) throws Exception {
+    public String userloginPOST() throws Exception {
 
-        /* logger.info("memberIdChk() 진입"); */
+        MemberDTO member = new MemberDTO();
+        member.setUser_id("admin");
+        member.setUser_pw("1234");
+        memberService.userlogin(member);
+        System.out.println("결과값 : " + memberService.userlogin(member));
+        /* *//* logger.info("memberIdChk() 진입"); *//*
 
 
         String user_id = CmmUtil.nvl(request.getParameter("user_id"));
@@ -186,25 +189,26 @@ public class MemberController {
         log.info(user_pw);
 
 
-        MemberDTO pDTO = new MemberDTO();
+        MemberDTO member = new MemberDTO();
 
-        pDTO.setUser_id(user_id);
-        pDTO.setUser_pw(user_pw);
+        member.setUser_id(user_id);
+        member.setUser_pw(user_pw);
 
 
 
-        /*
+        *//*
          * 게시글 등록하기위한 비즈니스 로직을 호출
-         */
-        memberService.userlogin(pDTO);
+         *//*
+        memberService.userlogin(member);
         HttpSession session = request.getSession();
-        MemberDTO member = memberService.userlogin(memberDTO);
+        MemberDTO member = memberService.userlogin(member);
         if(member == null){
             int result = 0;
             rttr.addFlashAttribute("/result", result);
             return "redirect:/login";
         }
         session.setAttribute("memberDTO", member);
-        return "redirect:/index";
+        return "redirect:/index";*/
+        return null;
     }
 }
