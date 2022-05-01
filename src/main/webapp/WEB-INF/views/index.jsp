@@ -119,8 +119,8 @@
 			</div>
 			<div class="login_area">
 				<c:if test = "${member == null }">
-					<div class="login_button"><a href="/member/login">로그인</a></div>
-					<span><a href="/member/join">회원가입</a></span>
+					<div class="login_button"><a href="/login">로그인</a></div>
+					<span><a href="/join">회원가입</a></span>
 				</c:if>
 				<!-- 로그인한 상태 -->
 				<c:if test="${ member != null }">
