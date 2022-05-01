@@ -53,7 +53,7 @@
         //alert("로그인 버튼 작동");
 
         /* 로그인 메서드 서버 요청 */
-        $("#login_form").attr("action", "/login");
+        $("#login_form").attr("action", "/userlogin");
         $("#login_form").submit();
 
     });
