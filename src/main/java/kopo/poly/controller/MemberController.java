@@ -204,7 +204,7 @@ public class MemberController {
             rttr.addFlashAttribute("/result", result);
             return "redirect:/login";
         }
-        session.setAttribute("member", member);
+        session.setAttribute("memberDTO", member);
         return "redirect:/index";
     }
 }
