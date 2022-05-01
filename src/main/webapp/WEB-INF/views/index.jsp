@@ -102,6 +102,23 @@
 	.clearfix{
 		clear: both;
 	}
+
+
+	/* 로그인 성공 영역 */
+	.login_success_area{
+		height: 62%;
+		width: 80%;
+		border: 2px solid #7474ad;
+		border-radius: 15px;
+		margin: 5% auto;
+		padding-top: 5%;
+	}
+	.login_success_area>span{
+		display : block;
+		text-align: left;
+		margin-left: 10%;
+	}
+
 </style>
 <body>
 
@@ -123,9 +140,9 @@
 					<span><a href="/join">회원가입</a></span>
 				</c:if>
 				<!-- 로그인한 상태 -->
-				<c:if test="${ member != null }">
+				<c:if test="${ memberDTO != null }">
 					<div class="login_success_area">
-						<span>회원 : ${member.user_id}</span>
+						<span>회원 : ${memberDTO.user_id}</span>
 					</div>
 				</c:if>
 
