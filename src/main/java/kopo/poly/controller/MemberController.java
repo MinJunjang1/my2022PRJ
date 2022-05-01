@@ -175,7 +175,7 @@ public class MemberController {
 
         MemberDTO member = new MemberDTO();
         member.setUser_id("admin");
-        member.setUser_pw("admin");
+        member.setUser_pw("1234");
         memberService.userlogin(member);
         System.out.println("결과값 : " + memberService.userlogin(member));
         /* *//* logger.info("memberIdChk() 진입"); *//*
