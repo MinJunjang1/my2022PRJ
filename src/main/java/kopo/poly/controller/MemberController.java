@@ -202,9 +202,10 @@ public class MemberController {
         if(member == null){
             int result = 0;
             rttr.addFlashAttribute("/result", result);
+            System.out.println(result);
             return "redirect:/login";
         }
         session.setAttribute("memberDTO", memberDTO);
-        return "redirect:/index";
+        return "redirect:/hearder";
     }
 }

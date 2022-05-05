@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
 <head>
@@ -65,7 +66,18 @@
 			</li>
 
 		</ul>
+		<c:if test = "${memberDTO == null }">
+			<div class="login_button"><a href="/login">로그인</a></div>
+			<span><a href="/join">회원가입</a></span>
+		</c:if>
+		<!-- 로그인한 상태 -->
+		<c:if test="${ memberDTO != null }">
+			<div class="login_success_area">
+				<span>회원 : ${memberDTO.user_id}</span>
+			</div>
+		</c:if>
 
+	</div>
 	</div>
 
 </nav>

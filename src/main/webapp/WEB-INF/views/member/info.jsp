@@ -16,7 +16,7 @@
 
 </head>
 <style>
-    *{
+
 
     /* 화면 전체 렙 */
     .wrapper{
@@ -297,6 +297,7 @@
     .clearfix{
         clear: both;
     }
+
 </style>
 <script
         src="https://code.jquery.com/jquery-3.4.1.js"
