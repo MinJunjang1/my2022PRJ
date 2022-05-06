@@ -1,7 +1,7 @@
 //서울
-function setSeoul() {
+function setBusan() {
     // 이동할 위도 경도 위치를 생성합니다
-    var moveLatLon = new kakao.maps.LatLng(37.561, 126.986);
+    var moveLatLon = new kakao.maps.LatLng(35.17701944, 129.0769528);
     map.setCenter(moveLatLon);
     var level = map.getLevel();
     // 지도를 1레벨 내립니다 (지도가 확대됩니다)
