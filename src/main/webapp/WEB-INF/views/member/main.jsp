@@ -33,8 +33,52 @@
 	var geocoder = new kakao.maps.services.Geocoder();
 
 </script>
+
+<script type="text/javascript">
+//api
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '='+'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    var today = new Date();
+    var year = today.getFullYear();
+    var month = ('0' + (today.getMonth() + 1)).slice(-2);
+    var dateString = year  + month  ;
+    var apivalue = '11000';
+</script>
+<script type="text/javascript">
+    // 위도 경도
+    var num1 = 37.541;
+    var num2 = 126.986;
+</script>
+<!--map-->
 <script type="text/javascript" src="https://github.com/MinJunjang1/my2022PRJ/blob/0923910e6333816eccc36a3be06d93b73397d24b/src/main/webapp/WEB-INF/views/js/seoulmap.js"></script>
+<script type="text/javascript" src="https://github.com/MinJunjang1/my2022prj/blob/2834b94b0fff0dceb3e2dbb6f7ff77a42f8f8c7c/src/main/webapp/WEB-INF/views/js/busanmap.js"></script>
+<!--api-->
 <script type="text/javascript" src="https://github.com/MinJunjang1/my2022PRJ/blob/7adfa4c9dc7a20b427ada2a2ad3e15a328089c3a/src/main/webapp/WEB-INF/views/js/seouljs.js"></script>
+<script type="text/javascript" src="https://github.com/MinJunjang1/my2022prj/blob/2834b94b0fff0dceb3e2dbb6f7ff77a42f8f8c7c/src/main/webapp/WEB-INF/views/js/busanjs.js"></script>
+
+<script type="text/javascript">
+    // 이동할 위도 경도 위치를 생성합니다
+    var moveLatLon = new kakao.maps.LatLng(num1, num2);
+    map.setCenter(moveLatLon);
+    var level = map.getLevel();
+    // 지도를 1레벨 내립니다 (지도가 확대됩니다)
+    map.setLevel(7);
+    // 지도 레벨을 표시합니다
+    displayLevel();
+</script>
+<script type="text/javascript">
+
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(dateString); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
+        }
+    };
+
+</script>
 <!--시도=지도이동 구=지도이동, 건물표시 시도16개 구 108?개 -->
 <div class="btn-group">
 	<!-- 추가 버튼태그 -->
@@ -73,9 +117,6 @@
 		<li><a class="dropdown-item" onclick="setGangdonggu(); seoul25();">강동구</a></li>
 	</ul>
 </div>
-<script type="text/javascript" src="https://github.com/MinJunjang1/my2022prj/blob/2834b94b0fff0dceb3e2dbb6f7ff77a42f8f8c7c/src/main/webapp/WEB-INF/views/js/busanmap.js"></script>
-<script type="text/javascript" src="https://github.com/MinJunjang1/my2022prj/blob/2834b94b0fff0dceb3e2dbb6f7ff77a42f8f8c7c/src/main/webapp/WEB-INF/views/js/busanjs.js"></script>
-</script>
 <div class="btn-group">
 	<!-- 추가 버튼태그 -->
 	<button class="btn btn-primary" type="button" onclick="setBusan()">

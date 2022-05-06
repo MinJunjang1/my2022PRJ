@@ -1,23 +1,72 @@
-
-<!--종로구-->
-
-    var xhr = new XMLHttpRequest();
-    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
-    var queryParams = '?' + encodeURIComponent('serviceKey') + '='+'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
-    var today = new Date();
-    var year = today.getFullYear();
-    var month = ('0' + (today.getMonth() + 1)).slice(-2);
-    var dateString = year  + month  ;
-
+<!--부산-->
 function busan(){
-    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent('26000'); /**/
-    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(dateString); /**/
-    xhr.open('GET', url + queryParams);
-    xhr.onreadystatechange = function () {
-        if (this.readyState == 4) {
-            alert('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
-        }
-    };
-
-    xhr.send('');
+    apivalue = '26000';
 }
+<!--부산 중구-->
+function busan1(){
+    apivalue = '26110';
+}
+<!--부산 서구-->
+function busan2(){
+    apivalue = '26140';
+}
+<!--부산 동구-->
+function busan3(){
+    apivalue = '26170';
+}
+<!--부산 영도구-->
+function busan4(){
+    apivalue = '26200';
+}
+<!--부산 부산진구-->
+function busan5(){
+    apivalue = '26230';
+}
+<!--부산 동래구-->
+function busan6(){
+    apivalue = '26260';
+}
+<!--부산 남구-->
+function busan7(){
+    apivalue = '26290';
+}
+<!--부산 북구-->
+function busan8(){
+    apivalue = '26320';
+}
+<!--부산 해운대구-->
+function busan9(){
+    apivalue = '26350';
+}
+<!--부산 사하구-->
+function busan10(){
+    apivalue = '26380';
+}
+<!--부산 금정구-->
+function busan11() {
+    apivalue = '26410';
+}
+<!--부산 강서구-->
+function busan12() {
+    apivalue = '26440';
+}
+<!--부산 연제구-->
+function busan13() {
+    apivalue = '26470';
+}
+<!--부산 수영구-->
+function busan14() {
+    apivalue = '26500';
+}
+<!--부산 사상구-->
+function busan15() {
+    apivalue = '26530';
+}
+<!--부산 기장구-->
+function busan16() {
+    apivalue = '26710';
+}
+
+
+
+

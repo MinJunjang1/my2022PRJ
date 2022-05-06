@@ -1,3 +1,4 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -48,10 +49,18 @@
 			<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
 				<input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
 			</form>
+			<div class="login_area">
+				<c:if test = "${memberDTO == null }">
+					button type="button" class="btn btn-outline-light me-2"><a href="/login">로그인</a></button>
+					<span><a href="/join">회원가입</a></span>
+				</c:if>
+				<!-- 로그인한 상태 -->
+				<c:if test="${ memberDTO != null }">
+				<button type="button" class="btn btn-warning">
+						<span>회원 : ${memberDTO.user_id}</span>
+				</button>>
+				</c:if>
 
-			<div class="text-end">
-				<button type="button" class="btn btn-outline-light me-2">Login</button>
-				<button type="button" class="btn btn-warning">Sign-up</button>
 			</div>
 		</div>
 	</div>
