@@ -201,7 +201,7 @@ public class MemberController {
         MemberDTO member = memberService.userlogin(memberDTO);
         if(member == null){
             int result = 0;
-            rttr.addFlashAttribute("/result", result);
+            rttr.addFlashAttribute("/login/result", result);
             System.out.println(result);
             return "redirect:/login";
         }
