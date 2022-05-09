@@ -127,22 +127,22 @@
 	</button>
 	<!--메뉴버튼 클릭시 하단 표출된 리스트 영역  -->
 	<ul class="dropdown-menu" >
-		<li><a class="dropdown-item" onclick="">중구</a></li>
-		<li><a class="dropdown-item" onclick="">서구</a></li>
-		<li><a class="dropdown-item" onclick="">동구</a></li>
-		<li><a class="dropdown-item" onclick="">영도구</a></li>
-		<li><a class="dropdown-item" onclick="">부산진구</a></li>
-		<li><a class="dropdown-item" onclick="">동래구</a></li>
-		<li><a class="dropdown-item" onclick="">남구</a></li>
-		<li><a class="dropdown-item" onclick="">북구</a></li>
-		<li><a class="dropdown-item" onclick="">해운대구</a></li>
-		<li><a class="dropdown-item" onclick="">사하구</a></li>
-		<li><a class="dropdown-item" onclick="">금정구</a></li>
-		<li><a class="dropdown-item" onclick="">강서구</a></li>
-		<li><a class="dropdown-item" onclick="">연제구</a></li>
-		<li><a class="dropdown-item" onclick="">수영구</a></li>
-		<li><a class="dropdown-item" onclick="">사상구</a></li>
-		<li><a class="dropdown-item" onclick="">기장구</a></li>
+		<li><a class="dropdown-item" onclick="busan1()">중구</a></li>
+		<li><a class="dropdown-item" onclick="busan2()">서구</a></li>
+		<li><a class="dropdown-item" onclick="busan3()">동구</a></li>
+		<li><a class="dropdown-item" onclick="busan4()">영도구</a></li>
+		<li><a class="dropdown-item" onclick="busan5()">부산진구</a></li>
+		<li><a class="dropdown-item" onclick="busan6()">동래구</a></li>
+		<li><a class="dropdown-item" onclick="busan7()">남구</a></li>
+		<li><a class="dropdown-item" onclick="busan8()">북구</a></li>
+		<li><a class="dropdown-item" onclick="busan9()">해운대구</a></li>
+		<li><a class="dropdown-item" onclick="busan10()">사하구</a></li>
+		<li><a class="dropdown-item" onclick="busan11()">금정구</a></li>
+		<li><a class="dropdown-item" onclick="busan12()">강서구</a></li>
+		<li><a class="dropdown-item" onclick="busan13()">연제구</a></li>
+		<li><a class="dropdown-item" onclick="busan14()">수영구</a></li>
+		<li><a class="dropdown-item" onclick="busan15()">사상구</a></li>
+		<li><a class="dropdown-item" onclick="busan16()">기장구</a></li>
 	</ul>
 </div>
 

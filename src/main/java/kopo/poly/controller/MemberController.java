@@ -206,6 +206,6 @@ public class MemberController {
             return "redirect:/login";
         }
         session.setAttribute("memberDTO", memberDTO);
-        return "redirect:/hearder";
+        return "redirect:/main";
     }
 }
