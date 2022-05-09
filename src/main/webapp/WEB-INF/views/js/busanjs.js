@@ -61,11 +61,12 @@ function busan14() {
 <!--부산 사상구-->
 function busan15() {
     apivalue = '26530';
+    alert(apivalue);
 }
 <!--부산 기장구-->
 function busan16() {
     apivalue = 26710;
-
+    alert(apivalue);
 }
 
 
