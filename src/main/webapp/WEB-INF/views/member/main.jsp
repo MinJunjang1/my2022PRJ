@@ -53,20 +53,19 @@
 <!--map-->
 <script type="text/javascript" src="https://github.com/MinJunjang1/my2022PRJ/blob/0923910e6333816eccc36a3be06d93b73397d24b/src/main/webapp/WEB-INF/views/js/seoulmap.js"></script>
 <script type="text/javascript" src="https://github.com/MinJunjang1/my2022prj/blob/2834b94b0fff0dceb3e2dbb6f7ff77a42f8f8c7c/src/main/webapp/WEB-INF/views/js/busanmap.js"></script>
+<script type="text/javascript">
+	// 이동할 위도 경도 위치를 생성합니다
+	var moveLatLon = new kakao.maps.LatLng(num1, num2);
+	map.setCenter(moveLatLon);
+	var level = map.getLevel();
+	// 지도를 1레벨 내립니다 (지도가 확대됩니다)
+	map.setLevel(10);
+	// 지도 레벨을 표시합니다
+	displayLevel();
+</script>
 <!--api-->
 <script type="text/javascript" src="https://github.com/MinJunjang1/my2022PRJ/blob/7adfa4c9dc7a20b427ada2a2ad3e15a328089c3a/src/main/webapp/WEB-INF/views/js/seouljs.js"></script>
 <script type="text/javascript" src="https://github.com/MinJunjang1/my2022prj/blob/2834b94b0fff0dceb3e2dbb6f7ff77a42f8f8c7c/src/main/webapp/WEB-INF/views/js/busanjs.js"></script>
-
-<script type="text/javascript">
-    // 이동할 위도 경도 위치를 생성합니다
-    var moveLatLon = new kakao.maps.LatLng(num1, num2);
-    map.setCenter(moveLatLon);
-    var level = map.getLevel();
-    // 지도를 1레벨 내립니다 (지도가 확대됩니다)
-    map.setLevel(10);
-    // 지도 레벨을 표시합니다
-    displayLevel();
-</script>
 <script type="text/javascript">
 
     queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
@@ -119,7 +118,7 @@
 </div>
 <div class="btn-group">
 	<!-- 추가 버튼태그 -->
-	<button class="btn btn-primary" type="button" onclick="setBusan()">
+	<button class="btn btn-primary" type="button" onclick="setBusan(); busan();">
 		부산
 	</button>
 	<button class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">

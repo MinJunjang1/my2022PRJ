@@ -65,6 +65,7 @@ function busan15() {
 <!--부산 기장구-->
 function busan16() {
     apivalue = '26710';
+    print(apivalue);
 }
 
 
