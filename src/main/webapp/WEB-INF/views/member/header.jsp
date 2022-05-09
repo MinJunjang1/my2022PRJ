@@ -1,4 +1,7 @@
+
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
@@ -40,10 +43,8 @@
 
 			<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
 				<li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
-				<li><a href="#" class="nav-link px-2 text-white">Features</a></li>
-				<li><a href="#" class="nav-link px-2 text-white">Pricing</a></li>
-				<li><a href="#" class="nav-link px-2 text-white">FAQs</a></li>
-				<li><a href="#" class="nav-link px-2 text-white">About</a></li>
+				<li><a href="#" class="nav-link px-2 text-white">게시판</a></li>
+				<li><a href="#" class="nav-link px-2 text-white">챗팅?</a></li>
 			</ul>
 
 			<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
@@ -56,9 +57,9 @@
 				</c:if>
 				<!-- 로그인한 상태 -->
 				<c:if test="${ memberDTO != null }">
-				<button type="button" class="btn btn-warning">
+				    <button type="button" class="btn btn-outline-light me-2">
 						<span>회원 : ${memberDTO.user_id}</span>
-				</button>>
+				    </button>>
 				</c:if>
 
 			</div>
