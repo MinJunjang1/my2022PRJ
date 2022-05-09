@@ -51,7 +51,7 @@
 			</form>
 			<div class="login_area">
 				<c:if test = "${memberDTO == null }">
-					button type="button" class="btn btn-outline-light me-2"><a href="/login">로그인</a></button>
+					<button type="button" class="btn btn-outline-light me-2"><a href="/login">로그인</a></button>
 					<span><a href="/join">회원가입</a></span>
 				</c:if>
 				<!-- 로그인한 상태 -->
