@@ -43,7 +43,7 @@
     var year = today.getFullYear();
     var month = ('0' + (today.getMonth() + 1)).slice(-2);
     var dateString = year  + month  ;
-    var apivalue = '11000';
+    var apivalue = '';
 </script>
 <script type="text/javascript">
     // 위도 경도

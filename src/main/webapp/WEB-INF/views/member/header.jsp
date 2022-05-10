@@ -60,6 +60,7 @@
 				    <button type="button" class="btn btn-outline-light me-2">
 						<span>회원 : ${memberDTO.user_id}</span>
 				    </button>>
+					<a href="/logout">로그아웃</a>
 				</c:if>
 
 			</div>

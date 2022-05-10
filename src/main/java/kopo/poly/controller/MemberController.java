@@ -1,5 +1,6 @@
 package kopo.poly.controller;
 
+import com.sun.org.apache.xml.internal.serializer.AttributesImplSerializer;
 import kopo.poly.dto.MemberDTO;
 import kopo.poly.service.IMemberService;
 import kopo.poly.util.CmmUtil;
@@ -19,8 +20,6 @@ import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.Random;
-
-
 /*
  * Controller 선언해야만 Spring 프레임워크에서 Controller인지 인식 가능
  * 자바 서블릿 역할 수행
@@ -36,6 +35,7 @@ public class MemberController {
     private IMemberService memberService;
     @Autowired
     private JavaMailSender mailSender;
+    private AttributesImplSerializer medel;
 
     /**
      * GetMapping은 GET방식을 통해 접속되는 URL 호출에 대해 실행되는 함수로 설정함을 의미함
@@ -129,6 +129,13 @@ public class MemberController {
         }
 
     } // memberIdChkPOST() 종료
+    @RequestMapping(value = "/logout", method=RequestMethod.GET)
+    public String logoutmain(HttpServletRequest request) throws Exception{
+        HttpSession session = request.getSession();
+        session.invalidate();
+        return "redirect:/main";
+    }
+
     /* 이메일 인증 */
     @RequestMapping(value="/mailCheck", method=RequestMethod.GET)
     @ResponseBody
@@ -172,6 +179,7 @@ public class MemberController {
         return num;
 
     }
+
     @RequestMapping(value = "/userlogin", method = RequestMethod.POST)
     public String userloginPOST(HttpServletRequest request, MemberDTO memberDTO, RedirectAttributes rttr) throws Exception {
 
@@ -208,4 +216,6 @@ public class MemberController {
         session.setAttribute("memberDTO", memberDTO);
         return "redirect:/main";
     }
+
+
 }

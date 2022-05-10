@@ -7,6 +7,7 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
 @Slf4j
 @Service("MemberService")
 public class MemberService implements IMemberService {
@@ -29,5 +30,8 @@ public class MemberService implements IMemberService {
 
         return memberMapper.userlogin(memberDTO);
     }
-
+    @Override
+    public List<MemberDTO> memberList() throws Exception {
+        return memberMapper.memberList();
+    }
 }
