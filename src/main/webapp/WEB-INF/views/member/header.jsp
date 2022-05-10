@@ -51,9 +51,8 @@
 				<input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
 			</form>
 			<div class="login_area">
-				<c:if test = "${memberDTO == null }">
-					<button type="button" class="btn btn-outline-light me-2"><a href="/login">로그인</a></button>
-					<span><a href="/join">회원가입</a></span>
+				<c:if test = "${member.adminck == 1 }">
+					<button type="button" class="btn btn-outline-light me-2"><a href="/admin/main">관리자페이지</a></button>
 				</c:if>
 				<!-- 로그인한 상태 -->
 				<c:if test="${ memberDTO != null }">
