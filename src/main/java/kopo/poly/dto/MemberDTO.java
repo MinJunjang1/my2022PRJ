@@ -27,4 +27,13 @@ public class MemberDTO {
         private int adminck;
 
 
+
+
+    public int getAdminCk() {
+        return adminck;
+    }
+
+
+
+
 }

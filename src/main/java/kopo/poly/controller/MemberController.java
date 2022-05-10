@@ -81,7 +81,7 @@ public class MemberController {
 
 
 
-        return "redirect:/index";
+        return "redirect:/login";
 
     }
 
@@ -180,7 +180,7 @@ public class MemberController {
 
     }
 
-    @RequestMapping(value = "/userlogin", method = RequestMethod.POST)
+    @RequestMapping(value = "/userlogin.do", method = RequestMethod.POST)
     public String userloginPOST(HttpServletRequest request, MemberDTO memberDTO, RedirectAttributes rttr) throws Exception {
 
         /* logger.info("memberIdChk() 진입"); */
