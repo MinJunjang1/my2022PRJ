@@ -16,6 +16,6 @@ public class AdminController {
 
     @RequestMapping(value = "main", method = RequestMethod.GET)
     public void adminmainpage() throws Exception{
-        logger.info("과리자페이지 이동");
+        logger.info("관리자페이지 이동");
     }
 }

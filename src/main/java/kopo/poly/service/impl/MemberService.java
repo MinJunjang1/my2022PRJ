@@ -32,8 +32,16 @@ public class MemberService implements IMemberService {
     }
 
     @Override
-    public List<MemberDTO> memberList(MemberDTO memberDTO) {
-        return memberMapper.userlist(memberDTO);
+    public List<MemberDTO> getuserList() throws Exception {
+        return memberMapper.getuserList();
     }
 
+//    @Override
+//    public List<NoticeDTO> getNoticeList() throws Exception {
+//
+//        log.info(this.getClass().getName() + ".getNoticeList start!");
+//
+//        return noticeMapper.getNoticeList();
+//
+//    }
 }
