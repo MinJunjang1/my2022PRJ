@@ -70,5 +70,13 @@ function busan16() {
 }
 
 
+queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(dateString); /**/
+xhr.open('GET', url + queryParams);
+xhr.onreadystatechange = function () {
+    if (this.readyState == 4) {
+        alert('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
+    }
+};
 
 

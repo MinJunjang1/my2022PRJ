@@ -154,14 +154,6 @@
 <script type="text/javascript" src="https://github.com/MinJunjang1/my2022prj/blob/2834b94b0fff0dceb3e2dbb6f7ff77a42f8f8c7c/src/main/webapp/WEB-INF/views/js/busanjs.js"></script>
 <script type="text/javascript">
 
-	queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
-	queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(dateString); /**/
-	xhr.open('GET', url + queryParams);
-	xhr.onreadystatechange = function () {
-		if (this.readyState == 4) {
-			alert('Status: '+this.status+'nHeaders: '+JSON.stringify(this.getAllResponseHeaders())+'nBody: '+this.responseText);
-		}
-	};
 
 </script>
 </body>
