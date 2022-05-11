@@ -14,10 +14,7 @@ public class AdminController {
     public String mainpage() throws Exception {
         return "/admin/main";
     }
-    @GetMapping(value = "/userlist")
-    public String userlistpage() throws Exception {
-        return "/admin/userlist";
-    }
+
 
 
 }
