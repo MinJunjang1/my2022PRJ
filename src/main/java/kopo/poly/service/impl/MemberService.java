@@ -30,8 +30,10 @@ public class MemberService implements IMemberService {
 
         return memberMapper.userlogin(memberDTO);
     }
+
     @Override
-    public List<MemberDTO> memberList() throws Exception {
-        return memberMapper.memberList();
+    public List<MemberDTO> memberList(MemberDTO memberDTO) {
+        return memberMapper.userlist(memberDTO);
     }
+
 }

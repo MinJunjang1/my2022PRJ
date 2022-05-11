@@ -16,7 +16,7 @@
 	<select id="userlogin" resultType="MemberDTO">
 		select user_id, user_pw, adminck from member where user_id = #{user_id} and user_pw = #{user_pw}
 	</select>
-	<select id="memberList" resultType="MemberDTO">
+	<select id="userlist" resultType="MemberDTO">
 		select user_seq, user_id, user_pw, user_useremail, user_addr2, user_dt from member order by user_seq
 	</select>
 </mapper>

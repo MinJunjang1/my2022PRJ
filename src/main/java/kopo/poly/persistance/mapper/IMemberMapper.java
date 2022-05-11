@@ -1,6 +1,7 @@
 package kopo.poly.persistance.mapper;
 
 import kopo.poly.dto.MemberDTO;
+
 import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
@@ -13,5 +14,5 @@ public interface IMemberMapper {
 
      MemberDTO userlogin(MemberDTO memberDTO) throws Exception;
 
-    List<MemberDTO> memberList() throws Exception;
+    List<MemberDTO> getuserList() throws Exception;
 }

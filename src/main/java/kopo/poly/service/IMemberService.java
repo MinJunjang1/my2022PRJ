@@ -12,6 +12,8 @@ public interface IMemberService {
 
     public MemberDTO userlogin(MemberDTO memberDTO) throws Exception;
 
-    public List<MemberDTO> memberList() throws Exception;
+    public List<MemberDTO> memberList(MemberDTO memberDTO);
+
+    List<MemberDTO> getuserList() throws Exception;
 }
 

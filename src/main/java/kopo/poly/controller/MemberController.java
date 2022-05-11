@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -19,6 +20,8 @@ import javax.annotation.Resource;
 import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Random;
 /*
  * Controller 선언해야만 Spring 프레임워크에서 Controller인지 인식 가능
@@ -106,6 +109,33 @@ public class MemberController {
     public String mainpage() throws Exception {
         return "/member/main";
     }
+
+    @GetMapping(value = "admin/userlist")
+    public String userList(ModelMap model)
+            throws Exception {
+
+        // 로그 찍기(추후 찍은 로그를 통해 이 함수에 접근했는지 파악하기 용이하다.)
+        log.info(this.getClass().getName() + ".userList start!");
+
+        // 공지사항 리스트 가져오기
+        List<MemberDTO> mList = memberService.getuserList();
+
+        if (mList == null) {
+            mList = new ArrayList<>();
+
+        }
+
+        // 조회된 리스트 결과값 넣어주기
+        model.addAttribute("mList", mList);
+
+        // 로그 찍기(추후 찍은 로그를 통해 이 함수 호출이 끝났는지 파악하기 용이하다.)
+        log.info(this.getClass().getName() + ".userList end!");
+
+        // 함수 처리가 끝나고 보여줄 JSP 파일명(/WEB-INF/view/notice/NoticeList.jsp)
+        return "/admin/userList";
+
+    }
+
     @RequestMapping(value = "/memberIdChk", method = RequestMethod.POST)
     @ResponseBody
     public String memberIdChkPOST(String user_id) throws Exception{

@@ -4,7 +4,6 @@ import lombok.Getter;
 import lombok.Setter;
 
 import java.util.Date;
-
 /**
  * lombok은 코딩을 줄이기 위해 @어노테이션을 통한 자동 코드 완성기능임
  * @Getter => getter 함수를 작성하지 않았지만, 자동 생성
