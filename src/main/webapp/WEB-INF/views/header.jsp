@@ -1,6 +1,9 @@
+
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
 <head>
@@ -16,74 +19,57 @@
 	<title>로그인 폼</title>
 
 </head>
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
-
-
 <style>
-	header {
-		position: sticky;
-		top: 0;
+	.bd-placeholder-img {
+		font-size: 1.125rem;
+		text-anchor: middle;
+		-webkit-user-select: none;
+		-moz-user-select: none;
+		user-select: none;
+	}
+
+	@media (min-width: 768px) {
+		.bd-placeholder-img-lg {
+			font-size: 3.5rem;
+		}
 	}
 </style>
-<!-- jQuery -->
-<head>
+<header class="p-3 bg-dark text-white">
+	<div class="container">
+		<div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+			<a href="/" class="d-flex align-items-center mb-2 mb-lg-0 text-white text-decoration-none">
+				<svg class="bi me-2" width="40" height="32" role="img" aria-label="Bootstrap"><use xlink:href="#bootstrap"/></svg>
+			</a>
 
+			<ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+				<li><a href="#" class="nav-link px-2 text-secondary">Home</a></li>
+				<li><a href="#" class="nav-link px-2 text-white">게시판</a></li>
+				<li><a href="#" class="nav-link px-2 text-white">챗팅?</a></li>
+			</ul>
 
+			<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+				<input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
+			</form>
+			<div class="login_area">
+				<c:if test = "${member.adminck == 1 }">
+					<button type="button" class="btn btn-outline-light me-2"><a href="/admin/main">관리자페이지</a></button>
+				</c:if>
+				<!-- 로그인한 상태 -->
+				<c:if test="${ memberDTO != null }">
+				    <button type="button" class="btn btn-outline-light me-2">
+						<span>회원 : ${memberDTO.user_id}</span>
+						<a href="/logout">로그아웃</a>
+					</button>>
 
+				</c:if>
+				<c:if test = "${member.adminck == 1 }">
+					<button type="button" class="btn btn-outline-light me-2"><a href="/admin/main">관리자페이지</a></button>
+				</c:if>
 
-<!-- Bootstrap CSS -->
-
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css" integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-
-
-<nav class="navbar navbar-expand-sm navbar-dark bg-dark">
-
-	<a class="navbar-brand" href="#">메인페이지</a>
-
-	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarsExample03" aria-controls="navbarsExample03" aria-expanded="false" aria-label="Toggle navigation">
-
-		<span class="navbar-toggler-icon"></span>
-
-	</button>
-
-
-
-	<div class="collapse navbar-collapse" id="navbarsExample03">
-
-		<ul class="navbar-nav mr-auto">
-
-			<li class="nav-item">
-
-				<a class="nav-link" href="#">Board <span class="sr-only">(current)</span></a>
-
-			</li>
-
-			<li class="nav-item">
-
-				<a class="nav-link" href="#">Q&A</a>
-
-			</li>
-
-		</ul>
-		<c:if test = "${memberDTO == null }">
-			<div class="login_button"><a href="/login">로그인</a></div>
-			<span><a href="/join">회원가입</a></span>
-		</c:if>
-		<!-- 로그인한 상태 -->
-		<c:if test="${ memberDTO != null }">
-			<div class="login_success_area">
-				<span>회원 : ${memberDTO.user_id}</span>
 			</div>
-		</c:if>
-
+		</div>
 	</div>
-	</div>
-
-</nav>
-</head>
-
-<body>
+</header>
 <!-- Optional JavaScript -->
 <!-- jQuery first, then Popper.js, then Bootstrap JS -->
 <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>

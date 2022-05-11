@@ -189,9 +189,9 @@
         clear: both;
     }
 </style>
-
+<jsp:include page="../header.jsp" flush="false"></jsp:include>
 <body>
-<jsp:include page="header.jsp" flush="false"></jsp:include>
+
 <div class="admin_top_wrap">
     <span>관리자 페이지</span>
 

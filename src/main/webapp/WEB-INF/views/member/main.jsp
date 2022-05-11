@@ -14,7 +14,7 @@
 	}
 </style>
 <!--헤더-->
-<jsp:include page="header.jsp" flush="false"></jsp:include>
+<jsp:include page="../header.jsp" flush="false"></jsp:include>
 
 <body>
 <!--지도-->
