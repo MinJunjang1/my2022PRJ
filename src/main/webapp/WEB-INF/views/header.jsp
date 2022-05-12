@@ -46,20 +46,15 @@
 				<li><a href="#" class="nav-link px-2 text-white">챗팅?</a></li>
 			</ul>
 			<div class="text-right">
-				<c:if test = "${member.adminck == 1 }">
-					<button type="button" class="btn btn-outline-light me-2"><a href="/admin/main">관리자페이지</a></button>
-				</c:if>
+
 				<!-- 로그인한 상태 -->
 				<c:if test="${ memberDTO != null }">
 				    <button type="button" class="btn btn-outline-light me-2">
 						<span>회원 : ${memberDTO.user_id}</span>
 						<a href="/logout">로그아웃</a>
 					</button>
-					<button type="button" class="btn btn-outline-light me-2"><a href="/admin/main">관리자페이지</a></button>
+					<a href="/admin/main">관리</a>
 
-				</c:if>
-				<c:if test = "${member.adminck == 1 }">
-					<button type="button" class="btn btn-outline-light me-2"><a href="/admin/main">관리자페이지</a></button>
 				</c:if>
 
 			</div>
