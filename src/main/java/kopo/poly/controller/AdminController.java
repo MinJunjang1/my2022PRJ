@@ -21,11 +21,11 @@ public class AdminController {
         MemberDTO mDTO = (MemberDTO) session.getAttribute("memberDTO");
         String adminck = String.valueOf(mDTO.getAdminCk());
 
-        log.info(adminck);
-            if(adminck==0){
+            log.info(adminck);
+        if(adminck=="0"){
             model.addAttribute("msg", "권한이 없는 사용자입니다");
                 return "redirect:/main";
-            }
+        }
         return "/admin/main";
     }
 
