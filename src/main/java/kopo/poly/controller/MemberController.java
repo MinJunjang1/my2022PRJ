@@ -241,7 +241,7 @@ public class MemberController {
             model.addAttribute("msg", "아이디나 비밀번호가 잘못되었습니다");
 
 
-            return "redirect:/alert";
+            return "redirect:/login";
         }
         session.setAttribute("memberDTO", memberDTO);
         return "redirect:/main";

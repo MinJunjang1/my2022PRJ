@@ -14,9 +14,6 @@ String msg = CmmUtil.nvl((String) request.getAttribute("msg"));
 
 </head>
 <body>
-<script type="javascript">
-    alert("<%=msg%>");
-    top.location.href="/login";
-</script>
+
 </body>
 </html>

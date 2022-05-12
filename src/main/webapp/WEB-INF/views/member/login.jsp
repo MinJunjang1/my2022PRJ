@@ -1,3 +1,4 @@
+<%@ page import="kopo.poly.util.CmmUtil" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -144,6 +145,12 @@
 
     });
 </script>
-
+<%
+    String msg = CmmUtil.nvl((String) request.getAttribute("msg"));
+%>
+<script type="javascript">
+    alert("<%=msg%>");
+    top.location.href="/login";
+</script>
 </body>
 </html>
