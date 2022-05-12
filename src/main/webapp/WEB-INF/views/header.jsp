@@ -55,6 +55,7 @@
 						<span>회원 : ${memberDTO.user_id}</span>
 						<a href="/logout">로그아웃</a>
 					</button>
+					<button type="button" class="btn btn-outline-light me-2"><a href="/admin/main">관리자페이지</a></button>
 
 				</c:if>
 				<c:if test = "${member.adminck == 1 }">
