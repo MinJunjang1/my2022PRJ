@@ -2,10 +2,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%
-    String msg = CmmUtil.nvl((String) request.getAttribute("msg"));
-    System.out.println(msg);
-%>
+
 <script type="javascript">
 
 </script>
@@ -138,7 +135,10 @@
     </div>
 
 </div>
-
+<%
+    String msg = CmmUtil.nvl((String) request.getAttribute("msg"));
+    System.out.println(msg);
+%>
 <script>
     /* 로그인 버튼 클릭 메서드 */
     $(".login_button").click(function(){
