@@ -242,6 +242,8 @@ public class MemberController {
 
 
             return "redirect:/login";
+        }else {
+            model.addAttribute("msg", "로그인되었습니다");
         }
         session.setAttribute("memberDTO", memberDTO);
         return "redirect:/main";
