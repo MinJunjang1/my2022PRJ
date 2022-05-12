@@ -15,7 +15,7 @@
     <script type="text/javascript">
 
         alert("<%=msg%>");
-        top.location.href="/main";
+        top.location.href="/member/main";
 
     </script>
 </head>
