@@ -1,6 +1,5 @@
 <%@ page import="kopo.poly.util.CmmUtil" %>
 <%@ page import="kopo.poly.dto.MemberDTO" %>
-<%@ page import="kopo.poly.dto.NoticeDTO" %>
 <%@ page import="java.util.List" %>
 <%@ page import="java.util.ArrayList" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
