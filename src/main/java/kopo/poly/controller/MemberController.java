@@ -110,8 +110,12 @@ public class MemberController {
     public String mainpage() throws Exception {
         return "/member/main";
     }
-
     @GetMapping(value = "/admin/userlist")
+    public String userlistpage() throws Exception {
+        return "/admin/userlist";
+    }
+    @RequestMapping(value = "/admin/userlist")
+    @ResponseBody
     public String userList(ModelMap model)
             throws Exception {
 
