@@ -110,10 +110,7 @@ public class MemberController {
     public String mainpage() throws Exception {
         return "/member/main";
     }
-    @GetMapping(value = "/userlist")
-    public String userlistpage() throws Exception {
-        return "/admin/userlist";
-    }
+
     @GetMapping(value = "/userlist")
     public String userList(ModelMap model)
             throws Exception {
@@ -135,7 +132,7 @@ public class MemberController {
         log.info(this.getClass().getName() + ".userList end!");
 
         // 함수 처리가 끝나고 보여줄 JSP 파일명(/WEB-INF/view/notice/NoticeList.jsp)
-        return "/admin/userList";
+        return "/admin/userlist";
 
     }
 
