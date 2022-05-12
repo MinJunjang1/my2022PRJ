@@ -45,7 +45,7 @@
 				<li><a href="#" class="nav-link px-2 text-white">게시판</a></li>
 				<li><a href="#" class="nav-link px-2 text-white">챗팅?</a></li>
 			</ul>
-			<div class="text-right">
+			<div class="float-right">
 
 				<!-- 로그인한 상태 -->
 				<c:if test="${ memberDTO != null }">
