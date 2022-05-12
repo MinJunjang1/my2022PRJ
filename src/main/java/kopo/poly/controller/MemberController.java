@@ -238,6 +238,7 @@ public class MemberController {
         HttpSession session = request.getSession();
         MemberDTO member = memberService.userlogin(memberDTO);
         if(member == null){
+
             model.addAttribute("msg", "아이디나 비밀번호가 잘못되었습니다");
             return "redirect:/login";
         }else {

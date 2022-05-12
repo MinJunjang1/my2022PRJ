@@ -147,6 +147,7 @@
 </script>
 <%
     String msg = CmmUtil.nvl((String) request.getAttribute("msg"));
+    System.out.println(msg);
 %>
 <script type="javascript">
     alert("<%=msg%>");
