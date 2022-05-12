@@ -239,8 +239,6 @@ public class MemberController {
         MemberDTO member = memberService.userlogin(memberDTO);
         if(member == null){
             model.addAttribute("msg", "아이디나 비밀번호가 잘못되었습니다");
-
-
             return "redirect:/login";
         }else {
             model.addAttribute("msg", "로그인되었습니다");
