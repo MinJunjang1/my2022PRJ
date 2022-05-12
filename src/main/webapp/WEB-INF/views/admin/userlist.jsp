@@ -53,6 +53,9 @@
         <th><%=CmmUtil.nvl(rDTO.getUser_addr2()) %></th>
         <th><%=(rDTO.getUser_dt()) %></th>
     </tr>
+    <%
+        }
+    %>
 </table>
 </body>
 </html>
