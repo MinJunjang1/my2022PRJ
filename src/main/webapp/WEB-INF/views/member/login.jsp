@@ -122,14 +122,6 @@
                         <input class="pw_iput" name="user_pw">
                     </div>
                 </div>
-                <%
-                    if(result == 0)
-                    {%>
-                <div class = "login_warn">사용자 ID 또는 비밀번호를 잘못 입력하셨습니다.</div>
-                   <% }%>
-
-
-
                 <div class="login_button_wrap">
                     <input type="button" class="login_button" value="로그인">
                 </div>
