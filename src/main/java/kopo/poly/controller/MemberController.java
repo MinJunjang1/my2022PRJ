@@ -111,7 +111,7 @@ public class MemberController {
         return "/member/main";
     }
 
-    @GetMapping(value = "/admin/userlist")
+    @GetMapping(value = "/userlist")
     public String userList(ModelMap model)
             throws Exception {
 
