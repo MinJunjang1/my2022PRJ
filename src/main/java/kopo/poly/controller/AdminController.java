@@ -19,12 +19,11 @@ public class AdminController {
     @GetMapping(value = "/main")
     public String mainpage(HttpSession session, HttpServletRequest request, MemberDTO memberDTO, RedirectAttributes rttr, Model model) throws Exception {
         MemberDTO mDTO = (MemberDTO) session.getAttribute("memberDTO");
-        String adminck = String.valueOf(mDTO.getAdminCk());
+        int adminck = Integer.valueOf(mDTO.getAdminCk());
 
-            log.info(adminck);
-        if(adminck=="0"){
-            model.addAttribute("msg", "권한이 없는 사용자입니다");
-                return "redirect:/main";
+            System.out.println(adminck);
+        if(adminck==0){
+            return "redirect:/main";
         }
         return "/admin/main";
     }
