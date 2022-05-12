@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
 import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -211,7 +212,7 @@ public class MemberController {
     }
 
     @RequestMapping(value = "/userlogin.do", method = RequestMethod.POST)
-    public String userloginPOST(HttpServletRequest request, MemberDTO memberDTO, RedirectAttributes rttr) throws Exception {
+    public String userloginPOST(HttpServletRequest request, MemberDTO memberDTO, RedirectAttributes rttr, Model model) throws Exception {
 
         /* logger.info("memberIdChk() 진입"); */
 
@@ -238,10 +239,10 @@ public class MemberController {
         HttpSession session = request.getSession();
         MemberDTO member = memberService.userlogin(memberDTO);
         if(member == null){
-            int result = 0;
-            rttr.addFlashAttribute("/login", result);
-            System.out.println(result);
-            return "redirect:/login";
+            model.addAttribute("msg", "아이디나 비밀번호가 잘못되었습니다");
+
+
+            return "/member/alert";
         }
         session.setAttribute("memberDTO", memberDTO);
         return "redirect:/main";

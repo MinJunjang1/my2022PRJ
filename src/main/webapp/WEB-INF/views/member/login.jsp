@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
 <head>
@@ -121,9 +122,13 @@
                         <input class="pw_iput" name="user_pw">
                     </div>
                 </div>
-                <c:if test = "${result == 0 }">
-                    <div class = "login_warn">사용자 ID 또는 비밀번호를 잘못 입력하셨습니다.</div>
-                </c:if>
+                <%
+                    if(result == 0)
+                    {%>
+                <div class = "login_warn">사용자 ID 또는 비밀번호를 잘못 입력하셨습니다.</div>
+                   <% }%>
+
+
 
                 <div class="login_button_wrap">
                     <input type="button" class="login_button" value="로그인">
