@@ -23,7 +23,9 @@ public class AdminController {
 
             System.out.println(adminck);
         if(adminck==0){
-            return "redirect:/main";
+            model.addAttribute("msg", "잘못된 사용자 입니다.");
+            System.out.println(request.getAttribute("msg"));
+            return "/alert";
         }
         return "/admin/main";
     }
