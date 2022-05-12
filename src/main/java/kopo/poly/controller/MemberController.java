@@ -235,14 +235,14 @@ public class MemberController {
          * 게시글 등록하기위한 비즈니스 로직을 호출
          */
         HttpSession session = request.getSession();
-        MemberDTO member = memberService.userlogin(memberDTO);
+        MemberDTO member = memberService.userlogin(pDTO);
         if(member == null){
 
             model.addAttribute("msg", "아이디나 비밀번호가 잘못되었습니다");
             System.out.println(request.getAttribute("msg"));
             return "/member/login";
         }
-        session.setAttribute("memberDTO", memberDTO);
+        session.setAttribute("memberDTO", member);
         return "redirect:/main";
     }
 
