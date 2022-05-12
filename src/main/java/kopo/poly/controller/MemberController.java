@@ -163,7 +163,7 @@ public class MemberController {
     public String logoutmain(HttpServletRequest request) throws Exception{
         HttpSession session = request.getSession();
         session.invalidate();
-        return "redirect:/main";
+        return "redirect:/login";
     }
 
     /* 이메일 인증 */
