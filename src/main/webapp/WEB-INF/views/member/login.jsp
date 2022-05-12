@@ -7,7 +7,7 @@
     System.out.println(msg);
 %>
 <script type="javascript">
-    alert("<%=msg%>");
+
 </script>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
@@ -150,7 +150,7 @@
         /* 로그인 메서드 서버 요청 */
         $("#login_form").attr("action", "/userlogin.do");
         $("#login_form").submit();
-
+        alert("<%=msg%>");
     });
 </script>
 <script>
