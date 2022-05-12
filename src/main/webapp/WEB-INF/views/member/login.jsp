@@ -150,7 +150,6 @@
 %>
 <script type="javascript">
     alert("<%=msg%>");
-    top.location.href="/login";
 </script>
 </body>
 </html>
