@@ -1,8 +1,8 @@
-<%@ page import="kopo.poly.util.CmmUtil" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%@ page import="kopo.poly.util.CmmUtil" %>
+
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
@@ -133,10 +133,7 @@
     </div>
 
 </div>
-<%
-    String msg = CmmUtil.nvl((String) request.getAttribute("msg"));
-    System.out.println(msg);
-%>
+
 <script>
     /* 로그인 버튼 클릭 메서드 */
     $(".login_button").click(function(){
@@ -145,11 +142,7 @@
         /* 로그인 메서드 서버 요청 */
 
         $("#login_form").attr("action", "/userlogin.do");
-        <%
-        if(msg!=null) {
-        %>
-        alert("<%=msg%>");
-        <%}%>
+
         $("#login_form").submit();
 
     });

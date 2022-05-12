@@ -240,7 +240,7 @@ public class MemberController {
 
             model.addAttribute("msg", "아이디나 비밀번호가 잘못되었습니다");
             System.out.println(request.getAttribute("msg"));
-            return "/member/login";
+            return "/alertlogin";
         }
         session.setAttribute("memberDTO", member);
         return "redirect:/main";
