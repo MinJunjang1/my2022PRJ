@@ -132,7 +132,7 @@ public class MemberController {
         log.info(this.getClass().getName() + ".userList end!");
 
         // 함수 처리가 끝나고 보여줄 JSP 파일명(/WEB-INF/view/notice/NoticeList.jsp)
-        return "/userList";
+        return "/admin/userList";
 
     }
 
