@@ -144,13 +144,11 @@
     $(".login_button").click(function(){
 
         //alert("로그인 버튼 작동");
-        if($(".id_input") == null){
-            alert("아이디칸이 비어있습니다")
-        }
         /* 로그인 메서드 서버 요청 */
         $("#login_form").attr("action", "/userlogin.do");
-        $("#login_form").submit();
         alert("<%=msg%>");
+        $("#login_form").submit();
+
     });
 </script>
 <script>
