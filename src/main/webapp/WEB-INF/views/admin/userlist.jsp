@@ -13,7 +13,7 @@
 </head>
 <body>
 <h2></h2>
-<table>
+<table border="1">
     <tr>
         <th>번호</th>
         <th>아이디</th>
