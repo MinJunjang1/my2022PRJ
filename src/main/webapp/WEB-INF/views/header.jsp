@@ -1,6 +1,5 @@
 
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
-
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
@@ -46,11 +45,7 @@
 				<li><a href="#" class="nav-link px-2 text-white">게시판</a></li>
 				<li><a href="#" class="nav-link px-2 text-white">챗팅?</a></li>
 			</ul>
-
-			<form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
-				<input type="search" class="form-control form-control-dark" placeholder="Search..." aria-label="Search">
-			</form>
-			<div class="login_area">
+			<div class="text-right">
 				<c:if test = "${member.adminck == 1 }">
 					<button type="button" class="btn btn-outline-light me-2"><a href="/admin/main">관리자페이지</a></button>
 				</c:if>
@@ -59,7 +54,7 @@
 				    <button type="button" class="btn btn-outline-light me-2">
 						<span>회원 : ${memberDTO.user_id}</span>
 						<a href="/logout">로그아웃</a>
-					</button>>
+					</button>
 
 				</c:if>
 				<c:if test = "${member.adminck == 1 }">
