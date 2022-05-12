@@ -110,19 +110,14 @@ public class MemberController {
     public String mainpage() throws Exception {
         return "/member/main";
     }
+
     @GetMapping(value = "/admin/userlist")
-    public String userlistpage() throws Exception {
-        return "/admin/userlist";
-    }
-    @RequestMapping(value = "/admin/userlist")
-    @ResponseBody
     public String userList(ModelMap model)
             throws Exception {
 
         // 로그 찍기(추후 찍은 로그를 통해 이 함수에 접근했는지 파악하기 용이하다.)
         log.info(this.getClass().getName() + ".userList start!");
 
-        // 공지사항 리스트 가져오기
         List<MemberDTO> mList = memberService.getuserList();
 
         if (mList == null) {
