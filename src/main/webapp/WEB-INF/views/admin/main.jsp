@@ -202,7 +202,7 @@
     <div class="admin_navi_wrap">
         <ul>
             <li >
-                <a class="admin_list_01" href="/admin/infolist">사용자 관리</a>
+                <a class="admin_list_01" href="/admin/userlist">사용자 관리</a>
             </li>
             <li>
                 <a class="admin_list_02" href="/admin/goodsManage">게시판관리</a>
