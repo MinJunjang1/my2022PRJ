@@ -242,11 +242,6 @@ public class MemberController {
             System.out.println(request.getAttribute("msg"));
             return "/member/login";
         }
-        if(member != null){
-
-            model.addAttribute("msg", "로그인되었습니다");
-            System.out.println(request.getAttribute("msg"));
-        }
         session.setAttribute("memberDTO", member);
         return "redirect:/main";
     }
