@@ -309,32 +309,13 @@
     <form id="join_form" method="post">
         <div class="wrap">
             <div class="subjecet">
-                <span>회원가입</span>
+                <span>회원정보</span>
             </div>
             <div class="id_wrap">
                 <div class="id_name">아이디</div>
                 <div class="id_input_box">
                     <input type="text" class="id_input" name="userid" id="userid" >
                 </div>
-                <span class="id_input_re_1">사용 가능한 아이디입니다.</span>
-                <span class="id_input_re_2">아이디가 이미 존재합니다.</span>
-                <span class="final_id_ck">아이디를 입력해주세요.</span>
-            </div>
-            <div class="pw_wrap">
-                <div class="pw_name">비밀번호</div>
-                <div class="pw_input_box">
-                    <input type="text" class="pw_input" name="memberPw" id="memberPw">
-                </div>
-                <span class="final_pw_ck">비밀번호를 입력해주세요.</span>
-            </div>
-            <div class="pwck_wrap">
-                <div class="pwck_name">비밀번호 확인</div>
-                <div class="pwck_input_box">
-                    <input type="text" class="pwck_input">
-                </div>
-                <span class="final_pwck_ck">비밀번호 확인을 입력해주세요.</span>
-                <span class="pwck_input_re_1">비밀번호가 일치합니다.</span>
-                <span class="pwck_input_re_2">비밀번호가 일치하지 않습니다.</span>
             </div>
             <div class="mail_wrap">
                 <div class="mail_name">이메일</div>
@@ -347,12 +328,6 @@
                     <div class="mail_check_input_box" id="mail_check_input_box_false">
                         <input type="text" class="mail_check_input" disabled="disabled">
                     </div>
-                    <div class="mail_check_button">
-                        <span>인증번호 전송</span>
-                    </div>
-                    <div class="clearfix"></div>
-                    <span id="mail_check_input_box_warn"></span>
-                </div>
             </div>
             <div class="address_wrap">
                 <div class="address_name">주소</div>
@@ -378,7 +353,7 @@
                 <span class="final_addr_ck">주소를 입력해주세요.</span>
             </div>
             <div class="join_button_wrap">
-                <input type="button" class="join_button" value="가입하기">
+                <input type="button" class="update_button" value="수정하기">
             </div>
         </div>
     </form>
