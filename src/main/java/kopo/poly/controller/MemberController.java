@@ -94,6 +94,10 @@ public class MemberController {
     public String joinpage() throws Exception {
     return "/member/join";
      }
+    @GetMapping(value = "/info")
+    public String infopage() throws Exception {
+        return "/member/info";
+    }
     @GetMapping(value = "/header")
     public String headerpage() throws Exception {
         return "/member/header";
