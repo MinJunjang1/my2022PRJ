@@ -25,7 +25,7 @@
     <c:forEach items="${list}" var="memberDTO">
     <tr>
         <th>${MemberDTO.user_seq}</th>
-        <th>${MemberDTO.user_id}</th>
+        <th><a href="${path}/info?user_id=${MemberDTO.user_id}"/></th>
         <th>${MemberDTO.user_pw}</th>
         <th>${MemberDTO.user_email}</th>
         <th>${MemberDTO.user_addr2}</th>
