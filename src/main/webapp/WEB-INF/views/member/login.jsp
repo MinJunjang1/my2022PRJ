@@ -82,6 +82,7 @@
         margin-top: 40px;
         text-align: center;
     }
+
     .login_button{
         width: 84%;
         height: 80px;

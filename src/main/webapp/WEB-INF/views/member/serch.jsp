@@ -77,15 +77,7 @@
         color: white;
         margin : auto;
     }
-.login_button{
-    width: 84%;
-    height: 80px;
-    background-color: #6AAFE6;
-    font-size: 40px;
-    font-weight: 900;
-    color: white;
-    margin : auto;
-}
+
 
     .subjecet{
         width: 100%;
@@ -106,11 +98,31 @@
         padding: 10px 14px;
         margin: 0px 65px;
     }
-    .show{
-        color : gray;
-        text-align: right;
+    .search_button_wrap{
+        margin-top: 40px;
+        text-align: center;
     }
 
+    .id_button{
+        width: 42%;
+        height: 80px;
+        background-color: #6AAFE6;
+        font-size: 40px;
+        font-weight: 900;
+        color: white;
+        margin : auto;
+        float: left;
+    }
+    .pw_button{
+        width: 42%;
+        height: 80px;
+        background-color: #6AAFE6;
+        font-size: 40px;
+        font-weight: 900;
+        color: white;
+        margin : auto;
+        float: right;
+    }
 </style>
 <body>
 
@@ -134,12 +146,13 @@
 
                     </div>
                 </div>
-                <div id="pwshow" class="show" onclick="pw">PW 찾기</div>
                 <div class="login_button_wrap">
                     <input type="button" class="idserch_button"  value="찾기" >
                 </div>
             </div>
+
         </form>
+
     </div>
 <div id="pwserch">
         <form id="pw_form" class="pwform" method="post">
@@ -158,45 +171,44 @@
 
                 </div>
             </div>
-            <div id="idshow" class="show" onclick="id">ID 찾기</div>
+
             <div class="login_button_wrap">
                 <input type="button" class="pwserch_button"  value="찾기" >
             </div>
         </div>
     </form>
-</div>
-            <div class="login_button_wrap">
-                <input type="button" class="login_button" value="로그인" onclick="location.href='/login'">
-            </div>
 
+
+</div>
+     <div class="login_button_wrap">
+                <input type="button" class="login_button" value="로그인" onclick="location.href='/login'">
+        </div>
+        <div class="login_button_wrap">
+            <input type="button" class="id_button" value="ID찾기" onclick="idshow()"><br>
+            <input type="button" class="pw_button" value="PW찾기" onclick="pwshow()"><br>
+        </div>
     </div>
 
 </div>
 
 <script>
-    window.onload = function () {
-        var el = document.getElementById("pwshow");
-        el.onclick = pw;
-    }
-    window.onload = function () {
-        var el = document.getElementById("idshow");
-        el.onclick = id;
-    }
+
     $("#idserch").show();
 
     $("#pwserch").hide();
-    function id(){
+
+    function idshow(){
+        $("#pwserch").hide();
         $("#idserch").show();
 
-        $("#pwserch").hide();
 
-    };
-    function pw(){
+
+    }
+    function pwshow(){
+        $("#idserch").hide();
         $("#pwserch").show();
 
-        $("#idserch").hide();
-
-    };
+    }
 
     /* 로그인 버튼 클릭 메서드 */
     $(".idserch_button").click(function(){
