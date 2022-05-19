@@ -94,6 +94,10 @@ public class MemberController {
     public String joinpage() throws Exception {
     return "/member/join";
      }
+    @GetMapping(value = "/update")
+    public String updatepage() throws Exception {
+        return "/member/update";
+    }
 
     @GetMapping(value = "/header")
     public String headerpage() throws Exception {
@@ -245,7 +249,29 @@ public class MemberController {
         }
         return "/member/serch";
     }
+    @RequestMapping(value = "/pwserch", method = RequestMethod.POST)
+    public String pwserchPost(HttpServletRequest request, MemberDTO memberDTO, RedirectAttributes rttr, Model model)throws Exception{
+        String user_id = CmmUtil.nvl(request.getParameter("user_id"));
+        log.info(user_id);
+        MemberDTO pDTO = new MemberDTO();
+        pDTO.setUser_id(user_id);
+        HttpSession session = request.getSession();
+        MemberDTO member = memberService.serchpw(pDTO);
+        session.setAttribute("memberDTO", member);
+        if(member == null){
 
+            model.addAttribute("msg", "등록된 아이디가 없습니다");
+            System.out.println(request.getAttribute("msg"));
+            return "/idpwalert";
+        }
+        if(member != null){
+
+            model.addAttribute("msg", "비밀번호는 : " + member.getUser_pw() + " 입니다");
+            System.out.println(request.getAttribute("msg"));
+            return "/idpwalert";
+        }
+        return "/member/serch";
+    }
     @RequestMapping(value = "/userlogin.do", method = RequestMethod.POST)
     public String userloginPOST(HttpServletRequest request, MemberDTO memberDTO, RedirectAttributes rttr, Model model) throws Exception {
 

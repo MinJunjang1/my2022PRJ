@@ -20,5 +20,7 @@ public interface IMemberService {
     MemberDTO serchid(MemberDTO pDTO) throws Exception;
 
     int emailck(String user_email)throws Exception;
+
+    MemberDTO serchpw(MemberDTO memberDTO) throws Exception;
 }
 

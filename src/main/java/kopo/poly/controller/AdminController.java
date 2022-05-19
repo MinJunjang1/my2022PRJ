@@ -29,6 +29,10 @@ public class AdminController {
         }
         return "/admin/main";
     }
+    @GetMapping(value = "/infolist")
+    public String listpage() throws Exception {
+        return "/admin/infolist";
+    }
 
 
 

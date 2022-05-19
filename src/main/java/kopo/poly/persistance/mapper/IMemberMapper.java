@@ -21,4 +21,6 @@ public interface IMemberMapper {
     MemberDTO serchid(MemberDTO memberDTO) throws Exception;
 
     int emailck(String user_email) throws Exception;
+
+    MemberDTO serchpw(MemberDTO memberDTO) throws Exception;
 }

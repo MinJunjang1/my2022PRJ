@@ -29,4 +29,7 @@
 	<select id="serchid" resultType="MemberDTO">
 		select user_id from member where user_email = #{user_email}
 	</select>
+	<select id="serchpw" resultType="MemberDTO">
+		select user_pw from member where user_id = #{user_id}
+	</select>
 </mapper>

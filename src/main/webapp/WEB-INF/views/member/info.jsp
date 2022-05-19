@@ -349,7 +349,7 @@
                회원가입일 : ${dto.user_dt}
             </div>
             <div class="join_button_wrap">
-                <input type="button" class="update_button" value="수정하기">
+                <input type="button" class="update_button" value="수정하기" onclick="location.href='/update'">
             </div>
         </div>
         </div>

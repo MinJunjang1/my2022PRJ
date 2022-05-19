@@ -51,6 +51,11 @@ public class MemberService implements IMemberService {
         return memberMapper.emailck(user_email);
     }
 
+    @Override
+    public MemberDTO serchpw(MemberDTO memberDTO) throws Exception {
+        return memberMapper.serchpw(memberDTO);
+    }
+
 //    @Override
 //    public List<NoticeDTO> getNoticeList() throws Exception {
 //
