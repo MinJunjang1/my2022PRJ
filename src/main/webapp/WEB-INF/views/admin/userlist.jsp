@@ -47,7 +47,7 @@
 <c:forEach items="${list}" var="memberDTO">
     <tr>
         <th><%=String.valueOf(rDTO.getUser_seq())%></th>
-        <th><a href="${path}/info?user_id=<%=CmmUtil.nvl(rDTO.getUser_id()) %>"/></th>
+        <th><%=CmmUtil.nvl(rDTO.getUser_id()) %></th>
         <th><%=CmmUtil.nvl(rDTO.getUser_pw()) %></th>
         <th><%=CmmUtil.nvl(rDTO.getUser_email()) %></th>
         <th><%=CmmUtil.nvl(rDTO.getUser_addr2()) %></th>
