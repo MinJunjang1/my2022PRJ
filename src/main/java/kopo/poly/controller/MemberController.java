@@ -103,6 +103,10 @@ public class MemberController {
     public String loginpage() throws Exception {
         return "/member/login";
     }
+    @GetMapping(value = "/search")
+    public String searchpage() throws Exception {
+        return "/member/search";
+    }
     @GetMapping(value = "/join1")
     public String joinpage1() throws Exception {
         return "/member/join1";

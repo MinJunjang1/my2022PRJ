@@ -8,7 +8,7 @@
 <html lang="ko">
 <head>
     <meta charset="UTF-8">
-    <title>로그인</title>
+    <title>id/pw 찾기</title>
     <script
             src="https://code.jquery.com/jquery-3.4.1.js"
             integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
@@ -120,15 +120,19 @@
     .clearfix{
         clear: both;
     }
+    .subjecet{
+        width: 100%;
+        height: 120px;
+        background-color: #8EC0E4;
+    }
 </style>
 <body>
 
 <div class="wrapper">
     <div class="wrap">
         <form id="login_form" method="post">
-            <div class="logo_wrap">
-                <span>SHOW TRADE</span><br>
-                <span>HOUSE PRICE</span>
+            <div class="subjecet">
+                <span>ID/PW 찾기</span>
             </div>
             <div class="login_wrap">
                 <div class="id_wrap">
@@ -142,14 +146,11 @@
                     </div>
                 </div>
                 <div class="login_button_wrap">
-                    <input type="button" class="login_button" value="로그인">
+                    <input type="button" class="login_button" value="찾기">
                 </div>
             </div>
         </form>
-        <div class="login_button_wrap">
-            <input type="button" class="search_button" value="ID/PW 찾기" onclick="location.href='/serch'">
-            <input type="button" class="join_button" value="회원가입" onclick="location.href='/join1'">
-        </div>
+
     </div>
 
 </div>
