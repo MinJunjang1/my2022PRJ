@@ -59,6 +59,15 @@
         margin-top: 40px;
         text-align: center;
     }
+    .login_button{
+        width: 84%;
+        height: 80px;
+        background-color: #6AAFE6;
+        font-size: 40px;
+        font-weight: 900;
+        color: white;
+        margin : auto;
+    }
     .idserch_button{
         width: 84%;
         height: 80px;
@@ -103,25 +112,23 @@
         text-align: center;
     }
 
-    .id_button{
+    .search_button{
         width: 42%;
         height: 80px;
         background-color: #6AAFE6;
         font-size: 40px;
         font-weight: 900;
         color: white;
-        margin : 5px;
-
+        margin : auto;
     }
-    .pw_button{
+    .join_button{
         width: 42%;
         height: 80px;
         background-color: #6AAFE6;
         font-size: 40px;
         font-weight: 900;
         color: white;
-        margin : 5px;
-
+        margin : auto;
     }
 </style>
 <body>
@@ -180,15 +187,14 @@
 
 
 </div>
-     <div class="login_button_wrap">
+     <div class="search_button_wrap">
                 <input type="button" class="login_button" value="로그인" onclick="location.href='/login'">
      </div>
         <div class="login_button_wrap">
-            <input type="button" class="id_button" value="ID찾기" onclick="idshow()"><br>
-            <input type="button" class="pw_button" value="PW찾기" onclick="pwshow()"><br>
+            <input type="button" class="search_button" value="ID찾기" onclick="idshow()">
+            <input type="button" class="join_button" value="PW찾기" onclick="pwshow()">
         </div>
     </div>
-
 </div>
 
 <script>
