@@ -53,6 +53,7 @@
 						<span>회원 : ${memberDTO.user_id}</span>
 						<a href="/logout">로그아웃</a>
 					</button>
+					<button type="button" class="" value="/info?${memberDTO.user_id}">회원정보</button>
 					<a href="/admin/main">관리</a>
 
 				</c:if>
