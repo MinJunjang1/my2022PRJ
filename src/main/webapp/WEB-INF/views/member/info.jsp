@@ -346,7 +346,7 @@
                 </div>
             </div>
             <div>
-                ${dto.user_dt}
+               회원가입일 : ${dto.user_dt}
             </div>
             <div class="join_button_wrap">
                 <input type="button" class="update_button" value="수정하기">

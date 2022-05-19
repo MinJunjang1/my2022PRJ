@@ -203,7 +203,6 @@
         <ul>
             <li >
                 <a class="admin_list_01" href="/userlist">사용자 관리</a>
-                <jsp:include page="infolist.jsp" flush="false"></jsp:include>
             </li>
             <li>
                 <a class="admin_list_02" href="/admin/goodsManage">게시판관리</a>
