@@ -305,6 +305,7 @@
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
         crossorigin="anonymous"></script>
 </head>
+<jsp:include page="../header.jsp" flush="false"></jsp:include>
 <body>
 
 <div class="wrapper">
