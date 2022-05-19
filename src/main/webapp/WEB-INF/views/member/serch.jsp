@@ -110,8 +110,8 @@
         font-size: 40px;
         font-weight: 900;
         color: white;
-        margin : auto;
-        float: left;
+        margin : 5px;
+
     }
     .pw_button{
         width: 42%;
@@ -120,8 +120,8 @@
         font-size: 40px;
         font-weight: 900;
         color: white;
-        margin : auto;
-        float: right;
+        margin : 5px;
+
     }
 </style>
 <body>
@@ -182,7 +182,7 @@
 </div>
      <div class="login_button_wrap">
                 <input type="button" class="login_button" value="로그인" onclick="location.href='/login'">
-        </div>
+     </div>
         <div class="login_button_wrap">
             <input type="button" class="id_button" value="ID찾기" onclick="idshow()"><br>
             <input type="button" class="pw_button" value="PW찾기" onclick="pwshow()"><br>
