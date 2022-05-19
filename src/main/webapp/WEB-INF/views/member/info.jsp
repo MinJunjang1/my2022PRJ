@@ -317,13 +317,13 @@
             <div class="id_wrap">
                 <div class="id_name">아이디</div>
                 <div class="id_input_box">
-                    <input type="text" class="id_input" name="userid" value="${memberDTO.user_id}" id="userid" disabled >
+                    <input type="text" class="id_input" name="userid" value="${dto.user_id}" id="userid" disabled >
                 </div>
             </div>
             <div class="mail_wrap">
                 <div class="mail_name">이메일</div>
                 <div class="mail_input_box">
-                    <input type="text" class="mail_input" name="memberMail" value="${memberDTO.user_email}" id="memberMail" disabled>
+                    <input type="text" class="mail_input" name="memberMail" value="${dto.user_email}" id="memberMail" disabled>
                 </div>
                 <span class="final_mail_ck">이메일을 입력해주세요.</span>
                 <sapn class="mail_input_box_warn"></sapn>
@@ -336,18 +336,18 @@
                 <div class="address_name">주소</div>
                 <div class="address_input_1_wrap">
                     <div class="address_input_1_box">
-                        <input type="text" class="address_input_1" name="memberAddr1" value="${memberDTO.user_addr1}" readonly="readonly" id="memberAddr1"  disabled>
+                        <input type="text" class="address_input_1" name="memberAddr1" value="${dto.user_addr1}" readonly="readonly" id="memberAddr1"  disabled>
                     </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class ="address_input_2_wrap">
                     <div class="address_input_2_box">
-                        <input type="text" class="address_input_2" name="memberAddr2" value="${memberDTO.user_addr2}" readonly="readonly" id="memberAddr2" disabled>
+                        <input type="text" class="address_input_2" name="memberAddr2" value="${dto.user_addr2}" readonly="readonly" id="memberAddr2" disabled>
                     </div>
                 </div>
                 <div class ="address_input_3_wrap">
                     <div class="address_input_3_box">
-                        <input type="text" class="address_input_3" name="memberAddr3" value="${memberDTO.user_addr3}" readonly="readonly" id="memberAddr3" disabled>
+                        <input type="text" class="address_input_3" name="memberAddr3" value="${dto.user_addr3}" readonly="readonly" id="memberAddr3" disabled>
                     </div>
                 </div>
             </div>
