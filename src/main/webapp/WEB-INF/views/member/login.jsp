@@ -91,7 +91,24 @@
         color: white;
         margin : auto;
     }
-
+    .search_button{
+        width: 42%;
+        height: 80px;
+        background-color: #6AAFE6;
+        font-size: 40px;
+        font-weight: 900;
+        color: white;
+        margin : auto;
+    }
+    .join_button{
+        width: 42%;
+        height: 80px;
+        background-color: #6AAFE6;
+        font-size: 40px;
+        font-weight: 900;
+        color: white;
+        margin : auto;
+    }
     /* 로그인 실패시 경고글 */
     .login_warn{
         margin-top: 30px;
@@ -129,7 +146,10 @@
                 </div>
             </div>
         </form>
-
+        <div class="login_button_wrap">
+            <input type="button" class="search_button" value="id/pw 찾기" onclick="location.href=''">
+            <input type="button" class="join_button" value="회원가입" onclick="location.href='/join1'">
+        </div>
     </div>
 
 </div>
@@ -146,6 +166,7 @@
         $("#login_form").submit();
 
     });
+
 </script>
 <script>
 
