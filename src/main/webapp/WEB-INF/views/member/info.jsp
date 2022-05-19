@@ -325,12 +325,6 @@
                 <div class="mail_input_box">
                     <input type="text" class="mail_input" name="memberMail" value="${dto.user_email}" id="memberMail" disabled>
                 </div>
-                <span class="final_mail_ck">이메일을 입력해주세요.</span>
-                <sapn class="mail_input_box_warn"></sapn>
-                <div class="mail_check_wrap">
-                    <div class="mail_check_input_box" id="mail_check_input_box_false">
-                        <input type="text" class="mail_check_input" disabled="disabled">
-                    </div>
             </div>
             <div class="address_wrap">
                 <div class="address_name">주소</div>
