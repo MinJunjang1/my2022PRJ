@@ -113,8 +113,9 @@ public class MemberController {
         return "/member/main";
     }
     @GetMapping(value = "/info")
-    public String userinfo(String user_id, Model model) throws Exception {
+    public String userinfo(String user_id, Model model, HttpServletRequest request) throws Exception {
         //테스트(컨트롤러) 호출 -> 정보를 저장 -> DB로이동
+       user_id = CmmUtil.nvl(request.getParameter("user_id"));
         model.addAttribute("dto", memberService.userinfo(user_id));
         return "/member/info";
     }
