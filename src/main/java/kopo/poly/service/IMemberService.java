@@ -16,5 +16,9 @@ public interface IMemberService {
     List<MemberDTO> getuserList() throws Exception;
 
     MemberDTO userinfo(String user_id) throws Exception;
+
+    MemberDTO serchid(MemberDTO pDTO) throws Exception;
+
+    int emailck(String user_email)throws Exception;
 }
 

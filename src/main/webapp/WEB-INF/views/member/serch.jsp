@@ -31,33 +31,10 @@
         margin: auto;
     }
 
-    /* 페이지 로고 */
-    .logo_wrap{
-        text-align: center;
-        margin: 100px 0;
-    }
     .logo_wrap>span{
         font-size : 45px;
         font-weight: 900;
     }
-
-
-    /* 로그인 area */
-    .id_input_box{
-        border: 1px solid black;
-        height:31px;
-        padding: 10px 14px;
-        display: block;
-        width : 80%;
-        margin : auto;
-    }
-    .id_input{
-        width:100%;
-        height:100%;
-        border:none;
-        font-size:28px;
-    }
-
 
     .pw_wrap{
         margin-top: 40px;
@@ -82,7 +59,7 @@
         margin-top: 40px;
         text-align: center;
     }
-    .login_button{
+    .idserch_button{
         width: 84%;
         height: 80px;
         background-color: #6AAFE6;
@@ -91,8 +68,8 @@
         color: white;
         margin : auto;
     }
-    .search_button{
-        width: 42%;
+    .pwserch_button{
+        width: 84%;
         height: 80px;
         background-color: #6AAFE6;
         font-size: 40px;
@@ -100,77 +77,150 @@
         color: white;
         margin : auto;
     }
-    .join_button{
-        width: 42%;
-        height: 80px;
-        background-color: #6AAFE6;
-        font-size: 40px;
-        font-weight: 900;
-        color: white;
-        margin : auto;
-    }
-    /* 로그인 실패시 경고글 */
-    .login_warn{
-        margin-top: 30px;
-        text-align: center;
-        color : red;
-    }
+.login_button{
+    width: 84%;
+    height: 80px;
+    background-color: #6AAFE6;
+    font-size: 40px;
+    font-weight: 900;
+    color: white;
+    margin : auto;
+}
 
-    /* float 속성 해제 */
-    .clearfix{
-        clear: both;
-    }
     .subjecet{
         width: 100%;
         height: 120px;
         background-color: #8EC0E4;
     }
+    .subjecet span{
+        margin-left: 31px;
+        font-size: 80px;
+        font-weight: 900;
+        color: white;
+
+    }
+    .pw_wrap div{
+        font-size:28px;
+        font-weight: bold;
+        width: 80%;
+        padding: 10px 14px;
+        margin: 0px 65px;
+    }
+    .show{
+        color : gray;
+        text-align: right;
+    }
+
 </style>
 <body>
 
 <div class="wrapper">
     <div class="wrap">
-        <form id="login_form" method="post">
+        <div id="idserch">
+        <form id="login_form" class="idform" method="post">
             <div class="subjecet">
-                <span>ID/PW 찾기</span>
+                <span>ID 찾기</span>
             </div>
+
             <div class="login_wrap">
-                <div class="id_wrap">
-                    <div class="id_input_box">
-                        <input class="id_input" name="user_id">
-                    </div>
-                </div>
+
                 <div class="pw_wrap">
+
+                    <div>EMAIL</div>
+
                     <div class="pw_input_box">
-                        <input class="pw_iput" name="user_pw">
+
+                        <input type="email" class="pw_iput" name="user_email" id="user_email">
+
                     </div>
                 </div>
+                <div id="pwshow" class="show" onclick="pw">PW 찾기</div>
                 <div class="login_button_wrap">
-                    <input type="button" class="login_button" value="찾기">
+                    <input type="button" class="idserch_button"  value="찾기" >
                 </div>
             </div>
         </form>
+    </div>
+<div id="pwserch">
+        <form id="pw_form" class="pwform" method="post">
+        <div class="subjecet">
+            <span>PW 찾기</span>
+        </div>
+
+        <div class="login_wrap">
+
+            <div class="pw_wrap">
+
+                <div>ID</div>
+                <div class="pw_input_box">
+
+                    <input type="id" class="pw_iput" name="user_id" id="user_id">
+
+                </div>
+            </div>
+            <div id="idshow" class="show" onclick="id">ID 찾기</div>
+            <div class="login_button_wrap">
+                <input type="button" class="pwserch_button"  value="찾기" >
+            </div>
+        </div>
+    </form>
+</div>
+            <div class="login_button_wrap">
+                <input type="button" class="login_button" value="로그인" onclick="location.href='/login'">
+            </div>
 
     </div>
 
 </div>
 
 <script>
+    window.onload = function () {
+        var el = document.getElementById("pwshow");
+        el.onclick = pw;
+    }
+    window.onload = function () {
+        var el = document.getElementById("idshow");
+        el.onclick = id;
+    }
+    $("#idserch").show();
+
+    $("#pwserch").hide();
+    function id(){
+        $("#idserch").show();
+
+        $("#pwserch").hide();
+
+    };
+    function pw(){
+        $("#pwserch").show();
+
+        $("#idserch").hide();
+
+    };
+
     /* 로그인 버튼 클릭 메서드 */
-    $(".login_button").click(function(){
+    $(".idserch_button").click(function(){
 
         //alert("로그인 버튼 작동");
         /* 로그인 메서드 서버 요청 */
 
-        $("#login_form").attr("action", "/userlogin.do");
+        $("#login_form").attr("action", "/idserch");
+
+        $("#login_form").submit();
+
+    });
+    $(".pwserch_button").click(function(){
+
+        //alert("로그인 버튼 작동");
+        /* 로그인 메서드 서버 요청 */
+
+        $("#login_form").attr("action", "/idserch");
 
         $("#login_form").submit();
 
     });
 
 </script>
-<script>
 
-</script>
 </body>
 </html>

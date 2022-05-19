@@ -41,6 +41,16 @@ public class MemberService implements IMemberService {
         return memberMapper.userinfo(user_id);
     }
 
+    @Override
+    public MemberDTO serchid(MemberDTO memberDTO) throws Exception {
+        return memberMapper.serchid(memberDTO);
+    }
+
+    @Override
+    public int emailck(String user_email) throws Exception {
+        return memberMapper.emailck(user_email);
+    }
+
 //    @Override
 //    public List<NoticeDTO> getNoticeList() throws Exception {
 //

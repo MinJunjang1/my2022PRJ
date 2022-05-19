@@ -17,4 +17,8 @@ public interface IMemberMapper {
     List<MemberDTO> getuserList() throws Exception;
 
     MemberDTO userinfo(String user_id) throws Exception;
+
+    MemberDTO serchid(MemberDTO memberDTO) throws Exception;
+
+    int emailck(String user_email) throws Exception;
 }

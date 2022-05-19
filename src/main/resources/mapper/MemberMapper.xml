@@ -12,6 +12,9 @@
 	<select id="idCheck" resultType="int">
 		select count(*) from member where user_id = #{user_id}
 	</select>
+	<select id="emailck" resultType="int">
+		select count(*) from member where user_email = #{user_email}
+	</select>
 
 	<select id="userlogin" resultType="MemberDTO">
 		select user_id, user_pw, adminck from member where user_id = #{user_id} and user_pw = #{user_pw}
@@ -22,5 +25,8 @@
 
 	<select id="userinfo" resultType="MemberDTO">
 		select user_id, user_addr1,user_addr2,user_addr3,user_email, user_dt from member where user_id = #{user_id}
+	</select>
+	<select id="serchid" resultType="MemberDTO">
+		select user_id from member where user_email = #{user_email}
 	</select>
 </mapper>

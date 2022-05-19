@@ -103,9 +103,9 @@ public class MemberController {
     public String loginpage() throws Exception {
         return "/member/login";
     }
-    @GetMapping(value = "/search")
+    @GetMapping(value = "/serch")
     public String searchpage() throws Exception {
-        return "/member/search";
+        return "/member/serch";
     }
     @GetMapping(value = "/join1")
     public String joinpage1() throws Exception {
@@ -222,6 +222,29 @@ public class MemberController {
         return num;
 
     }
+    @RequestMapping(value = "/idserch", method = RequestMethod.POST)
+    public String idserchPost(HttpServletRequest request, MemberDTO memberDTO, RedirectAttributes rttr, Model model)throws Exception{
+        String user_email = CmmUtil.nvl(request.getParameter("user_email"));
+        log.info(user_email);
+        MemberDTO pDTO = new MemberDTO();
+        pDTO.setUser_email(user_email);
+        HttpSession session = request.getSession();
+        MemberDTO member = memberService.serchid(pDTO);
+        session.setAttribute("memberDTO", member);
+        if(member == null){
+
+            model.addAttribute("msg", "이메일이 없습니다");
+            System.out.println(request.getAttribute("msg"));
+            return "/idpwalert";
+        }
+        if(member != null){
+
+            model.addAttribute("msg", "아이디는 : " + member.getUser_id() + " 입니다");
+            System.out.println(request.getAttribute("msg"));
+            return "/idpwalert";
+        }
+        return "/member/serch";
+    }
 
     @RequestMapping(value = "/userlogin.do", method = RequestMethod.POST)
     public String userloginPOST(HttpServletRequest request, MemberDTO memberDTO, RedirectAttributes rttr, Model model) throws Exception {
@@ -258,6 +281,28 @@ public class MemberController {
         session.setAttribute("memberDTO", member);
         return "redirect:/main";
     }
+    @RequestMapping(value = "/emailck", method = RequestMethod.POST)
+    @ResponseBody
+    public String emailckPOST(String user_email) throws Exception{
 
+        /* logger.info("memberIdChk() 진입"); */
+
+
+
+        int result = memberService.emailck(user_email);
+
+
+
+        if(result != 0) {
+
+            return "fail";	// 중복 아이디가 존재
+
+        } else {
+
+            return "success";	// 중복 아이디 x
+
+        }
+
+    }
 
 }
