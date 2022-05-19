@@ -19,4 +19,8 @@
 	<select id="getuserList" resultType="MemberDTO">
 		select user_seq, user_id, user_pw, user_email, user_addr2, user_dt from member order by user_seq
 	</select>
+
+	<select id="userinfo" resultType="MemberDTO">
+		select user_id, user_addr1,user_addr2,user_addr3,user_email, user_dt from member where user_id = #{user_id}
+	</select>
 </mapper>

@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri ="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
 <head>
@@ -314,13 +316,13 @@
             <div class="id_wrap">
                 <div class="id_name">아이디</div>
                 <div class="id_input_box">
-                    <input type="text" class="id_input" name="userid" id="userid" >
+                    <input type="text" class="id_input" name="userid" value="${memberDTO.user_id}" id="userid" disabled >
                 </div>
             </div>
             <div class="mail_wrap">
                 <div class="mail_name">이메일</div>
                 <div class="mail_input_box">
-                    <input type="text" class="mail_input" name="memberMail" id="memberMail">
+                    <input type="text" class="mail_input" name="memberMail" value="${memberDTO.user_id}" id="memberMail" disabled>
                 </div>
                 <span class="final_mail_ck">이메일을 입력해주세요.</span>
                 <sapn class="mail_input_box_warn"></sapn>
@@ -333,7 +335,7 @@
                 <div class="address_name">주소</div>
                 <div class="address_input_1_wrap">
                     <div class="address_input_1_box">
-                        <input type="text" class="address_input_1" name="memberAddr1" readonly="readonly" id="memberAddr1">
+                        <input type="text" class="address_input_1" name="memberAddr1" readonly="readonly" id="memberAddr1" disabled>
                     </div>
                     <div class="address_button" onclick="execution_daum_address()">
                         <span>주소 찾기</span>
@@ -342,12 +344,12 @@
                 </div>
                 <div class ="address_input_2_wrap">
                     <div class="address_input_2_box">
-                        <input type="text" class="address_input_2" name="memberAddr2" readonly="readonly" id="memberAddr2">
+                        <input type="text" class="address_input_2" name="memberAddr2" readonly="readonly" id="memberAddr2" disabled>
                     </div>
                 </div>
                 <div class ="address_input_3_wrap">
                     <div class="address_input_3_box">
-                        <input type="text" class="address_input_3" name="memberAddr3" readonly="readonly" id="memberAddr3">
+                        <input type="text" class="address_input_3" name="memberAddr3" readonly="readonly" id="memberAddr3" disabled>
                     </div>
                 </div>
                 <span class="final_addr_ck">주소를 입력해주세요.</span>
@@ -355,6 +357,7 @@
             <div class="join_button_wrap">
                 <input type="button" class="update_button" value="수정하기">
             </div>
+        </div>
         </div>
     </form>
 </div>

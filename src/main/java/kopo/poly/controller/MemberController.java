@@ -112,7 +112,14 @@ public class MemberController {
     }
     @GetMapping(value = "/main")
     public String mainpage() throws Exception {
+
         return "/member/main";
+    }
+    @RequestMapping(value = "/userinfo", method = RequestMethod.POST)
+    public String userinfo(String user_id, Model model) throws Exception {
+        //테스트(컨트롤러) 호출 -> 정보를 저장 -> DB로이동
+        model.addAttribute("dto", memberService.userinfo(user_id));
+        return "/member/info";
     }
 
     @GetMapping(value = "/userlist")

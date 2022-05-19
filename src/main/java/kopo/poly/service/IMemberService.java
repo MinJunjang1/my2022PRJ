@@ -14,5 +14,7 @@ public interface IMemberService {
 
 
     List<MemberDTO> getuserList() throws Exception;
+
+    MemberDTO userinfo(String user_id) throws Exception;
 }
 
