@@ -38,7 +38,7 @@ public class MemberService implements IMemberService {
 
     @Override
     public MemberDTO userinfo(String user_id) throws Exception {
-        return memberMapper.user_id(user_id);
+        return memberMapper.userinfo(user_id);
     }
 
 //    @Override
