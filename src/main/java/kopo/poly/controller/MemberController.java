@@ -88,6 +88,45 @@ public class MemberController {
         return "redirect:/login";
 
     }
+    @RequestMapping(value="/update1", method=RequestMethod.POST)
+    public String updatePOST(HttpServletRequest request, HttpSession session) throws Exception{
+
+        String user_id = CmmUtil.nvl(request.getParameter("userid"));
+        String user_pw = CmmUtil.nvl(request.getParameter("memberPw"));
+        String user_email = CmmUtil.nvl(request.getParameter("memberMail"));
+        String user_addr1 = CmmUtil.nvl(request.getParameter("memberAddr1"));
+        String user_addr2 = CmmUtil.nvl(request.getParameter("memberAddr2"));
+        String user_addr3 = CmmUtil.nvl(request.getParameter("memberAddr3"));
+        log.info(user_id);
+        log.info(user_pw);
+        log.info(user_email);
+        log.info(user_addr1);
+        log.info(user_addr2);
+        log.info(user_addr3);
+
+
+        MemberDTO pDTO = new MemberDTO();
+        pDTO.setUser_id(user_id);
+        pDTO.setUser_pw(user_pw);
+        pDTO.setUser_email(user_email);
+        pDTO.setUser_addr1(user_addr1);
+        pDTO.setUser_addr2(user_addr2);
+        pDTO.setUser_addr3(user_addr3);
+
+        /*
+         * 게시글 등록하기위한 비즈니스 로직을 호출
+         */
+        memberService.userupdate(pDTO);
+
+
+
+        // 회원가입 서비스 실행
+        session.invalidate();//로그인해제
+
+
+        return "/index";
+
+    }
 
     //getMapping 값 겹치지않기
     @GetMapping(value = "/join")

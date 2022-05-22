@@ -4,11 +4,11 @@
 <html lang="ko">
 <head>
     <meta charset="utf-8">
-<%--    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-    <meta name="description" content="">
-    <meta name="author" content="">--%>
+    <%--    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+        <meta name="description" content="">
+        <meta name="author" content="">--%>
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -327,9 +327,17 @@
     <form id="join_form" method="post">
         <div class="wrap">
             <div class="subjecet">
-                <span>개인정보 수정하기</span>
+                <span>회원정보 수정하기</span>
             </div>
-
+            <div class="id_wrap">
+                <div class="id_name">아이디</div>
+                <div class="id_input_box">
+                    <input type="text" class="id_input" name="userid" id="userid" readonly="readonly" value="${memberDTO.user_id}">
+                </div>
+                <span class="id_input_re_1">사용 가능한 아이디입니다.</span>
+                <span class="id_input_re_2">아이디가 이미 존재합니다.</span>
+                <span class="final_id_ck">아이디를 입력해주세요.</span>
+            </div>
             <div class="pw_wrap">
                 <div class="pw_name">비밀번호</div>
                 <div class="pw_input_box">
@@ -393,7 +401,7 @@
             <div class="join_button_wrap">
                 <input type="button" class="join_button" value="가입하기">
             </div>
-
+        </div>
     </form>
 </div>
 
@@ -401,6 +409,7 @@
 <script>
     var code = "";				//이메일전송 인증번호 저장위한 코드
     /* 유효성 검사 통과유무 변수 */
+    var idCheck = false;			// 아이디
     var pwCheck = false;			// 비번
     var pwckCheck = false;			// 비번 확인
     var pwckcorCheck = false;		// 비번 확인 일치 확인
@@ -412,11 +421,21 @@
         $(".join_button").click(function(){
 
             /* 입력값 변수 */
+            var id = $('.id_input').val(); 				// id 입력란
             var pw = $('.pw_input').val();				// 비밀번호 입력란
             var pwck = $('.pwck_input').val();			// 비밀번호 확인 입력란
             var mail = $('.mail_input').val();			// 이메일 입력란
             var addr = $('.address_input_3').val();		// 주소 입력란
 
+            /* 아이디 유효성검사 */
+            if(id == ""){
+                $('.final_id_ck').css('display','block');
+                idCheck = false;
+                alert("아이디칸이 비어있습니다");
+            }else{
+                $('.final_id_ck').css('display', 'none');
+                idCheck = true;
+            }
 
             /* 비밀번호 유효성 검사 */
             if(pw == ""){
@@ -461,9 +480,9 @@
             }
 
             /* 최종 유효성 검사 */
-            if(idckCheck&&pwCheck&&pwckCheck&&pwckcorCheck&&mailCheck&&mailnumCheck&&addressCheck ){
+            if(idCheck&&pwCheck&&pwckCheck&&pwckcorCheck&&mailCheck&&mailnumCheck&&addressCheck ){
 
-                $("#join_form").attr("action", "/join1");
+                $("#join_form").attr("action", "/update1");
                 $("#join_form").submit();
 
             }

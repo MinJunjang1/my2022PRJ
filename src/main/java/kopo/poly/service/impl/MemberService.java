@@ -56,6 +56,11 @@ public class MemberService implements IMemberService {
         return memberMapper.serchpw(memberDTO);
     }
 
+    @Override
+    public void userupdate(MemberDTO memberDTO) throws Exception {
+        memberMapper.userupdate(memberDTO);
+    }
+
 //    @Override
 //    public List<NoticeDTO> getNoticeList() throws Exception {
 //

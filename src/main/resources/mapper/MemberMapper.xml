@@ -32,4 +32,7 @@
 	<select id="serchpw" resultType="MemberDTO">
 		select user_pw from member where user_id = #{user_id}
 	</select>
+	<update id="userupdate">
+		update member set user_id = #{user_id}, user_pw = #{user_pw}, user_email = #{user_email}, user_addr1 =#{user_addr1}, user_addr2 = #{user_addr2}, user_addr3 = #{user_addr3} where user_id = #{user_id}
+	</update>
 </mapper>
