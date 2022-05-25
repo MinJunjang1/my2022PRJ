@@ -26,5 +26,5 @@ public interface IMemberMapper {
 
     void userupdate(MemberDTO memberDTO) throws Exception;
 
-    void deletuser(MemberDTO memberDTO) throws Exception;
+    void deleteuser(MemberDTO memberDTO) throws Exception;
 }

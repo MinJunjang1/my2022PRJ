@@ -24,47 +24,60 @@
 
 </head>
 <body>
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-	<div class="container-fluid">
-		<a class="navbar-brand" href="#">Navbar scroll</a>
-		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
-		<div class="collapse navbar-collapse" id="navbarScroll">
-			<ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
-				<li class="nav-item">
-					<a class="nav-link active" aria-current="page" href="#">Home</a>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link" href="#">Link</a>
-				</li>
-				<li class="nav-item dropdown">
-					<a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-						Link
-					</a>
-					<ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
-						<li><a class="dropdown-item" href="#">Action</a></li>
-						<li><a class="dropdown-item" href="#">Another action</a></li>
-						<li><hr class="dropdown-divider"></li>
-						<li><a class="dropdown-item" href="#">Something else here</a></li>
-					</ul>
-				</li>
-				<li class="nav-item">
-					<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Link</a>
-				</li>
-			</ul>
-			<div>
-				<c:if test="${ memberDTO != null }">
-					<span>회원 : ${memberDTO.user_id}</span>
-					<a href="/logout">로그아웃</a>
-					<a href="/info?user_id=${memberDTO.user_id}">마이페이지</a>
-					<a href="/admin/main">관리</a>
+<!-- 화면 변경 크기와 navbar의 배경색, 글자색 변경 -->
 
-				</c:if>
-			</div>
+<!-- 화면 위쪽에 고정하기 위해 fixed-top 클래스 추가 -->
 
-		</div>
+<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+
+	<!-- navbar-brand의 content 변경 -->
+
+	<a class="navbar-brand" href="#">Fixed navbar</a>
+
+	<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+
+		<span class="navbar-toggler-icon"></span>
+
+	</button>
+
+	<div class="collapse navbar-collapse" id="navbarSupportedContent">
+
+		<ul class="navbar-nav mr-auto">
+
+			<li class="nav-item active">
+
+				<a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+
+			</li>
+
+			<li class="nav-item">
+
+				<a class="nav-link" href="#">Link</a>
+
+			</li>
+
+			<!-- dropdown 메뉴 삭제 -->
+
+			<li class="nav-item">
+
+				<a class="nav-link disabled" href="#" tabindex="-1" aria-disabled="true">Disabled</a>
+
+			</li>
+
+		</ul>
+<div>
+	<c:if test="${ memberDTO != null }">
+		<span>회원 : ${memberDTO.user_id}</span>
+		<a href="/logout">로그아웃</a>
+		<a href="/info?user_id=${memberDTO.user_id}">마이페이지</a>
+		<a href="/admin/main">관리</a>
+
+	</c:if>
+
+</div>
+
 	</div>
+
 </nav>
 <!-- Optional JavaScript -->
 
@@ -75,16 +88,12 @@
 </html>
 <%--
 	<div class="float-right">
-				<!-- 로그인한 상태 -->
 				<c:if test="${ memberDTO != null }">
-				    <button type="button" class="btn btn-outline-light me-2">
-						<span>회원 : ${memberDTO.user_id}</span>
-						<a href="/logout">로그아웃</a>
-					</button>
-					<button type="button" class="" value="${memberDTO.user_id}"><a href="/info?user_id=${memberDTO.user_id}"/> 회원정보</button>
+					<span>회원 : ${memberDTO.user_id}</span>
+					<a href="/logout">로그아웃</a>
+					<a href="/info?user_id=${memberDTO.user_id}">마이페이지</a>
 					<a href="/admin/main">관리</a>
 
 				</c:if>
-
 			</div>
 --%>

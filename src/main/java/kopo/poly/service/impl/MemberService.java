@@ -63,7 +63,7 @@ public class MemberService implements IMemberService {
 
     @Override
     public void deleteuser(MemberDTO memberDTO) throws Exception {
-        memberMapper.deletuser(memberDTO);
+        memberMapper.deleteuser(memberDTO);
     }
 
 //    @Override
