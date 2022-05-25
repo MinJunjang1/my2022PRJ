@@ -24,5 +24,7 @@ public interface IMemberService {
     MemberDTO serchpw(MemberDTO memberDTO) throws Exception;
 
     void userupdate(MemberDTO pDTO) throws Exception;
+
+    void deleteuser(MemberDTO memberDTO) throws Exception;
 }
 

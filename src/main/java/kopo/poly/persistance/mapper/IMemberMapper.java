@@ -25,4 +25,6 @@ public interface IMemberMapper {
     MemberDTO serchpw(MemberDTO memberDTO) throws Exception;
 
     void userupdate(MemberDTO memberDTO) throws Exception;
+
+    void deletuser(MemberDTO memberDTO) throws Exception;
 }

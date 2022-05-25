@@ -346,6 +346,13 @@ public class MemberController {
         session.setAttribute("memberDTO", member);
         return "redirect:/main";
     }
+    @RequestMapping(value="/deleteuser")
+    public String deleteuser(MemberDTO memberDTO, HttpSession session, RedirectAttributes rttr) throws Exception{
+        memberService.deleteuser(memberDTO);
+        session.invalidate();
+        rttr.addFlashAttribute("msg", "삭제되었습니다");
+        return "alter";
+    }
     @RequestMapping(value = "/emailck", method = RequestMethod.POST)
     @ResponseBody
     public String emailckPOST(String user_email) throws Exception{
@@ -369,5 +376,7 @@ public class MemberController {
         }
 
     }
+
+
 
 }

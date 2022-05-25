@@ -353,7 +353,11 @@
                회원가입일 : ${dto.user_dt}
             </div>
             <div class="join_button_wrap">
-                <input type="button" class="update_button" value="수정하기" onclick="location.href='/update'">
+                <input type="button" class="btn btn-warning" value="수정하기" onclick="location.href='/update'">
+                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
+                    탈퇴하기
+                </button>
+
             </div>
         </div>
 
@@ -363,9 +367,6 @@
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <div class="deletekey">
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-    탈퇴하기
-</button>
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
@@ -381,7 +382,7 @@
                 탈퇴하시겠습니까?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger">탈퇴하기</button>
+                <button type="button" class="btn btn-danger" onclick="location.href='/deleteuser'">탈퇴하기</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
             </div>
         </div>
