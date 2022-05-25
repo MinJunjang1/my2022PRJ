@@ -28,7 +28,7 @@
 
 <!-- 화면 위쪽에 고정하기 위해 fixed-top 클래스 추가 -->
 
-<nav class="navbar navbar-expand-md navbar-dark bg-dark fixed-top">
+<nav class="navbar navbar-expand-md navbar-dark bg-dark">
 
 	<!-- navbar-brand의 content 변경 -->
 
