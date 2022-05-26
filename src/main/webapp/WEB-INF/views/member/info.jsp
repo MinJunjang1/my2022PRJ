@@ -382,7 +382,7 @@
                 탈퇴하시겠습니까?
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-danger" onclick="location.href='/deleteuser'">탈퇴하기</button>
+                <button type="button" class="btn btn-danger" onclick="location.href='/deleteuser?user_id=${dto.user_id}'">탈퇴하기</button>
                 <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
             </div>
         </div>
