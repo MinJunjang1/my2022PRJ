@@ -1,14 +1,14 @@
 package kopo.poly.service;
 
 import kopo.poly.dto.BoardDTO;
-import org.springframework.data.mongodb.core.query.Criteria;
+import kopo.poly.dto.Criteria;
 
 import java.util.List;
 
 public interface IBoardService {
 
 
-    void enroll(BoardDTO board);
+    void enroll(BoardDTO board) ;
 
     List<BoardDTO> getList();
 

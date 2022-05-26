@@ -2,7 +2,7 @@ package kopo.poly.persistance.mapper;
 
 import kopo.poly.dto.BoardDTO;
 import org.apache.ibatis.annotations.Mapper;
-import org.springframework.data.mongodb.core.query.Criteria;
+import kopo.poly.dto.Criteria;
 
 import java.util.List;
 

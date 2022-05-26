@@ -1,12 +1,9 @@
 package kopo.poly.dto;
 
-import lombok.Getter;
-import lombok.Setter;
-
 import java.util.Arrays;
 
 
-public class Crieria {
+public class Criteria {
     /* 현재 페이지 */
     private int pageNum;
 
@@ -27,16 +24,17 @@ public class Crieria {
 
 
     /* 기본 생성자 -> 기봅 세팅 : pageNum = 1, amount = 10 */
-    public Crieria() {
 
+    public Criteria() {
         this(1,10);
         this.skip = 0;
     }
 
 
 
+
     /* 생성자 => 원하는 pageNum, 원하는 amount */
-    public void Crieria(int pageNum, int amount) {
+    public Criteria(int pageNum, int amount) {
         this.pageNum = pageNum;
         this.amount = amount;
         this.skip = (pageNum-1)*amount;
@@ -100,7 +98,7 @@ public class Crieria {
 
     @Override
     public String toString() {
-        return "Crieria [pageNum=" + pageNum + ", amount=" + amount + ", skip=" + skip + ", keyword=" + keyword
+        return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", skip=" + skip + ", keyword=" + keyword
                 + ", type=" + type + ", typeArr=" + Arrays.toString(typeArr) + "]";
     }
 

@@ -1,10 +1,10 @@
 package kopo.poly.service.impl;
 
 import kopo.poly.dto.BoardDTO;
-import kopo.poly.persistance.mapper.IMemberMapper;
+import kopo.poly.persistance.mapper.IBoardMapper;
 import kopo.poly.service.IBoardService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.query.Criteria;
+import kopo.poly.dto.Criteria;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
     public class BoardService implements IBoardService {
 
     @Autowired
-    IBoardService mapper;
+    IBoardMapper mapper;
         @Override
         public void enroll(BoardDTO board) {
 

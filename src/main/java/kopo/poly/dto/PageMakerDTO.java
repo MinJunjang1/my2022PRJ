@@ -14,10 +14,10 @@ public class PageMakerDTO {
     private int total;
 
     /* 현재 페이지, 페이지당 게시물 표시수 정보 */
-    private Crieria cri;
+    private Criteria cri;
 
     /* 생성자 */
-    public PageMakerDTO(Crieria cri, int total) {
+    public PageMakerDTO(Criteria cri, int total) {
         this.cri = cri;
         this.total = total;
 
@@ -83,11 +83,11 @@ public class PageMakerDTO {
         this.total = total;
     }
 
-    public Crieria getCri() {
+    public Criteria getCri() {
         return cri;
     }
 
-    public void setCri(Crieria cri) {
+    public void setCri(Criteria cri) {
         this.cri = cri;
     }
 

@@ -1,12 +1,11 @@
 package kopo.poly.controller;
 
 import kopo.poly.dto.BoardDTO;
-import kopo.poly.dto.Crieria;
+import kopo.poly.dto.Criteria;
 import kopo.poly.dto.PageMakerDTO;
 import kopo.poly.service.impl.BoardService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -38,7 +37,7 @@ public class BoardController {
 
         /* 게시판 목록 페이지 접속(페이징 적용) */
         @GetMapping("/list")
-        public void boardListGET(Model model, Crieria cri) {
+        public void boardListGET(Model model, Criteria cri) {
 
             log.info("boardListGET");
 
@@ -64,7 +63,7 @@ public class BoardController {
         }
 
         /* 게시판 등록 */
-        @PostMapping("/enroll")
+        @PostMapping("/enroll1")
         public String boardEnrollPOST(BoardDTO board, RedirectAttributes rttr) {
 
             log.info("BoardDTO : " + board);
