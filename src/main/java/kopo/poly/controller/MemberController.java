@@ -320,7 +320,6 @@ public class MemberController {
         String user_id = CmmUtil.nvl(request.getParameter("user_id"));
         String user_pw = CmmUtil.nvl(request.getParameter("user_pw"));
 
-
         log.info(user_id);
         log.info(user_pw);
 
@@ -351,7 +350,7 @@ public class MemberController {
         memberService.deleteuser(memberDTO);
         session.invalidate();
         rttr.addFlashAttribute("msg", "삭제되었습니다");
-        return "alter";
+        return "/alert";
     }
     @RequestMapping(value = "/emailck", method = RequestMethod.POST)
     @ResponseBody

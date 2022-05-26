@@ -13,7 +13,7 @@
         <meta name="author" content="">--%>
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
     <title>회원가입1</title>
 
 </head>
@@ -354,15 +354,15 @@
             </div>
             <div class="join_button_wrap">
                 <input type="button" class="btn btn-warning" value="수정하기" onclick="location.href='/update'">
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal">
-                    탈퇴하기
-                </button>
-
+                <button type="button" class="btn btn-danger" onclick="location.href='/deleteuser?user_id=${dto.user_id}'">탈퇴하기</button>
             </div>
         </div>
 
     </form>
 </div>
+
+
+<%--
 
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <div class="deletekey">
@@ -389,5 +389,7 @@
     </div>
 </div>
 </div>
+--%>
+
 </body>
 </html>

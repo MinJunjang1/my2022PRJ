@@ -137,7 +137,7 @@
 	.admin_navi_wrap li a:active {color: black;}
 	.admin_navi_wrap li a:hover {color: black;}
 
-	.admin_list_03{
+	.admin_list_01{
 		background-color: #c8c8c8;
 	}
 
