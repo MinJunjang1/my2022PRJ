@@ -30,7 +30,7 @@
 --%>
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
 <body>
-<form method="post" action="contentWriteProcess.jsp">
+<form method="post" action="/board/enroll1">
     <div class="container">
 
         <h2>게시판 글쓰기</h2>
@@ -41,13 +41,14 @@
 
             <tr>
 
-                <td><input type="text" class="form-control" placeholder="글 제목" name="contentTitle" maxlength="40"></td>
+                <td><input type="text" class="form-control" placeholder="글 제목" name="title" maxlength="40"></td>
+                <td><input type="text" name="writer" class="form-control" placeholder="작성자" maxlength="40" value="${dto.user_id}" disabled></td>
 
             </tr>
 
             <tr>
 
-                <td><textarea type="text" class="form-control" placeholder="글 내용을 작성하세요" name="contentDetail" maxlength="1024" style="height: 400px;"></textarea></td>
+                <td><textarea type="text" class="form-control" placeholder="글 내용을 작성하세요" name="content" maxlength="1024" style="height: 400px;"></textarea></td>
 
             </tr>
 
