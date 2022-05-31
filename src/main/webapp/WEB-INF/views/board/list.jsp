@@ -90,6 +90,7 @@
 
     </style>
 </head>
+<jsp:include page="../header.jsp" flush="false"></jsp:include>
 <body>
 <h1>목록페이지입니다.</h1>
 

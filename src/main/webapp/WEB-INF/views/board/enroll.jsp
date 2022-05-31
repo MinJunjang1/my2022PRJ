@@ -28,6 +28,7 @@
     <button class="btn">등록</button>
 </form>
 --%>
+<jsp:include page="../header.jsp" flush="false"></jsp:include>
 <body>
 <form method="post" action="contentWriteProcess.jsp">
     <div class="container">
