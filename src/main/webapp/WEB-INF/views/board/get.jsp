@@ -48,6 +48,7 @@
         margin-top : 50px;
     }
 </style>
+<jsp:include page="../header.jsp" flush="false"></jsp:include>
 <body>
 <h1>조회 페이지</h1>
 <div class="input_wrap">

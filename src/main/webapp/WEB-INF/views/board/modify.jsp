@@ -50,7 +50,9 @@
         background-color: #f3e3e7;
     }
 </style>
+
 </head>
+<jsp:include page="../header.jsp" flush="false"></jsp:include>
 <body>
 <h1>조회 페이지</h1>
 <form id="modifyForm" action="/board/modify" method="post">

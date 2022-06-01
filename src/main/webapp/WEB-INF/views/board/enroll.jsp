@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -38,11 +40,12 @@
         <table class="table table-hover">
 
             <tbody>
-
+                <tr>
+                    <td><input type="text" name="writer" class="form-control" placeholder="작성자" maxlength="40" value="${memberDTO.user_id}" disabled></td>
+                </tr>
             <tr>
 
                 <td><input type="text" class="form-control" placeholder="글 제목" name="title" maxlength="40"></td>
-                <td><input type="text" name="writer" class="form-control" placeholder="작성자" maxlength="40" value="${dto.user_id}" disabled></td>
 
             </tr>
 
@@ -57,7 +60,7 @@
         </table>
 
         <input type="submit" class="btn btn-primary pull-right" value="글쓰기">
-
+        <button type="button" class="btn btn-secondary" value="">목록</button>
     </div>
 
 </form>
