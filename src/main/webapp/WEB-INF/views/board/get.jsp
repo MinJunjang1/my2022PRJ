@@ -50,6 +50,74 @@
 </style>
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
 <body>
+<div class="container">
+
+    <h2>조회페이지</h2>
+
+    <table class="table table-hover">
+
+        <tr>
+
+            <td><label>게시판번호</label><input name="bno" class="form-control" readonly="readonly" value='<c:out value="${pageInfo.bno}"/>' ></td>
+        </tr>
+
+        <tbody>
+        <tr>
+
+            <td>       <label>작성자</label><input type="text" name="writer" id="writer" class="form-control" placeholder="작성자" maxlength="40" value='<c:out value="${pageInfo.writer}"/>' readonly></td>
+        </tr>
+        <tr>
+
+            <td><label>제목</label><input type="text" class="form-control" placeholder="글 제목" name="title" maxlength="40" value='<c:out value="${pageInfo.title}"/>' readonly="readonly"></td>
+
+        </tr>
+
+        <tr>
+
+            <td><label>내용</label><textarea type="text" class="form-control" placeholder="글 내용을 작성하세요" name="content" maxlength="1024" style="height: 400px;" readonly="readonly"><c:out value="${pageInfo.content}"/></textarea></td>
+
+        </tr>
+        <tr>
+
+            <td><label>최초등록일</label><input name="regdater" class="form-control" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.regdate}"/>'></td>
+
+        </tr>
+        <tr>
+
+            <td><label>수정일</label>
+                <input name="updateDate" class="form-control" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.updateDate}"/>'></td>
+        </tr>
+        </tbody>
+
+    </table>
+    <c:if test="${ pageInfo.writer == memberDTO.user_id}">
+        <input type="submit" id="modify_btn" class="btn btn-primary pull-right" value="수정하기">
+    </c:if>
+    <button type="button" id="list_btn" class="btn btn-secondary" value="">목록</button>
+</div>
+
+<form id="infoForm" action="/board/modify" method="get">
+    <input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
+    <input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum}"/>'>
+    <input type="hidden" name="amount" value='<c:out value="${cri.amount}"/>'>
+    <input type="hidden" name="type" value="${cri.type }">
+    <input type="hidden" name="keyword" value="${cri.keyword }">
+</form>
+<script>
+    let form = $("#infoForm");
+
+    $("#list_btn").on("click", function(e){
+        form.find("#bno").remove();
+        form.attr("action", "/board/list");
+        form.submit();
+    });
+
+    $("#modify_btn").on("click", function(e){
+        form.attr("action", "/board/modify");
+        form.submit();
+    });
+</script>
+<%--
 <h1>조회 페이지</h1>
 <div class="input_wrap">
     <label>게시판 번호</label>
@@ -77,7 +145,7 @@
 </div>
 <div class="btn_wrap">
     <a class="btn" id="list_btn">목록 페이지</a>
-    <c:if test="${ pageInfo.writer == dto.user_id }">
+    <c:if test="${ pageInfo.writer == memberDTO.user_id}">
     <a class="btn" id="modify_btn">수정 하기</a>
     </c:if>
 
@@ -104,6 +172,7 @@
         form.submit();
     });
 </script>
+--%>
 
 </body>
 </html>

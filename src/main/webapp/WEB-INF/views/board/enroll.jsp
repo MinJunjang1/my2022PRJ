@@ -1,9 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-         pageEncoding="UTF-8"%>
-
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+         pageEncoding="UTF-8"%>
+
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -41,7 +42,7 @@
 
             <tbody>
                 <tr>
-                    <td><input type="text" name="writer" class="form-control" placeholder="작성자" maxlength="40" value="${memberDTO.user_id}" disabled></td>
+                    <td><input type="text" name="writer" id="writer" class="form-control" placeholder="작성자" maxlength="40" value="${memberDTO.user_id}" readonly></td>
                 </tr>
             <tr>
 

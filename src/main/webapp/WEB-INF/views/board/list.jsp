@@ -56,7 +56,7 @@
         .pageInfo{
             list-style : none;
             display: inline-block;
-            margin: 50px 0 0 100px;
+            margin: 0 0 0 100px;
         }
         .pageInfo li{
             float: left;
@@ -74,7 +74,6 @@
         .search_area{
             display: inline-block;
             margin-top: 30px;
-            margin-left: 260px;
         }
         .search_area input{
             height: 30px;
@@ -87,17 +86,46 @@
         .search_area select{
             height: 35px;
         }
-
+    .boby{
+        margin: auto;
+        text-align: center;
+    }
+    .left{
+        margin: auto;
+        text-align: right;
+    }
     </style>
 </head>
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
 <body>
-<h1>목록페이지입니다.</h1>
 
-<div class="table_wrap">
-    <a href="/board/enroll" class="top_btn">게시판 등록</a>
-    <table>
+<div class="container" style="margin: auto;">
+
+
+    <div class="table_wrap">
+        <h1 class="boby">게시판</h1>
+    <table class="table table-striped boby">
         <thead>
+        <tr>
+           <th colspan="5">
+               <div class="search_wrap body">
+                   <div class="search_area">
+                       <select name="type">
+                           <option value="" <c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>--</option>
+                           <option value="T" <c:out value="${pageMaker.cri.type eq 'T'?'selected':'' }"/>>제목</option>
+                           <option value="C" <c:out value="${pageMaker.cri.type eq 'C'?'selected':'' }"/>>내용</option>
+                           <option value="W" <c:out value="${pageMaker.cri.type eq 'W'?'selected':'' }"/>>작성자</option>
+                           <option value="TC" <c:out value="${pageMaker.cri.type eq 'TC'?'selected':'' }"/>>제목 + 내용</option>
+                           <option value="TW" <c:out value="${pageMaker.cri.type eq 'TW'?'selected':'' }"/>>제목 + 작성자</option>
+                           <option value="TCW" <c:out value="${pageMaker.cri.type eq 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
+                       </select>
+                       <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
+                       <button class="top_btn btn btn-secondary">검색</button>
+
+                   </div>
+               </div>
+           </th>
+        </tr>
         <tr>
             <th class="bno_width">번호</th>
             <th class="title_width">제목</th>
@@ -120,24 +148,9 @@
             </tr>
         </c:forEach>
     </table>
-
-    <div class="search_wrap">
-        <div class="search_area">
-            <select name="type">
-                <option value="" <c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>--</option>
-                <option value="T" <c:out value="${pageMaker.cri.type eq 'T'?'selected':'' }"/>>제목</option>
-                <option value="C" <c:out value="${pageMaker.cri.type eq 'C'?'selected':'' }"/>>내용</option>
-                <option value="W" <c:out value="${pageMaker.cri.type eq 'W'?'selected':'' }"/>>작성자</option>
-                <option value="TC" <c:out value="${pageMaker.cri.type eq 'TC'?'selected':'' }"/>>제목 + 내용</option>
-                <option value="TW" <c:out value="${pageMaker.cri.type eq 'TW'?'selected':'' }"/>>제목 + 작성자</option>
-                <option value="TCW" <c:out value="${pageMaker.cri.type eq 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
-            </select>
-            <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
-            <button>Search</button>
-        </div>
+        <button onclick="location.href='/board/enroll'" class="btn btn-secondary top_btn left" style="float: right;" >게시판 등록</button>
     </div>
-
-    <div class="pageInfo_wrap" >
+    <div class="pageInfo_wrap boby"  >
         <div class="pageInfo_area">
             <ul id="pageInfo" class="pageInfo">
 
@@ -159,6 +172,9 @@
             </ul>
         </div>
     </div>
+
+
+
 
 
 

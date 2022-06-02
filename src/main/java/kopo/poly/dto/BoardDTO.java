@@ -1,6 +1,6 @@
 package kopo.poly.dto;
 
-import java.sql.Date;
+import java.util.Date;
 
 public class BoardDTO {
     /* 게시판 번호 */
@@ -16,9 +16,11 @@ public class BoardDTO {
     private String writer;
 
     /* 등록 날짜 */
+
     private Date regdate;
 
     /* 수정 날짜 */
+
     private Date updateDate;
 
     public int getBno() {

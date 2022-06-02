@@ -100,7 +100,7 @@ public class BoardController {
         }
 
         /* 페이지 수정 */
-        @PostMapping("/modify")
+        @PostMapping("/modify1")
         public String boardModifyPOST(BoardDTO board, RedirectAttributes rttr) {
 
             BoardService.modify(board);

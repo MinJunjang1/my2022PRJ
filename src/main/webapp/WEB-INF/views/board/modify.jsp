@@ -55,7 +55,7 @@
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
 <body>
 <h1>조회 페이지</h1>
-<form id="modifyForm" action="/board/modify" method="post">
+<form id="modifyForm" action="/board/modify1" method="post">
     <div class="input_wrap">
         <label>게시판 번호</label>
         <input name="bno" readonly="readonly" value='<c:out value="${pageInfo.bno}"/>' >
