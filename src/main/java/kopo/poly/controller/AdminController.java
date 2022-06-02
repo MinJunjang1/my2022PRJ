@@ -16,7 +16,7 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/admin")
 public class AdminController {
 
-    @GetMapping(value = "/main")
+    @GetMapping(value = "/*")
     public String mainpage(HttpSession session, HttpServletRequest request, MemberDTO memberDTO, RedirectAttributes rttr, Model model) throws Exception {
         MemberDTO mDTO = (MemberDTO) session.getAttribute("memberDTO");
         int adminck = Integer.valueOf(mDTO.getAdminCk());
@@ -30,7 +30,10 @@ public class AdminController {
         return "/admin/main";
     }
 
-
-
-
 }
+
+
+
+
+
+

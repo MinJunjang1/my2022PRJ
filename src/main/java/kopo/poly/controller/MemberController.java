@@ -88,8 +88,10 @@ public class MemberController {
         return "redirect:/login";
 
     }
+
     @RequestMapping(value="/update1", method=RequestMethod.POST)
-    public String updatePOST(HttpServletRequest request, HttpSession session) throws Exception{
+    public String updatePOST(HttpServletRequest request, HttpSession session, Model model) throws Exception{
+
 
         String user_id = CmmUtil.nvl(request.getParameter("userid"));
         String user_pw = CmmUtil.nvl(request.getParameter("memberPw"));
@@ -103,7 +105,6 @@ public class MemberController {
         log.info(user_addr1);
         log.info(user_addr2);
         log.info(user_addr3);
-
 
         MemberDTO pDTO = new MemberDTO();
         pDTO.setUser_id(user_id);
@@ -134,7 +135,10 @@ public class MemberController {
     return "/member/join";
      }
     @GetMapping(value = "/update")
-    public String updatepage() throws Exception {
+    public String updatepage( Model model, HttpServletRequest request) throws Exception {
+       String user_id = CmmUtil.nvl(request.getParameter("user_id"));
+        log.info(user_id);
+        model.addAttribute("dto", memberService.userinfo(user_id));
         return "/member/update";
     }
 
@@ -162,8 +166,10 @@ public class MemberController {
     @GetMapping(value = "/info")
     public String userinfo(String user_id, Model model, HttpServletRequest request) throws Exception {
         //테스트(컨트롤러) 호출 -> 정보를 저장 -> DB로이동
+
        user_id = CmmUtil.nvl(request.getParameter("user_id"));
-        model.addAttribute("dto", memberService.userinfo(user_id));
+        log.info(user_id);
+       model.addAttribute("dto", memberService.userinfo(user_id));
         return "/member/info";
     }
 

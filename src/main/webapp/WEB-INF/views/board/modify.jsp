@@ -28,65 +28,61 @@
         font-size: 15px;
         padding: 10px;
     }
-    .btn{
-        display: inline-block;
-        font-size: 22px;
-        padding: 6px 12px;
-        background-color: #fff;
-        border: 1px solid #ddd;
-        font-weight: 600;
-        width: 140px;
-        height: 41px;
-        line-height: 39px;
-        text-align : center;
-        margin-left : 30px;
-        cursor : pointer;
-    }
+
     .btn_wrap{
         padding-left : 80px;
         margin-top : 50px;
     }
-    #delete_btn{
-        background-color: #f3e3e7;
+    .boby{
+        margin: auto;
+        text-align: center;
     }
 </style>
 
 </head>
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
 <body>
-<h1>조회 페이지</h1>
+<div class="container boby">
+
+<h1>수정 페이지</h1>
 <form id="modifyForm" action="/board/modify1" method="post">
-    <div class="input_wrap">
-        <label>게시판 번호</label>
-        <input name="bno" readonly="readonly" value='<c:out value="${pageInfo.bno}"/>' >
-    </div>
-    <div class="input_wrap">
-        <label>게시판 제목</label>
-        <input name="title" value='<c:out value="${pageInfo.title}"/>' >
-    </div>
-    <div class="input_wrap">
-        <label>게시판 내용</label>
-        <textarea rows="3" name="content"><c:out value="${pageInfo.content}"/></textarea>
-    </div>
-    <div class="input_wrap">
-        <label>게시판 작성자</label>
-        <input name="writer" readonly="readonly" value='<c:out value="${pageInfo.writer}"/>' >
-    </div>
-    <div class="input_wrap">
-        <label>게시판 등록일</label>
-        <input name="regdater" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.regdate}"/>' >
-    </div>
-    <div class="input_wrap">
-        <label>게시판 수정일</label>
-        <input name="updateDate" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.updateDate}"/>' >
-    </div>
-    <div class="btn_wrap">
-        <a class="btn" id="list_btn">목록 페이지</a>
-        <a class="btn" id="modify_btn">수정 완료</a>
-        <a class="btn" id="delete_btn">삭제</a>
-        <a class="btn" id="cancel_btn">수정 취소</a>
-    </div>
+    <table class="table table-hover">
+
+        <tr>
+            <td>게시판번호</td>
+            <td><input name="bno" class="form-control" readonly="readonly" value='<c:out value="${pageInfo.bno}"/>' ></td>
+            <td>작성자</td>
+            <td><input type="text" name="writer" id="writer" class="form-control" placeholder="작성자" maxlength="40" value='<c:out value="${pageInfo.writer}"/>' readonly></td>
+            <td>최초등록일</td>
+            <td><input name="regdater" class="form-control" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.regdate}"/>'></td>
+            <td>수정일</td>
+            <td>
+                <input name="updateDate" class="form-control" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.updateDate}"/>'></td>
+        </tr>
+        <tbody>
+        <tr>
+            <td colspan="1">제목</td>
+            <td colspan="7"><input type="text" class="form-control" placeholder="글 제목" name="title" maxlength="40" value='<c:out value="${pageInfo.title}"/>'></td>
+
+        </tr>
+
+        <tr>
+
+            <td colspan="8"><label>내용</label><textarea type="text" class="form-control" placeholder="글 내용을 작성하세요" name="content" maxlength="1024" style="height: 400px;"><c:out value="${pageInfo.content}"/></textarea></td>
+
+        </tr>
+        </tbody>
+
+    </table>
+
 </form>
+    <div class="btn_wrap boby" >
+        <button  id="list_btn" class="btn btn-secondary">목록 페이지</button>
+        <button  id="modify_btn" class="btn btn-warning">수정 완료</button>
+        <button  id="delete_btn" class="btn btn-danger">삭제</button>
+        <button  id="cancel_btn" class="btn btn-success">수정 취소</button>
+    </div>
+</div>
 <form id="infoForm" action="/board/modify" method="get">
     <input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
     <input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum}"/>'>

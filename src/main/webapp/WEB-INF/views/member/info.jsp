@@ -313,7 +313,7 @@
 <body>
 
 <div class="wrapper">
-    <form id="join_form" method="post">
+    <form id="join_form" method="post" action="/update">
         <div class="wrap">
             <div class="subjecet">
                 <span>회원정보</span>
@@ -321,7 +321,7 @@
             <div class="id_wrap">
                 <div class="id_name">아이디</div>
                 <div class="id_input_box">
-                    <input type="text" class="id_input" name="userid" value="${dto.user_id}" id="userid" disabled >
+                    <input type="text" class="id_input" name="userid" value="${dto.user_id}" id="userid" readonly="readonly" >
                 </div>
             </div>
             <div class="mail_wrap">
@@ -334,18 +334,18 @@
                 <div class="address_name">주소</div>
                 <div class="address_input_1_wrap">
                     <div class="address_input_1_box">
-                        <input type="text" class="address_input_1" name="memberAddr1" value="${dto.user_addr1}" readonly="readonly" id="memberAddr1"  disabled>
+                        <input type="text" class="address_input_1" name="memberAddr1" value="${dto.user_addr1}" readonly="readonly" id="memberAddr1"  >
                     </div>
                     <div class="clearfix"></div>
                 </div>
                 <div class ="address_input_2_wrap">
                     <div class="address_input_2_box">
-                        <input type="text" class="address_input_2" name="memberAddr2" value="${dto.user_addr2}" readonly="readonly" id="memberAddr2" disabled>
+                        <input type="text" class="address_input_2" name="memberAddr2" value="${dto.user_addr2}" readonly="readonly" id="memberAddr2" >
                     </div>
                 </div>
                 <div class ="address_input_3_wrap">
                     <div class="address_input_3_box">
-                        <input type="text" class="address_input_3" name="memberAddr3" value="${dto.user_addr3}" readonly="readonly" id="memberAddr3" disabled>
+                        <input type="text" class="address_input_3" name="memberAddr3" value="${dto.user_addr3}" readonly="readonly" id="memberAddr3" >
                     </div>
                 </div>
             </div>
@@ -353,7 +353,7 @@
                회원가입일 : ${dto.user_dt}
             </div>
             <div class="join_button_wrap">
-                <input type="button" class="btn btn-warning" value="수정하기" onclick="location.href='/update'">
+                <input type="button" class="btn btn-warning" value="정보수정" onclick="location.href='/update?user_id=${dto.user_id}'">
                 <button type="button" class="btn btn-danger" onclick="location.href='/deleteuser?user_id=${dto.user_id}'">탈퇴하기</button>
             </div>
         </div>

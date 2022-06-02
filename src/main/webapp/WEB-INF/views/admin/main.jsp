@@ -1,3 +1,5 @@
+<%@ page import="kopo.poly.dto.MemberDTO" %>
+<%@ page import="kopo.poly.util.CmmUtil" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
@@ -192,28 +194,34 @@
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
 <body>
 
-<div class="admin_top_wrap">
-    <span>관리자 페이지</span>
-
-</div>
 <!-- contents-area -->
-<div class="admin_wrap">
-    <!-- 네비영역 -->
-    <div class="admin_navi_wrap">
-        <ul>
-            <li >
-                <a class="admin_list_01" href="/userlist">사용자 관리</a>
-            </li>
-            <li>
-                <a class="admin_list_02" href="/admin/goodsManage">게시판관리</a>
-            </li>
-            <lI>
-                <a class="admin_list_03" href="/admin/authorEnroll">api 관리?</a>
-            </lI>
 
-        </ul>
+<div class="wrapper">
+    <div class="wrap">
+        <div class="admin_top_wrap">
+            <span>관리자 페이지</span>
+
+        </div>
+        <!-- contents-area -->
+        <div class="admin_wrap">
+            <!-- 네비영역 -->
+            <div class="admin_navi_wrap">
+                <ul>
+                    <li >
+                        <a class="admin_list_01" href="/userlist">사용자 관리</a>
+                    </li>
+                    <li>
+                        <a class="admin_list_02" href="/admin/boardlist">게시판관리</a>
+                    </li>
+                    <lI>
+                        <a class="admin_list_03" href="/admin/authorEnroll">작가 등록</a>
+                    </lI>
+
+                </ul>
+            </div>
+
+        </div>
     </div>
-
 </div>
 </body>
 </html>

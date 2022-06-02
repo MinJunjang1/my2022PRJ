@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri ="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html lang="ko">
 <head>
@@ -321,6 +323,7 @@
         integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
         crossorigin="anonymous"></script>
 </head>
+<jsp:include page="../header.jsp" flush="false"></jsp:include>
 <body>
 
 <div class="wrapper">
@@ -332,7 +335,7 @@
             <div class="id_wrap">
                 <div class="id_name">아이디</div>
                 <div class="id_input_box">
-                    <input type="text" class="id_input" name="userid" id="userid" readonly="readonly" value="${memberDTO.user_id}">
+                    <input type="text" class="id_input" name="userid" id="userid" readonly="readonly" value="${dto.user_id}">
                 </div>
                 <span class="id_input_re_1">사용 가능한 아이디입니다.</span>
                 <span class="id_input_re_2">아이디가 이미 존재합니다.</span>
@@ -341,7 +344,7 @@
             <div class="pw_wrap">
                 <div class="pw_name">비밀번호</div>
                 <div class="pw_input_box">
-                    <input type="text" class="pw_input" name="memberPw" id="memberPw">
+                    <input type="text" class="pw_input" name="memberPw" id="memberPw" value="${dto.user_pw}">
                 </div>
                 <span class="final_pw_ck">비밀번호를 입력해주세요.</span>
             </div>
@@ -357,7 +360,7 @@
             <div class="mail_wrap">
                 <div class="mail_name">이메일</div>
                 <div class="mail_input_box">
-                    <input type="text" class="mail_input" name="memberMail" id="memberMail">
+                    <input type="text" class="mail_input" name="memberMail" id="memberMail" value="${dto.user_email}">
                 </div>
                 <span class="final_email_ck">이메일을 입력해주세요.</span>
                 <span class="email_input_re_1">이 이메일을 사용하실수 있습니다.</span>
@@ -399,7 +402,7 @@
                 <span class="final_addr_ck">주소를 입력해주세요.</span>
             </div>
             <div class="join_button_wrap">
-                <input type="button" class="join_button" value="가입하기">
+                <input type="button" class="join_button" value="수정하기">
             </div>
         </div>
     </form>
