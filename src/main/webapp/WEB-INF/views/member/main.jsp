@@ -17,7 +17,6 @@
 <!--헤더-->
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
 
-<body>
 <script type="text/javascript" >
 	function api() {
 		var now = new Date();	// 현재 날짜 및 시간
@@ -28,7 +27,7 @@
 		var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
 		var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
 		queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
-		queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+		queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent('202205'); /**/
 		xhr.open('GET', url + queryParams);
 		xhr.onreadystatechange = function () {
 			if (this.readyState == 4) {
@@ -41,12 +40,6 @@
 </script>
 
 
-<
-<script type="text/javascript">
-    // 위도 경도
-    var num1 = 37.541;
-    var num2 = 126.986;
-</script>
 <!--map-->
 
 <style>
@@ -264,10 +257,7 @@
 					var geocoder = new kakao.maps.services.Geocoder();
 
 				</script>
-				<script type="text/javascript" src="/js/seouljs.js">
-				</script>
-				<script type="text/javascript" src="/js/seoulmap.js">
-				</script>
+
 				<button onclick="setSeoul();seoul();">서울</button>
 				<button onclick="setJongnogu();seoul1();">종로구</button>
 				<button onclick="setJunggu();seoul2();">중구</button>
@@ -303,6 +293,10 @@
 	</div>
 </div>
 
-
+<script type="text/javascript" src="/js/seouljs.js">
+</script>
+<script type="text/javascript" src="/js/seoulmap.js">
+</script>
+<body>
 </body>
 </html>
