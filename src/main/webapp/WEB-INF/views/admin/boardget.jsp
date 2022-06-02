@@ -183,7 +183,7 @@
         cursor : pointer;
     }
 
-    }  .boby{
+      .boby{
                margin: auto;
                text-align: center;
                           }
