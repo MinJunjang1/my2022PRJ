@@ -242,7 +242,7 @@
 			<div class="admin_navi_wrap">
 				<ul>
 					<li >
-						<a class="admin_list_01" href="/admin/goodsEnroll">서울</a>
+						<a class="admin_list_01">서울</a>
 					</li>
 
 				</ul>
@@ -264,7 +264,10 @@
 					var geocoder = new kakao.maps.services.Geocoder();
 
 				</script>
-
+				<script type="text/javascript" src="/js/seouljs.js">
+				</script>
+				<script type="text/javascript" src="/js/seoulmap.js">
+				</script>
 				<button onclick="setSeoul();seoul();">서울</button>
 				<button onclick="setJongnogu();seoul1();">종로구</button>
 				<button onclick="setJunggu();seoul2();">중구</button>
@@ -291,7 +294,7 @@
 				<button onclick="setGangnamgu(); seoul23();">강남구</button>
 				<button onclick="setSongpagu(); seoul24();">송파구</button>
 				<button onclick="setGangdonggu(); seoul25();">강동구</button>
-
+				<button onclick="api();">api</button>
 			</div>
 			<div class="clearfix">
 
@@ -299,7 +302,7 @@
 		</div>
 	</div>
 </div>
-<script type="text/javascript"src="https://github.com/MinJunjang1/my2022PRJ/blob/a2e4a1858d8343fd18f5e02daf706d4fe55b3489/src/main/webapp/WEB-INF/views/js/seouljs.js"></script>
-<script type="text/javascript"src="https://github.com/MinJunjang1/my2022PRJ/blob/a2e4a1858d8343fd18f5e02daf706d4fe55b3489/src/main/webapp/WEB-INF/views/js/seoulmap.js"></script>
+
+
 </body>
 </html>
