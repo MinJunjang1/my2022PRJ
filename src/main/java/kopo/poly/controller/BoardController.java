@@ -74,7 +74,7 @@ public class BoardController {
             System.out.println(request.getAttribute("msg"));
             return "/alert";
         }
-        return "/admin/boardget";
+        return "/admin/boardlist";
 
     }
 

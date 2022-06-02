@@ -6,6 +6,7 @@
 <head>
 	<meta charset="utf-8"/>
 	<title>Kakao 지도 시작하기</title>
+
 </head>
 <style>
 	header {
@@ -17,37 +18,36 @@
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
 
 <body>
-<!--지도-->
+<script type="text/javascript" >
+	function api() {
+		var now = new Date();	// 현재 날짜 및 시간
+		var year = now.getFullYear();	// 연도
+		var month = now.getMonth();
+		var time = year + month;
+		var xhr = new XMLHttpRequest();
+		var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+		var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+		queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+		queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+		xhr.open('GET', url + queryParams);
+		xhr.onreadystatechange = function () {
+			if (this.readyState == 4) {
+				alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+			}
+		};
 
-
-<script type="text/javascript">
-//api
-    var xhr = new XMLHttpRequest();
-    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
-    var queryParams = '?' + encodeURIComponent('serviceKey') + '='+'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
-    var today = new Date();
-    var year = today.getFullYear();
-    var month = ('0' + (today.getMonth() + 1)).slice(-2);
-    var dateString = year  + month  ;
+		xhr.send('');
+	}
 </script>
+
+
+<
 <script type="text/javascript">
     // 위도 경도
     var num1 = 37.541;
     var num2 = 126.986;
 </script>
 <!--map-->
-<script type="text/javascript" src="https://github.com/MinJunjang1/my2022PRJ/blob/0923910e6333816eccc36a3be06d93b73397d24b/src/main/webapp/WEB-INF/views/js/seoulmap.js"></script>
-<script type="text/javascript" src="https://github.com/MinJunjang1/my2022prj/blob/2834b94b0fff0dceb3e2dbb6f7ff77a42f8f8c7c/src/main/webapp/WEB-INF/views/js/busanmap.js"></script>
-<script type="text/javascript">
-	// 이동할 위도 경도 위치를 생성합니다
-	var moveLatLon = new kakao.maps.LatLng(num1, num2);
-	map.setCenter(moveLatLon);
-	var level = map.getLevel();
-	// 지도를 1레벨 내립니다 (지도가 확대됩니다)
-	map.setLevel(15);
-	// 지도 레벨을 표시합니다
-	displayLevel();
-</script>
 
 <style>
 	*{
@@ -244,24 +244,6 @@
 					<li >
 						<a class="admin_list_01" href="/admin/goodsEnroll">서울</a>
 					</li>
-					<li>
-						<a class="admin_list_02" href="/admin/goodsManage">부산</a>
-					</li>
-					<lI>
-						<a class="admin_list_03" href="/admin/authorEnroll">인천</a>
-					</lI>
-					<lI>
-						<a class="admin_list_04" href="/admin/authorEnroll">대전</a>
-					</lI>
-					<lI>
-						<a class="admin_list_05" href="/admin/authorEnroll">대구</a>
-					</lI>
-					<lI>
-						<a class="admin_list_06" href="/admin/authorEnroll">광주</a>
-					</lI>
-					<lI>
-						<a class="admin_list_07" href="/admin/authorEnroll">울산</a>
-					</lI>
 
 				</ul>
 			</div>
@@ -282,6 +264,34 @@
 					var geocoder = new kakao.maps.services.Geocoder();
 
 				</script>
+
+				<button onclick="setSeoul();seoul();">서울</button>
+				<button onclick="setJongnogu();seoul1();">종로구</button>
+				<button onclick="setJunggu();seoul2();">중구</button>
+				<button onclick="setYongsangu();seoul3();">용산구</button>
+				<button onclick="setSeongdonggu(); seoul4();">성동구</button>
+				<button onclick="setGwangjingu(); seoul5();">광진구</button>
+				<button onclick="setDongdaemungu(); seoul6();">동대문구</button>
+				<button onclick="setJungnanggu(); seoul7();">중량구</button>
+				<button onclick="setSeongbukgu(); seoul8();">성북구</button>
+				<button onclick="setGangbukgu();seoul9();">강북구</button>
+				<button onclick="setDobonggu(); seoul10();">도봉구</button>
+				<button onclick="setNowongu(); seoul11();">노원구</button>
+				<button onclick="setEunpyeonggu(); seoul12();">은평구</button>
+				<button onclick="setSeodaemungu(); seoul13();">서대문구</button>
+				<button onclick="setMapogu(); seoul14();">마포구</button>
+				<button onclick="setYangcheongu(); seoul15()">양천구</button>
+				<button onclick="setGangseogu(); seoul16()">강서구</button>
+				<button onclick="setGurogu(); seoul17();">구로구</button>
+				<button onclick="setGeumcheongu(); seoul18();">금천구</button>
+				<button onclick="setYeongdeungpogu(); seoul19();">영등포구</button>
+				<button onclick="setDongjakgu(); seoul20();">동작구</button>
+				<button onclick="setGwanakgu(); seoul21();">관악구</button>
+				<button onclick="setSeochogu(); seoul22();">서초구</button>
+				<button onclick="setGangnamgu(); seoul23();">강남구</button>
+				<button onclick="setSongpagu(); seoul24();">송파구</button>
+				<button onclick="setGangdonggu(); seoul25();">강동구</button>
+
 			</div>
 			<div class="clearfix">
 
@@ -289,8 +299,7 @@
 		</div>
 	</div>
 </div>
-
-
-</script>
+<script type="text/javascript"src="https://github.com/MinJunjang1/my2022PRJ/blob/a2e4a1858d8343fd18f5e02daf706d4fe55b3489/src/main/webapp/WEB-INF/views/js/seouljs.js"></script>
+<script type="text/javascript"src="https://github.com/MinJunjang1/my2022PRJ/blob/a2e4a1858d8343fd18f5e02daf706d4fe55b3489/src/main/webapp/WEB-INF/views/js/seoulmap.js"></script>
 </body>
 </html>

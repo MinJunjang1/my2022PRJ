@@ -26,6 +26,9 @@
 	.right-tab{
 		float: right;
 	}
+	.right{
+		text-align: right;
+	}
 </style>
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -37,25 +40,21 @@
 		<div class="collapse navbar-collapse" id="navbarTogglerDemo02" >
 			<ul class="nav justify-content-center navbar-nav " >
 				<li class="nav-item ">
-					<a class="nav-link active" aria-current="page" href="/index">Home</a>
-				</li>
-				<li class="nav-item ">
 					<a class="nav-link" href="/board/list">게시판</a>
 				</li>
-				<li class="nav-item ">
-					<a class="nav-link" href="/admin/main">관리자페이지</a>
-				</li>
+
 				<c:if test="${ memberDTO != null }">
 					<li class="nav-item ">
 						<a class="nav-link" href="/info?user_id=${memberDTO.user_id}">마이페이지</a>
 					</li>
-					<li class="nav-item ">
-						<a class="nav-link" href="/admin/main">관리</a>
-					</li>
+
 					<li class="nav-item ">
 						<a class="nav-link" href="/logout">회원 : ${memberDTO.user_id} 로그아웃</a>
 					</li>
 				</c:if>
+				<li class="nav-item ">
+					<a class="nav-link" href="/admin/main">관리자페이지</a>
+				</li>
 
 
 			</ul>

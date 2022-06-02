@@ -1,86 +1,482 @@
+function seoul(){
+    var apivalue = '11000'
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 
+    xhr.send('');
+}
 <!--종로구-->
 function seoul1(){
-    apivalue = '11110';
+    var apivalue = '11110'
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
+
+    xhr.send('');
 }
 <!--중구-->
 function seoul2(){
-    apivalue = '11140';
+    var apivalue = '11140';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }
 <!--용산구-->
 function seoul3(){
-    apivalue = '11170';
+    var apivalue = '11170';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }
 <!--성동구-->
 function seoul4(){
-    apivalue = '11200';
+    var apivalue = '11200';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }
 <!--광진구-->
 function seoul5(){
-    apivalue = '11215';
+    var apivalue = '11215';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }
 <!--동대문구-->
 function seoul6(){
-    apivalue = '11230';
+    var apivalue = '11230';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }
 <!--중랑구-->
 function seoul7(){
-    apivalue = '11260';
+    var apivalue = '11260';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }<!--성북구-->
 function seoul8(){
-    apivalue = '11290';
+    var apivalue = '11290';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }<!--강븍구-->
 function seoul9(){
-    apivalue = '11305';
+    var apivalue = '11305';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }
 <!--도봉구-->
 function seoul10(){
-    apivalue = '11320';
+    var apivalue = '11320';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }
 <!--노원구-->
 function seoul11(){
-    apivalue = '11350';
+    var apivalue = '11350';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }<!--은평구-->
 function seoul12(){
-    apivalue = '11380';
+    var apivalue = '11380';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }<!--서대문구-->
 function seoul13(){
-    apivalue = '11410';
+    var apivalue = '11410';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }<!--마포구-->
 function seoul14(){
-    apivalue = '11440';
+    var apivalue = '11440';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }<!--양천구-->
 function seoul15(){
-    apivalue = '11470';
+    var apivalue = '11470';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }<!--강서구-->
 function seoul16(){
-    apivalue = '11500';
+    var apivalue = '11500';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }<!--구로구-->
 function seoul17(){
-    apivalue = '11530';
+    var apivalue = '11530';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }<!--금천구-->
 function seoul18(){
-    apivalue = '11545';
+    var apivalue = '11545';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }<!--영등포구-->
 function seoul19(){
-    apivalue = '11590';
+    var apivalue = '11590';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }<!--동작구-->
 function seoul20(){
-    apivalue = '11590';
+    var apivalue = '11590';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }<!--관악구-->
 function seoul21(){
-    apivalue = '11620';
+    var apivalue = '11620';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }<!--서초구-->
 function seoul22(){
-    apivalue = '11650';
+    var apivalue = '11650';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }<!--강남구-->
 function seoul23(){
-    apivalue = '11680';
+    var apivalue = '11680';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }<!--송파구-->
 function seoul24(){
-    apivalue = '11710';
+    var apivalue = '11710';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }<!--강동구-->
 function seoul25(){
-    apivalue = '11740';
+    var apivalue = '11740';
+    var now = new Date();	// 현재 날짜 및 시간
+    var year = now.getFullYear();	// 연도
+    var month = now.getMonth();
+    var time = year + month;
+    var xhr = new XMLHttpRequest();
+    var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+    var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
+    xhr.open('GET', url + queryParams);
+    xhr.onreadystatechange = function () {
+        if (this.readyState == 4) {
+            alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+        }
+    };
 }
 
