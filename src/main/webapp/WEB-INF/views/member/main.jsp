@@ -6,7 +6,6 @@
 <head>
 	<meta charset="utf-8"/>
 	<title>Kakao 지도 시작하기</title>
-
 </head>
 <style>
 	header {
@@ -17,16 +16,16 @@
 <!--헤더-->
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
 
-<script type="text/javascript" >
+<script type="text/javascript">
+
+	var   num1 = 37.541;
+	var num2 = 126.986;
 	function api() {
-		var now = new Date();	// 현재 날짜 및 시간
-		var year = now.getFullYear();	// 연도
-		var month = now.getMonth();
-		var time = year + month;
+
 		var xhr = new XMLHttpRequest();
 		var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
 		var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
-		queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+		queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent('11740'); /**/
 		queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent('202205'); /**/
 		xhr.open('GET', url + queryParams);
 		xhr.onreadystatechange = function () {
@@ -37,6 +36,8 @@
 
 		xhr.send('');
 	}
+
+
 </script>
 
 
@@ -235,8 +236,9 @@
 			<div class="admin_navi_wrap">
 				<ul>
 					<li >
-						<a class="admin_list_01">서울</a>
+						<a class="admin_list_01"  href="/userlist">서울</a>
 					</li>
+
 
 				</ul>
 			</div>
@@ -253,37 +255,35 @@
 					// 지도를 표시할 div와  지도 옵션으로  지도를 생성합니다
 					var map = new kakao.maps.Map(mapContainer, mapOption);
 
-					//주소검색
-					var geocoder = new kakao.maps.services.Geocoder();
 
 				</script>
 
-				<button onclick="setSeoul();seoul();">서울</button>
-				<button onclick="setJongnogu();seoul1();">종로구</button>
-				<button onclick="setJunggu();seoul2();">중구</button>
-				<button onclick="setYongsangu();seoul3();">용산구</button>
-				<button onclick="setSeongdonggu(); seoul4();">성동구</button>
-				<button onclick="setGwangjingu(); seoul5();">광진구</button>
-				<button onclick="setDongdaemungu(); seoul6();">동대문구</button>
-				<button onclick="setJungnanggu(); seoul7();">중량구</button>
-				<button onclick="setSeongbukgu(); seoul8();">성북구</button>
-				<button onclick="setGangbukgu();seoul9();">강북구</button>
-				<button onclick="setDobonggu(); seoul10();">도봉구</button>
-				<button onclick="setNowongu(); seoul11();">노원구</button>
-				<button onclick="setEunpyeonggu(); seoul12();">은평구</button>
-				<button onclick="setSeodaemungu(); seoul13();">서대문구</button>
-				<button onclick="setMapogu(); seoul14();">마포구</button>
-				<button onclick="setYangcheongu(); seoul15()">양천구</button>
-				<button onclick="setGangseogu(); seoul16()">강서구</button>
-				<button onclick="setGurogu(); seoul17();">구로구</button>
-				<button onclick="setGeumcheongu(); seoul18();">금천구</button>
-				<button onclick="setYeongdeungpogu(); seoul19();">영등포구</button>
-				<button onclick="setDongjakgu(); seoul20();">동작구</button>
-				<button onclick="setGwanakgu(); seoul21();">관악구</button>
-				<button onclick="setSeochogu(); seoul22();">서초구</button>
-				<button onclick="setGangnamgu(); seoul23();">강남구</button>
-				<button onclick="setSongpagu(); seoul24();">송파구</button>
-				<button onclick="setGangdonggu(); seoul25();">강동구</button>
+				<button onclick="aa();setSeoul();">서울</button>
+				<button onclick="bb();setJongnogu();">종로구</button>
+				<button onclick="cc();setJunggu();">중구</button>
+				<button onclick="dd();setYongsangu();">용산구</button>
+				<button onclick="ee();setSeongdonggu();">성동구</button>
+				<button onclick="ff();setGwangjingu();">광진구</button>
+				<button onclick="gg();setDongdaemungu();">동대문구</button>
+				<button onclick="hh();setJungnanggu();">중량구</button>
+				<button onclick="ii();setSeongbukgu(); ">성북구</button>
+				<button onclick="jj();setGangbukgu();">강북구</button>
+				<button onclick="kk();setDobonggu(); ">도봉구</button>
+				<button onclick="l();setNowongu(); ">노원구</button>
+				<button onclick="mm();setEunpyeonggu(); ">은평구</button>
+				<button onclick="nn();setSeodaemungu(); ">서대문구</button>
+				<button onclick="oo();setMapogu(); ">마포구</button>
+				<button onclick="pp();setYangcheongu(); ">양천구</button>
+				<button onclick="qq();setGangseogu(); ">강서구</button>
+				<button onclick="rr();setGurogu(); ">구로구</button>
+				<button onclick="ss();setGeumcheongu();">금천구</button>
+				<button onclick="tt();setYeongdeungpogu(); ">영등포구</button>
+				<button onclick="uu();setDongjakgu();">동작구</button>
+				<button onclick="vv();setGwanakgu();">관악구</button>
+				<button onclick="ww();setSeochogu(); ">서초구</button>
+				<button onclick="xx();setGangnamgu(); ">강남구</button>
+				<button onclick="yy();setSongpagu();">송파구</button>
+				<button onclick="zz();setGangdonggu();">강동구</button>
 				<button onclick="api();">api</button>
 			</div>
 			<div class="clearfix">
@@ -292,11 +292,11 @@
 		</div>
 	</div>
 </div>
+<script src="/js/seouljs.js"></script>
+<script src="/js/seoulmap.js">
 
-<script type="text/javascript" src="/js/seouljs.js">
 </script>
-<script type="text/javascript" src="/js/seoulmap.js">
-</script>
+
 <body>
 </body>
 </html>
