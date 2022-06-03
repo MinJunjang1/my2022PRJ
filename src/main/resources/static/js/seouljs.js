@@ -39,9 +39,13 @@ function seoul1(){
 
     xhr.send('');
 }
+
+
+
+
 <!--중구-->
-function seoul2(){
-    var apivalue = '11140';
+function api2(){
+    var apivalue = '11140'
     var now = new Date();	// 현재 날짜 및 시간
     var year = now.getFullYear();	// 연도
     var month = now.getMonth();
@@ -57,7 +61,12 @@ function seoul2(){
             alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
         }
     };
+
+    xhr.send('');
 }
+
+
+
 <!--용산구-->
 function seoul3(){
     var apivalue = '11170';
@@ -68,7 +77,7 @@ function seoul3(){
     var xhr = new XMLHttpRequest();
     var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
     var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
-    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+    queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent('11170'); /**/
     queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(time); /**/
     xhr.open('GET', url + queryParams);
     xhr.onreadystatechange = function () {

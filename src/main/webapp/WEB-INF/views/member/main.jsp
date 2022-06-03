@@ -21,11 +21,10 @@
 	var   num1 = 37.541;
 	var num2 = 126.986;
 	function api() {
-
 		var xhr = new XMLHttpRequest();
 		var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
 		var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
-		queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent('11740'); /**/
+		queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent('11140'); /**/
 		queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent('202205'); /**/
 		xhr.open('GET', url + queryParams);
 		xhr.onreadystatechange = function () {
@@ -258,33 +257,33 @@
 
 				</script>
 
-				<button onclick="aa();setSeoul();">서울</button>
-				<button onclick="bb();setJongnogu();">종로구</button>
-				<button onclick="cc();setJunggu();">중구</button>
-				<button onclick="dd();setYongsangu();">용산구</button>
-				<button onclick="ee();setSeongdonggu();">성동구</button>
-				<button onclick="ff();setGwangjingu();">광진구</button>
-				<button onclick="gg();setDongdaemungu();">동대문구</button>
-				<button onclick="hh();setJungnanggu();">중량구</button>
-				<button onclick="ii();setSeongbukgu(); ">성북구</button>
-				<button onclick="jj();setGangbukgu();">강북구</button>
-				<button onclick="kk();setDobonggu(); ">도봉구</button>
-				<button onclick="l();setNowongu(); ">노원구</button>
-				<button onclick="mm();setEunpyeonggu(); ">은평구</button>
-				<button onclick="nn();setSeodaemungu(); ">서대문구</button>
-				<button onclick="oo();setMapogu(); ">마포구</button>
-				<button onclick="pp();setYangcheongu(); ">양천구</button>
-				<button onclick="qq();setGangseogu(); ">강서구</button>
-				<button onclick="rr();setGurogu(); ">구로구</button>
-				<button onclick="ss();setGeumcheongu();">금천구</button>
-				<button onclick="tt();setYeongdeungpogu(); ">영등포구</button>
-				<button onclick="uu();setDongjakgu();">동작구</button>
-				<button onclick="vv();setGwanakgu();">관악구</button>
-				<button onclick="ww();setSeochogu(); ">서초구</button>
-				<button onclick="xx();setGangnamgu(); ">강남구</button>
-				<button onclick="yy();setSongpagu();">송파구</button>
-				<button onclick="zz();setGangdonggu();">강동구</button>
-				<button onclick="api();">api</button>
+				<button id="seo1" onclick="seoul(); setSeoul(); return false;" >서울</button>
+				<button onclick="seoul1(); setJongnogu();">종로구</button>
+				<button type="button" onclick="api2(); setJunggu(); return false;">중구</button>
+				<button onclick="seoul3();setYongsangu();">용산구</button>
+				<button onclick="seoul4();setSeongdonggu();">성동구</button>
+				<button onclick="seoul5();setGwangjingu();">광진구</button>
+				<button onclick="seoul6();setDongdaemungu();">동대문구</button>
+				<button onclick="seoul7();setJungnanggu();">중량구</button>
+				<button onclick="seoul8();setSeongbukgu(); ">성북구</button>
+				<button onclick="seoul9();setGangbukgu();">강북구</button>
+				<button onclick="seoul10();setDobonggu(); ">도봉구</button>
+				<button onclick="seoul11();setNowongu(); ">노원구</button>
+				<button onclick="seoul12();setEunpyeonggu(); ">은평구</button>
+				<button onclick="seoul13();setSeodaemungu(); ">서대문구</button>
+				<button onclick="seoul14();setMapogu(); ">마포구</button>
+				<button onclick="seoul15();setYangcheongu(); ">양천구</button>
+				<button onclick="seoul16();setGangseogu(); ">강서구</button>
+				<button onclick="seoul17();setGurogu(); ">구로구</button>
+				<button onclick="seoul18();setGeumcheongu();">금천구</button>
+				<button onclick="seoul19();setYeongdeungpogu(); ">영등포구</button>
+				<button onclick="seoul20();setDongjakgu();">동작구</button>
+				<button onclick="seoul21();setGwanakgu();">관악구</button>
+				<button onclick="seoul22();setSeochogu(); ">서초구</button>
+				<button onclick="seoul23();setGangnamgu(); ">강남구</button>
+				<button onclick="seoul24();setSongpagu();">송파구</button>
+				<button onclick="seoul25();setGangdonggu();">강동구</button>
+				<button onclick="seoul2();">api</button>
 			</div>
 			<div class="clearfix">
 
@@ -292,11 +291,26 @@
 		</div>
 	</div>
 </div>
+
+
+<body>
+</body>
 <script src="/js/seouljs.js"></script>
 <script src="/js/seoulmap.js">
 
 </script>
+<script>
+	/* 로그인 버튼 클릭 메서드 */
+	$(".seo1").click(function(){
 
-<body>
-</body>
+		//alert("로그인 버튼 작동");
+		/* 로그인 메서드 서버 요청 */
+
+		$("#login_form").attr("action", "/userlogin.do");
+
+		$("#login_form").submit();
+
+	});
+
+</script>
 </html>
