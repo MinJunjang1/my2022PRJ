@@ -1,3 +1,4 @@
+<%@ page import="kopo.poly.dto.MemberDTO" %>
 <%@ page import="kopo.poly.util.CmmUtil" %>
 <%@ page import="kopo.poly.dto.MemberDTO" %>
 <%@ page import="java.util.List" %>
@@ -16,6 +17,7 @@
     }
 
 %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <head>
     <meta charset="utf-8">
@@ -204,6 +206,37 @@
         clear: both;
     }
 
+    /* DivTable.com */
+    .divTable{
+        display: table;
+        width: 100%;
+    }
+    .divTableRow {
+        display: table-row;
+    }
+    .divTableHeading {
+        background-color: #EEE;
+        display: table-header-group;
+    }
+    .divTableCell, .divTableHead {
+        border: 1px solid #999999;
+        display: table-cell;
+        padding: 3px 10px;
+    }
+    .divTableHeading {
+        background-color: #EEE;
+        display: table-header-group;
+        font-weight: bold;
+    }
+    .divTableFoot {
+        background-color: #EEE;
+        display: table-footer-group;
+        font-weight: bold;
+    }
+    .divTableBody {
+        display: table-row-group;
+    }
+
 </style>
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
 <body>
@@ -262,6 +295,27 @@
                     %>
 
                 </table>
+<%--
+                <div class="divTable">
+                    <div class="divTableBody">
+                        <div class="divTableRow">
+                            <div class="divTableHead">번호</div>
+                            <div class="divTableHead">아이디</div>
+                            <div class="divTableHead">이메일</div>
+                            <div class="divTableHead">주소</div>
+                            <div class="divTableHead">회원가입일</div>
+                        </div>
+                        <% for (int i = 0; i < mList.size(); i++) { MemberDTO rDTO = mList.get(i); if (rDTO == null) { rDTO = new MemberDTO(); } %>
+                        <div class="divTableRow">
+                            <div class="divTableHead"><%=String.valueOf(rDTO.getUser_seq())%></div>
+                            <div class="divTableHead"><a href="/info?user_id=<%=CmmUtil.nvl(rDTO.getUser_id())%>"><%=CmmUtil.nvl(rDTO.getUser_id()) %></a></div>
+                            <div class="divTableHead"><%=CmmUtil.nvl(rDTO.getUser_email()) %></div>
+                            <div class="divTableHead"><%=CmmUtil.nvl(rDTO.getUser_addr2()) %></div>
+                            <div class="divTableHead"><fmt:formatDate pattern="yyyy/MM/dd" value="<%=(rDTO.getUser_dt()) %>"  /></div>
+                        </div>
+                        <% } %>
+                    </div>
+                </div>--%>
             </div>
             <div class="clearfix">
 

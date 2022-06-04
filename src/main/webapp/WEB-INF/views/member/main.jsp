@@ -39,6 +39,26 @@
 
 </script>
 
+<script type="text/javascript">
+function mapapi(apivalue, ymd){
+
+		var xhr = new XMLHttpRequest();
+		var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
+		var queryParams = '?' + encodeURIComponent('serviceKey') + '=' + 'ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D'; /*Service Key*/
+		queryParams += '&' + encodeURIComponent('LAWD_CD') + '=' + encodeURIComponent(apivalue); /**/
+		queryParams += '&' + encodeURIComponent('DEAL_YMD') + '=' + encodeURIComponent(ymd); /**/
+		xhr.open('GET', url + queryParams);
+		xhr.onreadystatechange = function () {
+			if (this.readyState == 4) {
+				alert('Status: ' + this.status + 'nHeaders: ' + JSON.stringify(this.getAllResponseHeaders()) + 'nBody: ' + this.responseText);
+			}
+		};
+
+		xhr.send('');
+
+}
+
+</script>
 
 <!--map-->
 
@@ -284,6 +304,7 @@
 				<button onclick="seoul24();setSongpagu();">송파구</button>
 				<button onclick="seoul25();setGangdonggu();">강동구</button>
 				<button onclick="seoul2();">api</button>
+				<button onclick="mapapi(11110,202205);">테스트</button>
 			</div>
 			<div class="clearfix">
 

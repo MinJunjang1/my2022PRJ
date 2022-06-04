@@ -44,7 +44,7 @@ function seoul1(){
 
 
 <!--중구-->
-function api2(){
+function seoul1(){
     var apivalue = '11140'
     var now = new Date();	// 현재 날짜 및 시간
     var year = now.getFullYear();	// 연도
