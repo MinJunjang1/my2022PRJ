@@ -265,7 +265,7 @@
             </div>
             <div class="admin_content_wrap">
                 <div class="admin_content_subject"><span>사용자 관리</span></div>
-                <table class="table table-striped" style="width: 864px;">
+         <%--       <table class="table table-striped" style="width: 864px;">
                     <tr>
                         <th>번호</th>
                         <th>아이디</th>
@@ -294,8 +294,7 @@
                         }
                     %>
 
-                </table>
-<%--
+                </table>--%>
                 <div class="divTable">
                     <div class="divTableBody">
                         <div class="divTableRow">
@@ -315,7 +314,7 @@
                         </div>
                         <% } %>
                     </div>
-                </div>--%>
+                </div>
             </div>
             <div class="clearfix">
 

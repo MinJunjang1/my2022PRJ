@@ -1,7 +1,12 @@
+<%@ page import="java.util.HashMap" %>
+<%@ page import="java.util.List" %>
+<%@ page import="java.util.Collections" %>
+
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -74,10 +79,11 @@
         .search_area{
             display: inline-block;
             margin-top: 30px;
+            margin: 5px;
         }
         .search_area input{
-            height: 30px;
-            width: 250px;
+            height: 35px;
+            width: 598px;
         }
         .search_area button{
             width: 100px;
@@ -94,6 +100,36 @@
         margin: auto;
         text-align: right;
     }
+        /* DivTable.com */
+        .divTable{
+            display: table;
+            width: 100%;
+        }
+        .divTableRow {
+            display: table-row;
+        }
+        .divTableHeading {
+            background-color: #EEE;
+            display: table-header-group;
+        }
+        .divTableCell, .divTableHead {
+            border: 1px solid #999999;
+            display: table-cell;
+            padding: 3px 10px;
+        }
+        .divTableHeading {
+            background-color: #EEE;
+            display: table-header-group;
+            font-weight: bold;
+        }
+        .divTableFoot {
+            background-color: #EEE;
+            display: table-footer-group;
+            font-weight: bold;
+        }
+        .divTableBody {
+            display: table-row-group;
+        }
     </style>
 </head>
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
@@ -103,8 +139,51 @@
 
 
     <div class="table_wrap">
-        <h1 class="boby">게시판</h1>
-    <table class="table table-striped boby">
+        <h1 class="boby">게시판</h1><div class="divTableRow"  >
+        <div class="search_area boby" style="margin: auto; margin-bottom: 5px;"><select name="type" >
+            <option value=""<c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>--</option>
+
+            <option value="T"<c:out value="${pageMaker.cri.type eq 'T'?'selected':'' }"/>>제목</option>
+
+            <option value="C"<c:out value="${pageMaker.cri.type eq 'C'?'selected':'' }"/>>내용</option>
+
+            <option value="W"<c:out value="${pageMaker.cri.type eq 'W'?'selected':'' }"/>>작성자</option>
+
+            <option value="TC"<c:out value="${pageMaker.cri.type eq 'TC'?'selected':'' }"/>>제목 + 내용</option>
+
+            <option value="TW"<c:out value="${pageMaker.cri.type eq 'TW'?'selected':'' }"/>>제목 + 작성자</option>
+            <option value="TCW"<c:out value="${pageMaker.cri.type eq 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
+        </select><input name="keyword" type="text" value="${pageMaker.cri.keyword }" />
+            <button class="top_btn btn btn-secondary">검색</button></div>
+    </div>
+        <div class="divTable" style="text-align: center; margin: 0">
+
+            <div class="divTableHeading">
+
+                <div class="divTableRow"  >
+                    <div class="divTableHead" >번호</div>
+                    <div class="divTableHead">제목</div>
+                    <div class="divTableHead">작성자</div>
+                    <div class="divTableHead">작성일</div>
+                    <div class="divTableHead">수정일</div>
+                </div>
+
+            </div>
+            <div class="divTableBody">
+                <c:forEach items="${list}" var="list">
+                    <div class="divTableRow">
+                        <div class="divTableCell" style="text-align: center;"><c:out value="${list.bno}"/></div>
+                        <div class="divTableCell" style="text-align: center"><a class="move" href='<c:out value="${list.bno}"/>'>
+                            <c:out value="${list.title}"/>
+                        </a></div>
+                        <div class="divTableCell"><c:out value="${list.writer}"/></div>
+                        <div class="divTableCell" ><fmt:formatDate pattern="yyyy/MM/dd" value="${list.regdate}"/></div>
+                        <div class="divTableCell" ><fmt:formatDate pattern="yyyy/MM/dd" value="${list.updateDate}"/></div>
+                    </div>
+                </c:forEach>
+            </div>
+        </div>
+<%--    <table class="table table-striped boby">
         <thead>
         <tr>
            <th colspan="5">
@@ -134,6 +213,8 @@
             <th class="updatedate_width">수정일</th>
         </tr>
         </thead>
+
+
         <c:forEach items="${list}" var="list">
             <tr>
                 <td><c:out value="${list.bno}"/></td>
@@ -146,8 +227,11 @@
                 <td><fmt:formatDate pattern="yyyy/MM/dd" value="${list.regdate}"/></td>
                 <td><fmt:formatDate pattern="yyyy/MM/dd" value="${list.updateDate}"/></td>
             </tr>
+
         </c:forEach>
-    </table>
+
+
+    </table>--%>
         <button onclick="location.href='/board/enroll'" class="btn btn-secondary top_btn left" style="float: right;" >게시판 등록</button>
     </div>
     <div class="pageInfo_wrap boby"  >

@@ -47,7 +47,7 @@ public class BoardController {
             model.addAttribute("list", BoardService.getListPaging(cri));
 
             int total = BoardService.getTotal(cri);
-
+            model.addAttribute("total",BoardService.getTotal(cri));
             PageMakerDTO pageMake = new PageMakerDTO(cri, total);
 
             model.addAttribute("pageMaker", pageMake);

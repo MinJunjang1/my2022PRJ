@@ -2,42 +2,47 @@ package kopo.poly.dto;
 
 import java.util.Arrays;
 
-
 public class Criteria {
-    /* 현재 페이지 */
+
+    /* 현재 페이지 번호 */
     private int pageNum;
 
-    /* 한 페이지 당 보여질 게시물 갯수 */
+    /* 페이지 표시 개수 */
     private int amount;
 
-    /* 스킵 할 게시물 수( (pageNum-1) * amount ) */
+    /* 페이지 skip */
     private int skip;
-
-    /* 검색어 키워드 */
-    private String keyword;
 
     /* 검색 타입 */
     private String type;
 
-    /* 검색 타입 배열 */
-    private String[] typeArr;
+    /* 검색 키워드 */
+    private String keyword;
 
+    /* 작가 리스트 */
+    private String[] authorArr;
 
-    /* 기본 생성자 -> 기봅 세팅 : pageNum = 1, amount = 10 */
+    /* 카테고리 코드 */
+    private String cateCode;
 
-    public Criteria() {
-        this(1,10);
-        this.skip = 0;
-    }
+    /* 상품 번호(댓글 기능에서 사용) */
+    private int bno;
 
-
-
-
-    /* 생성자 => 원하는 pageNum, 원하는 amount */
+    /* Criteria 생성자 */
     public Criteria(int pageNum, int amount) {
         this.pageNum = pageNum;
         this.amount = amount;
-        this.skip = (pageNum-1)*amount;
+        this.skip = (pageNum -1) * amount;
+    }
+
+    /* Criteria 기본 생성자 */
+    public Criteria(){
+        this(1,10);
+    }
+
+    /* 검색 타입 데이터 배열 변환 */
+    public String[] getTypeArr() {
+        return type == null? new String[] {}:type.split("");
     }
 
     public int getPageNum() {
@@ -45,10 +50,8 @@ public class Criteria {
     }
 
     public void setPageNum(int pageNum) {
-
-        this.skip= (pageNum-1)*this.amount;
-
         this.pageNum = pageNum;
+        this.skip = (pageNum - 1) * this.amount;
     }
 
     public int getAmount() {
@@ -56,12 +59,9 @@ public class Criteria {
     }
 
     public void setAmount(int amount) {
-
-        this.skip= (this.pageNum-1)*amount;
-
         this.amount = amount;
+        this.skip = (this.pageNum - 1) * amount;
     }
-
 
     public int getSkip() {
         return skip;
@@ -69,6 +69,14 @@ public class Criteria {
 
     public void setSkip(int skip) {
         this.skip = skip;
+    }
+
+    public String getType() {
+        return type;
+    }
+
+    public void setType(String type) {
+        this.type = type;
     }
 
     public String getKeyword() {
@@ -79,28 +87,38 @@ public class Criteria {
         this.keyword = keyword;
     }
 
-    public String getType() {
-        return type;
+
+    public String[] getAuthorArr() {
+        return authorArr;
     }
 
-    public void setType(String type) {
-        this.type = type;
-        this.typeArr = type.split("");
+    public void setAuthorArr(String[] authorArr) {
+        this.authorArr = authorArr;
     }
 
-    public String[] getTypeArr() {
-        return typeArr;
+    public String getCateCode() {
+        return cateCode;
     }
 
-    public void setTypeArr(String[] typeArr) {
-        this.typeArr = typeArr;
+    public void setCateCode(String cateCode) {
+        this.cateCode = cateCode;
+    }
+
+    public int getBookId() {
+        return bno;
+    }
+
+    public void setBookId(int bno) {
+        this.bno = bno;
     }
 
     @Override
     public String toString() {
-        return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", skip=" + skip + ", keyword=" + keyword
-                + ", type=" + type + ", typeArr=" + Arrays.toString(typeArr) + "]";
+        return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", skip=" + skip + ", type=" + type
+                + ", keyword=" + keyword + ", authorArr=" + Arrays.toString(authorArr) + ", cateCode=" + cateCode
+                + ", bookId=" + bno + "]";
     }
+
 
 
 

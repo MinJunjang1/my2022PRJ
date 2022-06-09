@@ -215,7 +215,7 @@
         }
         .search_area input{
             height: 30px;
-            width: 250px;
+            width: 525px;
         }
         .search_area button{
             width: 100px;
@@ -232,6 +232,35 @@
         margin: auto;
         text-align: right;
     }
+        .divTable{
+            display: table;
+            width: 100%;
+        }
+        .divTableRow {
+            display: table-row;
+        }
+        .divTableHeading {
+            background-color: #EEE;
+            display: table-header-group;
+        }
+        .divTableCell, .divTableHead {
+            border: 1px solid #999999;
+            display: table-cell;
+            padding: 3px 10px;
+        }
+        .divTableHeading {
+            background-color: #EEE;
+            display: table-header-group;
+            font-weight: bold;
+        }
+        .divTableFoot {
+            background-color: #EEE;
+            display: table-footer-group;
+            font-weight: bold;
+        }
+        .divTableBody {
+            display: table-row-group;
+        }
     </style>
 </head>
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
@@ -261,51 +290,53 @@
             </div>
             <div class="admin_content_wrap">
                 <div class="admin_content_subject"><span>게시판관리</span></div>
-                <table class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th colspan="5">
-                            <div class="search_wrap body">
-                                <div class="search_area">
-                                    <select name="type">
-                                        <option value="" <c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>--</option>
-                                        <option value="T" <c:out value="${pageMaker.cri.type eq 'T'?'selected':'' }"/>>제목</option>
-                                        <option value="C" <c:out value="${pageMaker.cri.type eq 'C'?'selected':'' }"/>>내용</option>
-                                        <option value="W" <c:out value="${pageMaker.cri.type eq 'W'?'selected':'' }"/>>작성자</option>
-                                        <option value="TC" <c:out value="${pageMaker.cri.type eq 'TC'?'selected':'' }"/>>제목 + 내용</option>
-                                        <option value="TW" <c:out value="${pageMaker.cri.type eq 'TW'?'selected':'' }"/>>제목 + 작성자</option>
-                                        <option value="TCW" <c:out value="${pageMaker.cri.type eq 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
-                                    </select>
-                                    <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
-                                    <button class="top_btn btn btn-secondary">검색</button>
+                <div class="table_wrap">
+                    <div class="divTableRow"  >
+                    <div class="search_area boby" style="margin: auto"><select name="type">
+                        <option value=""<c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>--</option>
 
-                                </div>
+                        <option value="T"<c:out value="${pageMaker.cri.type eq 'T'?'selected':'' }"/>>제목</option>
+
+                        <option value="C"<c:out value="${pageMaker.cri.type eq 'C'?'selected':'' }"/>>내용</option>
+
+                        <option value="W"<c:out value="${pageMaker.cri.type eq 'W'?'selected':'' }"/>>작성자</option>
+
+                        <option value="TC"<c:out value="${pageMaker.cri.type eq 'TC'?'selected':'' }"/>>제목 + 내용</option>
+
+                        <option value="TW"<c:out value="${pageMaker.cri.type eq 'TW'?'selected':'' }"/>>제목 + 작성자</option>
+                        <option value="TCW"<c:out value="${pageMaker.cri.type eq 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
+                    </select><input name="keyword" type="text" value="${pageMaker.cri.keyword }" />
+                        <button class="top_btn btn btn-secondary">검색</button></div>
+                </div>
+                    <div class="divTable" style="text-align: center; margin: 0">
+
+                        <div class="divTableHeading">
+
+                            <div class="divTableRow"  >
+                                <div class="divTableHead" >번호</div>
+                                <div class="divTableHead">제목</div>
+                                <div class="divTableHead">작성자</div>
+                                <div class="divTableHead">작성일</div>
+                                <div class="divTableHead">수정일</div>
                             </div>
-                        </th>
-                    </tr>
-                    <tr>
-                        <th class="bno_width">번호</th>
-                        <th class="title_width">제목</th>
-                        <th class="writer_width">작성자</th>
-                        <th class="regdate_width">작성일</th>
-                        <th class="updatedate_width">수정일</th>
-                    </tr>
-                    </thead>
-                    <c:forEach items="${list}" var="list">
-                        <tr>
-                            <td><c:out value="${list.bno}"/></td>
-                            <td>
-                                <a class="move" href='<c:out value="${list.bno}"/>'>
-                                    <c:out value="${list.title}"/>
-                                </a>
-                            </td>
-                            <td><c:out value="${list.writer}"/></td>
-                            <td><fmt:formatDate pattern="yyyy/MM/dd" value="${list.regdate}"/></td>
-                            <td><fmt:formatDate pattern="yyyy/MM/dd" value="${list.updateDate}"/></td>
-                        </tr>
-                    </c:forEach>
-                </table>
-                <div class="pageInfo_wrap"  >
+
+                        </div>
+                        <div class="divTableBody">
+                            <c:forEach items="${list}" var="list">
+                                <div class="divTableRow">
+                                    <div class="divTableCell" style="text-align: center;"><c:out value="${list.bno}"/></div>
+                                    <div class="divTableCell" style="text-align: center"><a class="move" href='<c:out value="${list.bno}"/>'>
+                                        <c:out value="${list.title}"/>
+                                    </a></div>
+                                    <div class="divTableCell"><c:out value="${list.writer}"/></div>
+                                    <div class="divTableCell" ><fmt:formatDate pattern="yyyy/MM/dd" value="${list.regdate}"/></div>
+                                    <div class="divTableCell" ><fmt:formatDate pattern="yyyy/MM/dd" value="${list.updateDate}"/></div>
+                                </div>
+                            </c:forEach>
+                        </div>
+                    </div>
+                </div>
+                <div class="pageInfo_wrap" >
                     <div class="pageInfo_area">
                         <ul id="pageInfo" class="pageInfo">
 
@@ -345,74 +376,74 @@
         <input type="hidden" name="type" value="${pageMaker.cri.type }">
     </form>
 
-<script>
-    $(document).ready(function(){
+    <script>
+        $(document).ready(function(){
 
-        let result = '<c:out value="${result}"/>';
+            let result = '<c:out value="${result}"/>';
 
-        checkAlert(result);
-        console.log(result);
+            checkAlert(result);
+            console.log(result);
 
-        function checkAlert(result){
+            function checkAlert(result){
 
-            if(result === ''){
-                return;
+                if(result === ''){
+                    return;
+                }
+
+                if(result === "enrol success"){
+                    alert("등록이 완료되었습니다.");
+                }
+
+                if(result === "modify success"){
+                    alert("수정이 완료되었습니다.");
+                }
+
+                if(result === "delete success"){
+                    alert("삭제가 완료되었습니다.");
+                }
             }
 
-            if(result === "enrol success"){
-                alert("등록이 완료되었습니다.");
+        });
+        let moveForm = $("#moveForm");
+        $(".move").on("click", function(e){
+            e.preventDefault();
+
+            moveForm.append("<input type='hidden' name='bno' value='"+ $(this).attr("href")+ "'>");
+            moveForm.attr("action", "/admin/boardget");
+            moveForm.submit();
+        });
+        $(".pageInfo a").on("click", function(e){
+            e.preventDefault();
+            moveForm.find("input[name='pageNum']").val($(this).attr("href"));
+            moveForm.attr("action", "/admin/boardlist");
+            moveForm.submit();
+
+        });
+
+
+        $(".search_area button").on("click", function(e){
+            e.preventDefault();
+
+            let type = $(".search_area select").val();
+            let keyword = $(".search_area input[name='keyword']").val();
+
+            if(!type){
+                alert("검색 종류를 선택하세요.");
+                return false;
             }
 
-            if(result === "modify success"){
-                alert("수정이 완료되었습니다.");
+            if(!keyword){
+                alert("키워드를 입력하세요.");
+                return false;
             }
 
-            if(result === "delete success"){
-                alert("삭제가 완료되었습니다.");
-            }
-        }
+            moveForm.find("input[name='type']").val(type);
+            moveForm.find("input[name='keyword']").val(keyword);
+            moveForm.find("input[name='pageNum']").val(1);
+            moveForm.submit();
+        });
 
-    });
-    let moveForm = $("#moveForm");
-    $(".move").on("click", function(e){
-        e.preventDefault();
-
-        moveForm.append("<input type='hidden' name='bno' value='"+ $(this).attr("href")+ "'>");
-        moveForm.attr("action", "/admin/boardget");
-        moveForm.submit();
-    });
-    $(".pageInfo a").on("click", function(e){
-        e.preventDefault();
-        moveForm.find("input[name='pageNum']").val($(this).attr("href"));
-        moveForm.attr("action", "/admin/boardlist");
-        moveForm.submit();
-
-    });
-
-
-    $(".search_area button").on("click", function(e){
-        e.preventDefault();
-
-        let type = $(".search_area select").val();
-        let keyword = $(".search_area input[name='keyword']").val();
-
-        if(!type){
-            alert("검색 종류를 선택하세요.");
-            return false;
-        }
-
-        if(!keyword){
-            alert("키워드를 입력하세요.");
-            return false;
-        }
-
-        moveForm.find("input[name='type']").val(type);
-        moveForm.find("input[name='keyword']").val(keyword);
-        moveForm.find("input[name='pageNum']").val(1);
-        moveForm.submit();
-    });
-
-</script>
+    </script>
 
 </body>
 </html>

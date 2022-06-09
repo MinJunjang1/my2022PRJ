@@ -40,7 +40,7 @@
 </script>
 
 <script type="text/javascript">
-function mapapi(apivalue, ymd){
+function aprtapi(apivalue, ymd){
 
 		var xhr = new XMLHttpRequest();
 		var url = 'http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcRHTrade'; /*URL*/
@@ -277,34 +277,34 @@ function mapapi(apivalue, ymd){
 
 				</script>
 
-				<button id="seo1" onclick="seoul(); setSeoul(); return false;" >서울</button>
-				<button onclick="seoul1(); setJongnogu();">종로구</button>
-				<button type="button" onclick="api2(); setJunggu(); return false;">중구</button>
-				<button onclick="seoul3();setYongsangu();">용산구</button>
-				<button onclick="seoul4();setSeongdonggu();">성동구</button>
-				<button onclick="seoul5();setGwangjingu();">광진구</button>
-				<button onclick="seoul6();setDongdaemungu();">동대문구</button>
-				<button onclick="seoul7();setJungnanggu();">중량구</button>
-				<button onclick="seoul8();setSeongbukgu(); ">성북구</button>
-				<button onclick="seoul9();setGangbukgu();">강북구</button>
-				<button onclick="seoul10();setDobonggu(); ">도봉구</button>
-				<button onclick="seoul11();setNowongu(); ">노원구</button>
-				<button onclick="seoul12();setEunpyeonggu(); ">은평구</button>
-				<button onclick="seoul13();setSeodaemungu(); ">서대문구</button>
-				<button onclick="seoul14();setMapogu(); ">마포구</button>
-				<button onclick="seoul15();setYangcheongu(); ">양천구</button>
-				<button onclick="seoul16();setGangseogu(); ">강서구</button>
-				<button onclick="seoul17();setGurogu(); ">구로구</button>
-				<button onclick="seoul18();setGeumcheongu();">금천구</button>
-				<button onclick="seoul19();setYeongdeungpogu(); ">영등포구</button>
-				<button onclick="seoul20();setDongjakgu();">동작구</button>
-				<button onclick="seoul21();setGwanakgu();">관악구</button>
-				<button onclick="seoul22();setSeochogu(); ">서초구</button>
-				<button onclick="seoul23();setGangnamgu(); ">강남구</button>
-				<button onclick="seoul24();setSongpagu();">송파구</button>
-				<button onclick="seoul25();setGangdonggu();">강동구</button>
-				<button onclick="seoul2();">api</button>
-				<button onclick="mapapi(11110,202205);">테스트</button>
+				<button id="seo1" onclick="seoul(11000,202205); setSeoul(); return false;" >서울</button>
+				<button onclick="aprtapi(11110,202205); setJongnogu();">종로구</button>
+				<button type="button" onclick="aprtapi(11140,202205); setJunggu(); return false;">중구</button>
+				<button onclick="aprtapi(11170,202205);setYongsangu();">용산구</button>
+				<button onclick="aprtapi(11200,202205);setSeongdonggu();">성동구</button>
+				<button onclick="aprtapi(11215,202205);setGwangjingu();">광진구</button>
+				<button onclick="aprtapi(11230,202205);setDongdaemungu();">동대문구</button>
+				<button onclick="aprtapi(11260,202205);setJungnanggu();">중량구</button>
+				<button onclick="aprtapi(11290,202205);setSeongbukgu(); ">성북구</button>
+				<button onclick="aprtapi(11305,202205);setGangbukgu();">강북구</button>
+				<button onclick="aprtapi(11320,202205);setDobonggu(); ">도봉구</button>
+				<button onclick="aprtapi(11350,202205);setNowongu(); ">노원구</button>
+				<button onclick="aprtapi(11380,202205);setEunpyeonggu(); ">은평구</button>
+				<button onclick="aprtapi(11410,202205);setSeodaemungu(); ">서대문구</button>
+				<button onclick="aprtapi(11440,202205);setMapogu(); ">마포구</button>
+				<button onclick="aprtapi(11470,202205);setYangcheongu(); ">양천구</button>
+				<button onclick="aprtapi(11500,202205);setGangseogu(); ">강서구</button>
+				<button onclick="aprtapi(11530,202205);setGurogu(); ">구로구</button>
+				<button onclick="aprtapi(11545,202205);setGeumcheongu();">금천구</button>
+				<button onclick="aprtapi(11560,202205);setYeongdeungpogu(); ">영등포구</button>
+				<button onclick="aprtapi(11590,202205);setDongjakgu();">동작구</button>
+				<button onclick="aprtapi(11620,202205);setGwanakgu();">관악구</button>
+				<button onclick="aprtapi(11650,202205);setSeochogu(); ">서초구</button>
+				<button onclick="aprtapi(11680,202205);setGangnamgu(); ">강남구</button>
+				<button onclick="aprtapi(11710,202205);setSongpagu();">송파구</button>
+				<button onclick="aprtapi(11740,202205);setGangdonggu();">강동구</button>
+				<button onclick="api();">api</button>
+				<button onclick="aprtapi(11110,202205);">테스트</button>
 			</div>
 			<div class="clearfix">
 

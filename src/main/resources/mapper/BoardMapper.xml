@@ -25,6 +25,18 @@
 
     </sql>
 
+    <select id="getList" resultType="BoardDTO">
+
+
+            select  bno,  writer, regdate, updatedate
+            from board
+            <if test="keyword != null">
+                where board.writer like concat('%',#{keyword}, '%')
+            </if>
+            order by bno desc
+            limit #{skip}, #{amount}
+
+    </select>
 
     <!-- 게시판 등록 -->
     <insert id="enroll">
@@ -34,11 +46,11 @@
     </insert>
 
     <!-- 게시판 목록 -->
-    <select id="getList" resultType="BoardDTO">
+    <!--<select id="getList" resultType="BoardDTO">
 
         select * from board order by bno desc
 
-    </select>
+    </select>-->
 
     <!-- 게시물 목록(페이징) -->
     <select id="getListPaging" resultType="BoardDTO">
@@ -49,15 +61,19 @@
         <if test="keyword != null">
             <include refid="criteria"></include>
         </if>
-        order by bno desc ) as T1
+       ) as T1 order by bno desc
         limit #{skip},#{amount}
 
+
     </select>
+<!-- ㅅㅂㄴ-->
+
+
 
     <!-- 게시판 조회 -->
     <select id="getPage" resultType="BoardDTO">
 
-        select * from board where bno = #{bno}
+        select * from board where bno = #{bno} order by bno desc
 
     </select>
 

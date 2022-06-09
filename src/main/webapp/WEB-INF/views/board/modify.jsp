@@ -46,7 +46,7 @@
 
 <h1>수정 페이지</h1>
 <form id="modifyForm" action="/board/modify1" method="post">
-    <table class="table table-hover">
+  <%--  <table class="table table-hover">
 
         <tr>
             <td>게시판번호</td>
@@ -74,7 +74,31 @@
         </tbody>
 
     </table>
+--%>
 
+      <div class="container p-2" style="border:1px solid; border-color: #ffffff #ffffff #333 #ffffff;">
+
+          <span>게시판 번호</span><span><c:out value="${pageInfo.bno}"/></span>
+          <span>작성자</span><span><c:out value="${pageInfo.writer}"/></span>
+          <span>등록일</span><span><fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.regdate}"/></span>
+          <span>수정일</span><span><fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.updateDate}"/></span>
+      </div>
+      <div class="container p-2" style="border:1px solid; border-color: #ffffff #ffffff #333 #ffffff;">
+          <span>제목</span>
+          <span><c:out value="${pageInfo.title}"/></span>
+      </div>
+      <div class="container p-2 d-flex justify-content-around" style="border:1px solid; border-color: #ffffff #ffffff #333 #ffffff;">
+
+          <p>내용</p>
+          <textarea type="text" class="form-control" placeholder="글 내용을 작성하세요" name="content" maxlength="1024" style="height: 400px;"><c:out value="${pageInfo.content}"/></textarea>
+      </div>
+
+      <div class="container p-2 text-left" style="border:1px solid; border-color: #ffffff #ffffff #333 #ffffff;">
+
+          <p>내용</p>
+          <textarea type="text" class="form-control" placeholder="글 내용을 작성하세요" name="content" maxlength="1024" style="height: 400px;"><c:out value="${pageInfo.content}"/></textarea>
+
+      </div>
 </form>
     <div class="btn_wrap boby" >
         <button  id="list_btn" class="btn btn-secondary">목록 페이지</button>
@@ -90,6 +114,9 @@
     <input type="hidden" name="type" value="${cri.type }">
     <input type="hidden" name="keyword" value="${cri.keyword }">
 </form>
+
+
+<div style="max-width: 1100px; border: 1px solid; border-color: red blue saddlebrown salmon;">234234</div>
 
 <script>
     let form = $("#infoForm");		// 페이지 이동 form(리스트 페이지 이동, 조회 페이지 이동)
