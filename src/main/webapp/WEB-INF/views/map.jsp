@@ -106,9 +106,9 @@
 	}
 </script>
 
-<div id="map" style="width:100%;height:500px;"></div>
-<div class="btn-group">
-	<button class="btn btn-secondary dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+<div id="map" style="width:100%;height:600px;"></div>
+<div class="btn-group" style="display: block; margin: auto;">
+	<button style="display: block; margin: auto;" class="btn btn-secondary dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
 		구별 아파트 가격 확인하기
 	</button>
 	<ul class="dropdown-menu" aria-labelledby="defaultDropdown">
@@ -199,21 +199,22 @@
 	var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 			mapOption = {
 				center: new kakao.maps.LatLng(37.5666805, 126.9784147), // 지도의 중심좌표
-				level: 5 // 지도의 확대 레벨
+				level: 7 // 지도의 확대 레벨
 			};
 
 	// 지도를 생성합니다
 	var map = new kakao.maps.Map(mapContainer, mapOption);
 	var geocoder = new kakao.maps.services.Geocoder();
-	var value = 0;
+	var value = new Array();
 	var juso = new Array();
 	var j = 0;
 
+
 </script>
 <% int i = 0;%>
-<div class="divTable">
+<div class="divTable" style="max-width: 1000px; text-align: center; margin: auto; ">
 	<div class="divTableBody">
-		<div class="divTableRow">
+		<div class="divTableRow" style="background: #c8e5bc" >
 			<div class="divTableHead">법정동</div>
 			<div class="divTableHead">지번</div>
 			<div class="divTableHead">아파트이름</div>
@@ -231,6 +232,7 @@
 
 			<% for (i = 0; i < rList.size(); i++ ) { apiDTO aDTO = rList.get(i); if (aDTO == null) { aDTO = new apiDTO(); } %>
 			juso[<%= i%>] = ["서울" + '<%=CmmUtil.nvl(aDTO.getDong()) %>' + <%=CmmUtil.nvl(aDTO.getJiburn()) %> + " " + '<%=CmmUtil.nvl(aDTO.getApartment_Name()) %>'];
+			value[<%=i%>] = ["가격(만) : "  + '<%=String.valueOf(aDTO.getDeal_Amount()) %>'];
 			geocoder.addressSearch(	juso[<%= i%>], function(result, status) {
 
 				// 정상적으로 검색이 완료됐으면
@@ -248,13 +250,27 @@
 
 					// 인포윈도우로 장소에 대한 설명을 표시합니다
 					var infowindow = new kakao.maps.InfoWindow({
-						content: '<div style="width:150px;text-align:center;padding:6px 0;">' + juso[<%= i%>] + '</div>'
+						content: '<div style="width:250px;height:80px;text-align:center;padding:6px 0;margin:auto;">' + juso[<%= i%>] + '</div>'
 					});
 					infowindow.open(map, marker);
 
 					// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 					map.setCenter(coords);
 				}
+				var iwContent = '<div style="padding:5px;">'+ value[<%=i%>]+'</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+						iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
+
+// 인포윈도우를 생성합니다
+				var infowindow = new kakao.maps.InfoWindow({
+					content : iwContent,
+					removable : iwRemoveable
+				});
+
+// 마커에 클릭이벤트를 등록합니다
+				kakao.maps.event.addListener(marker, 'click', function() {
+					// 마커 위에 인포윈도우를 표시합니다
+					infowindow.open(map, marker);
+				});
 
 			});
 

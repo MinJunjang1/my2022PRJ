@@ -83,70 +83,33 @@
     <button type="button" id="list_btn" class="btn btn-secondary" value="">목록</button>
 </div>
 
+    <form id="infoForm" action="/board/modify" method="get">
+        <input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
+        <input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum}"/>'>
+        <input type="hidden" name="amount" value='<c:out value="${cri.amount}"/>'>
+        <input type="hidden" name="type" value="${cri.type }">
+        <input type="hidden" name="keyword" value="${cri.keyword }">
+    </form>
+
+
+    <div class="card my-4">
+        <h5 class="card-header">Leave a Comment:</h5>
+        <div class="card-body">
+            <form name="comment-form" action="/board/comment-write" method="post" autocomplete="off">
+                <div class="form-group">
+                    <input type="hidden" name="bno" value="<c:out value="${pageInfo.bno}"/>" />
+                    <input type="hidden" name="user_id" value="${dto.member_id}" />
+                    <textarea name="content" class="form-control" rows="3"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+    </div>
+
+
 </div>
 
 
-<form id="infoForm" action="/board/modify" method="get">
-    <input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
-    <input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum}"/>'>
-    <input type="hidden" name="amount" value='<c:out value="${cri.amount}"/>'>
-    <input type="hidden" name="type" value="${cri.type }">
-    <input type="hidden" name="keyword" value="${cri.keyword }">
-</form>
-<script>
-    let form = $("#infoForm");
-
-    $("#list_btn").on("click", function(e){
-        form.find("#bno").remove();
-        form.attr("action", "/board/list");
-        form.submit();
-    });
-
-    $("#modify_btn").on("click", function(e){
-        form.attr("action", "/board/modify");
-        form.submit();
-    });
-</script>
-<%--
-<h1>조회 페이지</h1>
-<div class="input_wrap">
-    <label>게시판 번호</label>
-    <input name="bno" readonly="readonly" value='<c:out value="${pageInfo.bno}"/>' >
-</div>
-<div class="input_wrap">
-    <label>게시판 제목</label>
-    <input name="title" readonly="readonly" value='<c:out value="${pageInfo.title}"/>' >
-</div>
-<div class="input_wrap">
-    <label>게시판 내용</label>
-    <textarea rows="3" name="content" readonly="readonly"><c:out value="${pageInfo.content}"/></textarea>
-</div>
-<div class="input_wrap">
-    <label>게시판 작성자</label>
-    <input name="writer" readonly="readonly" value='<c:out value="${pageInfo.writer}"/>' >
-</div>
-<div class="input_wrap">
-    <label>게시판 등록일</label>
-    <input name="regdater" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.regdate}"/>' >
-</div>
-<div class="input_wrap">
-    <label>게시판 수정일</label>
-    <input name="updateDate" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.updateDate}"/>' >
-</div>
-<div class="btn_wrap">
-    <a class="btn" id="list_btn">목록 페이지</a>
-    <c:if test="${ pageInfo.writer == memberDTO.user_id}">
-    <a class="btn" id="modify_btn">수정 하기</a>
-    </c:if>
-
-</div>
-<form id="infoForm" action="/board/modify" method="get">
-    <input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
-    <input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum}"/>'>
-    <input type="hidden" name="amount" value='<c:out value="${cri.amount}"/>'>
-    <input type="hidden" name="type" value="${cri.type }">
-    <input type="hidden" name="keyword" value="${cri.keyword }">
-</form>
 
 <script>
     let form = $("#infoForm");
@@ -162,7 +125,8 @@
         form.submit();
     });
 </script>
---%>
+<!-- Comments Form -->
+
 
 </body>
 </html>
