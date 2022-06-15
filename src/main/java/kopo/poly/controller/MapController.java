@@ -1,11 +1,16 @@
 package kopo.poly.controller;
 
+import kopo.poly.dto.apiDTO;
 import kopo.poly.service.IMapService;
+import kopo.poly.util.DetailData;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import javax.annotation.Resource;
+import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 
 /*
@@ -32,4 +37,16 @@ public class MapController {
         return "/index";
 
     }
+
+    @GetMapping(value = "map")
+    public String apimap(HttpServletRequest request, Model model) throws Exception{
+        String region_code = request.getParameter("region_code");
+        String ym = request.getParameter("ym");
+
+        List<apiDTO> rList = DetailData.main(region_code, ym);
+        model.addAttribute("rList", rList);
+
+        return "/map";
+    }
+
 }

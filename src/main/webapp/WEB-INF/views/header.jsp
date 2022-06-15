@@ -42,6 +42,9 @@
 				<li class="nav-item ">
 					<a class="nav-link" href="/board/list">게시판</a>
 				</li>
+				<li class="nav-item ">
+					<a class="nav-link" href="/index1">채팅</a>
+				</li>
 
 				<c:if test="${ memberDTO != null }">
 					<li class="nav-item ">

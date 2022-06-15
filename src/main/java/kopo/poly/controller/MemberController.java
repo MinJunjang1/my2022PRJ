@@ -163,6 +163,13 @@ public class MemberController {
 
         return "/member/main";
     }
+/*    @GetMapping(value = "/map")
+    public String Mappage( Model model, HttpServletRequest request) throws Exception {
+        String user_id = CmmUtil.nvl(request.getParameter("user_id"));
+
+        model.addAttribute("dto", memberService.userinfo(user_id));
+        return "/map";
+    }*/
     @GetMapping(value = "/info")
     public String userinfo(String user_id, Model model, HttpServletRequest request) throws Exception {
         //테스트(컨트롤러) 호출 -> 정보를 저장 -> DB로이동
@@ -349,7 +356,8 @@ public class MemberController {
             return "/alertlogin";
         }
         session.setAttribute("memberDTO", member);
-        return "redirect:/main";
+
+        return "redirect:/main?" + (user_id);
     }
     @RequestMapping(value="/deleteuser")
     public String deleteuser(MemberDTO memberDTO, HttpSession session, RedirectAttributes rttr) throws Exception{

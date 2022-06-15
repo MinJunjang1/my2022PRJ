@@ -57,42 +57,34 @@
 
     <h2>조회페이지</h2>
 
-    <table class="table table-hover">
+    <div class="container p-2" style="border:1px solid; border-color: #ffffff #ffffff #333 #ffffff;">
 
-        <tr>
-            <td>게시판번호</td>
-            <td><input name="bno" class="form-control" readonly="readonly" value='<c:out value="${pageInfo.bno}"/>' ></td>
-            <td>작성자</td>
-            <td><input type="text" name="writer" id="writer" class="form-control" placeholder="작성자" maxlength="40" value='<c:out value="${pageInfo.writer}"/>' readonly></td>
-            <td>최초등록일</td>
-            <td><input name="regdater" class="form-control" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.regdate}"/>'></td>
-            <td>수정일</td>
-            <td>
-                <input name="updateDate" class="form-control" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.updateDate}"/>'></td>
-        </tr>
-        <tbody>
-        <tr>
-            <td colspan="1">제목</td>
-            <td colspan="7"><input type="text" class="form-control" placeholder="글 제목" name="title" maxlength="40" value='<c:out value="${pageInfo.title}"/>' readonly="readonly"></td>
-
-        </tr>
-
-        <tr>
-
-            <td colspan="8"><label>내용</label><textarea type="text" class="form-control" placeholder="글 내용을 작성하세요" name="content" maxlength="1024" style="height: 400px;" readonly="readonly"><c:out value="${pageInfo.content}"/></textarea></td>
-
-        </tr>
-        </tbody>
-
-    </table>
-    <div class="boby">
-        <c:if test="${ pageInfo.writer == memberDTO.user_id}">
-            <input type="submit" id="modify_btn" class="btn btn-primary pull-right" value="수정하기">
-        </c:if>
-        <button type="button" id="list_btn" class="btn btn-secondary" value="">목록</button>
+        <span> 게시판 번호 / </span><input type="text" name="bno" style="border: none"  readonly value="<c:out value="${pageInfo.bno}"/>">
+        <span> 작성자 / </span><input type="text" name="title" style="border: none" readonly value="<c:out value="${pageInfo.writer}"/> ">
+        <span> 등록일 / </span><input type="text" style="border: none" readonly value="<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.regdate}"/> ">
+        <span> 수정일 / </span><input type="text" style="border: none" readonly value="<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.updateDate}"/>">
     </div>
+    <div class="container p-2" style="border:1px solid; border-color: #ffffff #ffffff #333 #ffffff;">
+        <span>제목 / </span>
+        <input type="text"  style="border: none" class="input_wrap" readonly value="<c:out value="${pageInfo.title}"/>">
+    </div>
+    <div class="container p-2 text-left" style="border:1px solid; border-color: #ffffff #ffffff #333 #ffffff;">
+
+        <p>내용</p>
+        <textarea type="text" class="form-control" placeholder="글 내용을 작성하세요" name="content" maxlength="1024"  readonly style="height: 400px;"><c:out value="${pageInfo.content}"/></textarea>
+
+        </form>
 
 </div>
+<div class="boby" style="margin-top: 5px;">
+    <c:if test="${ pageInfo.writer == memberDTO.user_id}">
+        <input type="submit" id="modify_btn" class="btn btn-primary pull-right" value="수정하기">
+    </c:if>
+    <button type="button" id="list_btn" class="btn btn-secondary" value="">목록</button>
+</div>
+
+</div>
+
 
 <form id="infoForm" action="/board/modify" method="get">
     <input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
