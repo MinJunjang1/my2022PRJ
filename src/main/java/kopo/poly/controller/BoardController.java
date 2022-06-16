@@ -1,8 +1,8 @@
 package kopo.poly.controller;
 
 import kopo.poly.dto.*;
+import kopo.poly.service.IChatService;
 import kopo.poly.service.impl.BoardService;
-import kopo.poly.util.CmmUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -173,35 +173,11 @@ public class BoardController {
         return "redirect:/admin/list";
     }
     @RequestMapping(value="/board/chat", method= RequestMethod.POST)
-    public String writechat(HttpServletRequest request) throws Exception{
+    public String writechat(chatDTO chatDTO,RedirectAttributes rttr) throws Exception{
+        IChatService.insertchat(chatDTO);
 
-        String writer = CmmUtil.nvl(request.getParameter("userid"));
-        int bno = CmmUtil.nvl(request.getParameter("bno"));
-        String content = CmmUtil.nvl(request.getParameter("content"));
-
-        log.info(writer);
-        log.info(bno);
-        log.info(content);
+        rttr.addFlashAttribute("result", "chat success");
 
 
-
-        chatDTO cDTO = new chatDTO();
-
-        cDTO.(user_id);
-        cDTO.setUser_pw(user_pw);
-        cDTO.setUser_email(user_email);
-
-
-        /*
-         * 게시글 등록하기위한 비즈니스 로직을 호출
-         */
-        memberService.userjoin(pDTO);
-
-
-
-        // 회원가입 서비스 실행
-
-
-
-        return "redirect:/login";
+        return "";
 }
