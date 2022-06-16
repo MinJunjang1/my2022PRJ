@@ -160,8 +160,8 @@
 
             <div class="divTableHeading">
 
-                <div class="divTableRow"  >
-                    <div class="divTableHead" >번호</div>
+                <div class="divTableRow"  style="background: #c8e5bc;">
+                    <div class="divTableHead">번호</div>
                     <div class="divTableHead">제목</div>
                     <div class="divTableHead">작성자</div>
                     <div class="divTableHead">작성일</div>

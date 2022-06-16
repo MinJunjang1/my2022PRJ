@@ -121,6 +121,7 @@
     .clearfix{
         clear: both;
     }
+
 </style>
 <body>
 

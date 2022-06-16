@@ -12,14 +12,19 @@
 		position: sticky;
 		top: 0;
 	}
+body{
+	background-image: linear-gradient(
+			rgba(0, 0, 0, 0.5),
+			rgba(0, 0, 0, 0.5)
+	), url('/img/apart.jpg');
 
 
 </style>
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
-<body style="background-image: url('/img/apart.jpg')">
+<body>
 
 <div class="container align-content-center">
-<div class="jumbotron text-center" style="margin-top: 50pt;" />
+<div class="jumbotron text-center" style="margin-top: 100px;color: #FFFFFF"  />
 	<h1 class="text-center">아파트 거래 가격 알아보기</h1>
 	<p class="text-center">지도를 통해 아파트의 위치를 파악할 수 있습니다</p>
 	<div class="btn-group" style="margin: auto">

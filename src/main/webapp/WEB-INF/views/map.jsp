@@ -106,7 +106,7 @@
 	}
 </script>
 
-<div id="map" style="width:100%;height:600px;"></div>
+<div id="map" style="width:100%;height:600px; margin: 5px 5px 5px 5px"></div>
 <div class="btn-group" style="display: block; margin: auto;">
 	<button style="display: block; margin: auto;" class="btn btn-secondary dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
 		구별 아파트 가격 확인하기
@@ -250,14 +250,14 @@
 
 					// 인포윈도우로 장소에 대한 설명을 표시합니다
 					var infowindow = new kakao.maps.InfoWindow({
-						content: '<div style="width:250px;height:80px;text-align:center;padding:6px 0;margin:auto;">' + juso[<%= i%>] + '</div>'
+						content: '<div style="width:250px;height:80px; display: table-cell;text-align:center;padding:6px 0;margin: auto;vertical-align: middle;">' + juso[<%= i%>] + '</div>'
 					});
 					infowindow.open(map, marker);
 
 					// 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
 					map.setCenter(coords);
 				}
-				var iwContent = '<div style="padding:5px;">'+ value[<%=i%>]+'</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
+				var iwContent = '<div style="padding:5px;width:250px;text-align:center;">'+ value[<%=i%>]+'</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
 						iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
 
 // 인포윈도우를 생성합니다
