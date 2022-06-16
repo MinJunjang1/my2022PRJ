@@ -55,7 +55,7 @@
 <body>
 <div class="container body"  >
 
-    <h2>조회페이지</h2>
+    <h2 style="margin: auto; padding: 3px; text-align: center;">상세페이지</h2>
 
     <div class="container p-2" style="border:1px solid; border-color: #ffffff #ffffff #333 #ffffff;">
 
@@ -93,7 +93,7 @@
 
 
     <div class="card my-4">
-        <h5 class="card-header">Leave a Comment:</h5>
+        <h5 class="card-header">댓글</h5>
         <div class="card-body">
             <form name="comment-form" action="/board/comment-write" method="post" autocomplete="off">
                 <div class="form-group">
@@ -101,7 +101,7 @@
                     <input type="hidden" name="user_id" value="${dto.member_id}" />
                     <textarea name="content" class="form-control" rows="3"></textarea>
                 </div>
-                <button type="submit" class="btn btn-primary">Submit</button>
+                <button type="submit" class="btn btn-primary">저장</button>
             </form>
         </div>
     </div>

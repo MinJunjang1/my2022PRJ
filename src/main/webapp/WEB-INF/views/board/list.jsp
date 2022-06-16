@@ -139,8 +139,9 @@
 
 
     <div class="table_wrap">
-        <h1 class="boby">게시판</h1><div class="divTableRow"  >
-        <div class="search_area boby" style="margin: auto; margin-bottom: 5px;"><select name="type" >
+        <h1 class="boby">게시판</h1>
+        <div class="divTableRow " style="text-align:center; margin: auto; display: block;">
+        <div class="search_area boby " style="margin: auto; margin-bottom: 5px;"><select name="type" >
             <option value=""<c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>--</option>
 
             <option value="T"<c:out value="${pageMaker.cri.type eq 'T'?'selected':'' }"/>>제목</option>

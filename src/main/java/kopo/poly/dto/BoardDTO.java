@@ -1,7 +1,6 @@
 package kopo.poly.dto;
 
 import java.util.Date;
-
 public class BoardDTO {
     /* 게시판 번호 */
     private int bno;
