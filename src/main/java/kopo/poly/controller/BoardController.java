@@ -23,26 +23,12 @@ public class BoardController {
     @Autowired
     private ChatService ChatService;
 
-        /* 게시판 목록 페이지 접속 */
-	/*
-	@GetMapping("/list")
-	// => @RequestMapping(value="list", method=RequestMethod.GET)
-	public void boardListGET(Model model) {
 
-		log.info("게시판 목록 페이지 진입");
-
-		model.addAttribute("list", BoardService.getList());
-
-	}
-	*/
 
         /* 게시판 목록 페이지 접속(페이징 적용) */
         @GetMapping("/board/list")
         public void boardListGET(Model model, Criteria cri) {
 
-            log.info("boardListGET");
-
-            log.info("cri : " + cri);
 
             model.addAttribute("list", BoardService.getListPaging(cri));
 
@@ -55,9 +41,6 @@ public class BoardController {
         } @GetMapping("/admin/boardlist")
     public String boardList2GET(Model model, Criteria cri, HttpServletRequest request, MemberDTO memberDTO, RedirectAttributes rttr, HttpSession session) {
 
-        log.info("boardListGET");
-
-        log.info("cri : " + cri);
 
         model.addAttribute("list", BoardService.getListPaging(cri));
 
@@ -83,7 +66,7 @@ public class BoardController {
         // => @RequestMapping(value="enroll", method=RequestMethod.GET)
         public void boardEnrollGET() {
 
-            log.info("게시판 등록 페이지 진입");
+
 
         }
 
@@ -91,11 +74,10 @@ public class BoardController {
         @PostMapping("/board/enroll1")
         public String boardEnrollPOST(BoardDTO board, RedirectAttributes rttr) {
 
-            log.info("BoardDTO : " + board);
 
             BoardService.enroll(board);
 
-            log.info("BoardDTO : " + board);
+
 
             rttr.addFlashAttribute("result", "enrol success");
 
@@ -181,22 +163,12 @@ public class BoardController {
 
     @RequestMapping(value="/board/chat", method= RequestMethod.POST)
     public String writechat(chatDTO chatDTO,RedirectAttributes rttr,HttpServletRequest request) throws Exception {
-        log.info("insert start");
         ChatService.insertChat(chatDTO);
-        log.info("insert end");
         rttr.addFlashAttribute("result", "chat success");
-
-
         return "/board/list";
     }
     @GetMapping("/board/chatlist")
     public void chatListGET(Model model, Criteria cri, int comet_seq) {
-
-        log.info("boardListGET");
-
-        log.info("cri : " + cri);
-
-
 
         int total = ChatService.getTotal(cri);
         model.addAttribute("total", ChatService.getTotal(cri));

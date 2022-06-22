@@ -31,7 +31,7 @@ public class DetailData {
 
         JSONObject xmlJSONObj = XML.toJSONObject(st.toString());
         String jsonPrettyPrintString = xmlJSONObj.toString(INDENT_FACTOR);
-        System.out.println(jsonPrettyPrintString);
+
 
 
         String json =(jsonPrettyPrintString);
@@ -42,11 +42,7 @@ public class DetailData {
         JSONObject Array2 = (JSONObject) Array1.get("items");
         JSONArray Array3 = (JSONArray) Array2.get("item");
 
-        System.out.println("Object to String : " + json2Object.get("response").toString());
-        System.out.println("body : " + object.get("body"));
-        System.out.println("Array1 : " + Array1.get("items"));
-        System.out.println("Array2 : " + Array2.get("item"));
-        System.out.println("Array3 : " + Array3.get(0));
+
         List<apiDTO> aList = new ArrayList<>();
         for(int i = 0; i <= Array3.length()-1; i++) {
             JSONObject apiobj = (JSONObject) Array3.get(i);

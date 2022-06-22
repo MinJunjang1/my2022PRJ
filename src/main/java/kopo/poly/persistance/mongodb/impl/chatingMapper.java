@@ -23,7 +23,6 @@ public class chatingMapper extends AbstractMongoDBComon implements IchatingMappe
 
     @Override
     public int insertChat(ChatMessage pDTO, String Key) throws Exception {
-        log.info(this.getClass().getName() + ".insertChat Start!");
 
         int res = 0;
 
@@ -42,14 +41,13 @@ public class chatingMapper extends AbstractMongoDBComon implements IchatingMappe
 
         res = 1;
 
-        log.info(this.getClass().getName() + ".insertChat End!");
+
 
         return res;
     }
 
     @Override
     public int insertJoin(ChatMessage pDTO, String Key) throws Exception {
-        log.info(this.getClass().getName() + ".insertJoin Start!");
 
         int res = 0;
 
@@ -68,7 +66,7 @@ public class chatingMapper extends AbstractMongoDBComon implements IchatingMappe
 
         res = 1;
 
-        log.info(this.getClass().getName() + ".insertJoin End!");
+
 
         return res;
     }
@@ -97,7 +95,6 @@ public class chatingMapper extends AbstractMongoDBComon implements IchatingMappe
             String sender = CmmUtil.nvl(doc.getString("sender"));
             String content = CmmUtil.nvl(doc.getString("content"));
 
-            log.info("song : " + type);
 
             ChatMessage rDTO = new ChatMessage();
             rDTO.setType(MessageType.valueOf(type));

@@ -7,9 +7,7 @@ public class ChatMessage {
     private MessageType type;
     private String content; //내용
     private String sender;  //보내는 사람
-    private String roomid;
-    public String getRoomid() {return roomid;}
-    public void setRoomid(String roomid){this.roomid = roomid;}
+
 
     public MessageType getType() {
         return type;

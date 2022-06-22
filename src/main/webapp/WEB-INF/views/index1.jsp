@@ -18,6 +18,7 @@
 		<h1 class="title">챗팅</h1>
 		<form id="usernameForm" name="usernameForm">
 			<div class="form-group">
+
 				<input type="text" id="name" placeholder="Username" autocomplete="off" class="form-control" value="${memberDTO.user_id}" readonly/>
 			</div>
 			<div class="form-group">
@@ -41,6 +42,9 @@
 		<form id="messageForm" name="messageForm">
 			<div class="form-group">
 				<div class="input-group clearfix">
+
+					<input type="hidden" id="room" placeholder="roomname" autocomplete="off" class="form-control" value="1" readonly/>
+
 					<input type="text" id="message" placeholder="메세지를 입력해주세요..." autocomplete="off" class="form-control"/>
 					<button type="submit" class="primary">보내기</button>
 				</div>

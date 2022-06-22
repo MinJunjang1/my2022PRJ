@@ -57,13 +57,6 @@ public class MemberController {
         String user_addr2 = CmmUtil.nvl(request.getParameter("memberAddr2"));
         String user_addr3 = CmmUtil.nvl(request.getParameter("memberAddr3"));
 
-        log.info(user_id);
-        log.info(user_pw);
-        log.info(user_email);
-        log.info(user_addr1);
-        log.info(user_addr2);
-        log.info(user_addr3);
-
 
         MemberDTO pDTO = new MemberDTO();
 
@@ -99,12 +92,6 @@ public class MemberController {
         String user_addr1 = CmmUtil.nvl(request.getParameter("memberAddr1"));
         String user_addr2 = CmmUtil.nvl(request.getParameter("memberAddr2"));
         String user_addr3 = CmmUtil.nvl(request.getParameter("memberAddr3"));
-        log.info(user_id);
-        log.info(user_pw);
-        log.info(user_email);
-        log.info(user_addr1);
-        log.info(user_addr2);
-        log.info(user_addr3);
 
         MemberDTO pDTO = new MemberDTO();
         pDTO.setUser_id(user_id);
@@ -137,7 +124,7 @@ public class MemberController {
     @GetMapping(value = "/update")
     public String updatepage( Model model, HttpServletRequest request) throws Exception {
        String user_id = CmmUtil.nvl(request.getParameter("user_id"));
-        log.info(user_id);
+
         model.addAttribute("dto", memberService.userinfo(user_id));
         return "/member/update";
     }
@@ -175,7 +162,7 @@ public class MemberController {
         //테스트(컨트롤러) 호출 -> 정보를 저장 -> DB로이동
 
        user_id = CmmUtil.nvl(request.getParameter("user_id"));
-        log.info(user_id);
+
        model.addAttribute("dto", memberService.userinfo(user_id));
         return "/member/info";
     }
@@ -183,9 +170,6 @@ public class MemberController {
     @GetMapping(value = "/userlist")
     public String userList(ModelMap model)
             throws Exception {
-
-        // 로그 찍기(추후 찍은 로그를 통해 이 함수에 접근했는지 파악하기 용이하다.)
-        log.info(this.getClass().getName() + ".userList start!");
 
         List<MemberDTO> mList = memberService.getuserList();
 
@@ -196,9 +180,6 @@ public class MemberController {
 
         // 조회된 리스트 결과값 넣어주기
         model.addAttribute("mList", mList);
-
-        // 로그 찍기(추후 찍은 로그를 통해 이 함수 호출이 끝났는지 파악하기 용이하다.)
-        log.info(this.getClass().getName() + ".userList end!");
 
         // 함수 처리가 끝나고 보여줄 JSP 파일명(/WEB-INF/view/notice/NoticeList.jsp)
         return "/admin/userlist";
@@ -281,7 +262,6 @@ public class MemberController {
     @RequestMapping(value = "/idserch", method = RequestMethod.POST)
     public String idserchPost(HttpServletRequest request, MemberDTO memberDTO, RedirectAttributes rttr, Model model)throws Exception{
         String user_email = CmmUtil.nvl(request.getParameter("user_email"));
-        log.info(user_email);
         MemberDTO pDTO = new MemberDTO();
         pDTO.setUser_email(user_email);
         HttpSession session = request.getSession();
@@ -304,7 +284,6 @@ public class MemberController {
     @RequestMapping(value = "/pwserch", method = RequestMethod.POST)
     public String pwserchPost(HttpServletRequest request, MemberDTO memberDTO, RedirectAttributes rttr, Model model)throws Exception{
         String user_id = CmmUtil.nvl(request.getParameter("user_id"));
-        log.info(user_id);
         MemberDTO pDTO = new MemberDTO();
         pDTO.setUser_id(user_id);
         HttpSession session = request.getSession();
@@ -333,8 +312,6 @@ public class MemberController {
         String user_id = CmmUtil.nvl(request.getParameter("user_id"));
         String user_pw = CmmUtil.nvl(request.getParameter("user_pw"));
 
-        log.info(user_id);
-        log.info(user_pw);
 
 
         MemberDTO pDTO = new MemberDTO();
