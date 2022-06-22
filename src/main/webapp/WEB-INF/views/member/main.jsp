@@ -114,33 +114,6 @@ body {
 		</ul>
 	</div>
 
-	<div id="map" style="width:100%;height:500px; margin: 50pt;"></div>
-
-	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c76cc1c43d5a2282105afc01c0e20903"></script>
-	<script>
-		var mapContainer = document.getElementById('map'), // 지도를 표시할 div
-				mapOption = {
-					center: new kakao.maps.LatLng(37.5666805, 126.9784147), // 지도의 중심좌표
-					 draggable: false, // 지도를 생성할때 지도 이동 및 확대/축소를 막으려면 draggable: false 옵션을 추가하세요
-					level: 10 // 지도의 확대 레벨
-				};
-
-		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
-
-		// 버튼 클릭에 따라 지도 이동 기능을 막거나 풀고 싶은 경우에는 map.setDraggable 함수를 사용합니다
-		var iwContent = '<div style="padding:5px;">서울 아파트 가격 알아보기</div>', // 인포윈도우에 표출될 내용으로 HTML 문자열이나 document element가 가능합니다
-				iwPosition = new kakao.maps.LatLng(33.450701, 126.570667), //인포윈도우 표시 위치입니다
-				iwRemoveable = true; // removeable 속성을 ture 로 설정하면 인포윈도우를 닫을 수 있는 x버튼이 표시됩니다
-
-		// 인포윈도우를 생성하고 지도에 표시합니다
-		var infowindow = new kakao.maps.InfoWindow({
-			map: map, // 인포윈도우가 표시될 지도
-			position : iwPosition,
-			content : iwContent,
-			removable : iwRemoveable
-		});
-
-	</script>
 
 </div>
 </div>
