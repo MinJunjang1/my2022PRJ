@@ -10,6 +10,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
+
     <meta http-equiv="Content-Type" content="text/html; charset=EUC-KR">
     <title>처리페이지</title>
     <script
@@ -184,55 +185,7 @@
                 </c:forEach>
             </div>
         </div>
-<%--    <table class="table table-striped boby">
-        <thead>
-        <tr>
-           <th colspan="5">
-               <div class="search_wrap body">
-                   <div class="search_area">
-                       <select name="type">
-                           <option value="" <c:out value="${pageMaker.cri.type == null?'selected':'' }"/>>--</option>
-                           <option value="T" <c:out value="${pageMaker.cri.type eq 'T'?'selected':'' }"/>>제목</option>
-                           <option value="C" <c:out value="${pageMaker.cri.type eq 'C'?'selected':'' }"/>>내용</option>
-                           <option value="W" <c:out value="${pageMaker.cri.type eq 'W'?'selected':'' }"/>>작성자</option>
-                           <option value="TC" <c:out value="${pageMaker.cri.type eq 'TC'?'selected':'' }"/>>제목 + 내용</option>
-                           <option value="TW" <c:out value="${pageMaker.cri.type eq 'TW'?'selected':'' }"/>>제목 + 작성자</option>
-                           <option value="TCW" <c:out value="${pageMaker.cri.type eq 'TCW'?'selected':'' }"/>>제목 + 내용 + 작성자</option>
-                       </select>
-                       <input type="text" name="keyword" value="${pageMaker.cri.keyword }">
-                       <button class="top_btn btn btn-secondary">검색</button>
 
-                   </div>
-               </div>
-           </th>
-        </tr>
-        <tr>
-            <th class="bno_width">번호</th>
-            <th class="title_width">제목</th>
-            <th class="writer_width">작성자</th>
-            <th class="regdate_width">작성일</th>
-            <th class="updatedate_width">수정일</th>
-        </tr>
-        </thead>
-
-
-        <c:forEach items="${list}" var="list">
-            <tr>
-                <td><c:out value="${list.bno}"/></td>
-                <td>
-                    <a class="move" href='<c:out value="${list.bno}"/>'>
-                        <c:out value="${list.title}"/>
-                    </a>
-                </td>
-                <td><c:out value="${list.writer}"/></td>
-                <td><fmt:formatDate pattern="yyyy/MM/dd" value="${list.regdate}"/></td>
-                <td><fmt:formatDate pattern="yyyy/MM/dd" value="${list.updateDate}"/></td>
-            </tr>
-
-        </c:forEach>
-
-
-    </table>--%>
         <button onclick="location.href='/board/enroll'" class="btn btn-secondary top_btn left" style="float: right;" >게시판 등록</button>
     </div>
     <div class="pageInfo_wrap boby"  >
@@ -272,6 +225,11 @@
 </div>
 
 <script>
+window.onpageshow=function (event){
+    if(event.persisted || (window.performance && window.performance.navigation.type ==2)){
+        location.reload()
+    }
+};
     $(document).ready(function(){
 
         let result = '<c:out value="${result}"/>';
@@ -299,6 +257,7 @@
         }
 
     });
+
     let moveForm = $("#moveForm");
     $(".move").on("click", function(e){
         e.preventDefault();
@@ -306,6 +265,7 @@
         moveForm.append("<input type='hidden' name='bno' value='"+ $(this).attr("href")+ "'>");
         moveForm.attr("action", "/board/get");
         moveForm.submit();
+
     });
     $(".pageInfo a").on("click", function(e){
         e.preventDefault();

@@ -1,16 +1,13 @@
 package kopo.poly.controller;
 
 import kopo.poly.dto.*;
-import kopo.poly.service.IChatService;
 import kopo.poly.service.impl.BoardService;
+import kopo.poly.service.impl.ChatService;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import javax.servlet.http.HttpServletRequest;
@@ -23,6 +20,8 @@ public class BoardController {
 
         @Autowired
         private BoardService BoardService;
+    @Autowired
+    private ChatService ChatService;
 
         /* 게시판 목록 페이지 접속 */
 	/*
@@ -105,12 +104,18 @@ public class BoardController {
         }
 
         /* 게시판 조회 */
+
         @GetMapping("/board/get")
-        public void boardGetPageGET(int bno, Model model, Criteria cri) {
+        public void boardGetPageGET(int bno, Model model, Criteria cri, chatDTO chatDTO) {
 
             model.addAttribute("pageInfo", BoardService.getPage(bno));
 
             model.addAttribute("cri", cri);
+
+            model.addAttribute("clist", ChatService.getList(bno));
+
+
+
 
         }
     @GetMapping("/admin/boardget")
@@ -172,12 +177,42 @@ public class BoardController {
 
         return "redirect:/admin/list";
     }
-    @RequestMapping(value="/board/chat", method= RequestMethod.POST)
-    public String writechat(chatDTO chatDTO,RedirectAttributes rttr) throws Exception{
-        IChatService.insertchat(chatDTO);
 
+    @RequestMapping(value="/board/chat", method= RequestMethod.POST)
+    public String writechat(chatDTO chatDTO,RedirectAttributes rttr,HttpServletRequest request) throws Exception {
+        log.info("insert start");
+        ChatService.insertChat(chatDTO);
+        log.info("insert end");
         rttr.addFlashAttribute("result", "chat success");
 
 
-        return "";
+        return "/board/list";
+    }
+    @GetMapping("/board/chatlist")
+    public void chatListGET(Model model, Criteria cri, int comet_seq) {
+
+        log.info("boardListGET");
+
+        log.info("cri : " + cri);
+
+
+
+        int total = ChatService.getTotal(cri);
+        model.addAttribute("total", ChatService.getTotal(cri));
+        PageMakerDTO pageMake = new PageMakerDTO(cri, total);
+        model.addAttribute("pageInfo", ChatService.getPage(comet_seq));
+
+        model.addAttribute("cri", cri);
+
+        model.addAttribute("pageMaker", pageMake);
+        model.addAttribute("clist", ChatService.getListPaging(cri));
+    }
+@ResponseBody
+@PostMapping("/board/deletechat")
+    public void deletechat(chatDTO chatDTO){
+            ChatService.deletechat(chatDTO);
 }
+
+
+
+    }

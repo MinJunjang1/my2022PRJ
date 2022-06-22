@@ -261,6 +261,13 @@
         .divTableBody {
             display: table-row-group;
         }
+        .pageInfo li{
+            float: left;
+            font-size: 20px;
+            margin-left: 18px;
+            padding: 7px;
+            font-weight: 500;
+        }
     </style>
 </head>
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
@@ -283,9 +290,7 @@
                     <li>
                         <a class="admin_list_02" href="/admin/boardlist">게시판관리</a>
                     </li>
-                    <lI>
-                        <a class="admin_list_03" href="/admin/authorEnroll">작가 등록</a>
-                    </lI>
+
                 </ul>
             </div>
             <div class="admin_content_wrap">

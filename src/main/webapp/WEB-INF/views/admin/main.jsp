@@ -213,9 +213,6 @@
                     <li>
                         <a class="admin_list_02" href="/admin/boardlist">게시판관리</a>
                     </li>
-                    <lI>
-                        <a class="admin_list_03" href="/admin/authorEnroll">작가 등록</a>
-                    </lI>
 
                 </ul>
             </div>

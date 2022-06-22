@@ -4,11 +4,30 @@
 <!-- JAVA와 연결할 Mapper 파일 설정 -->
 <mapper namespace="kopo.poly.persistance.mapper.IChatMapper">
     <!-- 검색 조건문 -->
+    <sql id="criteria">
+        <trim prefix="where (" suffix=")" prefixOverrides="OR">
+            <foreach collection="typeArr" item="type">
+                <trim prefix="OR">
+                    <choose>
+                        <when test="type == 'T'.toString()">
+                            title like concat('%',#{keyword},'%')
+                        </when>
+                        <when test="type == 'C'.toString()">
+                            content like concat('%',#{keyword},'%')
+                        </when>
+                        <when test="type == 'W'.toString()">
+                            writer like concat('%',#{keyword},'%' )
+                        </when>
+                    </choose>
+                </trim>
+            </foreach>
+        </trim>
 
+    </sql>
 
 
     <!-- 게시판 등록 -->
-    <insert id="insertchat">
+    <insert id="insertChat" parameterType="chatDTO">
 
         insert into comt(bno, comet_content, writer, regdate) values (#{bno}, #{comet_content}, #{writer}, sysdate())
 
@@ -18,10 +37,42 @@
 
 
     <!-- 게시판 삭제 -->
-    <delete id="chatdelete">
+    <delete id="deletechat">
 
         delete from comt where comet_seq = #{comet_seq}
 
     </delete>
+
+    <select id="getList" resultType="chatDTO">
+
+
+        select  comet_seq, bno,  writer, regdate, comet_content
+        from comt where bno = #{bno}
+        order by comet_seq desc
+
+    </select>
+    <!-- 게시물 목록(페이징) -->
+  <!--  <select id="getListPaging" resultType="chatDTO">
+
+        select * from (
+        comet_seq, bno, writer, regdate, comet_content
+        from comt
+        <if test="keyword != null">
+            <include refid="criteria"></include>
+        </if>
+        ) as T1 order by comet_seq desc
+        limit #{skip},#{amount}
+
+
+    </select>-->
+    <select id="getTotal" resultType="int">
+
+        select count(*) from comt
+
+        <if test="keyword != null">
+            <include refid="criteria"></include>
+        </if>
+
+    </select>
 
 </mapper>

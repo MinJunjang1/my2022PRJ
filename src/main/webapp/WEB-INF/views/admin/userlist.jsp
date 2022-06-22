@@ -258,46 +258,14 @@
                     <li>
                         <a class="admin_list_02" href="/admin/boardlist">게시판관리</a>
                     </li>
-                    <lI>
-                        <a class="admin_list_03" href="/admin/authorEnroll">작가 등록</a>
-                    </lI>
                 </ul>
             </div>
             <div class="admin_content_wrap">
                 <div class="admin_content_subject"><span>사용자 관리</span></div>
-         <%--       <table class="table table-striped" style="width: 864px;">
-                    <tr>
-                        <th>번호</th>
-                        <th>아이디</th>
-                        <th>이메일</th>
-                        <th>주소</th>
-                        <th>회원가입일</th>
-                    </tr>
-                    <%
-                        for (int i = 0; i < mList.size(); i++) {
-                            MemberDTO rDTO = mList.get(i);
 
-                            if (rDTO == null) {
-                                rDTO = new MemberDTO();
-                            }
-                    %>
-
-                    <tr>
-                        <th><%=String.valueOf(rDTO.getUser_seq())%></th>
-                        <th><a href="/info?user_id=<%=CmmUtil.nvl(rDTO.getUser_id()) %>"/><%=CmmUtil.nvl(rDTO.getUser_id()) %></th>
-                        <th><%=CmmUtil.nvl(rDTO.getUser_email()) %></th>
-                        <th><%=CmmUtil.nvl(rDTO.getUser_addr2()) %></th>
-                        <th><fmt:formatDate pattern="yyyy/MM/dd" value="<%=(rDTO.getUser_dt()) %>"  /></th>
-                    </tr>
-
-                    <%
-                        }
-                    %>
-
-                </table>--%>
                 <div class="divTable">
                     <div class="divTableBody">
-                        <div class="divTableRow">
+                        <div class="divTableRow" style="border:1px solid; border-color: #ffffff #ffffff #333 #ffffff;">
                             <div class="divTableHead">번호</div>
                             <div class="divTableHead">아이디</div>
                             <div class="divTableHead">이메일</div>

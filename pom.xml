@@ -12,6 +12,7 @@
     <artifactId>poly</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>SpringBootPRJ</name>
+    <packaging>war</packaging>
     <description>SpringBootPRJ</description>
     <properties>
         <java.version>1.8</java.version>
@@ -82,7 +83,7 @@
         <dependency>
             <groupId>org.apache.tomcat.embed</groupId>
             <artifactId>tomcat-embed-jasper</artifactId>
-            <scope>provided</scope>
+
         </dependency>
 
 

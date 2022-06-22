@@ -129,8 +129,8 @@
     <div class="wrap">
         <form id="login_form" method="post">
             <div class="logo_wrap">
-                <span>SHOW TRADE</span><br>
-                <span>HOUSE PRICE</span>
+                <span>SEOUL APARTMENT</span><br>
+                <span>TRADE PRICE</span>
             </div>
             <div class="login_wrap">
                 <div class="id_wrap">

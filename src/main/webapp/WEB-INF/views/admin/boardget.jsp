@@ -187,6 +187,13 @@
                margin: auto;
                text-align: center;
                           }
+        .pageInfo li{
+            float: left;
+            font-size: 20px;
+            margin-left: 18px;
+            padding: 7px;
+            font-weight: 500;
+        }
 </style>
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
 <body>
@@ -207,61 +214,102 @@
                     <li>
                         <a class="admin_list_02" href="/admin/boardlist">게시판관리</a>
                     </li>
-                    <lI>
-                        <a class="admin_list_03" href="/admin/authorEnroll">작가 등록</a>
-                    </lI>
                 </ul>
             </div>
             <div class="admin_content_wrap">
                 <div class="admin_content_subject"><span>사용자 관리</span></div>
-                <table class="table table-hover">
 
-                    <tr>
-                        <td>게시판번호</td>
-                        <td><input name="bno" class="form-control" readonly="readonly" value='<c:out value="${pageInfo.bno}"/>' ></td>
-                        <td>작성자</td>
-                        <td><input type="text" name="writer" id="writer" class="form-control" placeholder="작성자" maxlength="40" value='<c:out value="${pageInfo.writer}"/>' readonly></td>
-                        <td>최초등록일</td>
-                        <td><input name="regdater" class="form-control" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.regdate}"/>'></td>
-                        <td>수정일</td>
-                        <td>
-                            <input name="updateDate" class="form-control" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.updateDate}"/>'></td>
-                    </tr>
-                    <tbody>
-                    <tr>
-                        <td colspan="1">제목</td>
-                        <td colspan="7"><input type="text" class="form-control" placeholder="글 제목" name="title" maxlength="40" value='<c:out value="${pageInfo.title}"/>' readonly="readonly"></td>
 
-                    </tr>
+                <div class="container p-2" style="border:1px solid; border-color: #ffffff #ffffff #333 #ffffff;">
 
-                    <tr>
-
-                        <td colspan="8"><label>내용</label><textarea type="text" class="form-control" placeholder="글 내용을 작성하세요" name="content" maxlength="1024" style="height: 400px;" readonly="readonly"><c:out value="${pageInfo.content}"/></textarea></td>
-
-                    </tr>
-                    </tbody>
-
-                </table>
-                <div class="boby">
-                    <button type="button" id="list_btn" class="btn btn-secondary" value="">목록</button>
-                    <button  id="delete_btn" class="btn btn-danger">삭제</button>
+                    <span> 게시판 번호 / </span><input type="text" name="bno" style="border: none"  readonly value="<c:out value="${pageInfo.bno}"/>">
+                    <span> 작성자 / </span><input type="text" name="title" style="border: none" readonly value="<c:out value="${pageInfo.writer}"/> ">
+                    <span> 등록일 / </span><input type="text" style="border: none" readonly value="<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.regdate}"/> ">
+                    <span> 수정일 / </span><input type="text" style="border: none" readonly value="<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.updateDate}"/>">
                 </div>
+                <div class="container p-2" style="border:1px solid; border-color: #ffffff #ffffff #333 #ffffff;">
+                    <span>제목 / </span>
+                    <input type="text"  style="border: none" class="input_wrap" readonly value="<c:out value="${pageInfo.title}"/>">
+                </div>
+                <div class="container p-2 text-left" style="border:1px solid; border-color: #ffffff #ffffff #333 #ffffff;">
+
+                    <p>내용</p>
+                    <textarea type="text" class="form-control" placeholder="글 내용을 작성하세요" name="content" maxlength="1024"  readonly style="height: 400px;"><c:out value="${pageInfo.content}"/></textarea>
+
+                    </form>
+
+                </div>
+                <div class="boby" style="margin-top: 5px;">
+
+                        <input type="submit" id="modify_btn" class="btn btn-primary pull-right" value="수정하기">
+
+                    <button type="button" id="list_btn" class="btn btn-secondary" value="">목록</button>
+                </div>
+
+                <form id="infoForm" action="/board/modify" method="get">
+                    <input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
+                    <input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum}"/>'>
+                    <input type="hidden" name="amount" value='<c:out value="${cri.amount}"/>'>
+                    <input type="hidden" name="type" value="${cri.type }">
+                    <input type="hidden" name="keyword" value="${cri.keyword }">
+                </form>
+                <div class="card my-4">
+                    <h5 class="card-header">댓글</h5>
+                    <div class="card-body">
+                        <form name="comment-form" <%--action="/board/chat" method="post" autocomplete="off"--%>>
+                            <div class="form-group">
+                                <input type="hidden"  name="bno" value="<c:out value="${pageInfo.bno}"/>" />
+                                <input type="hidden" id="writer" name="writer" value="${memberDTO.user_id}" />
+                                <textarea  id="comet_content" name="comet_content" class="form-control" rows="1"></textarea>
+                            </div>
+                            <button type="button" id="chatbtn" name="chatbtn" class="btn btn-primary" style="float: right;" onclick="reply()">저장</button>
+                        </form>
+
+
+                    </div>
+                </div>
+
+                <div class="card my-4">
+
+                    <div class="card-body">
+                        <c:forEach items="${clist}" var="clist">
+                            <div class="divTableRow">
+                                <div class="divTableCell"> 작성자 : <c:out value="${clist.writer}"/> 작성시간 :
+
+                                    <fmt:formatDate pattern="yyyy/MM/dd" value="${clist.regdate}"/>
+
+                                    <a id="delete_btn"  style="float: right; text-align: right;" onclick="deletec(<c:out value="${clist.comet_seq}"/>)">삭제</a>
+                                </div>
+                                <textarea readonly name="comet_content" class="form-control" style="resize: none;border: none;" rows="1" ><c:out value="${clist.comet_content}"/></textarea>
+                            </div>
+                        </c:forEach>
+                    </div>
+
+                </div>
+
+
+
+
+
+
+                <form id="moveForm" method="get">
+                    <input type="hidden" name="pageNum" value="${pageMaker.cri.pageNum }">
+                    <input type="hidden" name="amount" value="${pageMaker.cri.amount }">
+                    <input type="hidden" name="keyword" value="${pageMaker.cri.keyword }">
+                    <input type="hidden" name="type" value="${pageMaker.cri.type }">
+                </form>
             </div>
-            <div class="clearfix">
+        </div>
+
+
+
+        <div class="clearfix">
 
             </div>
         </div>
     </div>
 </div>
 
-
-<form id="infoForm" action="/board/modify" method="get">
-    <input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
-    <input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum}"/>'>
-    <input type="hidden" name="amount" value='<c:out value="${cri.amount}"/>'>
-    <input type="hidden" name="type" value="${cri.type }">
-    <input type="hidden" name="keyword" value="${cri.keyword }">
-</form>
 <script>
     let form = $("#infoForm");
 
@@ -277,62 +325,57 @@
         form.submit();
     });
 </script>
-<%--
-<h1>조회 페이지</h1>
-<div class="input_wrap">
-    <label>게시판 번호</label>
-    <input name="bno" readonly="readonly" value='<c:out value="${pageInfo.bno}"/>' >
-</div>
-<div class="input_wrap">
-    <label>게시판 제목</label>
-    <input name="title" readonly="readonly" value='<c:out value="${pageInfo.title}"/>' >
-</div>
-<div class="input_wrap">
-    <label>게시판 내용</label>
-    <textarea rows="3" name="content" readonly="readonly"><c:out value="${pageInfo.content}"/></textarea>
-</div>
-<div class="input_wrap">
-    <label>게시판 작성자</label>
-    <input name="writer" readonly="readonly" value='<c:out value="${pageInfo.writer}"/>' >
-</div>
-<div class="input_wrap">
-    <label>게시판 등록일</label>
-    <input name="regdater" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.regdate}"/>' >
-</div>
-<div class="input_wrap">
-    <label>게시판 수정일</label>
-    <input name="updateDate" readonly="readonly" value='<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.updateDate}"/>' >
-</div>
-<div class="btn_wrap">
-    <a class="btn" id="list_btn">목록 페이지</a>
-    <c:if test="${ pageInfo.writer == memberDTO.user_id}">
-    <a class="btn" id="modify_btn">수정 하기</a>
-    </c:if>
-
-</div>
-<form id="infoForm" action="/board/modify" method="get">
-    <input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
-    <input type="hidden" name="pageNum" value='<c:out value="${cri.pageNum}"/>'>
-    <input type="hidden" name="amount" value='<c:out value="${cri.amount}"/>'>
-    <input type="hidden" name="type" value="${cri.type }">
-    <input type="hidden" name="keyword" value="${cri.keyword }">
-</form>
 
 <script>
-    let form = $("#infoForm");
+    window.onpageshow=function (event){
+        if(event.persisted || (window.performance && window.performance.navigation.type ==2)){
+            location.reload()
+        }
+    };
 
-    $("#list_btn").on("click", function(e){
-        form.find("#bno").remove();
-        form.attr("action", "/board/list");
-        form.submit();
-    });
+    function reply(){
+        var bno = document.getElementById('bno').value;
+        console.log(bno);
+        var writer =document.getElementById('writer').value;
+        console.log(writer);
+        var comet_content = document.getElementById('comet_content').value;
+        console.log(comet_content);
+        $.ajax({
+            data : {
+                bno: bno,
+                writer: writer,
+                comet_content: comet_content
+            },
+            url:'/board/chat',
+            type: 'POST',
+            success: function (){
+                alert("sucess");
+                location.reload()
+            }
+        });
+    };
 
-    $("#modify_btn").on("click", function(e){
-        form.attr("action", "/board/modify");
-        form.submit();
-    });
+
+    function deletec(e){
+
+
+        $.ajax({
+            data : {
+                comet_seq : e,
+                bno : '${pageInfo.bno}'
+            },
+            url : '/board/deletechat',
+            type : 'POST',
+            success : function(){
+                alert('삭제가 완료되엇습니다.');
+                location.reload()
+            }
+        });
+
+    };
+
+
+
 </script>
---%>
-
 </body>
 </html>
