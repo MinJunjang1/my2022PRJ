@@ -9,7 +9,7 @@ public class ChatMessage {
     private String sender;  //보내는 사람
     private String roomid;
     public String getRoomid() {return roomid;}
-    public void setRoomid(String roomid){this.roomid = roomid}
+    public void setRoomid(String roomid){this.roomid = roomid;}
 
     public MessageType getType() {
         return type;

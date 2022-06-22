@@ -18,7 +18,7 @@ import java.util.List;
 
 @Slf4j
 @Controller
-public class chatingController {
+public class chatiingController {
 
     @Autowired
     private IchatingService chatingService;
@@ -42,7 +42,7 @@ public class chatingController {
         pDTO.setContent(chatMessage.getContent());
         pDTO.setSender(chatMessage.getSender());
         pDTO.setType(chatMessage.getType());
-        chatService.insertChat(pDTO, chatMessage.getRoomid());
+        chatingService.insertChat(pDTO, chatMessage.getRoomid());
         simpMessagingTemplate.convertAndSend("/topic/"+chatMessage.getRoomid(),
                 chatMessage);
     }
@@ -52,7 +52,7 @@ public class chatingController {
         headerAccessor.getSessionAttributes().put("username", chatMessage.getSender());
         log.info(chatMessage.getRoomid());
         headerAccessor.getSessionAttributes().put("roomname",chatMessage.getRoomid());
-        List<ChatMessage> rList = chatService.fetchChat(chatMessage.getRoomid());
+        List<ChatMessage> rList = chatingService.fetchChat(chatMessage.getRoomid());
         for (int i = 0; i < rList.size(); i++) {
             chatMessage = rList.get(i);
             simpMessagingTemplate.convertAndSend("/topic/"+chatMessage.getRoomid(),

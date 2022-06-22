@@ -1,4 +1,4 @@
-package kopo.poly.mapper.impl;
+package kopo.poly.persistance.mongodb.impl;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.mongodb.client.FindIterable;
