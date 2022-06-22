@@ -164,6 +164,7 @@ public class BoardController {
 
             BoardService.delete(bno);
 
+
             rttr.addFlashAttribute("result", "delete success");
 
             return "redirect:/board/list";

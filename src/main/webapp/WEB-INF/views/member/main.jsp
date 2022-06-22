@@ -115,7 +115,7 @@ body{
 </div>
 </div>
 
-<div id="map" style="width:1000px;height:500px; text-align: center; display: block; margin: auto; margin-top: 10px;"></div>
+<div id="map" style="width: 1000pt; height: 400pt; text-align: center; display: block; margin: auto; margin-top: 10px;"></div>
 
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c76cc1c43d5a2282105afc01c0e20903&libraries"></script>
 <script>
