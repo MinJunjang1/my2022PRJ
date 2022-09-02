@@ -1,4 +1,4 @@
-package kopo.poly.interceptor;
+package kopo.poly.persistance.interceptor;
 
 import org.springframework.web.servlet.HandlerInterceptor;
 

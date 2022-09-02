@@ -60,7 +60,7 @@ public class DetailData2 {
             aDTO.setDong(Dong);
             aDTO.setJiburn(Jiburn);
             aDTO.setApartment_Name(Apartment_Name);
-            aDTO.setDeal_Amount(Deal_Amount);
+            aDTO.setDeal_Amount(String.valueOf(Deal_Amount));
 
             aList.add(aDTO);
             aDTO = null;

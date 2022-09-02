@@ -12,20 +12,20 @@
 		position: sticky;
 		top: 0;
 	}
-body {
+body{
 	background-image: linear-gradient(
 			rgba(0, 0, 0, 0.5),
 			rgba(0, 0, 0, 0.5)
-	),
-	 url('/img/apart.jpg');
+	), url('/img/apart.jpg');
 }
+
 
 </style>
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
 <body>
 
 <div class="container align-content-center">
-<div class="jumbotron text-center" style="margin-top: 150px;color: #FFFFFF"  />
+<div class="jumbotron text-center" style="margin-top: 100px;color: #FFFFFF"  />
 	<h1 class="text-center">아파트 거래 가격 알아보기</h1>
 	<p class="text-center">지도를 통해 아파트의 위치를 파악할 수 있습니다</p>
 	<div class="btn-group" style="margin: auto">
@@ -113,10 +113,36 @@ body {
 
 		</ul>
 	</div>
+	<div id="map" style="width:100%;height:350px;"></div>
 
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c76cc1c43d5a2282105afc01c0e20903"></script>
+	<script>
+		var mapContainer = document.getElementById('map'), // 지도를 표시할 div
+				mapOption = {
+					center: new kakao.maps.LatLng(37.5666805, 126.9784147), // 지도의 중심좌표
+					draggable: false, // 지도를 생성할때 지도 이동 및 확대/축소를 막으려면 draggable: false 옵션을 추가하세요
+					level: 4 // 지도의 확대 레벨
+				};
+
+		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+
+
+		// 아래 코드는 인포윈도우를 지도에서 제거합니다
+		// infowindow.close();
+	</script>
 
 </div>
 </div>
+
+<script src="/js/seoulmap.js"></script>
+
+<script>
+	function aprtapi(region_code, ym) {
+		location.href= "/map?region_code="+region_code + "&ym=" + ym;
+	/*	window.open("/map?region_code=" + region_code + "&ym=" +ym, "결과","width=1000, height=800")*/
+	}
+</script>
+
 
 </body>
 </html>

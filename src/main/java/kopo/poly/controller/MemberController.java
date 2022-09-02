@@ -88,7 +88,6 @@ public class MemberController {
 
         String user_id = CmmUtil.nvl(request.getParameter("userid"));
         String user_pw = CmmUtil.nvl(request.getParameter("memberPw"));
-        String user_email = CmmUtil.nvl(request.getParameter("memberMail"));
         String user_addr1 = CmmUtil.nvl(request.getParameter("memberAddr1"));
         String user_addr2 = CmmUtil.nvl(request.getParameter("memberAddr2"));
         String user_addr3 = CmmUtil.nvl(request.getParameter("memberAddr3"));
@@ -96,7 +95,6 @@ public class MemberController {
         MemberDTO pDTO = new MemberDTO();
         pDTO.setUser_id(user_id);
         pDTO.setUser_pw(user_pw);
-        pDTO.setUser_email(user_email);
         pDTO.setUser_addr1(user_addr1);
         pDTO.setUser_addr2(user_addr2);
         pDTO.setUser_addr3(user_addr3);

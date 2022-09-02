@@ -27,11 +27,11 @@
     <interceptors>
         <interceptor>
             <mapping path="/userlogin.do"></mapping>
-            <beans:bean id="loginIntreceptor" class="kopo.poly.interceptor.Loginlinterceptor"></beans:bean>
+            <beans:bean id="loginIntreceptor" class="kopo.poly.persistance.interceptor.Loginlinterceptor"></beans:bean>
         </interceptor>
         <interceptor>
             <mapping path="/admin/**"></mapping>
-            <beans:bean id="AdminIntreceptor" class="kopo.poly.interceptor.Adminlntercetor"></beans:bean>
+            <beans:bean id="AdminIntreceptor" class="kopo.poly.persistance.interceptor.Adminlntercetor"></beans:bean>
         </interceptor>
 
     </interceptors>

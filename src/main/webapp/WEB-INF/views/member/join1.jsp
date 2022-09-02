@@ -433,6 +433,7 @@
                 $('.final_id_ck').css('display','block');
                 idCheck = false;
                 alert("아이디칸이 비어있습니다");
+                return
             }else{
                 $('.final_id_ck').css('display', 'none');
                 idCheck = true;
@@ -443,6 +444,7 @@
                 $('.final_pw_ck').css('display','block');
                 pwCheck = false;
                 alert("비밀번호칸이 비어있습니다");
+                return
             }else{
                 $('.final_pw_ck').css('display', 'none');
                 pwCheck = true;
@@ -453,6 +455,7 @@
                 $('.final_pwck_ck').css('display','block');
                 pwckCheck = false;
                 alert("비밀번호확인칸이 비어있습니다");
+                return
             }else{
                 $('.final_pwck_ck').css('display', 'none');
                 pwckCheck = true;
@@ -465,6 +468,7 @@
                 $('.final_mail_ck').css('display','block');
                 mailCheck = false;
                 alert("이메일칸이 비어있습니다");
+                return
             }else{
                 $('.final_mail_ck').css('display', 'none');
                 mailCheck = true;
@@ -475,6 +479,7 @@
                 $('.final_addr_ck').css('display','block');
                 addressCheck = false;
                 alert("주소칸이 비어있습니다");
+                return
             }else{
                 $('.final_addr_ck').css('display', 'none');
                 addressCheck = true;
