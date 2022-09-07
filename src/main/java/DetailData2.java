@@ -18,7 +18,7 @@ public class DetailData2 {
     public static int INDENT_FACTOR = 4;
     public static void main(String args[]) throws MalformedURLException,
             IOException {
-        HttpURLConnection conn = (HttpURLConnection) new URL("http://openapi.molit.go.kr:8081/OpenAPI_ToolInstallPackage/service/rest/RTMSOBJSvc/getRTMSDataSvcAptTrade?serviceKey=ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D&LAWD_CD=11110&DEAL_YMD=202205").openConnection();
+        HttpURLConnection conn = (HttpURLConnection) new URL("https://apis.data.go.kr/1360000/VilageFcstMsgService/getLandFcst?serviceKey=ZRSyL0r8ICOuGWAMN7D6Q2LkcS8pgYf%2FREi6WHhsy%2BaKotLgDmgl1EnmMFG2hl%2Fy09nYgQMi1xf1cPeCt1BC2Q%3D%3D&LAWD_CD&numOfRows=1&pageNo=1&regId=11A00101").openConnection();
         conn.connect();
         BufferedInputStream bis = new BufferedInputStream(conn.getInputStream());
         BufferedReader reader = new BufferedReader(new InputStreamReader(bis));

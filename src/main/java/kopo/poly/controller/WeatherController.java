@@ -12,7 +12,7 @@ import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 
 @Slf4j
-@RequestMapping
+@RequestMapping(value = "weather")
 @RestController
 public class WeatherController {
     @Resource(name= "WeatherService")
