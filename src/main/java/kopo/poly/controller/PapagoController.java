@@ -4,8 +4,8 @@ import kopo.poly.dto.PapagoDTO;
 import kopo.poly.service.IPapagoService;
 import kopo.poly.util.CmmUtil;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.annotation.Resource;
@@ -21,8 +21,8 @@ import javax.servlet.http.HttpServletRequest;
  * 스프링 프레임워크는 기본으로 logback을 채택해서 로그 처리함
  * */
 @Slf4j
-@Controller
-@RestController(value = "papago")
+@RequestMapping(value = "papago")
+@RestController
 public class PapagoController {
     @Resource(name="PapagoService")
     private IPapagoService papagoService;
