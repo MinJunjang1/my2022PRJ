@@ -1,8 +1,10 @@
 package kopo.poly.controller;
 
+import kopo.poly.dto.api2DTO;
 import kopo.poly.dto.apiDTO;
 import kopo.poly.service.IMapService;
 import kopo.poly.util.DetailData;
+import kopo.poly.util.weatherapi;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -52,6 +54,14 @@ public class MapController {
         model.addAttribute("rList", rList);
 
         return "/map";
+    }
+
+    @GetMapping(value = "weather2")
+    public String apiweather(HttpServletRequest request, Model model) throws Exception{
+
+        List<api2DTO> a2List = weatherapi.main();
+        model.addAttribute("a2List", a2List);
+        return  "/weather2";
     }
 
 }

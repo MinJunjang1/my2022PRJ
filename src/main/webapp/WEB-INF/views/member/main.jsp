@@ -1,6 +1,13 @@
+<%@ page import="kopo.poly.dto.api2DTO" %>
+<%@ page import="kopo.poly.util.CmmUtil" %>
+<%@ page import="kopo.poly.dto.api2DTO" %>
+<%@ page import="kopo.poly.dto.apiDTO" %>
+<%@ page import="java.util.List" %>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8"%>
+		 pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%List<api2DTO> a2List = (List<api2DTO>) request.getAttribute("a2List"); %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -28,6 +35,21 @@ body{
 <div class="jumbotron text-center" style="margin-top: 100px;color: #FFFFFF"  />
 	<h1 class="text-center">아파트 거래 가격 알아보기</h1>
 	<p class="text-center">지도를 통해 아파트의 위치를 파악할 수 있습니다</p>
+	<script>
+		function apiweather() {
+
+
+		}
+	</script>
+	<div class="divTableRow" style="background: #c8e5bc" >
+		<div class="divTableHead">날씨</div>
+	</div>
+	<% int i = 0;%>
+<% for (i = 0; i < a2List.size(); i++ ) { api2DTO api2DTO = a2List.get(i); if (api2DTO == null) { api2DTO = new api2DTO(); } %>
+<div class="divTableRow">
+	<div class="divTableHead"><%=CmmUtil.nvl(api2DTO.getWf()) %></div>
+</div>
+<%}%>
 	<div class="btn-group" style="margin: auto">
 		<button style="display: block; margin: auto;" class="btn btn-primary dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
 			서울의 시·군·구별 아파트 가격 확인하기

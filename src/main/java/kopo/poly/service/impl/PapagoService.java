@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.net.URLEncoder;
 import java.util.HashMap;
+import java.util.LinkedHashMap;
 import java.util.Map;
 
 @Slf4j
@@ -50,5 +51,69 @@ public class PapagoService implements IPapagoService {
         log.info(this.getClass().getName()+"detectLangs Start");
 
         return rDTO;
+    }
+
+    @Override
+    public PapagoDTO translate(PapagoDTO pDTO) throws Exception{
+        log.info(this.getClass().getName() + "translate Start!");
+
+        PapagoDTO rDTO = this.detectLangs(pDTO);
+
+        String langCode = CmmUtil.nvl(rDTO.getLangCode());
+
+        log.info(langCode);
+        rDTO = null;
+
+        String source = "";
+        String target = "";
+
+        if(langCode.equals("ko")){
+            source = "ko";
+            target = "en";
+        }else if (langCode.equals("en")){
+            source = "en";
+            target = "ko";
+        }else {
+            new Exception("한국어와 영어만 번역합니다");
+        }
+        log.info(source);
+        String text = CmmUtil.nvl(pDTO.getText());
+
+        String postParams = "source=" + source + "&target=" + target + "&text=" + URLEncoder.encode(text,"UTF-8");
+        log.info("postParams : " + postParams );
+        String json = NetworkUtil.post(IPapagoService.translatedApiURL, this.setNaverInfo(), postParams);
+        log.info("json : " + json);
+
+        Map<String, Object> rMap = new ObjectMapper().readValue(json, LinkedHashMap.class);
+
+        Map<String, Object> messageMap = (Map<String, Object>) rMap.get("message");
+
+        Map<String, String> resultMap = (Map<String, String>) messageMap.get("result");
+
+        log.info("resultMap : " + resultMap);
+
+        String srcLangType = CmmUtil.nvl(resultMap.get("srcLangType"));
+        String tarLangType = CmmUtil.nvl(resultMap.get("tarLangType"));
+        String translatedText = CmmUtil.nvl(resultMap.get("translatedText"));
+
+        log.info("srcLangType :"+srcLangType);
+        log.info("tarLangType : "+tarLangType);
+        log.info("translatedText : "+translatedText);
+
+        rDTO = new PapagoDTO();
+        rDTO.setText(text);
+        rDTO.setTranslatedText(translatedText);
+        rDTO.setScrLangType(srcLangType);
+        rDTO.setTarLangType(tarLangType);
+
+        resultMap = null;
+        messageMap = null;
+        rMap = null;
+
+        log.info(this.getClass().getName() + "translate End!");
+
+        return rDTO;
+
+
     }
 }
