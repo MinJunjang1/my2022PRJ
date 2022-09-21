@@ -33,7 +33,7 @@
 <body>
 <nav class="navbar navbar-expand-lg navbar-light bg-light">
 	<div class="container-fluid">
-		<a class="navbar-brand" href="/index">S.A.T.P.</a>
+		<a class="navbar-brand" href="/index" onclick="apiweather()">S.A.T.P.</a>
 		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarTogglerDemo02" aria-controls="navbarTogglerDemo02" aria-expanded="false" aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
 		</button>
@@ -70,6 +70,12 @@
 <c:if test="${ memberDTO == null }">
 	<meta http-equiv="refresh" content="0;url=/login">
 </c:if>
+<script>
+	function apiweather(){
+		location.href= "/weather2";
+
+	}
+</script>
 <!-- Optional JavaScript -->
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>

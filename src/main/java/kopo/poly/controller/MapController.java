@@ -60,8 +60,26 @@ public class MapController {
     public String apiweather(HttpServletRequest request, Model model) throws Exception{
 
         List<api2DTO> a2List = weatherapi.main();
+        log.info(String.valueOf(a2List.get(0)));
         model.addAttribute("a2List", a2List);
         return  "/weather2";
     }
+    @GetMapping(value = "/roadmap")
+    public String roadmappage(HttpServletRequest request,Model model) throws Exception {
+        String Dong = request.getParameter("Dong");
+        String Jiburn = request.getParameter("Jiburn");
+        String Name = request.getParameter("Name");
+        log.info(Dong);
+        log.info(Jiburn);
+        log.info(Name);
+        model.addAttribute("Dong",Dong);
+        model.addAttribute("Jiburn",Jiburn);
+        model.addAttribute("Name",Name);
+
+
+        return "/roadmap";
+    }
+
+
 
 }

@@ -18,6 +18,7 @@ public class chatingService implements IchatingService {
     @Override
     public int insertChat(ChatMessage pDTO, String Key) throws Exception {
         chatingMapper.insertChat(pDTO, Key);
+        log.info(Key);
         return 0;
     }
 

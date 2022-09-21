@@ -23,7 +23,7 @@ public class chatingMapper extends AbstractMongoDBComon implements IchatingMappe
 
     @Override
     public int insertChat(ChatMessage pDTO, String Key) throws Exception {
-
+        log.info(Key);
         int res = 0;
 
         if (pDTO == null) {

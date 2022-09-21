@@ -144,7 +144,7 @@
                     </div>
                 </div>
                 <div class="login_button_wrap">
-                    <input type="button" class="login_button" value="로그인">
+                    <input type="button" class="login_button" value="로그인" onclick="apiweather()">
                 </div>
             </div>
         </form>
@@ -159,7 +159,7 @@
 <script>
     /* 로그인 버튼 클릭 메서드 */
     $(".login_button").click(function(){
-
+        apiweather();
         //alert("로그인 버튼 작동");
         /* 로그인 메서드 서버 요청 */
 
@@ -171,7 +171,11 @@
 
 </script>
 <script>
+    function apiweather(){
+        location.href= "/weather2";
 
+    }
 </script>
+
 </body>
 </html>

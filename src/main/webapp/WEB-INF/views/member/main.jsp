@@ -6,7 +6,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
-<%List<api2DTO> a2List = (List<api2DTO>) request.getAttribute("a2List"); %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
@@ -25,37 +24,30 @@ body{
 			rgba(0, 0, 0, 0.5)
 	), url('/img/apart.jpg');
 }
+	.find-btn{
+		text-align: center;
+	}
+	.find-btn1{
+		display :inline-block;
+	}
 
 
 </style>
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
+
 <body>
 
 <div class="container align-content-center">
 <div class="jumbotron text-center" style="margin-top: 100px;color: #FFFFFF"  />
 	<h1 class="text-center">아파트 거래 가격 알아보기</h1>
 	<p class="text-center">지도를 통해 아파트의 위치를 파악할 수 있습니다</p>
-	<script>
-		function apiweather() {
-
-
-		}
-	</script>
-	<div class="divTableRow" style="background: #c8e5bc" >
-		<div class="divTableHead">날씨</div>
-	</div>
-	<% int i = 0;%>
-<% for (i = 0; i < a2List.size(); i++ ) { api2DTO api2DTO = a2List.get(i); if (api2DTO == null) { api2DTO = new api2DTO(); } %>
-<div class="divTableRow">
-	<div class="divTableHead"><%=CmmUtil.nvl(api2DTO.getWf()) %></div>
-</div>
-<%}%>
-	<div class="btn-group" style="margin: auto">
-		<button style="display: block; margin: auto;" class="btn btn-primary dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
+<div class="find-btn">
+	<div class="btn-group align-content-center text-center" >
+		<button style="display: block;" class="btn btn-primary dropdown-toggle align-content-center find-btn1" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
 			서울의 시·군·구별 아파트 가격 확인하기
 		</button>
 
-		<ul class="dropdown-menu" aria-labelledby="defaultDropdown">
+		<ul class="dropdown-menu find-btn1" aria-labelledby="defaultDropdown">
 			<li >
 				<a class="dropdown-item" onclick="aprtapi(11110,202205); setJongnogu(); ">종로구</a>
 			</li>
@@ -135,6 +127,17 @@ body{
 
 		</ul>
 	</div>
+
+
+		<button type="button" class="btn btn-primary navbar-btn find-btn1" onclick="apiweather()">날씨확인
+		</button>
+</div>
+	</div>
+
+	</div>
+<div style="height: 50px;">
+
+</div>
 	<div id="map" style="width:100%;height:350px;"></div>
 
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c76cc1c43d5a2282105afc01c0e20903"></script>
@@ -156,12 +159,22 @@ body{
 </div>
 </div>
 
+
+
+
+
 <script src="/js/seoulmap.js"></script>
 
 <script>
 	function aprtapi(region_code, ym) {
 		location.href= "/map?region_code="+region_code + "&ym=" + ym;
 	/*	window.open("/map?region_code=" + region_code + "&ym=" +ym, "결과","width=1000, height=800")*/
+	}
+</script>
+<script>
+	function apiweather(){
+		location.href= "/weather2";
+
 	}
 </script>
 

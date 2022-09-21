@@ -94,6 +94,7 @@
 	}
 </style>
 <jsp:include page="header.jsp" flush="false"></jsp:include>
+<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c76cc1c43d5a2282105afc01c0e20903&libraries=services"></script>
 <body>
 
 
@@ -192,7 +193,7 @@
 	</ul>
 </div>
 
-<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c76cc1c43d5a2282105afc01c0e20903&libraries=services"></script>
+
 <script>
 
 
@@ -224,7 +225,10 @@
 		<div class="divTableRow">
 			<div class="divTableHead"><%=CmmUtil.nvl(aDTO.getDong()) %></div>
 			<div class="divTableHead"><%=CmmUtil.nvl(aDTO.getJiburn()) %></div>
-			<div class="divTableHead"><%=CmmUtil.nvl(aDTO.getApartment_Name()) %></div>
+			<div class="divTableHead"><%=CmmUtil.nvl(aDTO.getApartment_Name())%>
+				<button id="createBtn" type="button" class="btn btn-info btn-sm" data-toggle="modal" value="<%=aDTO.getDong()%>&Jiburn=<%=aDTO.getJiburn()%>&Name=<%=aDTO.getApartment_Name()%>">보기</button>
+			</div>
+
 			<div class="divTableHead"><%=String.valueOf(aDTO.getDeal_Amount()) %></div>
 		</div>
 		<%}%>
@@ -281,7 +285,7 @@
 	</div>
 
 </div>
-
+<jsp:include page="roadmap.jsp" flush="false"></jsp:include>
 </body>
 
 </html>

@@ -119,6 +119,9 @@ public class MemberController {
     public String joinpage() throws Exception {
     return "/member/join";
      }
+
+
+
     @GetMapping(value = "/update")
     public String updatepage( Model model, HttpServletRequest request) throws Exception {
        String user_id = CmmUtil.nvl(request.getParameter("user_id"));

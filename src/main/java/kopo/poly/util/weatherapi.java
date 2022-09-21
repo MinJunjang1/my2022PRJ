@@ -67,7 +67,7 @@ public class weatherapi {
             String wfCd = (String) api2obj.get("wfCd");
             String wsIt =  (String) api2obj.get("wsIt");
 
-    /*        System.out.println(announceTime);
+            System.out.println(announceTime);
             System.out.println(numEf);
             System.out.println(regId);
             System.out.println(rnSt);
@@ -79,7 +79,7 @@ public class weatherapi {
             System.out.println(wf);
             System.out.println(wfCd);
             System.out.println(wsIt);
-*/
+
 
             api2DTO a2DTO = new api2DTO();
             a2DTO.setAnnounceTime(announceTime);
