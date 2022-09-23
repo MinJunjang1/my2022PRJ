@@ -127,20 +127,48 @@ public class BoardController {
             model.addAttribute("cri", cri);
 
         }
+    @GetMapping("/admin/modify")
+    public void boardMo2difyGET(int bno, Model model, Criteria cri) {
 
+        model.addAttribute("pageInfo", BoardService.getPage(bno));
+
+        model.addAttribute("cri", cri);
+
+    }
         /* 페이지 수정 */
         @PostMapping("/board/modify1")
-        public String boardModifyPOST(BoardDTO board, RedirectAttributes rttr) {
+        public String boardModifyPOST(BoardDTO board, RedirectAttributes rttr,Model model,MemberDTO memberDTO,HttpSession session, HttpServletRequest request) {
 
             BoardService.modify(board);
 
             rttr.addFlashAttribute("result", "modify success");
 
-            return "redirect:/board/list";
 
+
+            MemberDTO mDTO = (MemberDTO) session.getAttribute("memberDTO");
+            int adminck = Integer.valueOf(mDTO.getAdminCk());
+            if(adminck==0){
+                System.out.println(request.getAttribute("msg"));
+                return "redirect:/board/list";
+            }
+
+            return "redirect:/admin/boardlist";
         }
 
-        /* 페이지 삭제 */
+    @PostMapping("/admin/modify2")
+    public String adminboardModifyPOST(BoardDTO board, RedirectAttributes rttr) {
+
+        BoardService.modify(board);
+
+        rttr.addFlashAttribute("result", "modify success");
+
+        return "redirect:/admin/boardlist";
+
+    }
+
+
+
+    /* 페이지 삭제 */
         @PostMapping("/board/delete")
         public String boardDeletePOST(int bno, RedirectAttributes rttr) {
 

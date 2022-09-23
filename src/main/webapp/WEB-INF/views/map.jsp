@@ -114,80 +114,80 @@
 	</button>
 	<ul class="dropdown-menu" aria-labelledby="defaultDropdown">
 		<li >
-			<a class="dropdown-item" onclick="aprtapi(11110,202205); setJongnogu(); ">종로구</a>
+			<a class="dropdown-item" onclick="aprtapi(11110,202209); setJongnogu(); ">종로구</a>
 		</li>
 		<li >
-			<a class="dropdown-item"  onclick="aprtapi(11140,202205); setJunggu();">중구</a>
+			<a class="dropdown-item"  onclick="aprtapi(11140,202209); setJunggu();">중구</a>
 		</li>
 		<li >
-			<a class="dropdown-item" onclick="aprtapi(11170,202205);setYongsangu();">용산구</a>
+			<a class="dropdown-item" onclick="aprtapi(11170,202209);setYongsangu();">용산구</a>
 		</li>
 		<li >
-			<a class="dropdown-item" onclick="aprtapi(11200,202205);setSeongdonggu();">성동구</a>
+			<a class="dropdown-item" onclick="aprtapi(11200,202209);setSeongdonggu();">성동구</a>
 		</li>
 		<li >
-			<a class="dropdown-item"  onclick="aprtapi(11215,202205);setGwangjingu();">광진구</a>
+			<a class="dropdown-item"  onclick="aprtapi(11215,202209);setGwangjingu();">광진구</a>
 		</li>
 		<li >
-			<a class="dropdown-item"  onclick="aprtapi(11230,202205);setDongdaemungu();">동대문구</a>
+			<a class="dropdown-item"  onclick="aprtapi(11230,202209);setDongdaemungu();">동대문구</a>
 		</li>
 		<li >
-			<a class="dropdown-item"  onclick="aprtapi(11260,202205);setJungnanggu();">중량구</a>
+			<a class="dropdown-item"  onclick="aprtapi(11260,202209);setJungnanggu();">중량구</a>
 		</li>
 		<li >
-			<a class="dropdown-item"  onclick="aprtapi(11290,202205);setSeongbukgu(); ">성북구</a>
+			<a class="dropdown-item"  onclick="aprtapi(11290,202209);setSeongbukgu(); ">성북구</a>
 		</li>
 		<li >
-			<a class="dropdown-item"  onclick="aprtapi(11305,202205);setGangbukgu();">강북구</a>
+			<a class="dropdown-item"  onclick="aprtapi(11305,202209);setGangbukgu();">강북구</a>
 		</li>
 		<li >
-			<a class="dropdown-item" onclick="aprtapi(11320,202205);setDobonggu(); ">도봉구</a>
+			<a class="dropdown-item" onclick="aprtapi(11320,202209);setDobonggu(); ">도봉구</a>
 		</li>
 		<li >
-			<a class="dropdown-item"  onclick="aprtapi(11350,202205);setNowongu(); ">노원구</a>
+			<a class="dropdown-item"  onclick="aprtapi(11350,202209);setNowongu(); ">노원구</a>
 		</li>
 		<li >
-			<a class="dropdown-item" onclick="aprtapi(11380,202205);setEunpyeonggu(); ">은평구</a>
+			<a class="dropdown-item" onclick="aprtapi(11380,202209);setEunpyeonggu(); ">은평구</a>
 		</li>
 		<li >
-			<a class="dropdown-item"  onclick="aprtapi(11410,202205);setSeodaemungu(); ">서대문구</a>
+			<a class="dropdown-item"  onclick="aprtapi(11410,202209);setSeodaemungu(); ">서대문구</a>
 		</li>
 		<li >
-			<a class="dropdown-item"  onclick="aprtapi(11440,202205);setMapogu(); ">마포구</a>
+			<a class="dropdown-item"  onclick="aprtapi(11440,202209);setMapogu(); ">마포구</a>
 		</li>
 		<li >
-			<a class="dropdown-item"  onclick="aprtapi(11470,202205);setYangcheongu(); ">양천구</a>
+			<a class="dropdown-item"  onclick="aprtapi(11470,202209);setYangcheongu(); ">양천구</a>
 		</li>
 		<li >
-			<a class="dropdown-item"  onclick="aprtapi(11500,202205);setGangseogu(); ">강서구</a>
+			<a class="dropdown-item"  onclick="aprtapi(11500,202209);setGangseogu(); ">강서구</a>
 		</li>
 		<li >
-			<a class="dropdown-item"  onclick="aprtapi(11530,202205);setGurogu(); ">구로구</a>
+			<a class="dropdown-item"  onclick="aprtapi(11530,202209);setGurogu(); ">구로구</a>
 		</li>
 		<li >
-			<a class="dropdown-item"  onclick="aprtapi(11545,202205);setGeumcheongu();">금천구</a>
+			<a class="dropdown-item"  onclick="aprtapi(11545,202209);setGeumcheongu();">금천구</a>
 		</li>
 		<li >
-			<a class="dropdown-item"  onclick="aprtapi(11560,202205);setYeongdeungpogu(); ">영등포구</a>
+			<a class="dropdown-item"  onclick="aprtapi(11560,202209);setYeongdeungpogu(); ">영등포구</a>
 		</li>
 		<li >
-			<a class="dropdown-item"  onclick="aprtapi(11590,202205);setDongjakgu();">동작구</a>
+			<a class="dropdown-item"  onclick="aprtapi(11590,202209);setDongjakgu();">동작구</a>
 		</li>
 		<li >
-			<a class="dropdown-item"  onclick="aprtapi(11620,202205);setGwanakgu();">관악구</a>
+			<a class="dropdown-item"  onclick="aprtapi(11620,202209);setGwanakgu();">관악구</a>
 		</li>
 		<li >
-			<a class="dropdown-item" onclick="aprtapi(11650,202205);setSeochogu(); ">서초구</a>
+			<a class="dropdown-item" onclick="aprtapi(11650,202209);setSeochogu(); ">서초구</a>
 		</li>
 		<li >
-			<a class="dropdown-item"  onclick="aprtapi(11680,202205);setGangnamgu(); ">강남구</a>
+			<a class="dropdown-item"  onclick="aprtapi(11680,202209);setGangnamgu(); ">강남구</a>
 		</li>
 
 		<li >
-			<a class="dropdown-item"   onclick="aprtapi(11710,202205);setSongpagu();">송파구</a>
+			<a class="dropdown-item"   onclick="aprtapi(11710,202209);setSongpagu();">송파구</a>
 		</li>
 		<li >
-			<a class="dropdown-item"  onclick="aprtapi(11740,202205);setGangdonggu();">강동구</a>
+			<a class="dropdown-item"  onclick="aprtapi(11740,202209);setGangdonggu();">강동구</a>
 		</li>
 
 	</ul>
@@ -225,17 +225,14 @@
 		<div class="divTableRow">
 			<div class="divTableHead"><%=CmmUtil.nvl(aDTO.getDong()) %></div>
 			<div class="divTableHead"><%=CmmUtil.nvl(aDTO.getJiburn()) %></div>
-			<div class="divTableHead"><%=CmmUtil.nvl(aDTO.getApartment_Name())%>
-				<button id="createBtn" type="button" class="btn btn-info btn-sm" data-toggle="modal" value="<%=aDTO.getDong()%>&Jiburn=<%=aDTO.getJiburn()%>&Name=<%=aDTO.getApartment_Name()%>">보기</button>
-			</div>
-
+			<div class="divTableHead"><a href="/roadmap?Dong=<%=aDTO.getDong()%>&Jiburn=<%=aDTO.getJiburn()%>&Name=<%=aDTO.getApartment_Name()%>" target="_blank"><%=CmmUtil.nvl(aDTO.getApartment_Name()) %></a></div>
 			<div class="divTableHead"><%=String.valueOf(aDTO.getDeal_Amount()) %></div>
 		</div>
 		<%}%>
 		<script>
 
 			<% for (i = 0; i < rList.size(); i++ ) { apiDTO aDTO = rList.get(i); if (aDTO == null) { aDTO = new apiDTO(); } %>
-			juso[<%= i%>] = ["서울" + '<%=CmmUtil.nvl(aDTO.getDong()) %>' + <%=CmmUtil.nvl(aDTO.getJiburn()) %> + " " + '<%=CmmUtil.nvl(aDTO.getApartment_Name()) %>'];
+			juso[<%= i%>] = ["서울 <%=CmmUtil.nvl(aDTO.getDong()) %> <%=CmmUtil.nvl(aDTO.getJiburn()) %> <%=CmmUtil.nvl(aDTO.getApartment_Name()) %>"];
 			value[<%=i%>] = ["가격(만) : "  + '<%=String.valueOf(aDTO.getDeal_Amount()) %>'];
 			geocoder.addressSearch(	juso[<%= i%>], function(result, status) {
 
@@ -285,7 +282,6 @@
 	</div>
 
 </div>
-<jsp:include page="roadmap.jsp" flush="false"></jsp:include>
 </body>
 
 </html>

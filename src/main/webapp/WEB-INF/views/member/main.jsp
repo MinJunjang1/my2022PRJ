@@ -49,80 +49,80 @@ body{
 
 		<ul class="dropdown-menu find-btn1" aria-labelledby="defaultDropdown">
 			<li >
-				<a class="dropdown-item" onclick="aprtapi(11110,202205); setJongnogu(); ">종로구</a>
+				<a class="dropdown-item" onclick="aprtapi(11110,202208); setJongnogu(); ">종로구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11140,202205); setJunggu();">중구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11140,202208); setJunggu();">중구</a>
 			</li>
 			<li >
-				<a class="dropdown-item" onclick="aprtapi(11170,202205);setYongsangu();">용산구</a>
+				<a class="dropdown-item" onclick="aprtapi(11170,202208);setYongsangu();">용산구</a>
 			</li>
 			<li >
-				<a class="dropdown-item" onclick="aprtapi(11200,202205);setSeongdonggu();">성동구</a>
+				<a class="dropdown-item" onclick="aprtapi(11200,202208);setSeongdonggu();">성동구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11215,202205);setGwangjingu();">광진구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11215,202208);setGwangjingu();">광진구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11230,202205);setDongdaemungu();">동대문구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11230,202208);setDongdaemungu();">동대문구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11260,202205);setJungnanggu();">중량구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11260,202208);setJungnanggu();">중량구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11290,202205);setSeongbukgu(); ">성북구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11290,202208);setSeongbukgu(); ">성북구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11305,202205);setGangbukgu();">강북구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11305,202208);setGangbukgu();">강북구</a>
 			</li>
 			<li >
-				<a class="dropdown-item" onclick="aprtapi(11320,202205);setDobonggu(); ">도봉구</a>
+				<a class="dropdown-item" onclick="aprtapi(11320,202208);setDobonggu(); ">도봉구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11350,202205);setNowongu(); ">노원구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11350,202208);setNowongu(); ">노원구</a>
 			</li>
 			<li >
-				<a class="dropdown-item" onclick="aprtapi(11380,202205);setEunpyeonggu(); ">은평구</a>
+				<a class="dropdown-item" onclick="aprtapi(11380,202208);setEunpyeonggu(); ">은평구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11410,202205);setSeodaemungu(); ">서대문구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11410,202208);setSeodaemungu(); ">서대문구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11440,202205);setMapogu(); ">마포구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11440,202208);setMapogu(); ">마포구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11470,202205);setYangcheongu(); ">양천구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11470,202208);setYangcheongu(); ">양천구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11500,202205);setGangseogu(); ">강서구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11500,202208);setGangseogu(); ">강서구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11530,202205);setGurogu(); ">구로구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11530,202208);setGurogu(); ">구로구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11545,202205);setGeumcheongu();">금천구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11545,202208);setGeumcheongu();">금천구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11560,202205);setYeongdeungpogu(); ">영등포구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11560,202208);setYeongdeungpogu(); ">영등포구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11590,202205);setDongjakgu();">동작구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11590,202208);setDongjakgu();">동작구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11620,202205);setGwanakgu();">관악구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11620,202208);setGwanakgu();">관악구</a>
 			</li>
 			<li >
-				<a class="dropdown-item" onclick="aprtapi(11650,202205);setSeochogu(); ">서초구</a>
+				<a class="dropdown-item" onclick="aprtapi(11650,202208);setSeochogu(); ">서초구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11680,202205);setGangnamgu(); ">강남구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11680,202208);setGangnamgu(); ">강남구</a>
 			</li>
 
 			<li >
-				<a class="dropdown-item"   onclick="aprtapi(11710,202205);setSongpagu();">송파구</a>
+				<a class="dropdown-item"   onclick="aprtapi(11710,202208);setSongpagu();">송파구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11740,202205);setGangdonggu();">강동구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11740,202208);setGangdonggu();">강동구</a>
 			</li>
 
 		</ul>

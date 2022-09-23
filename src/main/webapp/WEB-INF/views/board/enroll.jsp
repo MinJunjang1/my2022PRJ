@@ -12,6 +12,16 @@
     <title>처리페이지</title>
 
 </head>
+<style>
+    .final_title_ck{
+        display: none;
+        color : red;
+    }
+    .final_content_ck{
+        display: none;
+        color : red;
+    }
+</style>
 <%--
 <body>
 <h1>게시판 등록</h1>
@@ -33,39 +43,74 @@
 --%>
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
 <body>
-<form method="post" action="/board/enroll1">
+<form method="post" id="board_form">
     <div class="container">
 
-        <h2>게시판 글쓰기</h2>
+        <h2 style="margin-top: 50px; margin-bottom: 50px">게시판 글쓰기</h2>
+        <span> 작성자</span>
+        <input type="text" name="writer" id="writer" class="form-control" placeholder="작성자" maxlength="40" value="${memberDTO.user_id}" readonly></td>
+        <span> 제목</span>
+        <input type="text" class="title_class form-control" placeholder="글 제목" name="title" id="title" maxlength="40"></td>
+        <span class="final_title_ck">제목을 입력해주세요.</span>
+        <hr>
+        <span> 내용 </span>
+        <textarea type="text" class="content_class form-control" placeholder="글 내용을 작성하세요" name="content" id="content" maxlength="1024" style="height: 400px;"></textarea></td>
+        <span class="final_content_ck">내용을 입력해주세요.</span>
 
-        <table class="table table-hover">
+        <div style="margin: 50px"></div>
 
-            <tbody>
-                <tr>
-                    <td><input type="text" name="writer" id="writer" class="form-control" placeholder="작성자" maxlength="40" value="${memberDTO.user_id}" readonly></td>
-                </tr>
-            <tr>
 
-                <td><input type="text" class="form-control" placeholder="글 제목" name="title" maxlength="40"></td>
 
-            </tr>
 
-            <tr>
+            <div style="text-align: right;">
+                <button type="button"class="btn btn-primary pull-right" style="text-align: right" id="btn">글쓰기</button>
+                <!-- 위으것 버튼으로-->
+                <button type="button" class="btn btn-secondary" value="">목록</button>
 
-                <td><textarea type="text" class="form-control" placeholder="글 내용을 작성하세요" name="content" maxlength="1024" style="height: 400px;"></textarea></td>
-
-            </tr>
-
-            </tbody>
-
-        </table>
-
-        <input type="submit" class="btn btn-primary pull-right" value="글쓰기">
-        <button type="button" class="btn btn-secondary" value="">목록</button>
-    </div>
+            </div>
+        </div>
 
 </form>
+<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
+<script type="text/javascript">
+ var titleCh = false;
+ var contentCh = false;
+$(document).ready(function (){
+   $(".btn").click(function (){
+       var title = $('.title_class').val();
+       var content = $('.content_class').val();
 
+       if(title == ""){
+           $('.final_title_ck').css('display','block');
+           titleCh = false;
+           alert("제목을 입력해주세요");
+           return
+       }else {
+           $('.final_title_ck').css('display','none');
+           titleCh = true;
+       }
+
+       if(content == ""){
+           $('.final_content_ck').css('display','block');
+           contentCh = false;
+           alert("내용을 입력해주세요");
+           return
+       }else {
+           $('.final_content_ck').css('display','none');
+           contentCh = true;
+       }
+
+       if(titleCh&&contentCh){
+           $("#board_form").attr("action", "/board/enroll1");
+           $("#board_form").submit();
+       }
+       return false
+   })
+ })
+
+
+
+</script>
 </body>
 
 </html>
