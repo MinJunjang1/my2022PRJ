@@ -1,7 +1,12 @@
 package kopo.poly.dto;
 
+import lombok.Getter;
+import lombok.Setter;
+
 import java.util.Arrays;
 
+@Getter
+@Setter
 public class Criteria {
 
     /* 현재 페이지 번호 */
@@ -104,11 +109,11 @@ public class Criteria {
         this.cateCode = cateCode;
     }
 
-    public int getBookId() {
+    public int getbno() {
         return bno;
     }
 
-    public void setBookId(int bno) {
+    public void setbno(int bno) {
         this.bno = bno;
     }
 
@@ -116,7 +121,7 @@ public class Criteria {
     public String toString() {
         return "Criteria [pageNum=" + pageNum + ", amount=" + amount + ", skip=" + skip + ", type=" + type
                 + ", keyword=" + keyword + ", authorArr=" + Arrays.toString(authorArr) + ", cateCode=" + cateCode
-                + ", bookId=" + bno + "]";
+                + ", bno=" + bno + "]";
     }
 
 

@@ -211,13 +211,17 @@
                     <li >
                         <a class="admin_list_01" href="/userlist">사용자 관리</a>
                     </li>
-                    <li>
+               <%--     <li>
                         <a class="admin_list_02" href="/admin/boardlist">게시판관리</a>
-                    </li>
+                    </li>--%>
                 </ul>
             </div>
             <div class="admin_content_wrap">
                 <div class="admin_content_subject"><span>사용자 관리</span></div>
+
+
+
+
 
 
                 <div class="container p-2" style="border:1px solid; border-color: #ffffff #ffffff #333 #ffffff;">

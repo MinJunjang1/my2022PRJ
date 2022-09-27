@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 
 <!-- JAVA와 연결할 Mapper 파일 설정 -->
-<mapper namespace="kopo.poly.persistance.mapper.IChatMapper">
+<mapper namespace="kopo.poly.persistance.mapper.IrecoMapper">
     <!-- 검색 조건문 -->
     <sql id="criteria">
         <trim prefix="where (" suffix=")" prefixOverrides="OR">
@@ -27,25 +27,22 @@
 
 
     <!-- 게시판 등록 -->
-    <insert id="insertChat" parameterType="chatDTO">
+    <insert id="recoin" parameterType="recoDTO">
 
-        insert into comt(bno, comet_content, writer, regdate) values (#{bno}, #{comet_content}, #{writer}, sysdate())
+        insert into reco(comet_seq, bno, recowriter, reco_content, recoregdate) values (#{comet_seq}, #{bno}, #{recowriter}, #{reco_content} ,sysdate())
 
     </insert>
 
 
-    <update id="updateChat">
-        update comt set comet_content = #{comet_content}, regdate = sysdate()
-                    where comet_seq = #{comet_seq}
-    </update>
+
     <update id="updatec">
         update comt set comet_seq = #{comet_seq}, bno = #{bno},  comet_content =#{comet_content}, writer = #{writer}, regdate = sysdate() where comet_seq = #{comet_seq}
     </update>
 
 
-    <select id="getupdatechat" resultType="chatDTO">
-    select * from comet
-    where comet_seq = #{comet_seq}
+    <select id="getupdatechat" resultType="recoDTO">
+    select * from reco
+    where reco_seq = #{reco_seq}
 
     </select>
 
@@ -58,38 +55,54 @@
         delete from comt where comet_seq = #{comet_seq}
 
     </delete>
-    <select id="getcPage" resultType="int">
 
-        select * from comt where bno = #{bno} order by comet_seq desc
-
-    </select>
-    <select id="getList" resultType="chatDTO">
+    <select id="getrecoList" resultType="recoDTO">
 
 
-        select  comet_seq, bno,  writer, regdate, comet_content
-        from comt where bno = #{bno}
-        order by comet_seq desc
+        select  reco_seq, comet_seq, bno,  recowriter, recoregdate, reco_content
+        from reco where comet_seq = #{comet_seq}
+        order by reco_seq desc
 
     </select>
     <!-- 게시물 목록(페이징) -->
-    <select id="getcListPaging" resultType="chatDTO">
+   <select id="getListPaging" resultType="chatDTO">
 
-        select   comet_seq, bno, writer, regdate, comet_content from comt
-        where bno = #{bno}
-       order by comet_seq desc
+        select * from (
+        comet_seq, bno, writer, regdate, comet_content
+        from comt
+        <if test="keyword != null">
+            <include refid="criteria"></include>
+        </if>
+        ) as T1 order by comet_seq desc
         limit #{skip},#{amount}
 
 
-
     </select>
-    <select id="getcTotal" resultType="int">
+    <select id="getrecoTotal" resultType="int">
 
-        select count(*) from comt where bno =#{bno}
+        select count(*) from reco
 
         <if test="keyword != null">
             <include refid="criteria"></include>
         </if>
 
     </select>
+    <select id="getReplyList" resultType="recoDTO">
+        select * from ( comet_seq, bno, writer, regdate, comet_content
+        from comt
+
+        ) as T1 order by comet_seq desc
+        limit #{skip},#{amount}
+
+    </select>
+
+    <select id="getReplyTotal" resultType="int">
+
+        select count(*)
+        from reco
+        where bno = #{bno}
+
+    </select>
+
 
 </mapper>

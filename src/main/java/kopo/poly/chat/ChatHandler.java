@@ -2,9 +2,12 @@ package kopo.poly.chat;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
 import kopo.poly.dto.Chat2DTO;
+import kopo.poly.dto.PapagoDTO;
+import kopo.poly.service.impl.PapagoService;
 import kopo.poly.util.CmmUtil;
 import kopo.poly.util.DateUtil;
 import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 import org.springframework.web.socket.CloseStatus;
 import org.springframework.web.socket.TextMessage;
@@ -17,6 +20,8 @@ import java.util.*;
 @Component
 @Slf4j
 public class ChatHandler extends TextWebSocketHandler {
+    @Autowired
+    private PapagoService PapagoService;
     private static Set<WebSocketSession> clients = Collections.synchronizedSet(new LinkedHashSet<>());
 
     public static Map<String, String> roomInfo = Collections.synchronizedMap(new LinkedHashMap<>());
@@ -85,9 +90,37 @@ public class ChatHandler extends TextWebSocketHandler {
 
         cDTO.setDate(DateUtil.getDateTime("yyyy-MM-dd hh:mm:ss"));
 
+        String sendMsg = CmmUtil.nvl(cDTO.getMsg());
+        log.info("sendMsg : " + sendMsg);
+
+        PapagoDTO pDTO = new PapagoDTO();
+        pDTO.setText(sendMsg);
+
+        PapagoDTO rDTO = PapagoService.translate(pDTO);
+        if(rDTO == null){
+            rDTO = new PapagoDTO();
+        }
+
+        pDTO = null;
+
+        String translatedText = CmmUtil.nvl(rDTO.getTranslatedText());
+        String scrLangType = CmmUtil.nvl(rDTO.getScrLangType());
+        String tarLangType = CmmUtil.nvl(rDTO.getTarLangType());
+        log.info("translatedText : " + translatedText);
+        log.info("scrLangType : " + scrLangType);
+        log.info("tarLangType : "+ tarLangType);
+
+        sendMsg = "(원문)" + sendMsg;
+
+        if(tarLangType.equals("en")){
+            sendMsg += "=> (영어 영작) " + translatedText;
+        }else if(tarLangType.equals("ko")){
+            sendMsg += "=> (한국어 번역) " + translatedText;
+        }
+        cDTO.setMsg(sendMsg);
+
         String json = new ObjectMapper().writeValueAsString(cDTO);
         log.info("json : " + json);
-
 
         clients.forEach(s -> {
 

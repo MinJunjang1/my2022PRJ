@@ -11,14 +11,20 @@ public interface IChatMapper {
     /* 게시판 등록 */
      void insertChat(chatDTO chatDTO);
 
-    int getTotal(Criteria cri);
+    int getcTotal(Criteria cri);
     List<chatDTO> getList(int bno);
 
-    List<chatDTO> getListPaging(Criteria cri);
+    List<chatDTO> getcListPaging(Criteria cri);
 
-    List<chatDTO> getPage(int comet_seq);
+    List<chatDTO> getcPage(int comet_seq);
 
     public int deletechat(int comet_seq);
+
+    public int updatechat(chatDTO chatDTO);
+
+    public chatDTO getupdatechat(int comet_seq);
+
+    void updatec(chatDTO cDTO) throws Exception;
 
     /* 게시판 목록 */
 

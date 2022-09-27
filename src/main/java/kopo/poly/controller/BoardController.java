@@ -3,8 +3,11 @@ package kopo.poly.controller;
 import kopo.poly.dto.*;
 import kopo.poly.service.impl.BoardService;
 import kopo.poly.service.impl.ChatService;
+import kopo.poly.service.impl.recoService;
+import kopo.poly.util.CmmUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.MediaType;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +25,9 @@ public class BoardController {
         private BoardService BoardService;
     @Autowired
     private ChatService ChatService;
+
+    @Autowired
+    private recoService recoService;
 
 
 
@@ -60,6 +66,32 @@ public class BoardController {
         return "/admin/boardlist";
 
     }
+    @GetMapping("/board/chatlist")
+    public void chatListGET(Model model, Criteria cri, int comet_seq ,int bno) {
+
+        model.addAttribute("clist", ChatService.getList(bno));
+        if(ChatService.getList(bno) == null){
+            model.addAttribute("clist", ChatService.getcListPaging(cri));
+            int total = ChatService.getcTotal(cri);
+            System.out.println(total);
+
+            model.addAttribute("total", ChatService.getcTotal(cri));
+
+            System.out.println(total);
+            PageMakerDTO pageMake = new PageMakerDTO(cri, total);
+            model.addAttribute("pageInfo", ChatService.getcPage(comet_seq));
+
+            model.addAttribute("cri", cri);
+
+            model.addAttribute("pageMaker", pageMake);
+
+        }
+
+
+
+
+
+    }
 
         /* 게시판 등록 페이지 접속 */
         @GetMapping("/board/enroll")
@@ -90,6 +122,7 @@ public class BoardController {
         @GetMapping("/board/get")
         public void boardGetPageGET(int bno, Model model, Criteria cri, chatDTO chatDTO) {
 
+
             model.addAttribute("pageInfo", BoardService.getPage(bno));
 
             model.addAttribute("cri", cri);
@@ -98,8 +131,34 @@ public class BoardController {
 
 
 
+            int total = ChatService.getcTotal(cri);
+            System.out.println(total);
+            System.out.println("bno +++++++++++++" + bno);
+            model.addAttribute("total", ChatService.getcTotal(cri));
+
+            System.out.println(total);
+
+            model.addAttribute("clist", ChatService.getcListPaging(cri));
+
+            PageMakerDTO pageMake = new PageMakerDTO(cri, total);
+       /*     model.addAttribute("pageInfo", ChatService.getcPage(bno));
+
+            model.addAttribute("cri", cri);*/
+
+            model.addAttribute("pageMaker", pageMake);
+
+
+
+
+
 
         }
+
+        @GetMapping(value ="/boarder/get", produces =  MediaType.APPLICATION_JSON_UTF8_VALUE)
+        public recopageDTO replyListPost(Criteria cri){
+            return recoService.replyList(cri);
+        }
+
     @GetMapping("/admin/boardget")
     public String boardGetPage2GET(int bno, Model model, Criteria cri, HttpSession session, HttpServletRequest request, MemberDTO memberDTO, RedirectAttributes rttr) {
 
@@ -195,25 +254,94 @@ public class BoardController {
         rttr.addFlashAttribute("result", "chat success");
         return "/board/list";
     }
-    @GetMapping("/board/chatlist")
-    public void chatListGET(Model model, Criteria cri, int comet_seq) {
 
-        int total = ChatService.getTotal(cri);
-        model.addAttribute("total", ChatService.getTotal(cri));
+
+
+
+    @GetMapping("/board/recolist")
+    public void recoListGET(Model model, Criteria cri, int reco_seq) {
+
+        int total = recoService.getrecoTotal(cri);
+        model.addAttribute("total", recoService.getrecoTotal(cri));
         PageMakerDTO pageMake = new PageMakerDTO(cri, total);
-        model.addAttribute("pageInfo", ChatService.getPage(comet_seq));
+        model.addAttribute("recopageInfo", recoService.getrecoPage(reco_seq));
 
         model.addAttribute("cri", cri);
 
         model.addAttribute("pageMaker", pageMake);
-        model.addAttribute("clist", ChatService.getListPaging(cri));
+        model.addAttribute("rlist", recoService.getrecoListPaging(cri));
     }
-@ResponseBody
+
+
+
+
+
+
+
+    @ResponseBody
 @PostMapping("/board/deletechat")
     public void deletechat(chatDTO chatDTO){
             ChatService.deletechat(chatDTO);
 }
 
+@PostMapping("/chatupdate")
+    public void chatupdatepost(chatDTO chatDTO){
+            ChatService.updatechat(chatDTO);
+}
+    @RequestMapping(value="/board/updatec", method=RequestMethod.POST)
+    public String updatecPOST(HttpServletRequest request, HttpSession session, Model model) throws Exception{
+
+
+        String comet_seq = CmmUtil.nvl(request.getParameter("comet_seq"));
+        String bno = CmmUtil.nvl(request.getParameter("bno"));
+        String writer = CmmUtil.nvl(request.getParameter("writer"));
+        String comet_content = CmmUtil.nvl(request.getParameter("comet_content"));
+        chatDTO cDTO = new chatDTO();
+        cDTO.setComet_seq(Integer.parseInt(comet_seq));
+        cDTO.setBno(Integer.parseInt(bno));
+        cDTO.setWriter(writer);
+        cDTO.setComet_content(comet_content);
+
+        /*
+         * 게시글 등록하기위한 비즈니스 로직을 호출
+         */ChatService.updatec(cDTO);
+
+
+
+        return "redirect:/board/get?pageNum=1&amount=10&keyword=&type=&bno=" + bno;
+        }
+
+
+    @RequestMapping(value="/board/recoin", method=RequestMethod.POST)
+    public String recoin(HttpServletRequest request, HttpSession session, Model model) throws Exception{
+
+
+        String comet_seq = CmmUtil.nvl(request.getParameter("comet_seq"));
+        String bno = CmmUtil.nvl(request.getParameter("bno"));
+        String recowriter = CmmUtil.nvl(request.getParameter("recowriter"));
+        String reco_content = CmmUtil.nvl(request.getParameter("reco_content"));
+
+        log.info(comet_seq);
+        log.info(bno);
+        log.info(recowriter);
+        log.info(reco_content);
+
+
+        recoDTO recoDTO = new recoDTO();
+
+        recoDTO.setComet_seq(Integer.parseInt(comet_seq));
+        recoDTO.setBno(Integer.parseInt(bno));
+        recoDTO.setRecowriter(recowriter);
+        recoDTO.setReco_content(reco_content);
+
+        /*
+         * 게시글 등록하기위한 비즈니스 로직을 호출
+         */
+        recoService.recoin(recoDTO);
+
+        return "redirect:/board/get?pageNum=1&amount=10&keyword=&type=&bno=" + bno;
+    }
 
 
     }
+
