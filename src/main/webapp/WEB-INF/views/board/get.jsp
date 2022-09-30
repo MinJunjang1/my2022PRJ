@@ -312,6 +312,61 @@
 
 </ul>
 </details>
+
+
+                <details>
+
+                    <summary>대댓글보기</summary>
+                    <ul>
+                        <div class="card my-4" >
+                            <div class="card my-4">
+                                <h5 class="card-header">대댓글</h5>
+                                <div class="card-body">
+                                    <form name="comment-form" action="/board/recoin" method="post">
+                                        <div class="form-group">
+                                            <input type="hidden"  name="bno" value="<c:out value="${pageInfo.bno}"/>" />
+                                            <input type="hidden" name="comet_seq" value="${clist.comet_seq}" />
+                                            <input type="hidden"  name="recowriter" value="${memberDTO.user_id}" />
+                                            <textarea  name="reco_content" class="form-control" rows="1"></textarea>
+                                        </div>
+                                        <input type="submit" class="btn btn-primary" style="float: right;" value="저장"/>
+                                    </form>
+                                </div>
+                            </div>
+
+
+                <c:forEach items="${rlist}" var="rlist">
+                    <c:if test="${rlist.comet_seq == clist.comet_seq }">
+                            <div class="divTableRow" style="float: right">
+                                <input type="hidden" value="${rlist.recomet_seq}">
+                                <div class="divTableCell" > 작성자 : <c:out value="${rlist.recowriter}"/> 작성시간 :
+
+                                    <fmt:formatDate pattern="yyyy/MM/dd" value="${rlist.recoregdate}"/>
+
+                                    <c:if test="${  rlist.recowriter ==  memberDTO.user_id }">
+
+                                        <form action="/board/deletereco" method="post" style="display: inline;">
+                                            <input type="hidden" name="recomet_seq" value="${rlist.recomet_seq}"/>
+                                            <input type="hidden"  name="bno" value="<c:out value="${pageInfo.bno}"/>" />
+                                            <input type="submit" class="btn btn-danger"  value="삭제"/>
+                                        </form>
+                                    </c:if>
+
+                                </div>
+
+                                <textarea readonly name="comet_content" class="form-control" style="resize: none;border: none;" rows="1" ><c:out value="${rlist.reco_content}"/></textarea>
+                            </div>
+                                </c:if>
+                                </c:forEach>
+
+                        </div>
+
+
+                    </ul>
+                </details>
+
+
+
     </c:if>
 
 
@@ -656,24 +711,6 @@
         });
 
     };
-   /*function updatec(e){
-        e.preventDefault();
-       $.ajax({
-           data : {
-               comet_seq : e,
-               bno : '${pageInfo.bno}',
-               comet_content: e
-           },
-           url : '/borad/updatechat',
-           type : 'POST',
-           success(){
-               alert('수정페이지로')
-               location.href('/board/updatechat')
-           }
-       })
-
-    };*/
-
 
 
 

@@ -23,4 +23,7 @@ public interface IrecoMapper {
     public List<recoDTO> getReplyList(Criteria cri);
 
     public int getReplytotal (int bno);
+
+    List<recoDTO> getrecoList2(recoDTO pDTO);
+    int deletereco (recoDTO recoDTO);
 }

@@ -59,9 +59,9 @@
     <select id="getrecoList" resultType="recoDTO">
 
 
-        select  reco_seq, comet_seq, bno,  recowriter, recoregdate, reco_content
+        select  recomet_seq, comet_seq, bno,  recowriter, recoregdate, reco_content
         from reco where comet_seq = #{comet_seq}
-        order by reco_seq desc
+        order by recomet_seq desc
 
     </select>
     <!-- 게시물 목록(페이징) -->
@@ -103,6 +103,17 @@
         where bno = #{bno}
 
     </select>
+<select id="getrecoList2" resultType="recoDTO">
+
+    select recomet_seq, comet_seq, bno,  recowriter, recoregdate, reco_content
+    from reco where bno = #{bno}
+    order by recomet_seq desc
+</select>
+    <delete id="deletereco">
+
+        delete from reco where recomet_seq = #{recomet_seq}
+
+    </delete>
 
 
 </mapper>

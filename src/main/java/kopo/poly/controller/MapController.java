@@ -1,8 +1,11 @@
 package kopo.poly.controller;
 
+import kopo.poly.dto.News2DTO;
+import kopo.poly.dto.NewsDTO;
 import kopo.poly.dto.api2DTO;
 import kopo.poly.dto.apiDTO;
 import kopo.poly.service.IMapService;
+import kopo.poly.service.INewsService;
 import kopo.poly.util.DetailData;
 import kopo.poly.util.weatherapi;
 import lombok.extern.slf4j.Slf4j;
@@ -10,6 +13,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
@@ -29,6 +33,8 @@ import java.util.List;
 public class MapController {
     @Resource(name = "MapService")
     private IMapService mapService;
+    @Resource(name = "NewsService")
+    private INewsService newsService;
 
     /**
      * GetMapping은 GET방식을 통해 접속되는 URL 호출에 대해 실행되는 함수로 설정함을 의미함
@@ -79,7 +85,23 @@ public class MapController {
 
         return "/roadmap";
     }
+    @ResponseBody
+    @GetMapping("/main/newsTitle")
+    public List<NewsDTO> newsTitle (Model model)throws Exception{
+        List<NewsDTO> pList = newsService.newscrowl();
 
+        return pList;
+    }
+
+    @ResponseBody
+    @GetMapping("/main/newspage")
+    public List<News2DTO> newspage (HttpServletRequest request)throws Exception{
+        String href = request.getParameter("href");
+        log.info(href);
+        List<News2DTO> p2List = newsService.newscrowl2(href);
+
+        return p2List;
+    }
 
 
 }

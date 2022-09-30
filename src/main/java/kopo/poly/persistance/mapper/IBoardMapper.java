@@ -1,8 +1,9 @@
 package kopo.poly.persistance.mapper;
 
 import kopo.poly.dto.BoardDTO;
-import org.apache.ibatis.annotations.Mapper;
 import kopo.poly.dto.Criteria;
+import kopo.poly.dto.chatDTO;
+import org.apache.ibatis.annotations.Mapper;
 
 import java.util.List;
 
@@ -28,5 +29,7 @@ public interface IBoardMapper {
 
     /* 게시판 총 갯수 */
     public int getTotal(Criteria cri);
+
+    List<chatDTO> getcometList(chatDTO pDTO);
 
 }

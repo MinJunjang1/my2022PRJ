@@ -21,5 +21,7 @@ public interface IBoardService {
     int delete(int bno);
 
     int getTotal(Criteria cri);
+
+
 }
 

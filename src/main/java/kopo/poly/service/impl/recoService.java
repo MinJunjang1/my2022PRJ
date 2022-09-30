@@ -1,9 +1,6 @@
 package kopo.poly.service.impl;
 
-import kopo.poly.dto.Criteria;
-import kopo.poly.dto.PageDTO;
-import kopo.poly.dto.recoDTO;
-import kopo.poly.dto.recopageDTO;
+import kopo.poly.dto.*;
 import kopo.poly.persistance.mapper.IrecoMapper;
 import kopo.poly.service.IrecoService;
 import lombok.extern.slf4j.Slf4j;
@@ -60,5 +57,15 @@ public class recoService implements IrecoService {
         return dto;
     }
 
+    @Override
+    public List<recoDTO> getrecoList2(recoDTO pDTO){
+        return recoMapper.getrecoList2(pDTO);
+    }
+
+    @Override
+    public int deletereco(recoDTO recoDTO){
+     return recoMapper.deletereco(recoDTO);
+
+    }
 
 }

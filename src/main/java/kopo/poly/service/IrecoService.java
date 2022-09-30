@@ -20,6 +20,8 @@ public interface IrecoService {
     List<recoDTO> getrecoPage(int reco_seq);
 
     public recopageDTO replyList(Criteria cri);
+    List<recoDTO> getrecoList2(recoDTO pDTO);
 
+    int deletereco(recoDTO recoDTO);
 }
 

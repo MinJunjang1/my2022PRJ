@@ -120,7 +120,7 @@ public class BoardController {
         /* 게시판 조회 */
 
         @GetMapping("/board/get")
-        public void boardGetPageGET(int bno, Model model, Criteria cri, chatDTO chatDTO) {
+        public void boardGetPageGET(int bno, Model model, Criteria cri, chatDTO chatDTO,recoDTO pDTO) {
 
 
             model.addAttribute("pageInfo", BoardService.getPage(bno));
@@ -146,6 +146,12 @@ public class BoardController {
             model.addAttribute("cri", cri);*/
 
             model.addAttribute("pageMaker", pageMake);
+
+
+
+/////////////////////////////////////대댓글
+
+            model.addAttribute("rlist", recoService.getrecoList2(pDTO));
 
 
 
@@ -275,6 +281,21 @@ public class BoardController {
 
 
 
+    @PostMapping("/board/deletereco")
+    public String deletereco(recoDTO recoDTO, HttpServletRequest request, HttpSession session, Model model){
+        String recomet_seq = CmmUtil.nvl(request.getParameter("recomet_seq"));
+            String bno = CmmUtil.nvl(request.getParameter("bno"));
+
+            recoDTO reco = new recoDTO();
+        log.info(recomet_seq);
+        log.info(bno);
+        reco.setRecomet_seq(Integer.parseInt(recomet_seq));
+        reco.setBno(Integer.parseInt(bno));
+
+                recoService.deletereco(recoDTO);
+
+        return "redirect:/board/get?pageNum=1&amount=10&keyword=&type=&bno=" + bno;
+    }
 
 
 
@@ -341,6 +362,7 @@ public class BoardController {
 
         return "redirect:/board/get?pageNum=1&amount=10&keyword=&type=&bno=" + bno;
     }
+
 
 
     }

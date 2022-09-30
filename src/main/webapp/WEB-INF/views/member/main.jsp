@@ -14,33 +14,234 @@
 	<title>시작하기</title>
 </head>
 <style>
+	.area {
+		position: absolute;
+		background: #fff;
+		border: 1px solid #888;
+		border-radius: 3px;
+		font-size: 12px;
+		top: -5px;
+		left: 15px;
+		padding:2px;
+	}
+
+	.info {
+		font-size: 12px;
+		padding: 5px;
+	}
+	.info .title {
+		font-weight: bold;
+	}
+
+
+	.btn, .btn-two {
+		margin: 9px;
+	}
+	.btn-gradient {
+		margin: 5px;
+	}
+
+	button[class*="btn"] {border: 0;}
+
+
+	.btn.small,
+	.btn-two.small,
+	.btn-gradient.small,
+	.btn-effect.small {
+		padding: 8px 18px;
+		font-size: 14px;
+	}
+
+	/* default button style */
+	.btn {
+		position: relative;
+		border: 0;
+		padding: 15px 25px;
+		display: inline-block;
+		text-align: center;
+		color: white;
+	}
+	.btn:active {
+		top: 4px;
+	}
+
+	/* color classes for .btn */
+	.btn.blue {box-shadow: 0px 4px #74a3b0;}
+	.btn.blue:active {box-shadow: 0 0 #74a3b0; background-color: #709CA8;}
+
+
+
+	/* Gradient buttons */
+	.btn-gradient {
+		text-decoration: none;
+		color: white;
+		padding: 10px 30px;
+		display: inline-block;
+		position: relative;
+		border: 1px solid rgba(0,0,0,0.21);
+		border-bottom: 4px solid rgba(0,0,0,0.21);
+		border-radius: 4px;
+		text-shadow: 0 1px 0 rgba(0,0,0,0.15);
+	}
+
+
+
+
+	.btn-gradient.blue {
+		background: rgba(102,152,203,1);
+		background: -moz-linear-gradient(top, rgba(102,152,203,1) 0%, rgba(92,138,184,1) 100%);
+		background: -webkit-gradient(left top, left bottom, color-stop(0%, rgba(102,152,203,1)), color-stop(100%, rgba(92,138,184,1)));
+		background: -webkit-linear-gradient(top, rgba(102,152,203,1) 0%, rgba(92,138,184,1) 100%);
+		background: -o-linear-gradient(top, rgba(102,152,203,1) 0%, rgba(92,138,184,1) 100%);
+		background: -ms-linear-gradient(top, rgba(102,152,203,1) 0%, rgba(92,138,184,1) 100%);
+		background: linear-gradient(to bottom, rgba(102,152,203,1) 0%, rgba(92,138,184,1) 100%);
+		filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#6698cb', endColorstr='#5c8ab8', GradientType=0 );
+	}
+
+
+	.btn-gradient.blue:active   {background: #608FBF;}
+
+
+</style>
+<style>
+
+	body{
+		background-image: linear-gradient(
+				rgba(0, 0, 0, 0.5),
+				rgba(0, 0, 0, 0.5)
+		),url('/img/apart.jpg');
+	}
+
+
+
+	.color .blue   {background: #6698cb;}
+	.btn-gradient {
+		margin: 5px;
+	}
+	.btn.small,
+	.btn-two.small,
+	.btn-gradient.small,
+	.btn-effect.small {
+		padding: 8px 18px;
+		font-size: 14px;
+	}
+	.btn.blue, .btn-two.blue     {background-color: #7fb1bf;}
+
+
+	.newsbox{
+		margin: 0px 10px 0px 10px;
+		background-color: #fffff0;
+	}
 	header {
 		position: sticky;
 		top: 0;
 	}
-body{
-	background-image: linear-gradient(
-			rgba(0, 0, 0, 0.5),
-			rgba(0, 0, 0, 0.5)
-	), url('/img/apart.jpg');
-}
+
 	.find-btn{
 		text-align: center;
 	}
 	.find-btn1{
 		display :inline-block;
 	}
+	.outer {
+		text-align: center;
+	}
 
+	.inner {
+		display: inline-block;
+	}
+	.box1{
+		display: inline-block;
+	}
+	.box2{
+		display: inline-block;
+
+	}
 
 </style>
+<script type="text/javascript" src="/js/mapcontrol.js"></script>
+
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
+<script>
 
-<body>
+	function newsTitle(){
+		$.ajax({
+			url : "/main/newsTitle",
+			method : "get",
+			dataType : 'JSON',
+			success: function (json){
+				$("#news").append("<h1>부동산 칼럼</h1>");
+				$.each(json, function (index, item){
+					let title = item.newstitle;
+					let date = item.newdate;
+					let newshref = item.href;
+					$("#news").append("<hr/>");
+					$("#news").append("<input type='hidden' id='newshref"+ index +"' value='"+ newshref +"'>");
+					$("#news").append("<b><a onclick='newspage(" +index+")'>" + title + "</a></b><br/>");
+					$("#news").append("<hr/>");
+				})
+			}
 
-<div class="container align-content-center">
-<div class="jumbotron text-center" style="margin-top: 100px;color: #FFFFFF"  />
-	<h1 class="text-center">아파트 거래 가격 알아보기</h1>
-	<p class="text-center">지도를 통해 아파트의 위치를 파악할 수 있습니다</p>
+		})
+	}
+	function newspage(index){
+		let href = document.getElementById("newshref" + index).value;
+		console.log(href)
+		$.ajax({
+			url : "/main/newspage",
+			method : "get",
+			dataType : 'JSON',
+			data: {
+				"href" : href
+			},
+			success: function (json){
+				$.each(json, function (index, item){
+					let title = item.title;
+					let summary = item.summary;
+					let imgsrc = item.imgsrc;
+					let content = item.content;
+					console.log(title);
+					console.log(summary);
+					console.log(imgsrc);
+					console.log(content);
+
+
+					$("#news").empty()
+					$("#news").append("<div class='newsbox' >");
+					$("#news").append("<b>"+title+"</b><br/><hr/>");
+					$("#news").append("<div>"+summary+"</div><br/>");
+					$("#news").append("<img src='"+imgsrc+"'>");
+					$("#news").append("<br/>");
+					$("#news").append("<br/>");
+					$("#news").append("<br/>");
+					$("#news").append("<br/>");
+					$("#news").append("<div>"+content+"</div></br>");
+					$("#news").append("<br/>");
+					$("#news").append("<button class='btn-gradient blue small' onclick='gotitle();'>목록으로</button>");
+					$("#news").append("<div>");
+					$("#news").append("<br/>");
+
+
+				})
+			}
+
+		})
+	}
+	function gotitle(){
+		$("#news").empty();
+		newsTitle();
+	}
+
+
+
+
+</script>
+<body onload="newsTitle()">
+
+<div class="container align-content-center" style="color: #FFFFFF">
+<div class="jumbotron text-center" style="margin-top: 100px;color: #0f0f0f"  />
+	<h1 class="text-center" style="color: #FFFFFF">아파트 거래 가격 알아보기</h1>
+	<p class="text-center" style="color: #FFFFFF">지도를 통해 아파트의 위치를 파악할 수 있습니다</p>
 <div class="find-btn">
 	<div class="btn-group align-content-center text-center" >
 		<button style="display: block;" class="btn btn-primary dropdown-toggle align-content-center find-btn1" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
@@ -138,28 +339,33 @@ body{
 <div style="height: 50px;">
 
 </div>
-	<div id="map" style="width:100%;height:350px;"></div>
+<div style="text-align: center; height: 450px;" >
+<div class="box1" id="news" style="overflow:scroll; width:55%;height:450px; padding-left: 15px; padding-right: 15px; padding-top: 15px; text-align: justify-all; background-color: #FFFFF0;">
+</div>
+	<div class="box2" id="map" style="width:40%;height:450px;  margin: 0 auto;"></div>
 
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c76cc1c43d5a2282105afc01c0e20903"></script>
 	<script>
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 				mapOption = {
 					center: new kakao.maps.LatLng(37.5666805, 126.9784147), // 지도의 중심좌표
-					draggable: false, // 지도를 생성할때 지도 이동 및 확대/축소를 막으려면 draggable: false 옵션을 추가하세요
-					level: 4 // 지도의 확대 레벨
+				 // 지도를 생성할때 지도 이동 및 확대/축소를 막으려면 draggable: false 옵션을 추가하세요
+					level: 9 // 지도의 확대 레벨
 				};
 
-		var map = new kakao.maps.Map(mapContainer, mapOption); // 지도를 생성합니다
+		var map = new kakao.maps.Map(mapContainer, mapOption), // 지도를 생성합니다
+		 customOverlay = new kakao.maps.CustomOverlay({}),
+				infowindow = new kakao.maps.InfoWindow({removable: true});
+
+		Initializtion(map);
+		DrawPolygon();
 
 
-		// 아래 코드는 인포윈도우를 지도에서 제거합니다
-		// infowindow.close();
 	</script>
 
+
 </div>
 </div>
-
-
 
 
 
@@ -177,6 +383,8 @@ body{
 
 	}
 </script>
+</div>
+
 
 
 </body>
