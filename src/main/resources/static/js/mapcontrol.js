@@ -59,7 +59,7 @@ function makePolygon(coordinates, name, code){
         });
 
         customOverlay.setContent('<div class="area">'+ name+ '</div>');
-        customOverlay.setPosition(mouseEvent.path);
+        customOverlay.setPosition(mouseEvent.latLng);
         customOverlay.setMap(map);
 
 
@@ -74,7 +74,7 @@ function makePolygon(coordinates, name, code){
     });
     daum.maps.event.addListener(polygon, 'mousemove', function (mouseEvent) {
 
-        customOverlay.setPosition(mouseEvent.path);
+        customOverlay.setPosition(mouseEvent.latLng);
     });
 
     daum.maps.event.addListener(polygon, 'click', function () {
@@ -82,7 +82,7 @@ function makePolygon(coordinates, name, code){
         var month = date.getMonth() +1;
         var year = date.getFullYear();
         var ym = "month" + "year";
-        console.log(code);
+
         aprtapi(code, "202209");
     });
 
@@ -121,7 +121,7 @@ function makeMultiPolygon(coordinates, name,code){
         });
 
         customOverlay.setContent('<div class="area">'+ name+ '</div>');
-        customOverlay.setPosition(mouseEvent.path);
+        customOverlay.setPosition(mouseEvent.latLng);
         customOverlay.setMap(map);
 
 
@@ -136,18 +136,16 @@ function makeMultiPolygon(coordinates, name,code){
     });
     daum.maps.event.addListener(polygon, 'mousemove', function (mouseEvent) {
 
-        customOverlay.setPosition(mouseEvent.path);
+        customOverlay.setPosition(mouseEvent.latLng);
     });
 
 
     daum.maps.event.addListener(polygon, 'click', function () {
-        var date = new Date();
-        var month = date.getMonth() +1;
-        var year = date.getFullYear();
-        var ym = "month" + "year";
-        console.log(code);
 
-        aprtapi(code, "202209");
+        var ym = "202209"; ////현재 년도 월
+
+
+        aprtapi(code, "ym");
 
     });
     return polygon;

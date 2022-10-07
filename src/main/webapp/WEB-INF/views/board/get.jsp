@@ -13,18 +13,7 @@
 </head>
 
     <style type="text/css">
-        .pageInfo{
-            list-style : none;
-            display: inline-block;
-            margin: 0 0 0 100px;
-        }
-        .pageInfo li{
-            float: left;
-            font-size: 20px;
-            margin-left: 18px;
-            padding: 7px;
-            font-weight: 500;
-        }
+
         a:link {color:black; text-decoration: none;}
         a:visited {color:black; text-decoration: none;}
         a:hover {color:black; text-decoration: underline;}
@@ -41,44 +30,18 @@
         font-size: 17px;
     }
     textarea{
-        width: 800px;
+        width: 950px;
         height: 200px;
         font-size: 15px;
-        padding: 10px;
     }
-    .btn{
-        display: inline-block;
-        font-size: 22px;
-        padding: 6px 12px;
-        background-color: #fff;
-        border: 1px solid #ddd;
-        font-weight: 600;
-        width: 140px;
-        height: 41px;
-        line-height: 39px;
-        text-align : center;
-        margin-left : 30px;
-        cursor : pointer;
-    }
+
     .btn_wrap{
         padding-left : 80px;
         margin-top : 50px;
-    }  .boby{
+    }  .boby {
                margin: auto;
                text-align: center;
-                          }
-                          .pageInfo{
-                              list-style : none;
-                              display: inline-block;
-                              margin: 0 0 0 100px;
-                          }
-                          .pageInfo li{
-                              float: left;
-                              font-size: 20px;
-                              margin-left: 18px;
-                              padding: 7px;
-                              font-weight: 500;
-                          }
+       }
 
 
 
@@ -92,7 +55,7 @@
         }
         .comment_wrap{
             position: relative;
-            border-bottom: 1px dotted #d4d4d4;
+
             padding: 14px 0 10px 0;
             font-size: 12px;
         }
@@ -117,7 +80,7 @@
         .reply_line{
             width : 80%;
             margin : auto;
-            border-top:1px solid #c6c6cf;
+
         }
 
         /* 리뷰 제목 */
@@ -145,12 +108,8 @@
             cursor: pointer;
         }
         .active{
-            border : 2px solid black;
+
             font-weight:400;
-        }
-        .next, .prev {
-            border: 1px solid #ccc;
-            padding: 0 10px;
         }
 
         /* 리뷰 없는 경우 div */
@@ -164,84 +123,70 @@
         }
 
         /* 리뷰 수정 삭제 버튼 */
-        .update_reply_btn{
-            font-weight: bold;
-            background-color: #b7b399;
-            display: inline-block;
-            width: 40px;
-            text-align: center;
-            height: 20px;
-            line-height: 20px;
-            margin: 0 5px 0 30px;
-            border-radius: 6px;
-            color: white;
-            cursor: pointer;
-        }
-        .delete_reply_btn{
-            font-weight: bold;
-            background-color: #e7578f;
-            display: inline-block;
-            width: 40px;
-            text-align: center;
-            height: 20px;
-            line-height: 20px;
-            border-radius: 6px;
-            color: white;
-            cursor: pointer;
-        }
 
+
+
+.container-shadow{
+    box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+    background-color: #FFFFFF;
+}
 
 
 
     </style>
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
-<body>
+<body style="background-color: #E2E2E2;">
+<div style="height: 50px"></div>
+<div class="container-shadow" style="width: 1200px; margin: auto;" >
 <div class="container body"  >
     <div style="margin-bottom: 100px;">
 
+        <div style="height: 50px"></div>
 
-
-    <div class="card my-4">
+    <div class="card my-4" style="width: 950px; margin:auto">
         <h7 class="card-header">
 
-            <div class="row align-items-start">
+            <div class="row align-items-start" >
                 <div class="col">
-                    <span> 게시판 번호  /  </span><input type="text" name="bno" style="border: none; background-color: transparent;"  readonly value="<c:out value="${pageInfo.bno}"/>" size="10">
+                    <span> 게시판 번호  /  </span><c:out value="${pageInfo.bno}"/>
                 </div>
 
                 <div class="col">
-                    <span> 등록일  /  </span><input type="text" style="border: none; background-color: transparent;" readonly value="<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.regdate}"/> ">
+                    <span> 등록일  /  </span><fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.regdate}"/>
                 </div>
                 <div class="col">
-                    <span> 수정일  /  </span><input type="text" style="border: none; background-color: transparent;" readonly value="<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.updateDate}"/>">
+                    <span> 수정일  /  </span><fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.updateDate}"/>
                 </div>
             </div>
 
         </h7>
 
 
-            <h7 class="card-header"> 작성자  /  <input type="text" name="title" style="border: none; background-color: transparent;" readonly value="<c:out value="${pageInfo.writer}"/> "></h7>
+        <h7 class="card-header"> 작성자  /  <c:out value="${pageInfo.writer}"/> </h7>
 
-        <h7  class="card-header">  제목  /
-        <input type="text"  style="border: none; background-color: transparent;" class="input_wrap" readonly value="<c:out value="${pageInfo.title}"/>">
-        </h7>
+        <h7  class="card-header">  제목  /  <c:out value="${pageInfo.title}"/> </h7>
     </div>
 
 
-    <div class="container p-2 text-left" style="border:1px solid; border-color: #ffffff #ffffff #333 #ffffff;">
+    <div class="container p-2 text-left " style=" width: 970px; margin: auto; ">
 
-        <p>내용</p>
-        <textarea type="text" class="form-control" placeholder="글 내용을 작성하세요" name="content" maxlength="1024"  readonly style="height: 400px;"><c:out value="${pageInfo.content}"/></textarea>
+        <span>내용</span>
+        <textarea  type="text" class="form-control" placeholder="글 내용을 작성하세요" name="content" maxlength="1024"  readonly style="height: 400px;"><c:out value="${pageInfo.content}"/></textarea>
 
-        </form>
 
 </div>
-<div class="boby" style="margin-top: 5px;">
+        <div style="height: 50px"></div>
+        <div class=" d-grid gap-2" style="width: 950px; margin: auto;">
     <c:if test="${ pageInfo.writer == memberDTO.user_id}">
-        <input type="submit" id="modify_btn" class="btn btn-primary pull-right" value="수정하기">
+        <input type="submit" id="modify_btn" class="btn btn-primary btn-lg" value="수정하기">
     </c:if>
-    <button type="button" id="list_btn" class="btn btn-secondary" value="">목록</button>
+
+            <a href="/board/list" type="button" class="btn btn-secondary btn-lg" style="color: #FFFFFF">목록</a>
 </div>
+
+
+
+        <div style="height: 50px"></div>
 
     <form id="infoForm" action="/board/modify" method="get">
         <input type="hidden" id="bno" name="bno" value='<c:out value="${pageInfo.bno}"/>'>
@@ -252,7 +197,7 @@
     </form>
 
 
-    <div class="card my-4">
+    <div class="card my-4" style="width: 950px; margin:auto">
         <h5 class="card-header">댓글</h5>
         <div class="card-body">
 
@@ -274,7 +219,7 @@
         </div>
     </div>
 
-    <div class="card my-4">
+    <div class="card my-4" style="width: 950px; margin:auto">
 
     <div class="card-body">
         <c:forEach items="${clist}" var="clist">
@@ -319,7 +264,7 @@
                     <summary>대댓글보기</summary>
                     <ul>
                         <div class="card my-4" >
-                            <div class="card my-4">
+
                                 <h5 class="card-header">대댓글</h5>
                                 <div class="card-body">
                                     <form name="comment-form" action="/board/recoin" method="post">
@@ -331,7 +276,7 @@
                                         </div>
                                         <input type="submit" class="btn btn-primary" style="float: right;" value="저장"/>
                                     </form>
-                                </div>
+
                             </div>
 
 
@@ -345,10 +290,10 @@
 
                                     <c:if test="${  rlist.recowriter ==  memberDTO.user_id }">
 
-                                        <form action="/board/deletereco" method="post" style="display: inline;">
+                                        <form id="deletereco" action="/board/deletereco" method="post" style="display: inline;">
                                             <input type="hidden" name="recomet_seq" value="${rlist.recomet_seq}"/>
                                             <input type="hidden"  name="bno" value="<c:out value="${pageInfo.bno}"/>" />
-                                            <input type="submit" class="btn btn-danger"  value="삭제"/>
+                                            <a  style="float: right; text-align: right;" onclick="deletere()">삭제</a>
                                         </form>
                                     </c:if>
 
@@ -379,28 +324,30 @@
 
         <div class="pageInfo_wrap"  style="text-align: center">
             <div class="pageInfo_area body" style="text-align: center">
-                <ul id="pageInfo" class="pageInfo" style="text-align: center; margin: 0;padding: 0;">
+                <ul id="pageInfo" class="pageInfo pagination justify-content-center">
 
                     <!-- 이전페이지 버튼 -->
                     <c:if test="${pageMaker.prev}">
-                        <li class="pageInfo_btn previous"><a href="${pageMaker.startPage-1}">Previous</a></li>
+                        <li class="pageInfo_btn previous page-item"><a class="page-link" href="${pageMaker.startPage-1}">Previous</a></li>
                     </c:if>
 
                     <!-- 각 번호 페이지 버튼 -->
                     <c:forEach var="num" begin="${pageMaker.startPage}" end="${pageMaker.endPage}">
-                        <li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" }"><a href="${num}">${num}</a></li>
+                        <li class="pageInfo_btn ${pageMaker.cri.pageNum == num ? "active":"" } page-item"><a class="page-link" href="${num}">${num}</a></li>
                     </c:forEach>
 
                     <!-- 다음페이지 버튼 -->
                     <c:if test="${pageMaker.next}">
-                        <li class="pageInfo_btn next"><a href="${pageMaker.endPage + 1 }">Next</a></li>
+                        <li class="pageInfo_btn next page-item"><a class="page-link" href="${pageMaker.endPage + 1 }">Next</a></li>
                     </c:if>
 
-
                 </ul>
+
             </div>
         </div>
+<div style="height: 50px;">
 
+</div>
 
 
 
@@ -415,171 +362,7 @@
         </form>
 </div>
 </div>
-<%--
 
-<script type="text/javascript">
-    /* 리뷰쓰기 */
-    $(".reply_button_wrap").on("click", function(e){
-
-        e.preventDefault();
-
-        const memberId = '${member.memberId}';
-        const bookId = '${goodsInfo.bookId}';
-        $.ajax({
-            data : {
-                bookId : bookId,
-                memberId : memberId
-            },
-            url : '/reply/check',
-            type : 'POST',
-            success : function(result){
-                if(result === '1'){
-                    alert("이미 등록된 리뷰가 존재 합니다.")
-                } else if(result === '0'){
-                    let popUrl = "/replyEnroll/" + memberId + "?bookId=" + bookId;
-                    console.log(popUrl);
-                    let popOption = "width = 490px, height=490px, top=300px, left=300px, scrollbars=yes";
-
-                    window.open(popUrl,"리뷰 쓰기",popOption);
-                }
-
-            }
-        });
-
-    });
-    const cri = {
-        bno : '${pageInfo.bno}',
-        pageNum : 1,
-        amount : 10
-    }
-    /* 댓글 페이지 이동 버튼 동작 */
-    $(document).on('click', '.pageMaker_btn a', function(e){
-
-        e.preventDefault();
-
-        let page = $(this).attr("href");
-        cri.pageNum = page;
-
-        replyListInit();
-
-    });
-
-    $(document).on('click', '.update_reply_btn', function(e){
-
-        e.preventDefault();
-        let replyId = $(this).attr("href");
-        let popUrl = "/replyUpdate?replyId=" + replyId + "&bookId=" + '${goodsInfo.bookId}' + "&memberId=" + '${member.memberId}';
-        let popOption = "width = 490px, height=490px, top=300px, left=300px, scrollbars=yes"
-
-        window.open(popUrl,"리뷰 수정",popOption);
-
-    });
-
-    /* 리뷰 삭제 버튼 */
-    $(document).on('click', '.delete_reply_btn', function(e){
-        e.preventDefault();
-        let replyId = $(this).attr("href");
-
-        $.ajax({
-            data : {
-                replyId : replyId,
-                bookId : '${goodsInfo.bookId}'
-            },
-            url : '/reply/delete',
-            type : 'POST',
-            success : function(result){
-                replyListInit();
-                alert('삭제가 완료되엇습니다.');
-            }
-        });
-
-    });
-
-
-    let replyListInit = function(){
-        $.getJSON("/board/get", cri , function(obj){
-
-            makeReplyContent(obj);
-
-        });
-    }
-
-    $.getJSON("/board/get", {bno : bno}, function (obj) {
-      makereplycontent(obj)
-    });
-
-    function makereplycontent(obj) {
-        if(obj.list.length === 0){
-            $(".reply_not_div").html('<span>리뷰가 없습니다.</span>');
-            $(".reply_content_ul").html('');
-            $(".pageMaker").html('');
-        }else{
-
-            $(".reply_not_div").html('');
-
-            const list = obj.list;
-            const pf = obj.pageInfo;
-            const userID = ${memberDTO.user_id}
-                /* list */
-
-                let reply_list = '';
-
-            $(list).each(function(i,obj){
-                reply_list += '<li>';
-                reply_list += '<div class="comment_wrap">';
-                reply_list += '<div class="reply_top">';
-                /* 아이디 */
-                reply_list += '<span class="id_span">'+ obj.memberId+'</span>';
-                /* 날짜 */
-                reply_list += '<span class="date_span">'+ obj.regDate +'</span>';
-                /* 평점 */
-                reply_list += '<span class="rating_span">평점 : <span class="rating_value_span">'+ obj.rating +'</span>점</span>';
-                if(obj.memberId === userId){
-                    reply_list += '<a class="update_reply_btn" href="'+ obj.replyId +'">수정</a><a class="delete_reply_btn" href="'+ obj.replyId +'">삭제</a>';
-                }
-                reply_list += '</div>'; //<div class="reply_top">
-                reply_list += '<div class="reply_bottom">';
-                reply_list += '<div class="reply_bottom_txt">'+ obj.content +'</div>';
-                reply_list += '</div>';//<div class="reply_bottom">
-                reply_list += '</div>';//<div class="comment_wrap">
-                reply_list += '</li>';
-            });
-            $(".reply_content_ul").html(reply_list);
-
-            /* 페이지 버튼 */
-            let reply_pageMaker = '';
-
-            /* prev */
-            if(pf.prev){
-                let prev_num = pf.pageStart -1;
-                reply_pageMaker += '<li class="pageMaker_btn prev">';
-                reply_pageMaker += '<a href="'+ prev_num +'">이전</a>';
-                reply_pageMaker += '</li>';
-            }
-            /* numbre btn */
-            for(let i = pf.pageStart; i < pf.pageEnd+1; i++){
-                reply_pageMaker += '<li class="pageMaker_btn ';
-                if(pf.cri.pageNum === i){
-                    reply_pageMaker += 'active';
-                }
-                reply_pageMaker += '">';
-                reply_pageMaker += '<a href="'+i+'">'+i+'</a>';
-                reply_pageMaker += '</li>';
-            }
-            /* next */
-            if(pf.next){
-                let next_num = pf.pageEnd +1;
-                reply_pageMaker += '<li class="pageMaker_btn next">';
-                reply_pageMaker += '<a href="'+ next_num +'">다음</a>';
-                reply_pageMaker += '</li>';
-            }
-            $(".pageMaker").html(reply_pageMaker);
-        }
-    }
-</script>
-
-
---%>
 
 <script>
 
@@ -673,7 +456,7 @@
             url:'/board/chat',
             type: 'POST',
             success: function (){
-                alert("sucess");
+
                 location.reload()
             }
         });
@@ -711,6 +494,10 @@
         });
 
     };
+function deletere(){
+    document.getElementById('deletereco').submit();
+}
+
 
 
 
@@ -719,6 +506,7 @@
 
 <div style="margin-bottom: 100px;">
 
+</div>
 </div>
 </body>
 </html>

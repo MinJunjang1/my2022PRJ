@@ -37,32 +37,63 @@
         margin: auto;
         text-align: center;
     }
+
+    .container-shadow{
+        box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        background-color: #FFFFFF;
+    }
 </style>
 
 </head>
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
-<body>
-<div class="container">
+<body style="background-color: #E2E2E2;">
+<div>
+    <div style="height: 50px"></div>
+    <div class="container-shadow" style="width: 1200px; margin: auto;" >
+        <div class="container">
+            <div style="height: 50px"></div>
+        <h1 style="text-align: center">수정 페이지</h1>
+            <div style="height: 50px"></div>
 
-<h1>수정 페이지</h1>
-<form id="modifyForm" action="/board/modify1" method="post">
-    <div class="container p-2" style="border:1px solid; border-color: #ffffff #ffffff #333 #ffffff;">
+            <form id="modifyForm" action="/board/modify1" method="post">
+    <div class="container p-2 d-flex justify-content-center"  >
 
-        <span> 게시판 번호 / </span><input type="text" name="bno"  readonly value="<c:out value="${pageInfo.bno}"/>">
-        <span> 작성자 / </span><input type="text" name="title" readonly value="<c:out value="${pageInfo.writer}"/> ">
-        <span> 등록일 / </span><input type="text" readonly value="<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.regdate}"/> ">
-        <span> 수정일 / </span><input type="text" readonly value="<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.updateDate}"/>">
+        <input type="hidden" name="bno"  readonly value="<c:out value="${pageInfo.bno}"/>">
+        <input type="hidden" name="name" readonly value="<c:out value="${pageInfo.writer}"/> ">
+        <input type="hidden" readonly value="<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.regdate}"/> ">
+        <input type="hidden" readonly value="<fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.updateDate}"/>">
+
+
+
     </div>
-    <div class="container p-2" style="border:1px solid; border-color: #ffffff #ffffff #333 #ffffff;">
-        <span>제목 / </span>
-        <input type="text" class="input_wrap" value="<c:out value="${pageInfo.title}"/>">
-    </div>
-    <div class="container p-2 text-left" style="border:1px solid; border-color: #ffffff #ffffff #333 #ffffff;">
+                <div class="card my-4" style="width:950px; margin:auto;">
+                    <h7 class="card-header">
+                        <div class="row align-items-start">
+                            <div class="col">
+                                <span> 게시판 번호  /  </span><c:out value="${pageInfo.bno}"/>
+                            </div>
+                            <div class="col">
+                                <span> 등록일  /  </span><fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.regdate}"/>
+                            </div>
+                            <div class="col">
+                                <span> 수정일  /  </span><fmt:formatDate pattern="yyyy/MM/dd" value="${pageInfo.updateDate}"/>
+                            </div>
+                        </div>
+                    </h7>
+                    <h7 class="card-header"> 작성자  /  <c:out value="${pageInfo.writer}"/> </h7>
+
+                </div>
+                <div class="input-group mb-3" style="width: 950px; margin:auto;">
+                    <span class="input-group-text" id="inputGroup-sizing-default"> 제목 </span>
+                    <input type="text" name="title" class="form-control" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="<c:out value="${pageInfo.title}"/>">
+                </div>
+    <div class="container p-2 text-left" style="width: 950px;">
 
         <p>내용</p>
         <textarea type="text" class="form-control" placeholder="글 내용을 작성하세요" name="content" maxlength="1024" style="height: 400px;"><c:out value="${pageInfo.content}"/></textarea>
 
     </div>
+                <div style="height: 50px"></div>
 </form>
     <div class="btn_wrap boby" style="margin-top: 5px" >
         <button  id="list_btn" class="btn btn-secondary">목록 페이지</button>
@@ -70,6 +101,7 @@
         <button  id="delete_btn" class="btn btn-danger">삭제</button>
         <button  id="cancel_btn" class="btn btn-success">수정 취소</button>
     </div>
+            <div style="height: 50px"></div>
 </div>
 
 
@@ -84,7 +116,7 @@
     <input type="hidden" name="keyword" value="${cri.keyword }">
 </form>
 
-
+    </div>
 <script>
     let form = $("#infoForm");		// 페이지 이동 form(리스트 페이지 이동, 조회 페이지 이동)
     let mForm = $("#modifyForm");	// 페이지 데이터 수정 from
@@ -117,6 +149,6 @@
     });
 
 </script>
-
+<div style="height: 50px"></div>
 </body>
 </html>

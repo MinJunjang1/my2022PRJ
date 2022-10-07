@@ -156,7 +156,11 @@
 	.box2{
 		display: inline-block;
 
-	}
+	}.scrollable-menu {
+		 height: auto;
+		 max-height: 200px;
+		 overflow-x: hidden;
+	 }
 
 </style>
 <script type="text/javascript" src="/js/mapcontrol.js"></script>
@@ -236,6 +240,7 @@
 
 
 </script>
+
 <body onload="newsTitle()">
 
 <div class="container align-content-center" style="color: #FFFFFF">
@@ -248,82 +253,82 @@
 			서울의 시·군·구별 아파트 가격 확인하기
 		</button>
 
-		<ul class="dropdown-menu find-btn1" aria-labelledby="defaultDropdown">
+		<ul class="dropdown-menu find-btn1 scrollable-menu" style="" aria-labelledby="defaultDropdown">
 			<li >
-				<a class="dropdown-item" onclick="aprtapi(11110,202208); setJongnogu(); ">종로구</a>
+				<a class="dropdown-item" onclick="aprtapi(11110,202209); setJongnogu(); ">종로구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11140,202208); setJunggu();">중구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11140,202209); setJunggu();">중구</a>
 			</li>
 			<li >
-				<a class="dropdown-item" onclick="aprtapi(11170,202208);setYongsangu();">용산구</a>
+				<a class="dropdown-item" onclick="aprtapi(11170,202209);setYongsangu();">용산구</a>
 			</li>
 			<li >
-				<a class="dropdown-item" onclick="aprtapi(11200,202208);setSeongdonggu();">성동구</a>
+				<a class="dropdown-item" onclick="aprtapi(11200,202209);setSeongdonggu();">성동구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11215,202208);setGwangjingu();">광진구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11215,202209);setGwangjingu();">광진구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11230,202208);setDongdaemungu();">동대문구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11230,202209);setDongdaemungu();">동대문구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11260,202208);setJungnanggu();">중량구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11260,202209);setJungnanggu();">중량구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11290,202208);setSeongbukgu(); ">성북구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11290,202209);setSeongbukgu(); ">성북구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11305,202208);setGangbukgu();">강북구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11305,202209);setGangbukgu();">강북구</a>
 			</li>
 			<li >
-				<a class="dropdown-item" onclick="aprtapi(11320,202208);setDobonggu(); ">도봉구</a>
+				<a class="dropdown-item" onclick="aprtapi(11320,202209);setDobonggu(); ">도봉구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11350,202208);setNowongu(); ">노원구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11350,202209);setNowongu(); ">노원구</a>
 			</li>
 			<li >
-				<a class="dropdown-item" onclick="aprtapi(11380,202208);setEunpyeonggu(); ">은평구</a>
+				<a class="dropdown-item" onclick="aprtapi(11380,202209);setEunpyeonggu(); ">은평구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11410,202208);setSeodaemungu(); ">서대문구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11410,202209);setSeodaemungu(); ">서대문구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11440,202208);setMapogu(); ">마포구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11440,202209);setMapogu(); ">마포구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11470,202208);setYangcheongu(); ">양천구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11470,202209);setYangcheongu(); ">양천구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11500,202208);setGangseogu(); ">강서구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11500,202209);setGangseogu(); ">강서구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11530,202208);setGurogu(); ">구로구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11530,202209);setGurogu(); ">구로구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11545,202208);setGeumcheongu();">금천구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11545,202209);setGeumcheongu();">금천구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11560,202208);setYeongdeungpogu(); ">영등포구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11560,202209);setYeongdeungpogu(); ">영등포구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11590,202208);setDongjakgu();">동작구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11590,202209);setDongjakgu();">동작구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11620,202208);setGwanakgu();">관악구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11620,202209);setGwanakgu();">관악구</a>
 			</li>
 			<li >
-				<a class="dropdown-item" onclick="aprtapi(11650,202208);setSeochogu(); ">서초구</a>
+				<a class="dropdown-item" onclick="aprtapi(11650,202209);setSeochogu(); ">서초구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11680,202208);setGangnamgu(); ">강남구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11680,202209);setGangnamgu(); ">강남구</a>
 			</li>
 
 			<li >
-				<a class="dropdown-item"   onclick="aprtapi(11710,202208);setSongpagu();">송파구</a>
+				<a class="dropdown-item"   onclick="aprtapi(11710,202209);setSongpagu();">송파구</a>
 			</li>
 			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11740,202208);setGangdonggu();">강동구</a>
+				<a class="dropdown-item"  onclick="aprtapi(11740,202209);setGangdonggu();">강동구</a>
 			</li>
 
 		</ul>
@@ -340,7 +345,7 @@
 
 </div>
 <div style="text-align: center; height: 450px;" >
-<div class="box1" id="news" style="overflow:scroll; width:55%;height:450px; padding-left: 15px; padding-right: 15px; padding-top: 15px; text-align: justify-all; background-color: #FFFFF0;">
+<div class="box1" id="news" style="overflow:scroll; overflow-x: hidden; width:55%;height:450px; padding-left: 15px; padding-right: 15px; padding-top: 15px; text-align: justify-all; background-color: #FFFFF0;">
 </div>
 	<div class="box2" id="map" style="width:40%;height:450px;  margin: 0 auto;"></div>
 
@@ -359,7 +364,8 @@
 
 		Initializtion(map);
 		DrawPolygon();
-
+			map.setDraggable(false);
+			map.setZoomable(false);
 
 	</script>
 

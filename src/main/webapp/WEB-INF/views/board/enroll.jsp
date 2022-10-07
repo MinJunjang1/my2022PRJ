@@ -21,56 +21,63 @@
         display: none;
         color : red;
     }
+    .container-shadow{
+        box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+        background-color: #FFFFFF;
+    }
+
 </style>
-<%--
-<body>
-<h1>게시판 등록</h1>
-<form action="/board/enroll1" method="post">
-    <div class="input_wrap">
-        <label>Title</label>
-        <input name="title">
-    </div>
-    <div class="input_wrap">
-        <label>Content</label>
-        <textarea rows="3" name="content"></textarea>
-    </div>
-    <div class="input_wrap">
-        <label>Writer</label>
-        <input name="writer">
-    </div>
-    <button class="btn">등록</button>
-</form>
---%>
+
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
-<body>
+<body style="background-color: #E2E2E2;">
+
+
+<div style="height: 50px"></div>
+<div class="container-shadow" style="width: 1200px; margin: auto;" >
 <form method="post" id="board_form">
     <div class="container">
+        <div style="height: 50px"></div>
+        <h2 style="margin-top: 50px; text-align: center;">게시판 글쓰기</h2>
+        <div style="height: 50px"></div>
+     <div class="input-group mb-3"  style="width: 950px; margin: auto;">
+            <span class="input-group-text align-self-center" id="inputGroup-sizing-default1" style="width: 100px;  text-align: center;">작성자</span>
+            <input type="text" class="form-control" placeholder="작성자" id="writer" name="writer" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" value="${memberDTO.user_id}" readonly>
 
-        <h2 style="margin-top: 50px; margin-bottom: 50px">게시판 글쓰기</h2>
-        <span> 작성자</span>
-        <input type="text" name="writer" id="writer" class="form-control" placeholder="작성자" maxlength="40" value="${memberDTO.user_id}" readonly></td>
-        <span> 제목</span>
-        <input type="text" class="title_class form-control" placeholder="글 제목" name="title" id="title" maxlength="40"></td>
-        <span class="final_title_ck">제목을 입력해주세요.</span>
-        <hr>
-        <span> 내용 </span>
-        <textarea type="text" class="content_class form-control" placeholder="글 내용을 작성하세요" name="content" id="content" maxlength="1024" style="height: 400px;"></textarea></td>
-        <span class="final_content_ck">내용을 입력해주세요.</span>
+     </div>
+        <div class="input-group mb-3" style="width: 950px; margin: auto;">
+            <span class="input-group-text align-self-center" id="inputGroup-sizing-default2" style="width: 100px; text-align: center;">제목</span>
+            <input type="text" class="form-control title_class" placeholder="글 제목" name="title" id="title" aria-label="Sizing example input" aria-describedby="inputGroup-sizing-default" maxlength="40">
+
+        </div>
+        <div style="margin: auto; width: 950px; height: 30px;">
+            <span class="final_title_ck">제목을 입력해주세요.</span>
+        </div>
+        <div style="width: 950px; margin: auto;">
+
+            <span> 내용 </span><br/>
+            <textarea type="text" class="content_class form-control" placeholder="글 내용을 작성하세요" name="content" id="content" maxlength="1024" style="height: 400px;"></textarea></td>
+            <span class="final_content_ck">내용을 입력해주세요.</span>
+        </div>
+
+
 
         <div style="margin: 50px"></div>
 
 
 
 
-            <div style="text-align: right;">
-                <button type="button"class="btn btn-primary pull-right" style="text-align: right" id="btn">글쓰기</button>
+            <div class=" d-grid gap-2" style="width: 950px; margin: auto;">
+                <button type="button"class="btn btn-primary btn-lg" id="btn" >글쓰기</button>
                 <!-- 위으것 버튼으로-->
-                <button type="button" class="btn btn-secondary" value="">목록</button>
+               <a href="/board/list" type="button" class="btn btn-secondary btn-lg" style="color: #FFFFFF">목록</a>
 
             </div>
         </div>
 
 </form>
+    <div style="height: 50px;"></div>
+</div>
+<div style="height: 50px;"></div>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script type="text/javascript">
  var titleCh = false;

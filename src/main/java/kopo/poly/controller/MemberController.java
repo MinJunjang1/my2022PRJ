@@ -146,10 +146,19 @@ public class MemberController {
     public String joinpage1() throws Exception {
         return "/member/join1";
     }
+    @GetMapping(value = "/join2")
+    public String joinpage2() throws Exception {
+        return "/member/join2";
+    }
     @GetMapping(value = "/main")
     public String mainpage() throws Exception {
 
         return "/member/main";
+    }
+    @GetMapping(value = "/main1")
+    public String mainpage1() throws Exception {
+
+        return "/member/main1";
     }
 /*    @GetMapping(value = "/map")
     public String Mappage( Model model, HttpServletRequest request) throws Exception {

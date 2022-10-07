@@ -124,9 +124,10 @@
 			$(document).ready(function (){
 				let lon, lat;
 
-				navigator.geolocation.getCurrentPosition(function (position){
-					lat = position.coords.latitude;
-					lon = position.coords.longitude;
+
+
+					lat = 37.541;
+					lon = 126.986;
 
 					$.ajax({
 						url: "/weather/getWeather",
@@ -167,10 +168,10 @@
 						}
 					});
 				});
-			})
+
 		</script>
 
-
+				<div style="height: 50px"></div>
 
 </body>
 

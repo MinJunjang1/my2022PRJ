@@ -14,9 +14,180 @@
 
     <!-- Bootstrap CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <title>회원가입1</title>
+    <title>내정보</title>
 
 </head>
+<style>
+    .color {
+        width: 350px;
+        margin: 0 auto;
+    }
+    .color li {
+        margin: 0 15px 0 0;
+        width: 30px;
+        height: 30px;
+        display: inline-block;
+        border-radius: 100%;
+    }
+    .color .red    {background: #fa5a5a;}
+    .color .yellow {background: #f0d264;}
+    .color .green  {background: #82c8a0;}
+    .color .cyan   {background: #7fccde;}
+    .color .blue   {background: #6698cb;}
+    .color .purple {background: #cb99c5;}
+
+    .content,
+    .content-gradient,
+    .content-3d {
+        margin: 40px auto;
+    }
+    .content {
+        width: 80%;
+        max-width: 700px;
+    }
+    .content-3d {
+        width: 50%;
+        max-width: 300px;
+    }
+    pre {
+        width: 100%;
+        padding: 30px;
+        background-color: rgba(0, 0, 0, 0.72);
+        color: #f8f8f2;
+        border-radius: 0 0 4px 4px;
+        margin-top: 20px;
+        white-space: pre-wrap; /* css-3 */
+        white-space: -moz-pre-wrap; /* Mozilla, since 1999 */
+        white-space: -pre-wrap; /* Opera 4-6 */
+        white-space: -o-pre-wrap; /* Opera 7 */
+        word-wrap: break-word; /* Internet Explorer 5.5+ */
+    }
+    pre .bt  {color: #f8f8f2;} /* <> */
+    pre .anc {color: #f92672;} /* anchor tag */
+    pre .att {color: #a6a926;} /* attribute */
+    pre .val {color: #e6db74;} /* value */
+
+    .btn-container, .container {
+        background-color: white;
+        border-radius: 4px;
+        text-align: center;
+        margin-bottom: 40px;
+    }
+    .container h2 {
+        padding-top: 30px;
+        font-weight: 300;
+    }
+    .btn, .btn-two {
+        margin: 9px;
+    }
+    .btn-gradient {
+        margin: 5px;
+    }
+    a[class*="btn"] {text-decoration: none;}
+    input[class*="btn"],
+    button[class*="btn"] {border: 0;}
+
+    /* Here you can change the button sizes */
+    .btn.large,
+    .btn-two.large,
+    .btn-effect.large {
+        padding: 20px 40px;
+        font-size: 22px;
+    }
+    .btn.small,
+    .btn-two.small,
+    .btn-gradient.small,
+    .btn-effect.small {
+        padding: 8px 18px;
+        font-size: 14px;
+    }
+    .btn.mini,
+    .btn-two.mini,
+    .btn-gradient.mini,
+    .btn-effect.mini {
+        padding: 4px 12px;
+        font-size: 12px;
+    }
+    .btn.block,
+    .btn-two.block,
+    .btn-gradient.block,
+    .btn-effect.block {
+        display: block;
+        width: 60%;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+    }
+    .btn-gradient.large {
+        padding: 15px 45px;
+        font-size: 22px;
+    }
+
+    /* Colors for .btn and .btn-two */
+    .btn.blue, .btn-two.blue     {background-color: #7fb1bf;}
+    .btn.green, .btn-two.green   {background-color: #9abf7f;}
+    .btn.red, .btn-two.red       {background-color: #fa5a5a;}
+    .btn.purple, .btn-two.purple {background-color: #cb99c5;}
+    .btn.cyan, .btn-two.cyan     {background-color: #7fccde;}
+    .btn.yellow, .btn-two.yellow {background-color: #f0d264;}
+
+    .rounded {
+        border-radius: 10px;
+    }
+
+    /* default button style */
+    .btn {
+        position: relative;
+        border: 0;
+        padding: 15px 25px;
+        display: inline-block;
+        text-align: center;
+        color: white;
+    }
+    .btn:active {
+        top: 4px;
+    }
+
+    /* color classes for .btn */
+    .btn.blue {box-shadow: 0px 4px #74a3b0;}
+    .btn.blue:active {box-shadow: 0 0 #74a3b0; background-color: #709CA8;}
+
+    .btn.green {box-shadow: 0px 4px 0px #87a86f;}
+    .btn.green:active {box-shadow: 0 0 #87a86f; background-color: #87a86f;}
+
+    .btn.red {box-shadow:0px 4px 0px #E04342;}
+    .btn.red:active {box-shadow: 0 0 #ff4c4b; background-color: #ff4c4b;}
+
+    .btn.purple {box-shadow:0px 4px 0px #AD83A8;}
+    .btn.purple:active {box-shadow: 0 0 #BA8CB5; background-color: #BA8CB5;}
+
+    .btn.cyan {box-shadow:0px 4px 0px #73B9C9;}
+    .btn.cyan:active {box-shadow: 0 0 #73B9C9; background-color: #70B4C4;}
+
+    .btn.yellow {box-shadow:0px 4px 0px #D1B757;}
+    .btn.yellow:active {box-shadow: 0 0 #ff4c4b; background-color: #D6BB59;}
+
+    /* Button two - I have no creativity for names */
+    .btn-two {
+        color: white;
+        padding: 15px 25px;
+        display: inline-block;
+        border: 1px solid rgba(0,0,0,0.21);
+        border-bottom-color: rgba(0,0,0,0.34);
+        text-shadow:0 1px 0 rgba(0,0,0,0.15);
+        box-shadow: 0 1px 0 rgba(255,255,255,0.34) inset,
+        0 2px 0 -1px rgba(0,0,0,0.13),
+        0 3px 0 -1px rgba(0,0,0,0.08),
+        0 3px 13px -1px rgba(0,0,0,0.21);
+    }
+    .btn-two:active {
+        top: 1px;
+        border-color: rgba(0,0,0,0.34) rgba(0,0,0,0.21) rgba(0,0,0,0.21);
+        box-shadow: 0 1px 0 rgba(255,255,255,0.89),0 1px rgba(0,0,0,0.05) inset;
+        position: relative;
+    }
+</style>
+
 <style>
     *{
         margin: 0;
@@ -48,7 +219,7 @@
 
     /* 아이디 영역 */
     .id_wrap{
-        width: 100%;
+        width: 80%;
         margin-top: 20px;
     }
     .id_name{
@@ -57,66 +228,12 @@
     }
     .id_input_box{
         border: 1px solid black;
-        height:31px;
+        height:45px;
         padding: 1px 14px;
 
     }
     .id_input{
-        width:100%;
-        height:100%;
-        border:none;
-        font-size:28px;
-    }
-    /* 중복아이디 존재하지 않는경우 */
-    .id_input_re_1{
-        color : green;
-        display : none;
-    }
-    /* 중복아이디 존재하는 경우 */
-    .id_input_re_2{
-        color : red;
-        display : none;
-    }
-
-    /* 비밀번호 영역 */
-    .pw_wrap{
-        width: 100%;
-        margin-top: 20px;
-    }
-    .pw_name{
-        font-size: 25px;
-        font-weight: bold;
-    }
-    .pw_input_box{
-        border: 1px solid black;
-        height:31px;
-        padding: 1px 14px;
-
-    }
-    .pw_input{
-        width:100%;
-        height:100%;
-        border:none;
-        font-size:28px;
-    }
-
-    /* 비밀번호 확인 영역 */
-    .pwck_wrap{
-        width: 100%;
-        margin-top: 20px;
-    }
-    .pwck_name{
-        font-size: 25px;
-        font-weight: bold;
-    }
-    .pwck_input_box{
-        border: 1px solid black;
-        height:31px;
-        padding: 1px 14px;
-
-    }
-    .pwck_input{
-        width:100%;
+        width:80%;
         height:100%;
         border:none;
         font-size:28px;
@@ -124,7 +241,7 @@
 
     /* 메일 영역 */
     .mail_wrap{
-        width: 100%;
+        width: 80%;
         margin-top: 20px;
     }
     .mail_name{
@@ -133,60 +250,20 @@
     }
     .mail_input_box{
         border: 1px solid black;
-        height:31px;
+        height:45px;
         padding: 1px 14px;
 
     }
     .mail_input{
-        width:100%;
+        width:80%;
         height:100%;
         border:none;
         font-size:28px;
-    }
-    .mail_check_wrap{
-        margin-top: 20px;
-    }
-    .mail_check_input_box{
-        border: 1px solid black;
-        height: 31px;
-        padding: 1px 14px;
-        width: 61%;
-        float: left;
-    }
-    #mail_check_input_box_false{
-        background-color:#ebebe4;
-    }
-    #mail_check_input_box_true{
-        background-color:white;
-    }
-    .mail_check_input{
-        width:100%;
-        height:100%;
-        border:none;
-        font-size:28px;
-    }
-    .mail_check_button{
-        border: 1px solid black;
-        height: 51px;
-        width: 30%;
-        float: right;
-        line-height: 50px;
-        text-align: center;
-        font-size: 30px;
-        font-weight: 900;
-        background-color: #ececf7;
-        cursor: pointer;
-    }
-    .correct{
-        color : green;
-    }
-    .incorrect{
-        color : red;
     }
 
     /* 주소 영역 */
     .address_wrap{
-        width: 100%;
+        width: 80%;
         margin-top: 20px;
     }
     .address_name{
@@ -195,40 +272,29 @@
     }
     .address_input_1_box{
         border: 1px solid black;
-        height: 31px;
+        height: 45px;
         padding: 1px 14px;
         width: 61%;
         float: left;
     }
     .address_input_1{
-        width:100%;
+        width:80%;
         height:100%;
         border:none;
         font-size:28px;
     }
-    .address_button{
-        border: 1px solid black;
-        height: 51px;
-        width: 30%;
-        float: right;
-        line-height: 50px;
-        text-align: center;
-        font-size: 30px;
-        font-weight: 900;
-        background-color: #ececf7;
-        cursor: pointer;
-    }
+
     .address_input_2_wrap{
         margin-top: 20px;
     }
     .address_input_2_box{
         border: 1px solid black;
-        height:31px;
+        height:45px;
         padding: 1px 14px;
 
     }
     .address_input_2{
-        width:100%;
+        width:80%;
         height:100%;
         border:none;
         font-size:28px;
@@ -239,12 +305,12 @@
     }
     .address_input_3_box{
         border: 1px solid black;
-        height:31px;
+        height:45px;
         padding: 1px 14px;
 
     }
     .address_input_3{
-        width:100%;
+        width:80%;
         height:100%;
         border:none;
         font-size:28px;
@@ -255,53 +321,18 @@
         margin-top: 40px;
         text-align: center;
     }
-    .join_button{
-        width: 100%;
-        height: 80px;
-        background-color: #6AAFE6;
-        font-size: 40px;
-        font-weight: 900;
-        color: white;
-    }
 
-    /* 유효성 검사 문구 */
-
-    .final_id_ck{
-        display: none;
-    }
-    .final_pw_ck{
-        display: none;
-    }
-    .final_pwck_ck{
-        display: none;
-    }
-    .final_name_ck{
-        display: none;
-    }
-    .final_mail_ck{
-        display: none;
-    }
-    .final_addr_ck{
-        display: none;
-    }
-
-    /* 비밀번호 확인 일치 유효성검사 */
-    .pwck_input_re_1{
-        color : green;
-        display : none;
-    }
-    .pwck_input_re_2{
-        color : red;
-        display : none;
-    }
 
     /* float 속성 해제 */
     .clearfix{
         clear: both;
     }
-    .deletekey{
-        text-align: center;
-    }
+
+    .container-shadow{
+         box-shadow: rgba(255, 255, 255, 0.1) 0px 1px 1px 0px inset, rgba(50, 50, 93, 0.25) 0px 50px 100px -20px, rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
+         background-color: #FFFFFF;
+     }
+
 
 </style>
 <script
@@ -310,7 +341,9 @@
         crossorigin="anonymous"></script>
 </head>
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
-<body>
+<body style="background-color: #E2E2E2">
+<div style="height: 50px;"></div>
+<div class="container-shadow" style="width: 800px; margin: auto;" >
 
 <div class="wrapper">
     <form id="join_form" method="post" action="/update">
@@ -318,6 +351,7 @@
             <div class="subjecet">
                 <span>회원정보</span>
             </div>
+            <div style="margin: auto; width: 700px">
             <div class="id_wrap">
                 <div class="id_name">아이디</div>
                 <div class="id_input_box">
@@ -350,46 +384,27 @@
                 </div>
             </div>
             <div>
-               회원가입일 : ${dto.user_dt}
+                <br/>
+                <div style="font-size: 25px;">
+                    회원가입일 :  <fmt:formatDate value="${dto.user_dt}" pattern="yyyy-MM-dd"/>
+                </div>
+
+                <br/>
             </div>
             <div class="join_button_wrap">
-                <input type="button" class="btn btn-warning" value="정보수정" onclick="location.href='/update?user_id=${dto.user_id}'">
-                <button type="button" class="btn btn-danger" onclick="location.href='/deleteuser?user_id=${dto.user_id}'">탈퇴하기</button>
+                <input type="button" class="btn-two blue " value="정보수정" onclick="location.href='/update?user_id=${dto.user_id}'">
+                <button type="button" class="btn-two red " onclick="location.href='/deleteuser?user_id=${dto.user_id}'">탈퇴하기</button>
+
+
+            </div>
+                <div style="height: 50px;"></div>
             </div>
         </div>
-
     </form>
 </div>
 
-
-<%--
-
-<script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
-<div class="deletekey">
-<!-- Button trigger modal -->
-
-<!-- Modal -->
-<div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
-    <div class="modal-dialog" role="document">
-        <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="exampleModalLabel">회원탈퇴</h5>
-                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                    <span aria-hidden="true">&times;</span>
-                </button>
-            </div>
-            <div class="modal-body">
-                탈퇴하시겠습니까?
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-danger" onclick="location.href='/deleteuser?user_id=${dto.user_id}'">탈퇴하기</button>
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">닫기</button>
-            </div>
-        </div>
-    </div>
 </div>
-</div>
---%>
+<div style="height: 50px;"></div>
 
 </body>
 </html>

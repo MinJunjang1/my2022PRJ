@@ -91,7 +91,11 @@
 	}
 	.divTableBody {
 		display: table-row-group;
-	}
+	}.scrollable-menu {
+		 height: auto;
+		 max-height: 200px;
+		 overflow-x: hidden;
+	 }
 </style>
 <jsp:include page="header.jsp" flush="false"></jsp:include>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c76cc1c43d5a2282105afc01c0e20903&libraries=services"></script>
@@ -108,11 +112,12 @@
 </script>
 
 <div id="map" style="width:100%;height:600px; margin: 5px 5px 5px 5px"></div>
+<div style="height: 30px"></div>
 <div class="btn-group" style="display: block; margin: auto;">
 	<button style="display: block; margin: auto;" class="btn btn-secondary dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
 		구별 아파트 가격 확인하기
 	</button>
-	<ul class="dropdown-menu" aria-labelledby="defaultDropdown">
+	<ul class="dropdown-menu dropdown-menu-lg-end scrollable-menu"  >
 		<li >
 			<a class="dropdown-item" onclick="aprtapi(11110,202209); setJongnogu(); ">종로구</a>
 		</li>
@@ -192,7 +197,7 @@
 
 	</ul>
 </div>
-
+<div style="height: 30px"></div>
 
 <script>
 
