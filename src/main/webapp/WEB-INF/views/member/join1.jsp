@@ -1,274 +1,366 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
          pageEncoding="UTF-8"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
-<html lang="ko">
+<html>
 <head>
-    <meta charset="utf-8">
-    <%--    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-        <meta name="description" content="">
-        <meta name="author" content="">--%>
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
-    <title>회원가입1</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="" />
+    <meta name="author" content="" />
+    <title>시작하기</title>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+    <meta name="description" content="">
+    <meta name="author" content="">
 
+    <link rel="icon" type="image/x-icon" href="/assets/favicon.ico" />
+    <!-- Font Awesome icons (free version)-->
+    <script src="https://use.fontawesome.com/releases/v6.1.0/js/all.js" crossorigin="anonymous"></script>
+    <!-- Google fonts-->
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Tinos:ital,wght@0,400;0,700;1,400;1,700&amp;display=swap" rel="stylesheet" />
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&amp;display=swap" rel="stylesheet" />
+    <!-- Core theme CSS (includes Bootstrap)-->
+    <link href="css/styles.css" rel="stylesheet" />
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
+    <script
+            src="https://code.jquery.com/jquery-3.4.1.js"
+            integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+            crossorigin="anonymous"></script>
 </head>
 <style>
-    *{
-        margin: 0;
+    html {
+        height: 100%;
+    }
+    body {
+        margin:0;
         padding:0;
+        font-family: sans-serif;
+        background: linear-gradient(#141e30, #243b55);
     }
-
-    /* 화면 전체 렙 */
-    .wrapper{
-        width: 100%;
+    .join-box {
+        position: absolute;
+        top: 50%;
+        left: 200%;
+        width: 450px;
+        padding: 40px;
+        transform: translate(-50%, -50%);
+        background: rgba(0,0,0,.5);
+        box-sizing: border-box;
+        box-shadow: 0 15px 25px rgba(0,0,0,.6);
+        border-radius: 10px;
     }
-
-    /* content 랩 */
-    .wrap{
-        width : 800px;
-        margin: auto;
-    }
-    /* 페이지 제목 */
-    .subjecet{
-        width: 100%;
-        height: 120px;
-        background-color: #8EC0E4;
-    }
-    .subjecet span{
-        margin-left: 31px;
-        font-size: 80px;
-        font-weight: 900;
-        color: white;
-    }
-
-    /* 아이디 영역 */
-    .id_wrap{
-        width: 100%;
-        margin-top: 20px;
-    }
-    .id_name{
-        font-size: 25px;
-        font-weight: bold;
-    }
-    .id_input_box{
-        border: 1px solid black;
-        height:31px;
-        padding: 1px 14px;
-
-    }
-    .id_input{
-        width:100%;
-        height:100%;
-        border:none;
-        font-size:28px;
-    }
-    /* 중복아이디 존재하지 않는경우 */
-    .id_input_re_1{
-        color : green;
-        display : none;
-    }
-    /* 중복아이디 존재하는 경우 */
-    .id_input_re_2{
-        color : red;
-        display : none;
-    }
-    .email_input_re_1{
-        color : green;
-        display : none;
-    }
-    /* 중복아이디 존재하는 경우 */
-    .email_input_re_2{
-        color : red;
-        display : none;
-    }
-    /* 비밀번호 영역 */
-    .pw_wrap{
-        width: 100%;
-        margin-top: 20px;
-    }
-    .pw_name{
-        font-size: 25px;
-        font-weight: bold;
-    }
-    .pw_input_box{
-        border: 1px solid black;
-        height:31px;
-        padding: 1px 14px;
-
-    }
-    .pw_input{
-        width:100%;
-        height:100%;
-        border:none;
-        font-size:28px;
-    }
-
-    /* 비밀번호 확인 영역 */
-    .pwck_wrap{
-        width: 100%;
-        margin-top: 20px;
-    }
-    .pwck_name{
-        font-size: 25px;
-        font-weight: bold;
-    }
-    .pwck_input_box{
-        border: 1px solid black;
-        height:31px;
-        padding: 1px 14px;
-
-    }
-    .pwck_input{
-        width:100%;
-        height:100%;
-        border:none;
-        font-size:28px;
-    }
-
-    /* 메일 영역 */
-    .mail_wrap{
-        width: 100%;
-        margin-top: 20px;
-    }
-    .mail_name{
-        font-size: 25px;
-        font-weight: bold;
-    }
-    .mail_input_box{
-        border: 1px solid black;
-        height:31px;
-        padding: 1px 14px;
-
-    }
-    .mail_input{
-        width:100%;
-        height:100%;
-        border:none;
-        font-size:28px;
-    }
-    .mail_check_wrap{
-        margin-top: 20px;
-    }
-    .mail_check_input_box{
-        border: 1px solid black;
-        height: 31px;
-        padding: 1px 14px;
-        width: 61%;
-        float: left;
-    }
-    #mail_check_input_box_false{
-        background-color:#ebebe4;
-    }
-    #mail_check_input_box_true{
-        background-color:white;
-    }
-    .mail_check_input{
-        width:100%;
-        height:100%;
-        border:none;
-        font-size:28px;
-    }
-    .mail_check_button{
-        border: 1px solid black;
-        height: 51px;
-        width: 30%;
-        float: right;
-        line-height: 50px;
+    .join-box h2 {
+        margin: 0 0 30px;
+        padding: 0;
+        color: #fff;
         text-align: center;
-        font-size: 30px;
-        font-weight: 900;
-        background-color: #ececf7;
-        cursor: pointer;
-    }
-    .correct{
-        color : green;
-    }
-    .incorrect{
-        color : red;
     }
 
-    /* 주소 영역 */
-    .address_wrap{
+    .join-box .user-box {
+        position: relative;
+    }
+
+    .join-box .user-box input {
         width: 100%;
-        margin-top: 20px;
+        padding: 10px 0;
+        font-size: 16px;
+        color: #fff;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 1px solid #fff;
+        outline: none;
+        background: transparent;
     }
-    .address_name{
-        font-size: 25px;
-        font-weight: bold;
-    }
-    .address_input_1_box{
-        border: 1px solid black;
-        height: 31px;
-        padding: 1px 14px;
-        width: 61%;
-        float: left;
-    }
-    .address_input_1{
-        width:100%;
-        height:100%;
-        border:none;
-        font-size:28px;
-    }
-    .address_button{
-        border: 1px solid black;
-        height: 51px;
-        width: 30%;
-        float: right;
-        line-height: 50px;
-        text-align: center;
-        font-size: 30px;
-        font-weight: 900;
-        background-color: #ececf7;
-        cursor: pointer;
-    }
-    .address_input_2_wrap{
-        margin-top: 20px;
-    }
-    .address_input_2_box{
-        border: 1px solid black;
-        height:31px;
-        padding: 1px 14px;
-
-    }
-    .address_input_2{
-        width:100%;
-        height:100%;
-        border:none;
-        font-size:28px;
+    .join-box .user-box label {
+        position: absolute;
+        top:0;
+        left: 0;
+        padding: 10px 0;
+        font-size: 16px;
+        color: #fff;
+        pointer-events: none;
+        transition: .5s;
     }
 
-    .address_input_3_wrap{
-        margin-top: 20px;
-    }
-    .address_input_3_box{
-        border: 1px solid black;
-        height:31px;
-        padding: 1px 14px;
-
-    }
-    .address_input_3{
-        width:100%;
-        height:100%;
-        border:none;
-        font-size:28px;
+    .join-box .user-box input:focus ~ label,
+    .join-box .user-box input:valid ~ label {
+        top: -20px;
+        left: 0;
+        color: #03e9f4;
+        font-size: 12px;
     }
 
-    /* 가입하기 버튼 */
-    .join_button_wrap{
+    .join-box form a {
+        position: relative;
+        display: inline-block;
+        padding: 10px 20px;
+        color: #03e9f4;
+        font-size: 16px;
+        text-decoration: none;
+        text-transform: uppercase;
+        overflow: hidden;
+        transition: .5s;
         margin-top: 40px;
+        letter-spacing: 4px
+    }
+
+    .join-box a:hover {
+        background: #03e9f4;
+        color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #03e9f4,
+        0 0 25px #03e9f4,
+        0 0 50px #03e9f4,
+        0 0 100px #03e9f4;
+    }
+
+    .join-box a span {
+        position: absolute;
+        display: block;
+    }
+
+    .join-box a span:nth-child(1) {
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #03e9f4);
+        animation: btn-anim1 1s linear infinite;
+    }
+
+    @keyframes btn-anim1 {
+        0% {
+            left: -100%;
+        }
+        50%,100% {
+            left: 100%;
+        }
+    }
+
+    .join-box a span:nth-child(2) {
+        top: -100%;
+        right: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, #03e9f4);
+        animation: btn-anim2 1s linear infinite;
+        animation-delay: .25s
+    }
+
+    @keyframes btn-anim2 {
+        0% {
+            top: -100%;
+        }
+        50%,100% {
+            top: 100%;
+        }
+    }
+
+    .join-box a span:nth-child(3) {
+        bottom: 0;
+        right: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(270deg, transparent, #03e9f4);
+        animation: btn-anim3 1s linear infinite;
+        animation-delay: .5s
+    }
+
+    @keyframes btn-anim3 {
+        0% {
+            right: -100%;
+        }
+        50%,100% {
+            right: 100%;
+        }
+    }
+
+    .join-box a span:nth-child(4) {
+        bottom: -100%;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(360deg, transparent, #03e9f4);
+        animation: btn-anim4 1s linear infinite;
+        animation-delay: .75s
+    }
+
+    @keyframes btn-anim4 {
+        0% {
+            bottom: -100%;
+        }
+        50%,100% {
+            bottom: 100%;
+        }
+    }
+
+
+    .login-box {
+        position: absolute;
+        top: 50%;
+        left: -80%;
+        width: 450px;
+        padding: 40px;
+        transform: translate(-50%, -50%);
+        background: rgba(0,0,0,.5);
+        box-sizing: border-box;
+        box-shadow: 0 15px 25px rgba(0,0,0,.6);
+        border-radius: 10px;
+    }
+
+    .login-box h2 {
+        margin: 0 0 30px;
+        padding: 0;
+        color: #fff;
         text-align: center;
     }
-    .join_button{
-        width: 100%;
-        height: 80px;
-        background-color: #6AAFE6;
-        font-size: 40px;
-        font-weight: 900;
-        color: white;
+
+    .login-box .user-box {
+        position: relative;
     }
+
+    .login-box .user-box input {
+        width: 100%;
+        padding: 10px 0;
+        font-size: 16px;
+        color: #fff;
+        margin-bottom: 30px;
+        border: none;
+        border-bottom: 1px solid #fff;
+        outline: none;
+        background: transparent;
+    }
+    .login-box .user-box label {
+        position: absolute;
+        top:0;
+        left: 0;
+        padding: 10px 0;
+        font-size: 16px;
+        color: #fff;
+        pointer-events: none;
+        transition: .5s;
+    }
+
+    .login-box .user-box input:focus ~ label,
+    .login-box .user-box input:valid ~ label {
+        top: -20px;
+        left: 0;
+        color: #03e9f4;
+        font-size: 12px;
+    }
+
+    .login-box form a {
+        position: relative;
+        display: inline-block;
+        padding: 10px 20px;
+        color: #03e9f4;
+        font-size: 16px;
+        text-decoration: none;
+        text-transform: uppercase;
+        overflow: hidden;
+        transition: .5s;
+        margin-top: 40px;
+        letter-spacing: 4px
+    }
+
+    .login-box a:hover {
+        background: #03e9f4;
+        color: #fff;
+        border-radius: 5px;
+        box-shadow: 0 0 5px #03e9f4,
+        0 0 25px #03e9f4,
+        0 0 50px #03e9f4,
+        0 0 100px #03e9f4;
+    }
+
+    .login-box a span {
+        position: absolute;
+        display: block;
+    }
+
+    .login-box a span:nth-child(1) {
+        top: 0;
+        left: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(90deg, transparent, #03e9f4);
+        animation: btn-anim1 1s linear infinite;
+    }
+
+    @keyframes btn-anim1 {
+        0% {
+            left: -100%;
+        }
+        50%,100% {
+            left: 100%;
+        }
+    }
+
+    .login-box a span:nth-child(2) {
+        top: -100%;
+        right: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(180deg, transparent, #03e9f4);
+        animation: btn-anim2 1s linear infinite;
+        animation-delay: .25s
+    }
+
+    @keyframes btn-anim2 {
+        0% {
+            top: -100%;
+        }
+        50%,100% {
+            top: 100%;
+        }
+    }
+
+    .login-box a span:nth-child(3) {
+        bottom: 0;
+        right: -100%;
+        width: 100%;
+        height: 2px;
+        background: linear-gradient(270deg, transparent, #03e9f4);
+        animation: btn-anim3 1s linear infinite;
+        animation-delay: .5s
+    }
+
+    @keyframes btn-anim3 {
+        0% {
+            right: -100%;
+        }
+        50%,100% {
+            right: 100%;
+        }
+    }
+
+    .login-box a span:nth-child(4) {
+        bottom: -100%;
+        left: 0;
+        width: 2px;
+        height: 100%;
+        background: linear-gradient(360deg, transparent, #03e9f4);
+        animation: btn-anim4 1s linear infinite;
+        animation-delay: .75s
+    }
+
+    @keyframes btn-anim4 {
+        0% {
+            bottom: -100%;
+        }
+        50%,100% {
+            bottom: 100%;
+        }
+    }
+
 
     /* 유효성 검사 문구 */
 
@@ -315,96 +407,161 @@
     .clearfix{
         clear: both;
     }
-</style>
-<script
-        src="https://code.jquery.com/jquery-3.4.1.js"
-        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
-        crossorigin="anonymous"></script>
-</head>
-<body>
 
-<div class="wrapper">
-    <form id="join_form" method="post">
-        <div class="wrap">
-            <div class="subjecet">
-                <span>회원가입</span>
-            </div>
-            <div class="id_wrap">
-                <div class="id_name">아이디</div>
-                <div class="id_input_box">
-                    <input type="text" class="id_input" name="userid" id="userid">
-                </div>
-                <span class="id_input_re_1">사용 가능한 아이디입니다.</span>
-                <span class="id_input_re_2">아이디가 이미 존재합니다.</span>
-                <span class="final_id_ck">아이디를 입력해주세요.</span>
-            </div>
-            <div class="pw_wrap">
-                <div class="pw_name">비밀번호</div>
-                <div class="pw_input_box">
-                    <input type="password" class="pw_input" name="memberPw" id="memberPw">
-                </div>
-                <span class="final_pw_ck">비밀번호를 입력해주세요.</span>
-            </div>
-            <div class="pwck_wrap">
-                <div class="pwck_name">비밀번호 확인</div>
-                <div class="pwck_input_box">
-                    <input type="password" class="pwck_input">
-                </div>
-                <span class="final_pwck_ck">비밀번호 확인을 입력해주세요.</span>
-                <span class="pwck_input_re_1">비밀번호가 일치합니다.</span>
-                <span class="pwck_input_re_2">비밀번호가 일치하지 않습니다.</span>
-            </div>
-            <div class="mail_wrap">
-                <div class="mail_name">이메일</div>
-                <div class="mail_input_box">
-                    <input type="text" class="mail_input" name="memberMail" id="memberMail">
-                </div>
-                <span class="final_email_ck">이메일을 입력해주세요.</span>
-                <span class="email_input_re_1">이 이메일을 사용하실수 있습니다.</span>
-                <span class="email_input_re_2">동일한 이메일이 존재합니다.</span>
-                <span class="final_mail_ck">이메일을 입력해주세요.</span>
-                <sapn class="mail_input_box_warn"></sapn>
-                <div class="mail_check_wrap">
-                    <div class="mail_check_input_box" id="mail_check_input_box_false">
-                        <input type="text" class="mail_check_input" disabled="disabled">
+    .id_input_re_1{
+        color : green;
+        display : none;
+    }
+    /* 중복아이디 존재하는 경우 */
+    .id_input_re_2{
+        color : red;
+        display : none;
+    }
+    .email_input_re_1{
+        color : green;
+        display : none;
+    }
+    /* 중복아이디 존재하는 경우 */
+    .email_input_re_2{
+        color : red;
+        display : none;
+    }
+
+</style>
+<body>
+<!-- Background Video-->
+<video class="bg-video" playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop"><source src="assets/mp4/bg.mp4" type="video/mp4" /></video>
+<!-- Masthead-->
+<div class="masthead">
+    <div class="masthead-content text-white">
+        <div class="container-fluid px-4 px-lg-0">
+            <div class="login-box">
+                <h2>Join</h2>
+                <form id="join_form" method="post">
+
+                    <div class="id_wrap">
+                        <div class="id_input_box user-box">
+                            <input type="text" class="id_input" name="userid" id="userid">
+                            <label>UserID</label>
+                        </div>
+
                     </div>
-                    <div class="mail_check_button">
-                        <span>인증번호 전송</span>
+                    <div class="pw_wrap">
+
+                        <div class="pw_input_box user-box">
+                            <input type="password" class="pw_input" name="memberPw" id="memberPw">
+                            <label>Password</label>
+                        </div>
+
                     </div>
+                    <div class="pwck_wrap">
+
+                        <div class="pwck_input_box user-box">
+                            <input type="password" class="pwck_input">
+                            <label>PasswordCheck</label>
+                        </div>
+
+                    </div>
+                    <div class="mail_wrap">
+
+                        <div class="mail_input_box user-box">
+                            <input type="text" class="mail_input" name="memberMail" id="memberMail">
+                            <label>Mail</label>
+                        </div>
+
+                        <div class="mail_check_wrap">
+                            <a href="#" class="mail_check_button">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                인증번호 전송
+                            </a>
+
+                            <div class="mail_check_input_box user-box" id="mail_check_input_box_false">
+                                <input type="text" class="mail_check_input" disabled="disabled">
+                                <label>MailCheck</label>
+                            </div>
+
+                            <div class="clearfix"></div>
+
+                        </div>
+                    </div>
+                    <div class="address_wrap">
+                        <div class="address_input_1_wrap">
+
+                            <a href="#" class="address_button" onclick="execution_daum_address()">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                Find Adress
+                            </a>
+
+                            <div class="address_input_1_box user-box">
+                                <input type="text" class="address_input_1" name="memberAddr1" readonly="readonly" id="memberAddr1">
+                                <label>Adress</label>
+                            </div>
+
+                            <div class="clearfix"></div>
+                        </div>
+                        <div class ="address_input_2_wrap">
+                            <div class="address_input_2_box user-box">
+                                <input type="text" class="address_input_2" name="memberAddr2" readonly="readonly" id="memberAddr2">
+                            </div>
+                        </div>
+                        <div class ="address_input_3_wrap">
+                            <div class="address_input_3_box user-box">
+                                <input type="text" class="address_input_3" name="memberAddr3" readonly="readonly" id="memberAddr3">
+                            </div>
+                        </div>
+                        <div class="join_button_wrap">
+                            <a class="join_button">
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                <span></span>
+                                Join
+                            </a>
+                        </div>
+
+                    </div>
+
+
+
+
+                </form>
+            </div>
+            <div class="join-box">
+                <h2>Join Log</h2>
+                <div class="user-box">
+                    <span class="id_input_re_1">사용 가능한 아이디입니다.</span>
+                    <span class="id_input_re_2">아이디가 이미 존재합니다.</span>
+                    <span class="final_id_ck">아이디를 입력해주세요.</span>
+                    <span class="final_pw_ck">비밀번호를 입력해주세요.</span>
+                    <span class="final_pwck_ck">비밀번호 확인을 입력해주세요.</span>
+                    <span class="pwck_input_re_1">비밀번호가 일치합니다.</span>
+                    <span class="pwck_input_re_2">비밀번호가 일치하지 않습니다.</span>
+                    <span class="final_email_ck">이메일을 입력해주세요.</span>
+                    <span class="email_input_re_1">이 이메일을 사용하실수 있습니다.</span>
+                    <span class="email_input_re_2">동일한 이메일이 존재합니다.</span>
+                    <span class="final_mail_ck">이메일을 입력해주세요.</span>
+                    <sapn class="mail_input_box_warn"></sapn>
                     <div class="clearfix"></div>
                     <span id="mail_check_input_box_warn"></span>
+                    <span class="final_addr_ck">주소를 입력해주세요.</span>
+
                 </div>
-            </div>
-            <div class="address_wrap">
-                <div class="address_name">주소</div>
-                <div class="address_input_1_wrap">
-                    <div class="address_input_1_box">
-                        <input type="text" class="address_input_1" name="memberAddr1" readonly="readonly" id="memberAddr1">
-                    </div>
-                    <div class="address_button" onclick="execution_daum_address()">
-                        <span>주소 찾기</span>
-                    </div>
-                    <div class="clearfix"></div>
-                </div>
-                <div class ="address_input_2_wrap">
-                    <div class="address_input_2_box">
-                        <input type="text" class="address_input_2" name="memberAddr2" readonly="readonly" id="memberAddr2">
-                    </div>
-                </div>
-                <div class ="address_input_3_wrap">
-                    <div class="address_input_3_box">
-                        <input type="text" class="address_input_3" name="memberAddr3" readonly="readonly" id="memberAddr3">
-                    </div>
-                </div>
-                <span class="final_addr_ck">주소를 입력해주세요.</span>
-            </div>
-            <div class="join_button_wrap">
-                <input type="button" class="join_button" value="가입하기">
             </div>
         </div>
-    </form>
-</div>
+    </div>
 
+</div>
+<script type="text/javascript">
+    function Joinaction(){
+        document.getElementById('join_form').submit();
+    }
+</script>
 <script src="https://t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <script>
     var code = "";				//이메일전송 인증번호 저장위한 코드
@@ -417,6 +574,7 @@
     var mailCheck = false;			// 이메일
     var mailnumCheck = false;		// 이메일 인증번호 확인
     var addressCheck = false 		// 주소
+
     $(document).ready(function(){
         //회원가입 버튼(회원가입 기능 작동)
         $(".join_button").click(function(){
@@ -676,6 +834,20 @@
     }
 </script>
 
+
+
+<!-- Social Icons-->
+<!-- For more icon options, visit https://fontawesome.com/icons?d=gallery&p=2&s=brands-->
+
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<!-- * *                               SB Forms JS                               * *-->
+<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
 </body>
 </html>

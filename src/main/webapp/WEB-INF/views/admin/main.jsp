@@ -38,7 +38,7 @@
     /* content 랩 */
     .wrap{
         width : 1080px;
-        margin: auto;
+        margin: 0;
     }
     /* 홈페이지 기능 네비 */
     .top_gnb_area{
@@ -56,7 +56,7 @@
     .top_gnb_area .list li{
         list-style: none;
         float : left;
-        padding: 13px 15px 0 10px;
+        padding: 0px 15px 0 10px;
         font-weight: 900;
         cursor: pointer;
     }
@@ -69,7 +69,7 @@
         margin-bottom:15px;
     }
     .admin_top_wrap>span{
-        margin-left: 30px;
+        margin-left: 20px;
         display:inline-block;
         color: white;
         font-size: 50px;
@@ -151,57 +151,33 @@
     .footer_nav_container>ul>span{
         margin: 0 4px;
     }
-    /* footer 영역 */
-    .footer{
-        width:100%;
-        height:130px;
-        background-color:#D4DFE6;
-        padding-bottom : 50px;
-    }
-    .footer_container{
-        width: 100%;
-        height: 100%;
-        margin: auto;
-    }
+
+
     .footer_left>img {
         width: 150%;
         height: 130px;
         margin-left: -20px;
         margin-top: -12px;
     }
-    .footer_left{
-        float :left;
-        width: 170px;
-        margin-left: 20px;
-        margin-top : 30px;
-
-    }
-    .footer_right{
-        float :left;
-        width: 680px;
-        margin-left: 70px;
-        margin-top : 30px;
-    }
 
 
-
-
-    /* float 속성 해제 */
-    .clearfix{
-        clear: both;
+    .container-list{
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        background-color: #FFFFFF;
     }
 </style>
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
-<body>
-
-<!-- contents-area -->
-
+<body style="background-color: #E2E2E2">
+<div style="height: 50px"></div>
+<div class="container" style="margin: auto;" >
+    <div class="container container-list" style="margin: 0px; width: 1080px; padding: 0px">
 <div class="wrapper">
     <div class="wrap">
         <div class="admin_top_wrap">
             <span>관리자 페이지</span>
 
         </div>
+        <div style="height: 50px"></div>
         <!-- contents-area -->
         <div class="admin_wrap">
             <!-- 네비영역 -->
@@ -216,9 +192,14 @@
 
                 </ul>
             </div>
-
+            <div style="height: 50px"></div>
         </div>
+        <div style="height: 50px"></div>
     </div>
+</div>
+        <div style="height: 50px"></div>
+    </div>
+    <div style="height: 50px"></div>
 </div>
 </body>
 </html>

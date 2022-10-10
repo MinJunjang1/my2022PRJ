@@ -236,59 +236,37 @@
     .divTableBody {
         display: table-row-group;
     }
+    .container-list{
+        box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+        background-color: #FFFFFF;
+    }
 
 </style>
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
-<body>
+<body style="background-color: #E2E2E2">
+<div style="height: 50px"></div>
+<div class="container" style="margin: auto;" >
+<div class="container container-list" style="margin: auto; width: 1000px;">
+<div style="height: 50px;"></div>
+<h1 style="text-align: center">유저 리스트</h1>
+<div style="height: 50px;"></div>
+<div>
+<% for (int i = 0; i < mList.size(); i++) { MemberDTO rDTO = mList.get(i); if (rDTO == null) { rDTO = new MemberDTO(); } %>
 
-<div class="wrapper">
-    <div class="wrap">
-        <div class="admin_top_wrap">
-            <span>관리자 페이지</span>
+<div class="align-self-center" style=" border-bottom: 1px solid gray; height: 80px; width: 800px; margin: auto" >
+<div class="d-flex align-items-center">
+    <div style="width: 100px; text-align: left"><h2><%=String.valueOf(rDTO.getUser_seq())%></h2></div>
+    <div ><h2><a class="move" href="/info?user_id=<%=CmmUtil.nvl(rDTO.getUser_id())%>"><%=CmmUtil.nvl(rDTO.getUser_id()) %></a></h2> </div>
+</div>
 
-        </div>
-        <!-- contents-area -->
-        <div class="admin_wrap">
-            <!-- 네비영역 -->
-            <div class="admin_navi_wrap">
-                <ul>
-                    <li >
-                        <a class="admin_list_01" href="/userlist">사용자 관리</a>
-                    </li>
-                    <li>
-                        <a class="admin_list_02" href="/admin/boardlist">게시판관리</a>
-                    </li>
-                </ul>
-            </div>
-            <div class="admin_content_wrap">
-                <div class="admin_content_subject"><span>사용자 관리</span></div>
-
-                <div class="divTable">
-                    <div class="divTableBody">
-                        <div class="divTableRow" style="border:1px solid; border-color: #ffffff #ffffff #333 #ffffff;">
-                            <div class="divTableHead">번호</div>
-                            <div class="divTableHead">아이디</div>
-                            <div class="divTableHead">이메일</div>
-                            <div class="divTableHead">주소</div>
-                            <div class="divTableHead">회원가입일</div>
-                        </div>
-                        <% for (int i = 0; i < mList.size(); i++) { MemberDTO rDTO = mList.get(i); if (rDTO == null) { rDTO = new MemberDTO(); } %>
-                        <div class="divTableRow">
-                            <div class="divTableHead"><%=String.valueOf(rDTO.getUser_seq())%></div>
-                            <div class="divTableHead"><a href="/info?user_id=<%=CmmUtil.nvl(rDTO.getUser_id())%>"><%=CmmUtil.nvl(rDTO.getUser_id()) %></a></div>
-                            <div class="divTableHead"><%=CmmUtil.nvl(rDTO.getUser_email()) %></div>
-                            <div class="divTableHead"><%=CmmUtil.nvl(rDTO.getUser_addr2()) %></div>
-                            <div class="divTableHead"><fmt:formatDate pattern="yyyy/MM/dd" value="<%=(rDTO.getUser_dt()) %>"  /></div>
-                        </div>
-                        <% } %>
-                    </div>
-                </div>
-            </div>
-            <div class="clearfix">
-
-            </div>
-        </div>
+<div style="height: 50px; margin: auto">
+    이메일 <%=CmmUtil.nvl(rDTO.getUser_email()) %> 주소 <%=CmmUtil.nvl(rDTO.getUser_addr2()) %> 가입일 <fmt:formatDate pattern="yyyy/MM/dd" value="<%=(rDTO.getUser_dt()) %>"/>
     </div>
 </div>
+    <% } %>
+    </div>
+    <div style="height: 50px"></div>
+</div>
+    </div>
 </body>
 </html>

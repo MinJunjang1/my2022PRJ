@@ -211,14 +211,11 @@ public class BoardController {
 
 
             MemberDTO mDTO = (MemberDTO) session.getAttribute("memberDTO");
-            int adminck = Integer.valueOf(mDTO.getAdminCk());
-            if(adminck==0){
+
                 System.out.println(request.getAttribute("msg"));
                 return "redirect:/board/list";
-            }
-
-            return "redirect:/admin/boardlist";
         }
+
 
     @PostMapping("/admin/modify2")
     public String adminboardModifyPOST(BoardDTO board, RedirectAttributes rttr) {

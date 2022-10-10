@@ -241,7 +241,7 @@
 
 </script>
 
-<body onload="newsTitle()">
+<body onload="newsTitle(); ">
 
 <div class="container align-content-center" style="color: #FFFFFF">
 <div class="jumbotron text-center" style="margin-top: 100px;color: #0f0f0f"  />
@@ -375,11 +375,13 @@
 
 
 
+
 <script src="/js/seoulmap.js"></script>
 
 <script>
+
 	function aprtapi(region_code, ym) {
-		location.href= "/map?region_code="+region_code + "&ym=" + ym;
+		location.href= "/map?region_code="+region_code + "&ym=" + "202209";
 	/*	window.open("/map?region_code=" + region_code + "&ym=" +ym, "결과","width=1000, height=800")*/
 	}
 </script>

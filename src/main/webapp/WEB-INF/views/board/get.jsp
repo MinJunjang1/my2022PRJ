@@ -180,6 +180,9 @@
     <c:if test="${ pageInfo.writer == memberDTO.user_id}">
         <input type="submit" id="modify_btn" class="btn btn-primary btn-lg" value="수정하기">
     </c:if>
+            <c:if test="${memberDTO.user_id == admin}">
+                <input type="submit" id="modify_btn" class="btn btn-primary btn-lg" value="수정하기">
+            </c:if>
 
             <a href="/board/list" type="button" class="btn btn-secondary btn-lg" style="color: #FFFFFF">목록</a>
 </div>

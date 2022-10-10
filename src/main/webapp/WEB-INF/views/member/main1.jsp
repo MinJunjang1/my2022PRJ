@@ -213,16 +213,13 @@
 	<div class="masthead-content text-white">
 		<div class="container-fluid px-4 px-lg-0">
 			<div class="login-box">
-				<h2>Find</h2>
+
 				<div id="idserch">
-					<form id="login_form1" class="idform" method="post">
-						<div class="subjecet">
-							<h2>Serch ID</h2>
-						</div>
+					<form id="login_form" class="idform" method="post">
 
-						<div class="login_wrap">
+							<h2>Find ID</h2>
 
-							<div class="pw_wrap">
+
 
 								<label>Email</label>
 
@@ -231,80 +228,110 @@
 									<input type="email" class="pw_iput" name="user_email" id="user_email">
 
 								</div>
-							</div>
-							<div class="login_button_wrap">
-								<%--	<input type="button" class="idserch_button"  value="찾기" >--%>
-							</div>
+						<div class="login_button_wrap" >
+							<a href="#" class="idserch_button" style="width: 110px;">
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+								Find
+							</a>
+						</div>
+
+							<a href="/login" style="width: 110px;">
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+								Login
+							</a>
+
+
+						<div class="login_button_wrap d-flex justify-content-center" style="margin: auto">
+							<a href="#" onclick="idshow()" style="width: 110px;">
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+								Find ID
+							</a>
+							<a href="#" onclick="pwshow()">
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+								Find Password
+							</a>
 						</div>
 
 					</form>
-					<div class="login_button_wrap d-flex justify-content-center" style="margin: auto">
-						<a onclick="idshow()">
-							<span></span>
-							<span></span>
-							<span></span>
-							<span></span>
-							Find ID
-						</a>
-						<a onclick="pwshow()">
-							<span></span>
-							<span></span>
-							<span></span>
-							<span></span>
-							Find Password
-						</a>
-					</div>
 
 				</div>
 				<div id="pwserch">
 					<form id="pw_form" class="pwform" method="post">
 						<div class="subjecet">
-							<h2>Serch Password</h2>
+							<h2>Find Password</h2>
 						</div>
 
-						<div class="login_wrap">
+
 
 							<div class="pw_wrap">
 
 								<label>UserID</label>
 								<div class="pw_input_box user-box">
 
-									<input type="id" class="pw_iput" name="user_id" id="user_id">
+									<input type="button" class="pw_iput" name="user_id" id="user_id">
 
 								</div>
 							</div>
 
 							<div class="login_button_wrap">
-								<%--	<input type="button" class="pwserch_button"  value="찾기" >--%>
+
+								<a href="#" class="pwserch_button" style="width: 110px;">
+									<span></span>
+									<span></span>
+									<span></span>
+									<span></span>
+									Find
+								</a>
+
 							</div>
+						<a href="/login" style="width: 110px;">
+							<span></span>
+							<span></span>
+							<span></span>
+							<span></span>
+							Login
+						</a>
+						<div class="login_button_wrap d-flex justify-content-center" style="margin: auto">
+							<a href="#" onclick="idshow()" style="width: 110px;">
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+								Find ID
+							</a>
+							<a href="#" onclick="pwshow()">
+								<span></span>
+								<span></span>
+								<span></span>
+								<span></span>
+								Find Password
+							</a>
 						</div>
-
 					</form>
-
 				</div>
-
-				<div class="login_button_wrap d-flex justify-content-center" style="margin: auto">
-					<a onclick="idshow()">
-						<span></span>
-						<span></span>
-						<span></span>
-						<span></span>
-						Find ID
-					</a>
-					<a onclick="pwshow()">
-						<span></span>
-						<span></span>
-						<span></span>
-						<span></span>
-						Find Password
-					</a>
-				</div>
-
 			</div>
 
 		</div>
 	</div>
 </div>
+<script type="text/javascript">
+	function findid(){
+		document.getElementById('login_form').submit();
+	}
+</script>
+
 	<script>
 
 		$("#idserch").show();
