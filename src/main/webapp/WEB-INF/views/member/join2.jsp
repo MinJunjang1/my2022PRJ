@@ -10,18 +10,8 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta charset="utf-8">
-	<meta http-equiv="X-UA-Compatible" content="IE=edge">
-	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
-	<meta name="description" content="">
-	<meta name="author" content="">
-
-	<!-- Bootstrap CSS -->
-	<title></title>
-	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-
+	<meta charset="utf-8"/>
+	<title>시작하기</title>
 </head>
 <style>
 	.area {
@@ -115,7 +105,6 @@
 </style>
 <style>
 
-	/*
 	body{
 		background-image: linear-gradient(
 				rgba(0, 0, 0, 0.5),
@@ -123,7 +112,6 @@
 		),url('/img/apart.jpg');
 	}
 
-	*/
 
 
 	.color .blue   {background: #6698cb;}
@@ -173,10 +161,7 @@
 		 max-height: 200px;
 		 overflow-x: hidden;
 	 }
-	.container-list{
-		box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
-		background-color: #FFFFFF;
-	}
+
 </style>
 <script type="text/javascript" src="/js/mapcontrol.js"></script>
 
@@ -258,30 +243,10 @@
 
 <body onload="newsTitle(); ">
 
-<div style="height: 50px"></div>
-<div class="container container-list" style="margin: auto; width: 1000px;" >
-	<div style="height: 50px"></div>
-	<h1 class="text-center" style="color: #FFFFFF">Seoul</h1>
-	<h1 class="text-center" style="color: #FFFFFF">Apartment</h1>
-	<h1 class="text-center" style="color: #FFFFFF">Transaction</h1>
-	<h1 class="text-center" style="color: #FFFFFF">Amount</h1>
-	<h1 class="text-center" style="color: #FFFFFF">S.A.T.A.</h1>
-
-	<p class="text-center" style="color: #FFFFFF">서울 아파트 거래 금액을 알아보는 사이트입니다</p>
-	<div style="height: 50px"></div>
-</div>
-
-
-
-<div class="container align-content-center" style="color: #FFFFFF; " >
+<div class="container align-content-center" style="color: #FFFFFF">
 	<div class="jumbotron text-center" style="margin-top: 100px;color: #0f0f0f"  />
 	<h1 class="text-center" style="color: #FFFFFF">아파트 거래 가격 알아보기</h1>
 	<p class="text-center" style="color: #FFFFFF">지도를 통해 아파트의 위치를 파악할 수 있습니다</p>
-
-
-
-
-
 	<div class="find-btn">
 		<div class="btn-group align-content-center text-center" >
 			<button style="display: block;" class="btn btn-primary dropdown-toggle align-content-center find-btn1" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
@@ -429,15 +394,6 @@
 </div>
 
 
-<!-- Bootstrap core JS-->
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
-<!-- Core theme JS-->
-<script src="js/scripts.js"></script>
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-<!-- * *                               SB Forms JS                               * *-->
-<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
-<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
-<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
 </body>
 </html>

@@ -95,12 +95,93 @@
 		 height: auto;
 		 max-height: 200px;
 		 overflow-x: hidden;
-	 }
+	 }.container-list{
+		  box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+		  background-color: #FFFFFF;
+	  }
 </style>
 <jsp:include page="header.jsp" flush="false"></jsp:include>
 <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c76cc1c43d5a2282105afc01c0e20903&libraries=services"></script>
-<body>
+<body style="background-color: #E2E2E2">
+<script type="text/javascript">
+	let query = window.location.search;
+	let param = new URLSearchParams(query);
+	let region_code = param.get('region_code');
+	let ym = param.get('ym');
+	console.log(region_code);
+	console.log(ym);
 
+	let region = "";
+	if(region_code == 11110){
+		region = "종로구";
+	}else if(region_code == 11140){
+		region = "중구";
+	}else if(region_code == 11170){
+		region = "용산구";
+	}else if(region_code == 11200){
+		region = "성동구";
+	}else if(region_code == 11215){
+		region = "광진구";
+	}else if(region_code == 11230){
+		region = "동대문구";
+	}else if(region_code == 11260){
+		region = "중량구";
+	}else if(region_code == 11290){
+		region = "성북구";
+	}else if(region_code == 11305){
+		region = "강북구";
+	}else if(region_code == 11320){
+		region = "도봉구";
+	}else if(region_code == 11350){
+		region = "노원구";
+	}else if(region_code == 11380){
+		region = "은평구";
+	}else if(region_code == 11410){
+		region = "서대문구";
+	}else if(region_code == 11440){
+		region = "마포구";
+	}else if(region_code == 11470){
+		region = "양천구";
+	}else if(region_code == 11500){
+		region = "강서구";
+	}else if(region_code == 11530){
+		region = "구로구";
+	}else if(region_code == 11545){
+		region = "금천구";
+	}else if(region_code == 11560){
+		region = "영등포구";
+	}else if(region_code == 11590){
+		region = "동작구";
+	}else if(region_code == 11620){
+		region = "관악구";
+	}else if(region_code == 11650){
+		region = "서초구";
+	}else if(region_code == 11680){
+		region = "강남구";
+	}else if(region_code == 11710){
+		region = "송파구";
+	}else if(region_code == 11740){
+		region = "강동구";
+	}
+	console.log(region);
+
+	$(document).ready(function () {
+		$("#gu").append("<h2>"+ ym +" 월달 "+ region +" 아파트 거래 현황 </h2>");
+	});
+</script>
+
+
+
+<div style="height: 50px"></div>
+
+<div class="container" style="margin: auto;" >
+
+	<div class="container container-list" style="margin: auto; width: 1000px;" >
+		<div class="left" style="height: 50px">
+		</div>
+		<div class="gu" id="gu" name="gu" style="text-align: center"></div>
+		<div class="left" style="height: 50px">
+		</div>
 
 <script src="/js/seoulmap.js"></script>
 
@@ -115,7 +196,7 @@
 <div style="height: 30px"></div>
 <div class="btn-group" style="display: block; margin: auto;">
 	<button style="display: block; margin: auto;" class="btn btn-secondary dropdown-toggle" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-		구별 아파트 가격 확인하기
+	&nbsp; &nbsp; &nbsp; &nbsp; &nbsp;구별 아파트 가격 확인하기 &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
 	</button>
 	<ul class="dropdown-menu dropdown-menu-lg-end scrollable-menu"  >
 		<li >
@@ -224,14 +305,14 @@
 			<div class="divTableHead">법정동</div>
 			<div class="divTableHead">지번</div>
 			<div class="divTableHead">아파트이름</div>
-			<div class="divTableHead">거래가격(만)</div>
+			<div class="divTableHead">거래가격(만원)</div>
 		</div>
 		<% for (i = 0; i < rList.size(); i++ ) { apiDTO aDTO = rList.get(i); if (aDTO == null) { aDTO = new apiDTO(); } %>
 		<div class="divTableRow">
 			<div class="divTableHead"><%=CmmUtil.nvl(aDTO.getDong()) %></div>
 			<div class="divTableHead"><%=CmmUtil.nvl(aDTO.getJiburn()) %></div>
 			<div class="divTableHead"><a href="/roadmap?Dong=<%=aDTO.getDong()%>&Jiburn=<%=aDTO.getJiburn()%>&Name=<%=aDTO.getApartment_Name()%>" target="_blank"><%=CmmUtil.nvl(aDTO.getApartment_Name()) %></a></div>
-			<div class="divTableHead"><%=String.valueOf(aDTO.getDeal_Amount()) %></div>
+			<div class="divTableHead"><%=String.valueOf(aDTO.getDeal_Amount()) %>(만원)</div>
 		</div>
 		<%}%>
 		<script>
@@ -285,9 +366,10 @@
 		</script>
 
 	</div>
-
+<div style="height: 50px"></div>
 </div>
-
+	</div>
+</div>
 <div style="margin: 100px;"></div>
 </body>
 

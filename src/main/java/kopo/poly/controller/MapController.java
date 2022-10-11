@@ -62,7 +62,7 @@ public class MapController {
         return "/map";
     }
 
-    @GetMapping(value = "weather2")
+    @GetMapping(value = "/weather2")
     public String apiweather(HttpServletRequest request, Model model) throws Exception{
 
         List<api2DTO> a2List = weatherapi.main();

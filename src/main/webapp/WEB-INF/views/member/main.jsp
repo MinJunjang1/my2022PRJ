@@ -6,13 +6,63 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 		 pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
+<%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt" %>
+<%List<api2DTO> a2List = (List<api2DTO>) request.getAttribute("a2List"); %>
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
-	<meta charset="utf-8"/>
-	<title>시작하기</title>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<!-- The above 3 meta tags *must* come first in the head; any other head content must come *after* these tags -->
+	<meta name="description" content="">
+	<meta name="author" content="">
+
+	<!-- Bootstrap CSS -->
+	<title></title>
+	<!-- jQuery first, then Popper.js, then Bootstrap JS -->
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+
 </head>
+<style>
+	.map_wrap, .map_wrap * {margin:0;padding:0;font-family:'Malgun Gothic',dotum,'돋움',sans-serif;font-size:12px;}
+	.map_wrap a, .map_wrap a:hover, .map_wrap a:active{color:#000;text-decoration: none;}
+	.map_wrap {position:relative;width:100%;height:500px;}
+	#menu_wrap {position:absolute;top:0;left:0;bottom:0;width:250px;margin:10px 0 30px 10px;padding:5px;overflow-y:auto;background:rgba(255, 255, 255, 0.7);z-index: 1;font-size:12px;border-radius: 10px;}
+	.bg_white {background:#fff;}
+	#menu_wrap hr {display: block; height: 1px;border: 0; border-top: 2px solid #5F5F5F;margin:3px 0;}
+	#menu_wrap .option{text-align: center;}
+	#menu_wrap .option p {margin:10px 0;}
+	#menu_wrap .option button {margin-left:5px;}
+	#placesList li {list-style: none;}
+	#placesList .item {position:relative;border-bottom:1px solid #888;overflow: hidden;cursor: pointer;min-height: 65px;}
+	#placesList .item span {display: block;margin-top:4px;}
+	#placesList .item h5, #placesList .item .info {text-overflow: ellipsis;overflow: hidden;white-space: nowrap;}
+	#placesList .item .info{padding:10px 0 10px 55px;}
+	#placesList .info .gray {color:#8a8a8a;}
+	#placesList .info .jibun {padding-left:26px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/places_jibun.png) no-repeat;}
+	#placesList .info .tel {color:#009900;}
+	#placesList .item .markerbg {float:left;position:absolute;width:36px; height:37px;margin:10px 0 0 10px;background:url(https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_number_blue.png) no-repeat;}
+	#placesList .item .marker_1 {background-position: 0 -10px;}
+	#placesList .item .marker_2 {background-position: 0 -56px;}
+	#placesList .item .marker_3 {background-position: 0 -102px}
+	#placesList .item .marker_4 {background-position: 0 -148px;}
+	#placesList .item .marker_5 {background-position: 0 -194px;}
+	#placesList .item .marker_6 {background-position: 0 -240px;}
+	#placesList .item .marker_7 {background-position: 0 -286px;}
+	#placesList .item .marker_8 {background-position: 0 -332px;}
+	#placesList .item .marker_9 {background-position: 0 -378px;}
+	#placesList .item .marker_10 {background-position: 0 -423px;}
+	#placesList .item .marker_11 {background-position: 0 -470px;}
+	#placesList .item .marker_12 {background-position: 0 -516px;}
+	#placesList .item .marker_13 {background-position: 0 -562px;}
+	#placesList .item .marker_14 {background-position: 0 -608px;}
+	#placesList .item .marker_15 {background-position: 0 -654px;}
+	#pagination {margin:10px auto;text-align: center;}
+	#pagination a {display:inline-block;margin-right:10px;}
+	#pagination .on {font-weight: bold; cursor: default;color:#777;}
+</style>
 <style>
 	.area {
 		position: absolute;
@@ -105,12 +155,17 @@
 </style>
 <style>
 
+
 	body{
 		background-image: linear-gradient(
 				rgba(0, 0, 0, 0.5),
 				rgba(0, 0, 0, 0.5)
 		),url('/img/apart.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
 	}
+
+
 
 
 
@@ -161,13 +216,91 @@
 		 max-height: 200px;
 		 overflow-x: hidden;
 	 }
-
+	.container-list{
+		box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+		background-color: #FFFFFF;
+	}
+	.divTable{
+		display: table;
+		width: 100%;
+	}
+	.divTableRow {
+		display: table-row;
+	}
+	.divTableHeading {
+		background-color: #EEE;
+		display: table-header-group;
+	}
+	.divTableCell, .divTableHead {
+		border: 1px solid #999999;
+		display: table-cell;
+		padding: 3px 10px;
+	}
+	.divTableHeading {
+		background-color: #EEE;
+		display: table-header-group;
+		font-weight: bold;
+	}
+	.divTableFoot {
+		background-color: #EEE;
+		display: table-footer-group;
+		font-weight: bold;
+	}
+	.divTableBody {
+		display: table-row-group;
+	}
 </style>
 <script type="text/javascript" src="/js/mapcontrol.js"></script>
 
 <jsp:include page="../header.jsp" flush="false"></jsp:include>
 <script>
+	function weather2(){
+		let lon, lat;
 
+
+
+		lat = 37.541;
+		lon = 126.986;
+
+		$.ajax({
+			url: "/weather/getWeather",
+			type : "get",
+			dataType : "JSON",
+			data : {
+				"lon" : lon,
+				"lat" : lat
+			},
+			success: function (json){
+
+				$("#currentTemp").append(json.currentTemp);
+
+				const dailyList = json.dailyList;
+
+
+				/*let day = daily.day;
+                let sunrise = daily.sunrise;
+                let sunset = daily.sunset;
+                let moonrise = daily.moonrise;
+                let moonset = daily.moonset;
+                let dayTemp = daily.dayTemp;
+                let dayTempMax = daily.dayTempMax;
+                let dayTempMin = daily.dayTempMin;
+
+                $("#daily_weather").append("<div><b>"+ day + "의 날씨</b></div>");
+                $("#daily_weather").append("<div>");
+                $("#daily_weather").append("<span>해뜨는 시간 : " + sunrise + " </span>");
+                $("#daily_weather").append("<span>해지는 시간 : " + sunset + " </span>");
+                $("#daily_weather").append("<span>달뜨는 시간 : "+ moonrise + " </span>");
+                $("#daily_weather").append("<span>달지는 시간 : " + moonset + " </span>");
+                $("#daily_weather").append("<span>평균기온 : " + dayTemp + " </span>");
+                $("#daily_weather").append("<span>최대기온 : " + dayTempMax + " </span>");
+                $("#daily_weather").append("<span>최저기온 : " + dayTempMin + " </span>");
+                $("#daily_weather").append("</div>");
+                $("#daily_weather").append("<br/><br/>");
+    */
+			}
+		});
+	}
 	function newsTitle(){
 		$.ajax({
 			url : "/main/newsTitle",
@@ -204,11 +337,11 @@
 					let summary = item.summary;
 					let imgsrc = item.imgsrc;
 					let content = item.content;
-					console.log(title);
+			/*		console.log(title);
 					console.log(summary);
 					console.log(imgsrc);
 					console.log(content);
-
+*/
 
 					$("#news").empty()
 					$("#news").append("<div class='newsbox' >");
@@ -241,159 +374,84 @@
 
 </script>
 
-<body onload="newsTitle(); ">
+<body onload="newsTitle(); weather2();">
 
-<div class="container align-content-center" style="color: #FFFFFF">
-<div class="jumbotron text-center" style="margin-top: 100px;color: #0f0f0f"  />
-	<h1 class="text-center" style="color: #FFFFFF">아파트 거래 가격 알아보기</h1>
-	<p class="text-center" style="color: #FFFFFF">지도를 통해 아파트의 위치를 파악할 수 있습니다</p>
-<div class="find-btn">
-	<div class="btn-group align-content-center text-center" >
-		<button style="display: block;" class="btn btn-primary dropdown-toggle align-content-center find-btn1" type="button" id="defaultDropdown" data-bs-toggle="dropdown" data-bs-auto-close="true" aria-expanded="false">
-			서울의 시·군·구별 아파트 가격 확인하기
-		</button>
+<div style="height: 50px"></div>
+<div class="container container-list" style="margin: auto; width: 1200px;" >
+	<div style="height: 50px"></div>
+	<h1 class="text-center" style="color: #000000">Seoul</h1>
+	<h1 class="text-center" style="color: #000000">Apartment</h1>
+	<h1 class="text-center" style="color: #000000">Transaction</h1>
+	<h1 class="text-center" style="color: #000000">Amount</h1>
+	<h1 class="text-center" style="color: #000000">S.A.T.A.</h1>
 
-		<ul class="dropdown-menu find-btn1 scrollable-menu" style="" aria-labelledby="defaultDropdown">
-			<li >
-				<a class="dropdown-item" onclick="aprtapi(11110,202209); setJongnogu(); ">종로구</a>
-			</li>
-			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11140,202209); setJunggu();">중구</a>
-			</li>
-			<li >
-				<a class="dropdown-item" onclick="aprtapi(11170,202209);setYongsangu();">용산구</a>
-			</li>
-			<li >
-				<a class="dropdown-item" onclick="aprtapi(11200,202209);setSeongdonggu();">성동구</a>
-			</li>
-			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11215,202209);setGwangjingu();">광진구</a>
-			</li>
-			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11230,202209);setDongdaemungu();">동대문구</a>
-			</li>
-			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11260,202209);setJungnanggu();">중량구</a>
-			</li>
-			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11290,202209);setSeongbukgu(); ">성북구</a>
-			</li>
-			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11305,202209);setGangbukgu();">강북구</a>
-			</li>
-			<li >
-				<a class="dropdown-item" onclick="aprtapi(11320,202209);setDobonggu(); ">도봉구</a>
-			</li>
-			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11350,202209);setNowongu(); ">노원구</a>
-			</li>
-			<li >
-				<a class="dropdown-item" onclick="aprtapi(11380,202209);setEunpyeonggu(); ">은평구</a>
-			</li>
-			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11410,202209);setSeodaemungu(); ">서대문구</a>
-			</li>
-			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11440,202209);setMapogu(); ">마포구</a>
-			</li>
-			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11470,202209);setYangcheongu(); ">양천구</a>
-			</li>
-			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11500,202209);setGangseogu(); ">강서구</a>
-			</li>
-			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11530,202209);setGurogu(); ">구로구</a>
-			</li>
-			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11545,202209);setGeumcheongu();">금천구</a>
-			</li>
-			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11560,202209);setYeongdeungpogu(); ">영등포구</a>
-			</li>
-			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11590,202209);setDongjakgu();">동작구</a>
-			</li>
-			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11620,202209);setGwanakgu();">관악구</a>
-			</li>
-			<li >
-				<a class="dropdown-item" onclick="aprtapi(11650,202209);setSeochogu(); ">서초구</a>
-			</li>
-			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11680,202209);setGangnamgu(); ">강남구</a>
-			</li>
+	<p class="text-center" style="color: #000000">서울 아파트 거래 금액을 알아보는 사이트입니다</p>
+	<div style="height: 50px"></div>
 
-			<li >
-				<a class="dropdown-item"   onclick="aprtapi(11710,202209);setSongpagu();">송파구</a>
-			</li>
-			<li >
-				<a class="dropdown-item"  onclick="aprtapi(11740,202209);setGangdonggu();">강동구</a>
-			</li>
 
-		</ul>
+	<% int i = 0;%>
+	<div class="divTable" style="max-width:600px; text-align: center; margin: auto; ">
+		<div class="divTableBody">
+			<% for (i = 0; i < a2List.size(); i++ ) { api2DTO api2DTO = a2List.get(i); if (api2DTO == null) { api2DTO = new api2DTO(); } %>
+			<div class="divTableRow" style="background: #c8e5bc; width: 100%" >
+				<div class="divTableHead">날씨 : <%=CmmUtil.nvl(api2DTO.getWf()) %> /
+					<label>현재기온 : </label>
+					<span id = "currentTemp"></span>
+					<label>℃</label>
+				</div>
+			</div>
+			<%}%>
+		</div>
 	</div>
-
-
-		<button type="button" class="btn btn-primary navbar-btn find-btn1" onclick="apiweather()">날씨확인
-		</button>
-</div>
+	<div style="height: 50px"></div>
+	<div><p>지도의 구역을 클릭하시면 이동됩니다.</p></div>
+	<div class="box2" id="map" style="width:100%;height:500px;  margin: 0 auto;">
 	</div>
-
-	</div>
-<div style="height: 50px;">
-
-</div>
-<div style="text-align: center; height: 450px;" >
-<div class="box1" id="news" style="overflow:scroll; overflow-x: hidden; width:55%;height:450px; padding-left: 15px; padding-right: 15px; padding-top: 15px; text-align: justify-all; background-color: #FFFFF0;">
-</div>
-	<div class="box2" id="map" style="width:40%;height:450px;  margin: 0 auto;"></div>
-
 	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=c76cc1c43d5a2282105afc01c0e20903"></script>
 	<script>
 		var mapContainer = document.getElementById('map'), // 지도를 표시할 div
 				mapOption = {
 					center: new kakao.maps.LatLng(37.5666805, 126.9784147), // 지도의 중심좌표
-				 // 지도를 생성할때 지도 이동 및 확대/축소를 막으려면 draggable: false 옵션을 추가하세요
+					// 지도를 생성할때 지도 이동 및 확대/축소를 막으려면 draggable: false 옵션을 추가하세요
 					level: 9 // 지도의 확대 레벨
 				};
 
 		var map = new kakao.maps.Map(mapContainer, mapOption), // 지도를 생성합니다
-		 customOverlay = new kakao.maps.CustomOverlay({}),
+				customOverlay = new kakao.maps.CustomOverlay({}),
 				infowindow = new kakao.maps.InfoWindow({removable: true});
 
 		Initializtion(map);
 		DrawPolygon();
-			map.setDraggable(false);
-			map.setZoomable(false);
+		map.setDraggable(false);
+		map.setZoomable(false);
 
 	</script>
-
-
+	<div style="height: 50px;"></div>
+	<div class="box1" id="news" style=" overflow:scroll; overflow-x: hidden; width:100%;height:800px; padding-left: 15px; padding-right: 15px; padding-top: 15px; text-align: justify-all; background-color: #FFFFF0; border: solid black;">
+	</div>
+	<div style="height: 100px;"></div>
 </div>
 </div>
-
-
-
-
+<div style="height: 50px;"></div>
 <script src="/js/seoulmap.js"></script>
 
 <script>
 
 	function aprtapi(region_code, ym) {
 		location.href= "/map?region_code="+region_code + "&ym=" + "202209";
-	/*	window.open("/map?region_code=" + region_code + "&ym=" +ym, "결과","width=1000, height=800")*/
+		/*	window.open("/map?region_code=" + region_code + "&ym=" +ym, "결과","width=1000, height=800")*/
 	}
 </script>
-<script>
-	function apiweather(){
-		location.href= "/weather2";
 
-	}
-</script>
-</div>
-
-
+<!-- Bootstrap core JS-->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<!-- Core theme JS-->
+<script src="js/scripts.js"></script>
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<!-- * *                               SB Forms JS                               * *-->
+<!-- * * Activate your form at https://startbootstrap.com/solution/contact-forms * *-->
+<!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * *-->
+<script src="https://cdn.startbootstrap.com/sb-forms-latest.js"></script>
 
 </body>
 </html>

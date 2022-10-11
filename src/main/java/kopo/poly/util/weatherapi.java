@@ -26,7 +26,7 @@ public class weatherapi {
         HttpURLConnection conn = (HttpURLConnection) url.openConnection();
         conn.setRequestMethod("GET");
         conn.setRequestProperty("Content-type", "application/json");
-        System.out.println("Response code: " + conn.getResponseCode());
+      /*  System.out.println("Response code: " + conn.getResponseCode());*/
         BufferedReader rd;
         if(conn.getResponseCode() >= 200 && conn.getResponseCode() <= 300) {
             rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
@@ -40,7 +40,7 @@ public class weatherapi {
         }
         rd.close();
         conn.disconnect();
-        System.out.println(sb.toString());
+        /*System.out.println(sb.toString());*/
 
         String jsonweatherapi = sb.toString();
 
@@ -67,7 +67,7 @@ public class weatherapi {
             String wfCd = (String) api2obj.get("wfCd");
             String wsIt =  (String) api2obj.get("wsIt");
 
-            System.out.println(announceTime);
+    /*        System.out.println(announceTime);
             System.out.println(numEf);
             System.out.println(regId);
             System.out.println(rnSt);
@@ -78,7 +78,7 @@ public class weatherapi {
             System.out.println(wdTnd);
             System.out.println(wf);
             System.out.println(wfCd);
-            System.out.println(wsIt);
+            System.out.println(wsIt);*/
 
 
             api2DTO a2DTO = new api2DTO();

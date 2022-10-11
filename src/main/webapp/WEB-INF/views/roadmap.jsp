@@ -44,8 +44,8 @@
 </script>
 
 <div class="container align-content-center">
-
-  로드뷰 넣을 수 있을까?
+  <div class="left" style="height: 50px">
+  </div>
 
   <h1 class="text-center">서울 <%=Dong%> <%=Jiburn%> <%=Name%></h1>
   <p class="text-center">아파트 위치</p>

@@ -2,8 +2,10 @@ package kopo.poly.controller;
 
 import com.sun.org.apache.xml.internal.serializer.AttributesImplSerializer;
 import kopo.poly.dto.MemberDTO;
+import kopo.poly.dto.api2DTO;
 import kopo.poly.service.IMemberService;
 import kopo.poly.util.CmmUtil;
+import kopo.poly.util.weatherapi;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -147,12 +149,16 @@ public class MemberController {
         return "/member/join1";
     }
     @GetMapping(value = "/join2")
-    public String joinpage2() throws Exception {
+        public String apiweather(HttpServletRequest request, Model model) throws Exception{
+
+
         return "/member/join2";
     }
     @GetMapping(value = "/main")
-    public String mainpage() throws Exception {
-
+    public String mainpage(HttpServletRequest request, Model model) throws Exception {
+        List<api2DTO> a2List = weatherapi.main();
+        log.info(String.valueOf(a2List.get(0)));
+        model.addAttribute("a2List", a2List);
         return "/member/main";
     }
     @GetMapping(value = "/main1")
